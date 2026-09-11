@@ -18,8 +18,7 @@ import json
 import hashlib
 
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
+import requests
 
 from src.classifier import IntentCategory
 
@@ -73,12 +72,15 @@ def baseline_zeroshot(text: str) -> dict:
                 if cached_entry["intent"] in VALID_CATEGORIES:
                     return cached_entry
 
-    # 3. Create Gemini client
-    api_key = os.getenv("GEMINI_API_KEY")
+    # 3. Setup Groq API
+    api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        raise ValueError("GEMINI_API_KEY is not set. Check your .env file.")
-
-    client = genai.Client(api_key=api_key)
+        raise ValueError("GROQ_API_KEY is not set. Check your .env file.")
+    groq_url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
 
     # 4. Simple Zero-Shot prompt with exactly the 7 current categories
     prompt = f"""
@@ -104,43 +106,52 @@ Customer Message:
 "{text}"
 """
 
-    # 5. Call Gemini
-    try:
-        response = client.models.generate_content(
-            model="gemini-3.6-flash",
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.0,
-                response_mime_type="application/json",
-            ),
-        )
-
-        # 6. Parse the JSON manually
-        result = json.loads(response.text)
-        
-        # Ensure fallback safety in case Gemini hallucinates an intent not in taxonomy
-        if result.get("intent") not in VALID_CATEGORIES:
-            result["intent"] = IntentCategory.ORDER_ISSUES.value
+    import time
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            payload = {
+                "model": "openai/gpt-oss-120b",
+                "messages": [
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0.0,
+                "response_format": {"type": "json_object"}
+            }
             
-        # Ensure other fields exist
-        if "should_escalate" not in result:
-            result["should_escalate"] = False
-        if "draft_reply" not in result:
-            result["draft_reply"] = "We are looking into this."
+            response = requests.post(groq_url, headers=headers, json=payload)
+            response.raise_for_status()
 
-        # 7. Save successful result to cache
-        cache[text_hash] = result
-        _save_cache(cache)
+            # 6. Parse the JSON manually
+            response_data = response.json()
+            content = response_data["choices"][0]["message"]["content"]
+            result = json.loads(content)
+            
+            # Ensure fallback safety in case Gemini hallucinates an intent not in taxonomy
+            if result.get("intent") not in VALID_CATEGORIES:
+                result["intent"] = IntentCategory.ORDER_ISSUES.value
+                
+            # Ensure other fields exist
+            if "should_escalate" not in result:
+                result["should_escalate"] = False
+            if "draft_reply" not in result:
+                result["draft_reply"] = "We are looking into this."
 
-        return result
+            # 7. Save successful result to cache
+            cache[text_hash] = result
+            _save_cache(cache)
 
-    except Exception as e:
-        # 8. Simple failure fallback using the CURRENT taxonomy
-        return {
-            "intent": IntentCategory.ORDER_ISSUES.value,
-            "should_escalate": True,
-            "draft_reply": f"System Error: {str(e)}",
-        }
+            return result
+
+        except Exception as e:
+            if attempt == max_retries - 1:
+                # 8. Simple failure fallback using the CURRENT taxonomy
+                return {
+                    "intent": IntentCategory.ORDER_ISSUES.value,
+                    "should_escalate": True,
+                    "draft_reply": f"System Error: {str(e)}",
+                }
+            time.sleep(4 * (2 ** attempt))
 
 if __name__ == "__main__":
     test_q = "My package was stolen!"

@@ -5,8 +5,7 @@ import json
 import hashlib
 from dotenv import load_dotenv
 from pydantic import BaseModel
-from google import genai
-from google.genai import types
+import requests
 
 load_dotenv()
 
@@ -64,8 +63,15 @@ def gatekeeper(text: str, intent_confidence: float) -> EscalationDecision:
     if text_hash in cache:
         return EscalationDecision(**cache[text_hash])
 
-    api_key = os.getenv("GEMINI_API_KEY")
-    client = genai.Client(api_key=api_key)
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key:
+        return EscalationDecision(should_escalate=True, reason="GROQ_API_KEY is not set.")
+
+    groq_url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
 
     prompt = f"""You are a safety gatekeeper for @AmazonHelp.
 Review the customer message. Should a human agent intervene?
@@ -78,28 +84,42 @@ ESCALATE IF:
 BIAS TOWARD ESCALATION: If you are unsure, you MUST escalate.
 
 Customer Message: "{text}"
+
+Respond with a JSON object containing two fields:
+"should_escalate" (boolean) and "reason" (string).
 """
 
-    try:
-        response = client.models.generate_content(
-            model="gemini-3.6-flash",
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.0,
-                response_mime_type="application/json",
-                response_schema=EscalationDecision,
-            ),
-        )
-        result = EscalationDecision.model_validate_json(response.text)
-        
-        # Cache the valid call to save money and time
-        cache[text_hash] = result.model_dump()
-        _save_cache(cache)
-        return result
-        
-    except Exception as e:
-        # FAIL-SAFE ARCHITECTURE: If the API crashes, default to human escalation.
-        return EscalationDecision(should_escalate=True, reason=f"API Error fallback: {str(e)}")
+    import time
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            payload = {
+                "model": "openai/gpt-oss-120b",
+                "messages": [
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": 0.0,
+                "response_format": {"type": "json_object"}
+            }
+
+            response = requests.post(groq_url, headers=headers, json=payload)
+            response.raise_for_status()
+            
+            response_data = response.json()
+            content = response_data["choices"][0]["message"]["content"]
+            
+            result = EscalationDecision.model_validate_json(content)
+            
+            # Cache the valid call to save money and time
+            cache[text_hash] = result.model_dump()
+            _save_cache(cache)
+            return result
+            
+        except Exception as e:
+            if attempt == max_retries - 1:
+                # FAIL-SAFE ARCHITECTURE: If the API crashes repeatedly, default to human escalation.
+                return EscalationDecision(should_escalate=True, reason=f"API Error fallback: {str(e)}")
+            time.sleep(4 * (2 ** attempt))
 
 if __name__ == "__main__":
     # Test queries

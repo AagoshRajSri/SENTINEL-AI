@@ -12,8 +12,7 @@ from enum import Enum
 
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from google import genai
-from google.genai import types
+import requests
 
 
 # ============================================================
@@ -97,7 +96,7 @@ class ClassificationResult(BaseModel):
 #
 # The cache is stored inside the block2/cache directory.
 
-CACHE_FILE = "cache/classifier_cache.json"
+CACHE_FILE = "cache/classifier_cache_groq.json"
 
 
 # ============================================================
@@ -210,28 +209,28 @@ def classify(text: str) -> ClassificationResult:
 
 
     # ========================================================
-    # 7. GEMINI CLIENT
+    # 7. GROQ API CONFIGURATION
     # ========================================================
 
     # Retrieve the API key from the .env file.
 
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = os.getenv("GROQ_API_KEY")
 
 
     # Fail early if the API key wasn't configured.
 
     if not api_key:
         raise ValueError(
-            "GEMINI_API_KEY is not set. "
+            "GROQ_API_KEY is not set. "
             "Add it to your .env file."
         )
 
-
-    # Create the Gemini API client.
-
-    client = genai.Client(
-        api_key=api_key
-    )
+    groq_url = "https://api.groq.com/openai/v1/chat/completions"
+    
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
 
 
     # ========================================================
@@ -240,7 +239,7 @@ def classify(text: str) -> ClassificationResult:
 
     # The Enum constrains the output technically.
     #
-    # The prompt provides Gemini with the semantic definitions
+    # The prompt provides the model with the semantic definitions
     # of the categories so it knows how to distinguish them.
 
     prompt = f"""
@@ -280,6 +279,8 @@ Customer Message:
 "{text}"
 
 Return exactly one category.
+Respond with a JSON object containing three fields: 
+"intent" (string), "confidence" (float between 0.0 and 1.0), and "reasoning" (string).
 """
 
 
@@ -305,43 +306,49 @@ Return exactly one category.
 
 
     # ========================================================
-    # 10. CALL GEMINI
+    # 10. CALL GROQ
     # ========================================================
 
     for attempt in range(max_retries):
 
         try:
 
-            response = client.models.generate_content(
+            payload = {
+                "model": "openai/gpt-oss-120b",
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "You are a helpful customer support classification assistant."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                "temperature": 0.0,
+                "response_format": {
+                    "type": "json_object"
+                }
+            }
 
-                # Current Gemini Flash model.
-                model="gemini-3.6-flash",
-
-                # The classification instructions + tweet.
-                contents=prompt,
-
-                # Configure the response.
-                config=types.GenerateContentConfig(
-
-                    # 0 temperature makes the model's output
-                    # as deterministic as possible.
-                    temperature=0.0,
-
-                    # Tell Gemini that we want JSON.
-                    response_mime_type="application/json",
-
-                    # Tell Gemini to follow our Pydantic schema.
-                    response_schema=ClassificationResult,
-                ),
+            response = requests.post(
+                groq_url,
+                headers=headers,
+                json=payload
             )
+            
+            # Raise an exception for bad HTTP status codes (e.g. 401, 500)
+            response.raise_for_status()
+            
+            response_data = response.json()
 
 
             # =================================================
-            # 11. VALIDATE GEMINI RESPONSE
+            # 11. VALIDATE GROQ RESPONSE
             # =================================================
 
-            # response.text contains Gemini's JSON response.
-            #
+            content = response_data["choices"][0]["message"]["content"]
+            
             # Pydantic parses and validates it against:
             #
             # ClassificationResult
@@ -352,9 +359,7 @@ Return exactly one category.
             # confidence   -> 0.0 to 1.0
             # reasoning    -> string
 
-            result = ClassificationResult.model_validate_json(
-                response.text
-            )
+            result = ClassificationResult.model_validate_json(content)
 
 
             # =================================================
@@ -389,13 +394,11 @@ Return exactly one category.
 
 
             # Exponential backoff.
-            #
-            # attempt = 0 -> 2^0 = 1 second
-            # attempt = 1 -> 2^1 = 2 seconds
-            #
-            # Then the third attempt happens.
+            # attempt = 0 -> 4 seconds
+            # attempt = 1 -> 8 seconds
+            # attempt = 2 -> 16 seconds
 
-            time.sleep(2 ** attempt)
+            time.sleep(4 * (2 ** attempt))
 
 
 # ============================================================
