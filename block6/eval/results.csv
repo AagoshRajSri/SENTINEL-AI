@@ -1,0 +1,4 @@
+System,Macro-F1,FNR (Missed Escalations),False Alarms (FP),Latency (sec)
+Baseline-Heuristic,0.325,0.667,6,0.0
+Baseline-ZeroShot,0.73,0.267,2,0.0
+Sentinel-AI,0.561,0.867,5,4.545
