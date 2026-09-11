@@ -71,7 +71,6 @@ class IntentCategory(str, Enum):
 # this structure.
 
 class ClassificationResult(BaseModel):
-
     # Must be one of the seven IntentCategory values above.
     intent: IntentCategory
 
@@ -80,7 +79,6 @@ class ClassificationResult(BaseModel):
 
     # Short explanation for why the category was selected.
     reasoning: str
-
 
 # ============================================================
 # 3. CACHE CONFIGURATION
@@ -245,41 +243,20 @@ def classify(text: str) -> ClassificationResult:
     prompt = f"""
 You are an inbound customer support triage agent for @AmazonHelp.
 
-Classify the customer message into EXACTLY ONE of the following
-intent categories.
+Classify the customer message into EXACTLY ONE of the following intent categories:
 
-1. Delivery Issues
-Problems with an order being late, missing, not delivered,
-or incorrectly marked as delivered.
-
-2. Order Issues
-Problems with placing, changing, cancelling, or managing an order.
-
-3. Product Issues
-Problems involving damaged, defective, incorrect,
-or unexpected products.
-
-4. Payment & Refunds
-Problems involving charges, failed transactions, refunds,
-cashback, or other payment-related issues.
-
-5. Account & Access
-Problems with logging in, passwords, account access,
-account restrictions, or account information.
-
-6. Subscription & Digital Services
-Problems involving Prime, Kindle, digital content,
-subscriptions, apps, or other digital services.
-
-7. Severe Escalation
-Serious safety, security, criminal, or highly urgent
-situations requiring immediate human intervention.
+1. Delivery Issues (late, missing, not delivered)
+2. Order Issues (placing, changing, cancelling)
+3. Product Issues (damaged, defective, incorrect)
+4. Payment & Refunds (charges, failed transactions, refunds)
+5. Account & Access (logging in, passwords, restrictions)
+6. Subscription & Digital Services (Prime, Kindle, digital content)
+7. Severe Escalation (serious safety, security, criminal, highly urgent)
 
 Customer Message:
 "{text}"
 
-Return exactly one category.
-Respond with a JSON object containing three fields: 
+Respond with a JSON object containing exactly three fields: 
 "intent" (string), "confidence" (float between 0.0 and 1.0), and "reasoning" (string).
 """
 
@@ -390,7 +367,13 @@ Respond with a JSON object containing three fields:
             # what went wrong.
 
             if attempt == max_retries - 1:
-                raise e
+                # FAIL-SAFE ARCHITECTURE: If the API crashes repeatedly, default to human escalation.
+                # Use SEVERE_ESCALATION as a safe fallback intent.
+                return ClassificationResult(
+                    intent=IntentCategory.SEVERE_ESCALATION,
+                    confidence=0.0,
+                    reasoning=f"API Error fallback: {str(e)}"
+                )
 
 
             # Exponential backoff.
