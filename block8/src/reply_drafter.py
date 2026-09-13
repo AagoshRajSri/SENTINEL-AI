@@ -1,9 +1,11 @@
 # src/reply_drafter.py
 import os
+import json
 from dotenv import load_dotenv
 from pydantic import BaseModel
-from google import genai
-from google.genai import types
+from groq import Groq
+# from google import genai
+# from google.genai import types
 from src.retriever import retrieve
 
 load_dotenv()
@@ -32,6 +34,11 @@ RULES:
 6. DIRECT ANSWER RULE: If the customer asks a specific question (e.g. carrier pickup, depot collection), address that specific question directly instead of giving generic boilerplate asking them to explain again.
 7. ACKNOWLEDGE PRIOR STEPS: If the customer states they already emailed, called, or replied, acknowledge their effort explicitly. Do not contradict them by telling them to re-email or re-call the same channel.
 
+Return valid JSON with the exact structure:
+{{
+  "draft_reply": "your drafted reply string here",
+  "policy_adherence_check": "explanation of safety and policy adherence"
+}}
 
 HISTORICAL EXAMPLES (Use these to ground your policy):
 {context_str}
@@ -40,20 +47,32 @@ CUSTOMER MESSAGE:
 "{customer_text}"
 """
 
-    api_key = os.getenv("GEMINI_API_KEY")
-    client = genai.Client(api_key=api_key)
-
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            temperature=0.0, # Determinism is non-negotiable
-            response_mime_type="application/json",
-            response_schema=ReplyResult,
-        ),
+    # --- GROQ API IMPLEMENTATION ---
+    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    response = client.chat.completions.create(
+        model="openai/gpt-oss-120b",
+        messages=[
+            {"role": "system", "content": "You are a professional customer support AI. Always output valid JSON conforming to the requested schema."},
+            {"role": "user", "content": prompt}
+        ],
+        response_format={"type": "json_object"},
+        temperature=0.0
     )
-    
-    return ReplyResult.model_validate_json(response.text)
+    return ReplyResult.model_validate_json(response.choices[0].message.content)
+
+    # --- PREVIOUS GEMINI IMPLEMENTATION (COMMENTED OUT) ---
+    # api_key = os.getenv("GEMINI_API_KEY")
+    # client = genai.Client(api_key=api_key)
+    # response = client.models.generate_content(
+    #     model="gemini-3.6-flash",
+    #     contents=prompt,
+    #     config=types.GenerateContentConfig(
+    #         temperature=0.0, # Determinism is non-negotiable
+    #         response_mime_type="application/json",
+    #         response_schema=ReplyResult,
+    #     ),
+    # )
+    # return ReplyResult.model_validate_json(response.text)
 
 if __name__ == "__main__":
     # Test the drafter

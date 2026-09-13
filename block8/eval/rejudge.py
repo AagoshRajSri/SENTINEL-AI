@@ -1,3 +1,4 @@
+# eval/rejudge.py
 import os
 import time
 import json
@@ -5,12 +6,13 @@ import pandas as pd
 from sklearn.metrics import cohen_kappa_score
 from dotenv import load_dotenv
 
-import google.genai as genai
-from google.genai import types
+# # Gemini implementation (commented out)
+# import google.genai as genai
+# from google.genai import types
 
 load_dotenv()
 
-# We will import the JudgeScore schema and prompt from judge.py
+# We import the JudgeScore schema and prompt from judge.py (which now uses Groq)
 import sys
 sys.path.append(os.getcwd())
 from eval.judge import run_llm_judge, call_with_retry
@@ -19,7 +21,7 @@ def main():
     csv_path = "eval/grading_sheet.csv"
     df = pd.read_csv(csv_path)
 
-    print("Re-running LLM Judge on existing drafted replies...")
+    print("Re-running LLM Judge on existing drafted replies via Groq...")
     new_llm_scores = []
     
     for idx, row in df.iterrows():
@@ -28,12 +30,11 @@ def main():
         cust_text = row["customer_text"]
         reply = row["drafted_reply"]
         
-        # Ask Gemini to judge the reply using the newly updated prompt
+        # Ask Groq judge to evaluate the reply
         judge_res = call_with_retry(run_llm_judge, cust_text, reply)
         new_llm_scores.append(judge_res.overall_score)
         
-        # Sleep to avoid rate limits
-        time.sleep(1)
+        time.sleep(0.5)  # Small pace to stay within qwen rate limits
 
     # Update the dataframe
     df["llm_overall_score"] = new_llm_scores
@@ -50,7 +51,7 @@ def main():
     near_matches = (abs(df["llm_overall_score"] - df["human_overall_score"]) <= 1).sum()
     total = len(df)
 
-    print("\n=== NEW LLM-AS-JUDGE AGREEMENT ===")
+    print("\n=== NEW LLM-AS-JUDGE AGREEMENT (GROQ) ===")
     print(f"Weighted Kappa Score (linear): {round(kappa, 3)}")
     print(f"Exact Match Rate:              {exact_matches}/{total} ({round(100*exact_matches/total, 1)}%)")
     print(f"Within-1-Point Rate:           {near_matches}/{total} ({round(100*near_matches/total, 1)}%)")
