@@ -86,12 +86,12 @@ MICRO-RULE 1 — PII PROTECTION:
   If a customer shared sensitive data (order ID, account number, phone) publicly and the reply
   (a) warns them not to share it and (b) provides a private link → BOOST score. Do NOT penalise this as deflection.
   HOWEVER: If reply scolds the customer harshly or refuses to acknowledge their issue until they resubmit via private link,
-  this is unhelpful. A tracking number is NOT highly sensitive PII — treat it like any mild routing detail.
+  this is unhelpful. Even when protecting PII, the reply MUST be extremely polite and assure the customer that their issue is being looked into (e.g. "check your updates on this link..."). If it acts like a strict robotic scolding, score 1 or 2.
 
 MICRO-RULE 2 — EXHAUSTED CHANNEL HARD CAP (most important rule):
   If the customer EXPLICITLY states they already tried a specific channel (phone, app, email, DM) and the reply
   sends them to ANY standard support channel (DM, CS link, same phone number, app) without offering something NEW
-  and CONCRETE (e.g. direct human escalation, callback from a named team, out-of-band contact) → MAXIMUM SCORE IS 1.
+  and CONCRETE (e.g. direct human escalation, callback from a named team, out-of-band contact) → MAXIMUM SCORE IS 2. It brings the customer back to square one without new actions.
   A polished tone CANNOT rescue this. A link to the general CS page still counts as sending them to an exhausted channel.
 
 MICRO-RULE 3 — RESOLVED SITUATIONS (no action needed):
@@ -120,7 +120,7 @@ SCORING RUBRIC
 
 CRITICAL RULES (these override everything else):
   - Emergency/criminal case + generic automated response = maximum score of 1.
-  - Customer stated they already tried a specific channel + reply sends them back to that or any equivalent channel = maximum score of 1.
+  - Customer stated they already tried a specific channel + reply sends them back to that or any equivalent channel = maximum score of 2.
   - Polite tone alone CANNOT push a score above 3 if the substance fails.
   - PII SCOLDING (refusing to help until customer re-submits through private channel) = score 1 or 2, NOT 4 or 5.
   - Resolved situation + warm acknowledgement = score 4 or 5, NOT 2 or 3.
@@ -130,11 +130,11 @@ CRITICAL RULES (these override everything else):
 FEW-SHOT CALIBRATION EXAMPLES
 ═══════════════════════════════════════════════
 
-EXAMPLE A — CRITICAL + EXHAUSTED CHANNEL → Score 1
+EXAMPLE A — CRITICAL + EXHAUSTED CHANNEL → Score 2
 Customer: "Are you able to get in contact with DPD? I had a notification my parcel won't be delivered and have tried to contact them multiple times with no answer."
 Reply: "We're sorry. We recommend checking your tracking info here: [link] for any updates or direct carrier contact options."
-Score: 1
-Reason: Customer explicitly said DPD doesn't answer. Reply sends them to a tracking link — no new concrete action, redirects to same carrier. Polite but useless. MICRO-RULE 2 hard cap.
+Score: 2
+Reason: Customer explicitly said DPD doesn't answer. Reply sends them to a tracking link — no new concrete action, redirects to same carrier. Polite but brings them back to square one. MICRO-RULE 2 hard cap applies (Score 2).
 
 EXAMPLE B — CRIMINAL EMERGENCY, DM NOT ENOUGH → Score 1
 Customer: "your delivery guy in Lincoln park NJ took my friends puppy. Need help now!!! Police next call..."
@@ -142,17 +142,17 @@ Reply: "We are so concerned. Please reach out to us via DM immediately with your
 Score: 1
 Reason: Criminal emergency. A DM redirect is what Amazon sends for a delayed parcel. This requires explicit acknowledgment of severity and immediate human escalation — not a copy-paste DM prompt.
 
-EXAMPLE C — EXHAUSTED CHANNEL, LINK STILL COUNTS AS EXHAUSTED → Score 1
+EXAMPLE C — EXHAUSTED CHANNEL, LINK STILL COUNTS AS EXHAUSTED → Score 2
 Customer: "WTF! IT'S NOT POSSIBLE TO CONNECT TO YOUR CS TEAM, EITHER ON 1800-XXX OR THROUGH THE APP"
 Reply: "I'm sorry you're having trouble. Please share your details here: [CS link] so we can take a closer look."
-Score: 1
-Reason: Customer explicitly said phone AND app do not work. A general CS link routes them to the same exhausted system. This is MICRO-RULE 2 — no new, concrete escalation path is offered. The polished tone does NOT help.
+Score: 2
+Reason: Customer explicitly said phone AND app do not work. A general CS link routes them to the same exhausted system. This is MICRO-RULE 2 (Score 2) — no new, concrete escalation path is offered, bringing them back to square one.
 
 EXAMPLE D — PII SCOLDING INSTEAD OF HELPING → Score 1
 Customer: "@AmazonHelp my order id is 403-XXXXXXX, I haven't received my cashback"
 Reply: "Please don't provide your order details publicly. Our page is visible to the public. Please share your details privately here: [link]"
 Score: 1
-Reason: The reply refuses to acknowledge or act on the customer's stated issue (missing cashback). Instead it lectures them and forces them through another hoop. This is PII scolding (MICRO-RULE 1 violation). An order ID is also not highly sensitive PII.
+Reason: The reply refuses to acknowledge or act on the customer's stated issue (missing cashback). Instead it lectures them and forces them through another hoop. This is PII scolding (MICRO-RULE 1 violation) — it lacks the polite assurance that their issue is being looked into.
 
 EXAMPLE E — MISSING HIGH-VALUE ITEM, DM ONLY → Score 3
 Customer: "My laptop was not delivered even though tracking says it was delivered."
@@ -213,6 +213,13 @@ Customer: "@AmazonHelp Can u atleast provide your customer care number so that I
 Reply: "We don't have a direct incoming phone number, but you can request a call back or chat directly with our Customer Support team here: [link]"
 Score: 3
 Reason: Customer asked for a phone number. Reply correctly explains there isn't one and offers an alternative (callback/chat). This is acceptable but not perfect — it doesn't fully resolve the frustration and is a one-step-removed solution.
+
+
+EXAMPLE O — PII SCOLDING WITHOUT ASSURANCE → Score 2
+Customer: "@AmazonHelp Can u please check the order. Trackin no. Is119106082923..."
+Reply: "Please don't provide your tracking numbers or order details publicly, as our page is visible to everyone. We'd like to take a closer look at this for you. Please share your details securely here: [link]"
+Score: 2
+Reason: While the bot correctly identifies PII, it opens with a scolding tone ("Please don't provide...") instead of addressing the issue politely and assuring the customer first. It feels robotic and dismissive.
 
 ═══════════════════════════════════════════════
 NOW EVALUATE
