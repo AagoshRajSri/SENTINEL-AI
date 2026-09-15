@@ -37,22 +37,23 @@ def run_sentinel_ai(text: str) -> dict:
     }
 
 def evaluate_system(dataset_path: str = None):
+    # Priority: explicit arg > EVAL_DATASET_PATH env var > CLI arg > default
     if dataset_path is None:
-        import sys
-        if len(sys.argv) > 1:
-            dataset_path = sys.argv[1]
-        elif os.path.exists("eval/golden_test_30.json"):
-            dataset_path = "eval/golden_test_30.json"
+        dataset_path = os.environ.get("EVAL_DATASET_PATH")
+    if dataset_path is None:
+        import sys as _sys
+        if len(_sys.argv) > 1:
+            dataset_path = _sys.argv[1]
         else:
-            dataset_path = "eval/golden_test_small.json"
+            dataset_path = "eval/golden_test.json"
 
     print(f"Loading Golden Set from {dataset_path}...")
     try:
         with open(dataset_path, "r") as f:
             golden_set = json.load(f)
     except FileNotFoundError:
-        print(f"Error: Could not find {dataset_path}.")
-        return
+        print(f"[ERROR] Could not find {dataset_path}.")
+        import sys as _sys2; _sys2.exit(1)
 
     # Ensure all predictions are cached first
     print("Collecting predictions (this will use cache if available)...")
@@ -83,7 +84,541 @@ def evaluate_system(dataset_path: str = None):
         os.environ["ESCALATION_THRESHOLD"] = str(th)
         
         y_true_intent, y_pred_intent = [], []
-        y_true_esc, y_pred_esc = [], []
+  Optimize the current Sentinel-AI Block 9 implementation for efficiency, reliability, and reviewer experience.
+
+IMPORTANT:
+Do not change the core evaluation methodology, benchmark definitions, scoring logic, or expected evaluation behavior. The goal is to make the existing implementation faster, cleaner, less wasteful, and more robust while preserving the same results.
+
+First inspect:
+- run.sh
+- run_eval.py
+- eval/evaluate.py
+- all cache-loading/writing logic
+- FAISS initialization/search logic
+- classifier cache
+- zero-shot cache
+- calibration cache
+- requirements.txt
+- .gitignore
+- eval/golden_test.json
+
+==================================================
+1. ELIMINATE UNNECESSARY API CALLS
+==================================================
+
+The biggest priority is preventing expensive Groq/Gemini calls during evaluation.
+
+Trace the complete execution path starting from:
+
+    bash run.sh
+
+Determine exactly when an external API call happens.
+
+The final reviewer evaluation should use existing committed caches whenever possible.
+
+Implement cache-first behavior:
+
+    request/input
+         ↓
+    cache lookup
+      ↙       ↘
+   HIT        MISS
+    ↓           ↓
+ return      API call
+ result          ↓
+              cache result
+
+For the committed golden test set, all required results should already exist in cache.
+
+If a cache miss occurs during evaluation:
+- clearly report it
+- do not silently make hundreds of expensive API calls
+- ideally provide a clear error explaining which cache is missing
+
+Do NOT hide API calls behind the evaluation script.
+
+==================================================
+2. OPTIMIZE CACHE ACCESS
+==================================================
+
+Inspect the current `_get_cache`, cache loading, and cache writing implementation.
+
+Avoid repeatedly doing:
+
+    open(json)
+    json.load(...)
+    close()
+
+inside every test-case iteration.
+
+Instead, where practical:
+
+    load cache once
+        ↓
+    keep dictionary in memory
+        ↓
+    perform all lookups
+        ↓
+    write only if necessary
+
+For example:
+
+    cache = load_cache_once()
+
+    for row in dataset:
+        result = cache.get(cache_key)
+
+Do not repeatedly parse the same large JSON file 250 times.
+
+Preserve deterministic behavior.
+
+==================================================
+3. PREVENT UNNECESSARY CACHE WRITES
+==================================================
+
+Do not rewrite cache JSON files when nothing has changed.
+
+Only write a cache when:
+- a new result was generated
+- an existing result was updated
+- the cache actually changed
+
+This reduces disk I/O and avoids unnecessary Git diffs.
+
+==================================================
+4. FAISS EFFICIENCY
+==================================================
+
+Inspect how the FAISS index is loaded.
+
+The index should be loaded once rather than repeatedly initialized for every test case.
+
+Prefer:
+
+    load FAISS index once
+          ↓
+    perform all searches
+          ↓
+    evaluate results
+
+If the current implementation performs individual embedding/model initialization repeatedly, optimize this.
+
+Do not change retrieval semantics or similarity thresholds unless absolutely necessary.
+
+The optimization must preserve existing benchmark results.
+
+==================================================
+5. BATCH OPERATIONS WHERE SAFE
+==================================================
+
+Look for loops that perform expensive operations one item at a time.
+
+Where the underlying library supports batching, consider batching:
+
+- embeddings
+- FAISS searches
+- classifier inference
+- zero-shot inference
+
+However:
+
+DO NOT batch external API calls if doing so would change:
+- cache keys
+- deterministic behavior
+- rate-limit handling
+- existing outputs
+
+Only introduce batching where it is safe and behavior-preserving.
+
+==================================================
+6. AVOID DUPLICATE WORK
+==================================================
+
+Inspect the pipeline for repeated processing of the same:
+
+- customer text
+- embedding
+- classification
+- zero-shot prediction
+- retrieval result
+
+If the same input appears multiple times, reuse the cached/computed result.
+
+Use appropriate in-memory dictionaries where useful.
+
+Example:
+
+    text -> embedding
+
+or:
+
+    cache_key -> prediction
+
+Do not introduce complicated caching architecture for trivial operations.
+
+Keep the implementation understandable.
+
+==================================================
+7. MEMORY EFFICIENCY
+==================================================
+
+Review how datasets are loaded.
+
+The golden test set is relatively small, so do NOT over-engineer streaming unnecessarily.
+
+However:
+- avoid loading the same dataset multiple times
+- avoid unnecessary DataFrame copies
+- avoid retaining large intermediate objects after they are no longer needed
+
+For FAISS and model artifacts, avoid duplicate copies in memory.
+
+==================================================
+8. SUBPROCESS EFFICIENCY
+==================================================
+
+Review `run_eval.py`.
+
+It should remain a thin orchestration layer.
+
+Do not unnecessarily spawn multiple Python processes.
+
+Continue using:
+
+    sys.executable
+
+to ensure the current environment is used.
+
+Make sure environment variables are passed correctly.
+
+Do not move the entire evaluation implementation into `run_eval.py`.
+
+==================================================
+9. run.sh OPTIMIZATION
+==================================================
+
+Review:
+
+    run.sh
+
+The current script installs dependencies every time.
+
+Determine whether this is appropriate for the reviewer workflow.
+
+Do NOT remove dependency installation if Block 9 requires a one-command clean-clone experience.
+
+However, make it safe and efficient.
+
+For example:
+- use `python -m pip` rather than relying on a potentially unrelated `pip`
+- fail immediately on errors
+- provide clear progress messages
+- avoid installing unnecessary packages
+- don't perform expensive cache generation
+
+The expected command remains:
+
+    bash run.sh
+
+==================================================
+10. PREPOPULATION SCRIPT
+==================================================
+
+Inspect `prepopulate_caches.py`.
+
+This script is a preparation/build-time operation, NOT part of the normal evaluation path.
+
+Ensure:
+
+    bash run.sh
+
+does NOT execute it.
+
+The architecture should be:
+
+    DEVELOPMENT / ARTIFACT BUILD
+              ↓
+      prepopulate caches
+              ↓
+       commit artifacts
+              ↓
+    ─────────────────────
+       REVIEWER / CI
+              ↓
+          run.sh
+              ↓
+       cached evaluation
+              ↓
+          results
+
+If the prepopulation script is currently doing unnecessary duplicate API calls, optimize it too.
+
+It should:
+- check whether a cache entry already exists
+- skip already-cached inputs
+- retry transient API failures
+- use exponential backoff
+- avoid regenerating existing artifacts
+- save progress safely so an interrupted run can resume
+
+Do not delete valid existing cached results.
+
+==================================================
+11. RATE LIMITING
+==================================================
+
+For the one-time prepopulation process, make API usage efficient.
+
+Avoid unnecessary requests.
+
+Use:
+- cache checking before requests
+- reasonable batching where supported
+- exponential backoff for rate limits
+- resumability
+
+Do not implement aggressive concurrency that could make rate limiting worse.
+
+Reliability is more important than theoretical maximum throughput.
+
+==================================================
+12. DETERMINISM
+==================================================
+
+Optimization must NOT change reproducibility.
+
+The following should remain deterministic:
+
+    same code
+    + same dataset
+    + same committed caches
+    = same evaluation results
+
+Do not introduce uncontrolled randomness.
+
+Preserve:
+- random seeds
+- cache keys
+- model configuration
+- temperature settings
+- evaluation thresholds
+- benchmark definitions
+
+unless a change is strictly necessary for optimization.
+
+==================================================
+13. PRESERVE RESULTS
+==================================================
+
+Before optimization, record the current evaluation results.
+
+Then run the optimized pipeline.
+
+Compare:
+
+    BEFORE vs AFTER
+
+The following should remain equivalent unless there is an explicitly documented reason:
+
+- predictions
+- confusion matrices
+- Macro-F1
+- benchmark scores
+- number of evaluated cases
+- results.csv contents
+
+Performance improvements are only valid if evaluation behavior remains correct.
+
+==================================================
+14. ADD PERFORMANCE MEASUREMENT
+==================================================
+
+Add lightweight timing information where useful.
+
+For example:
+
+    Dataset loading: 0.12s
+    Cache loading: 0.08s
+    FAISS initialization: 0.21s
+    Evaluation: 2.34s
+    Results writing: 0.03s
+    Total: 2.78s
+
+Do not add excessive logging.
+
+The goal is to make performance bottlenecks visible.
+
+==================================================
+15. FAILURE HANDLING
+==================================================
+
+The evaluation should fail fast and clearly.
+
+Examples:
+
+Missing dataset:
+
+    [ERROR] Target dataset not found: ...
+
+Missing required cache:
+
+    [ERROR] Required cache artifact missing: ...
+
+Unexpected API call:
+
+    [ERROR] Evaluation requires uncached external inference...
+
+Do not silently fall back to expensive API calls during the deterministic reviewer evaluation.
+
+==================================================
+16. GIT ARTIFACT SIZE
+==================================================
+
+Inspect the size of:
+
+    cache/faiss_index.bin
+    cache/*.json
+
+Do not unnecessarily duplicate large artifacts.
+
+Do not commit:
+- temporary cache files
+- debug output
+- duplicate datasets
+- old evaluation results
+- API credentials
+- virtual environments
+
+Keep only artifacts genuinely required for reproducible evaluation.
+
+==================================================
+17. CODE QUALITY
+==================================================
+
+Keep the implementation simple.
+
+Prefer:
+
+    clear functions
+    type hints where useful
+    meaningful variable names
+    small reusable helpers
+    comments explaining architectural decisions
+
+Avoid:
+
+    unnecessary abstractions
+    premature optimization
+    complex frameworks
+    duplicate implementations
+    magic constants
+
+This is an engineering assessment, so readability matters as much as speed.
+
+==================================================
+18. ACCEPTANCE TEST
+==================================================
+
+After optimization, perform the following tests.
+
+TEST 1 — Normal execution
+
+    bash run.sh
+
+Expected:
+- dependencies install successfully
+- evaluation starts
+- no unnecessary external API calls
+- caches are used
+- evaluation completes
+- eval/results.csv is created
+- exit code = 0
+
+TEST 2 — Repeat execution
+
+    bash run.sh
+    bash run.sh
+
+Expected:
+- second execution should not regenerate anything
+- no unnecessary API calls
+- results should remain identical
+
+TEST 3 — Direct execution
+
+    python run_eval.py --subset eval/golden_test.json
+
+Expected:
+- same evaluation behavior
+- same metrics
+- exit code = 0
+
+TEST 4 — Missing dataset
+
+    python run_eval.py --subset does_not_exist.json
+
+Expected:
+- clear error
+- non-zero exit code
+- no evaluation starts
+
+TEST 5 — Cache verification
+
+Temporarily verify that the evaluation can find and load all required committed caches.
+
+Expected:
+- no cache regeneration
+- no external API dependency
+
+TEST 6 — Result comparison
+
+Compare optimized results against the pre-optimization baseline.
+
+Expected:
+- same number of test cases
+- same predictions
+- same headline metrics
+- no unexplained regression
+
+==================================================
+FINAL OUTPUT
+==================================================
+
+After implementation, report:
+
+1. What was inefficient before.
+2. What was optimized.
+3. Which API calls were eliminated from the reviewer path.
+4. Which caches are loaded once instead of repeatedly.
+5. Whether FAISS/model initialization was optimized.
+6. Whether prepopulation became resumable/cache-aware.
+7. Before vs after execution time.
+8. Whether results changed.
+9. Whether repeated runs are deterministic.
+10. Whether `bash run.sh` works without API keys.
+11. Any remaining bottlenecks.
+
+IMPORTANT FINAL PRINCIPLE:
+
+Optimize the system, not the benchmark.
+
+Do NOT manipulate:
+- test cases
+- labels
+- scoring thresholds
+- benchmark definitions
+- evaluation metrics
+
+to make the numbers look better.
+
+The objective is:
+
+    SAME RESULTS
+    + LESS COMPUTE
+    + FEWER API CALLS
+    + LESS I/O
+    + FASTER EXECUTION
+    + MORE RELIABLE REPRODUCTION      y_true_esc, y_pred_esc = [], []
         
         for p in golden_predictions:
             y_true_intent.append(p["gold_intent"])
@@ -120,8 +655,10 @@ def evaluate_system(dataset_path: str = None):
         
     df_sweep = pd.DataFrame(sweep_results)
     print(df_sweep.to_string(index=False))
+    os.makedirs("eval", exist_ok=True)
+    df_sweep.to_csv("eval/results.csv", index=False)
     df_sweep.to_csv("eval/sweep_results.csv", index=False)
-    print("\nDetailed sweep results saved to eval/sweep_results.csv")
+    print("\nHeadline metrics saved to: eval/results.csv")
 
 if __name__ == "__main__":
     evaluate_system()
