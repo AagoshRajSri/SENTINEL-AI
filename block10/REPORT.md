@@ -26,10 +26,10 @@ The following table compares the Sentinel-AI pipeline against two baseline appro
 
 **Analysis of Results:**
 - **Best Performers:** Baseline-ZeroShot achieves the highest Macro-F1 for intent classification, leveraging the raw semantic understanding of the LLM. However, Sentinel-AI performs best on Escalation FNR (False Negative Rate) and Latency, while maintaining a competitive Macro-F1.
-- **Why Macro-F1 matters:** Our dataset is highly imbalanced (94 Delivery Issues vs. 2 Severe Escalations). Raw accuracy would misleadingly reward a model that simply guesses the majority class. Macro-F1 ensures performance is measured equally across all rare and common intent categories.
+- **Why Macro-F1 matters:** Our dataset is highly imbalanced (e.g., 94 `Delivery Issues` intent cases vs. only 2 `Severe Escalation` intent cases). Note that these label counts refer to specific intent categories, which is distinct from the 63 overall `gold_escalate=True` edge cases spanning multiple categories. Raw accuracy would misleadingly reward a model that simply guesses the majority class. Macro-F1 ensures performance is measured equally across all rare and common intent categories.
 - **Why Escalation FNR matters:** A lower FNR means fewer high-risk issues slip through undetected. Sentinel-AI's continuous calibration score allows us to tune this threshold to 0.4, successfully catching more escalations than the baselines.
 - **Latency/Cost Tradeoff:** Baseline-ZeroShot requires an expensive, slow (~1.5s) API call for every query. Sentinel-AI utilizes local FAISS vector retrieval and efficient in-memory caching, reducing operational latency to ~1ms per query in production workflows.
-- **Conclusion:** Sentinel-AI demonstrates that a multi-pass, retrieval-augmented pipeline can match or exceed raw zero-shot LLM performance on critical safety metrics (FNR) while operating at a fraction of the latency and cost. The moderate Cohen's Kappa (0.558) indicates fair-to-good alignment with human quality judgments on drafted replies.
+- **Conclusion:** Sentinel-AI does not achieve the highest overall intent Macro-F1; the ZeroShot baseline scores higher (0.606 vs. 0.583). However, Sentinel-AI achieves a lower escalation FNR and substantially lower latency, demonstrating a tradeoff between raw classification performance and operational efficiency/safety. Note that Cohen's Kappa of 0.558 indicates moderate agreement between the LLM judge and human evaluator (it measures grading alignment, NOT classifier intent accuracy).
 
 ## Section 3: Top 5 Failure Modes
 
@@ -38,31 +38,31 @@ Analysis of the `golden_test.json` evaluation and LLM-as-Judge `grading_sheet.cs
 ### 1. Inappropriate PII Scolding
 - **Real example:** `"@115851 @115821 your delivery guy in Lincoln park NJ took my friends puppy. Need help now!!! Police next call... Thank you!"`
 - **What happened:** The system drafted: `"Please don't provide your details as we consider them to be personal information... We want to look into..."`
-- **Why it fails:** The prompt strictly enforces PII protection. When the customer mentioned a location, the drafter aggressively prioritized the PII rule over the severe context of the message.
+- **Hypothesis:** The prompt strictly enforces PII protection. When the customer mentioned a location, the drafter likely prioritized the PII rule over the severe context of the message.
 - **Impact:** Scolding a customer who just reported a stolen pet creates a disastrous, robotic, and insensitive customer experience.
 
 ### 2. Robotic Brush-Offs for Severe Product Issues
 - **Real example:** `"I have ordered Maharaja Whiteline Juicer... and this is what comes out of box..... [picture of stone]"`
 - **What happened:** The system replied: `"We're so sorry to see this! We'd like to look into this for you. Please share your details here: [link]"`
-- **Why it fails:** The RAG retriever pulled generic "damaged product" historical replies, failing to recognize the severe anomaly (receiving a stone instead of an appliance).
+- **Hypothesis:** Retrieval appears to favor generic damaged-product examples rather than examples reflecting the unusual severity of the complaint.
 - **Impact:** The response appears dismissive of a highly unusual and frustrating situation, failing to escalate the tone appropriately.
 
 ### 3. Vague Redirects for Unreachable Support
 - **Real example:** `"WTF! IT'S NOT POSSIBLE TO CONNECT TO YOUR CS TEAM, EITHER ON 180030009009 OR THROUGH THE APP"`
 - **What happened:** The system drafted: `"I'm sorry you're having trouble connecting with our customer service team. Please share your details here: [link]"`
-- **Why it fails:** The drafter lacks the contextual awareness to realize that redirecting a customer to another digital link when they are explicitly complaining about digital/phone unreachability exacerbates the frustration.
+- **Hypothesis:** The drafter lacks the contextual awareness to realize that redirecting a customer to another digital link when they are explicitly complaining about digital/phone unreachability exacerbates the frustration.
 - **Impact:** Increases customer churn and frustration by trapping them in a loop of unhelpful automated responses.
 
 ### 4. Multilingual Misinterpretation and Scolding
 - **Real example:** `"o? est mon colis svp ? 171-9260850-5134725"`
 - **What happened:** The system replied in French: `"Bonjour, pour votre s?curit?, merci de ne pas partager vos informations personnelles..."`
-- **Why it fails:** While the model correctly identified the language and the PII (Order ID), it led with a scolding warning about privacy rather than addressing the core "where is my package" question.
+- **Hypothesis:** While the model correctly identified the language and the PII (Order ID), it led with a scolding warning about privacy rather than addressing the core "where is my package" question.
 - **Impact:** Customers feel reprimanded rather than assisted, degrading the perceived helpfulness of the support channel.
 
 ### 5. Contradictory Logic on Frozen Accounts
 - **Real example:** `"hello. I sent a message via this link over 24 hours ago and no response yet. Can you help please? Also I would like to cancel one of the 2 orders I placed before my account was frozen"`
 - **What happened:** The system replied: `"Since your account is currently frozen, we're unable to access your order..."`
-- **Why it fails:** The model logically deduced it cannot help with a frozen account, but the drafted reply is a dead-end that offers no escalation path or solution for the customer's stuck funds/orders.
+- **Hypothesis:** The model logically deduced it cannot help with a frozen account, but the drafted reply is a dead-end that offers no escalation path or solution for the customer's stuck funds/orders.
 - **Impact:** Leaves the customer completely stranded with no recourse, which is unacceptable for enterprise support.
 
 ## Section 4: The Misleading Number
@@ -77,9 +77,9 @@ In our evaluation:
 While an overall system accuracy across all 250 cases might appear high (often >85% because routine "Where is my order?" queries are easy to classify), the model struggles precisely where it matters most. 
 
 **What 73.02% means operationally:**
-An accuracy of 73.02% on edge cases means that roughly **27% of high-risk, severe, or complex issues are being misclassified or mishandled**. In an enterprise environment processing millions of messages, missing 27% of legal threats, safety issues, or extreme customer distress incidents is a massive operational vulnerability.
+73.02% means that Sentinel-AI correctly classified approximately 73% of the edge-case examples according to the golden intent labels, while approximately 27% were incorrectly classified. It is crucial to distinguish aggregate accuracy (performance across all 250 cases), edge-case accuracy (performance specifically on the 63 high-risk cases), intent Macro-F1 (balanced intent classification), and escalation FNR (missed escalations).
 
-This metric proves that 73.02% is not production-ready for an autonomous system. Minority/high-risk slices require separate, stringent reporting because optimizing for the majority class (routine queries) creates blind spots that carry disproportionate business risk.
+This result would not be sufficient evidence to justify fully autonomous handling of these edge cases. Additional safeguards, human review, and stronger recall on high-risk cases would be required before deployment at that level. Slicing the edge cases is important because aggregate metrics can easily hide failures on rare but high-risk examples.
 
 ## Section 5: What You'd Do With One More Week
 
@@ -103,4 +103,4 @@ Given the observed limitations in the current Sentinel-AI implementation, here a
 **4. Enhanced LLM-as-Judge Calibration (Few-Shot Prompting)**
 - **What would change:** Update `eval/judge.py` to include 3-5 explicitly graded few-shot examples (with Chain-of-Thought reasoning) demonstrating the difference between a "3" and a "4" on the grading scale.
 - **Why it addresses weakness:** Our current Cohen's Kappa is 0.558 (Moderate). Few-shot prompting grounds the LLM judge in specific human grading criteria, reducing scoring variance.
-- **Benefit/Tradeoff:** Yields a more reliable automated evaluation pipeline that correlates tighter with human preference (>0.7 Kappa). Tradeoff: Increases prompt token size and evaluation cost.
+- **Benefit/Tradeoff:** Yields a more reliable automated evaluation pipeline that correlates tighter with human preference. Tradeoff: Increases prompt token size and evaluation cost.
