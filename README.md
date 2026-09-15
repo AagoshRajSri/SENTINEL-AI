@@ -4,7 +4,7 @@ A retrieval-augmented triage and auto-reply system for enterprise customer suppo
 
 Sentinel-AI acts as a first line of defense for inbound customer messages. It classifies customer intent, detects high-risk severe escalations (legal threats, safety issues, highly frustrated customers), and drafts empathetic, context-aware replies for routine issues. 
 
-> **Note:** This repository contains the final iteration of the project in the `block10/` directory.
+> **Note:** This repository contains the final iteration of the project in the `block12/` directory.
 
 ---
 
@@ -34,7 +34,7 @@ When a customer message arrives, the pipeline executes a two-pass architecture:
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/AagoshRajSri/SENTINEL-AI.git
-   cd SENTINEL-AI/block10
+   cd SENTINEL-AI/block12
    ```
 
 2. **Set up the environment:**
@@ -66,7 +66,7 @@ Instead of relying solely on standard accuracy (which is easily skewed by highly
 - **Escalation False Negative Rate (FNR):** 34.9% 
 - **LLM-as-a-Judge (Cohen's Kappa):** 0.558 (Moderate to Good agreement with human graders on reply quality: Fidelity, Groundedness, and Safety).
 
-For a deep dive into the evaluation methodologies, baseline comparisons, and edge-case failure modes (like PII-scolding), see the final [REPORT.md](./block10/REPORT.md).
+For a deep dive into the evaluation methodologies, baseline comparisons, and edge-case failure modes (like PII-scolding), see the final [REPORT.md](./block12/REPORT.md).
 
 ## ⚠️ Limitations & Scope
 
