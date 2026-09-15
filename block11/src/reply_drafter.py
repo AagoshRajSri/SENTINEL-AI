@@ -1,11 +1,10 @@
 # src/reply_drafter.py
 import os
-import json
+
 from dotenv import load_dotenv
-from pydantic import BaseModel
 from groq import Groq
-# from google import genai
-# from google.genai import types
+from pydantic import BaseModel
+
 from src.retriever import retrieve
 
 load_dotenv()
@@ -61,9 +60,6 @@ CUSTOMER MESSAGE:
     return ReplyResult.model_validate_json(response.choices[0].message.content)
 
     # --- PREVIOUS GEMINI IMPLEMENTATION (COMMENTED OUT) ---
-    # api_key = os.getenv("GEMINI_API_KEY")
-    # client = genai.Client(api_key=api_key)
-    # response = client.models.generate_content(
     #     model="gemini-3.6-flash",
     #     contents=prompt,
     #     config=types.GenerateContentConfig(

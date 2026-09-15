@@ -15,6 +15,7 @@ It does not use embeddings, RAG, Gemini, Pydantic, or sophisticated logic.
 
 from src.classifier import IntentCategory
 
+
 def baseline_heuristic(text: str) -> dict:
     text_lower = text.lower()
     

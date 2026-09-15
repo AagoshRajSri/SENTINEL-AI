@@ -1,6 +1,7 @@
 # src/generate_sample.py
 import pandas as pd
 
+
 def generate_blank_golden_set(input_path="data/clean_pairs.csv", output_path="eval/unlabeled_sample.csv", sample_size=250):
     print("Loading clean pairs...")
     df = pd.read_csv(input_path)

@@ -4,16 +4,15 @@
 # IMPORTS
 # ============================================================
 
-import os
-import json
-import time
 import hashlib
+import json
+import os
+import time
 from enum import Enum
 
+import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-import requests
-
 
 # ============================================================
 # ENVIRONMENT VARIABLES
@@ -379,7 +378,7 @@ Respond with a JSON object containing exactly three fields:
                 return ClassificationResult(
                     intent=IntentCategory.SEVERE_ESCALATION,
                     confidence=0.0,
-                    reasoning=f"API Error fallback: {str(e)}"
+                    reasoning=f"API Error fallback: {e!s}"
                 )
 
 

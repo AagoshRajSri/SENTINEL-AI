@@ -1,7 +1,9 @@
 # src/misleading_number.py
 import json
+
 from sklearn.metrics import accuracy_score
 from src.classifier import classify
+
 
 def calculate_edge_case_accuracy():
     print("Loading Golden Set...")
@@ -24,7 +26,7 @@ def calculate_edge_case_accuracy():
         y_pred.append(pred.intent.value)
         
     acc = accuracy_score(y_true, y_pred)
-    print(f"---")
+    print("---")
     print(f"Headline accuracy might be high, but accuracy strictly on EDGE CASES is: {acc * 100:.2f}%")
     print("Use this computed number in Section 4 of your report!")
 

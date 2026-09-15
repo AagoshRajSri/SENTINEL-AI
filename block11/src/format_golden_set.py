@@ -1,6 +1,8 @@
 # src/format_golden_set.py
-import pandas as pd
 import json
+
+import pandas as pd
+
 
 def convert_to_json(csv_path="eval/labeled_sample.csv", json_path="eval/golden_test.json"):
     try:

@@ -1,16 +1,16 @@
 # eval/judge.py
-import os
 import json
+import os
 import sys
 import time
 from pathlib import Path
+
 import pandas as pd
-from pydantic import BaseModel, Field
-from groq import Groq
-# from google import genai
-# from google.genai import types
-from sklearn.metrics import cohen_kappa_score
 from dotenv import load_dotenv
+from groq import Groq
+from pydantic import BaseModel, Field
+
+from sklearn.metrics import cohen_kappa_score
 
 # Ensure project root is in sys.path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -263,10 +263,8 @@ Format your response as a valid JSON object with the following integer keys (1 t
     raise RuntimeError("All judge models failed.")
 
     # --- PREVIOUS GEMINI IMPLEMENTATION (COMMENTED OUT) ---
-    # client = genai.Client(
     #     api_key=os.getenv("GEMINI_API_KEY")
     # )
-    # response = client.models.generate_content(
     #     model="gemini-3.5-flash",
     #     contents=prompt,
     #     config=types.GenerateContentConfig(

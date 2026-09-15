@@ -13,13 +13,12 @@ This baseline uses Gemini to directly output JSON without schema enforcement.
 It caches results, but ignores stale cache entries containing the old taxonomy.
 """
 
-import os
-import json
 import hashlib
+import json
+import os
 
-from dotenv import load_dotenv
 import requests
-
+from dotenv import load_dotenv
 from src.classifier import IntentCategory
 
 # Load variables from .env
@@ -157,7 +156,7 @@ Customer Message:
                 return {
                     "intent": IntentCategory.ORDER_ISSUES.value,
                     "should_escalate": True,
-                    "draft_reply": f"System Error: {str(e)}",
+                    "draft_reply": f"System Error: {e!s}",
                 }
             time.sleep(4 * (2 ** attempt))
 

@@ -1,20 +1,20 @@
 # eval/evaluate.py
+import hashlib
+import json
 import os
 import sys
-import json
 import time
-import hashlib
+
 import pandas as pd
-from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+from sklearn.metrics import confusion_matrix, f1_score
 
 # Ensure project root is in sys.path when script is executed directly
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import our three systems
 from src.classifier import classify
-from src.escalation import gatekeeper, _get_cache
-from src.baseline_heuristic import baseline_heuristic
-from src.baseline_zeroshot import baseline_zeroshot
+from src.escalation import _get_cache, gatekeeper
+
 
 def run_sentinel_ai(text: str) -> dict:
     intent_res = classify(text)
@@ -75,7 +75,7 @@ def evaluate_system(dataset_path: str = None):
     end_time = time.time()
     avg_latency = (end_time - start_time) / len(golden_set)
     
-    print('')
+    print()
     print('=== THRESHOLD SWEEP ===')
     thresholds = [0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90]
     
@@ -123,7 +123,7 @@ def evaluate_system(dataset_path: str = None):
     print(df_sweep.to_string(index=False))
     os.makedirs('eval', exist_ok=True)
     df_sweep.to_csv('eval/results.csv', index=False)
-    print('')
+    print()
     print('Headline metrics saved to: eval/results.csv')
 
 if __name__ == '__main__':

@@ -1,11 +1,12 @@
+import hashlib
+import json
 import os
 import re
-import json
-import hashlib
 import time
+
+import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-import requests
 
 load_dotenv()
 
@@ -124,7 +125,7 @@ Output a JSON object with:
                 break
             except Exception as e:
                 if attempt == max_retries - 1:
-                    res = EscalationLLMResult(escalation_score=1.0, reasoning=f"API Error: {str(e)}")
+                    res = EscalationLLMResult(escalation_score=1.0, reasoning=f"API Error: {e!s}")
                     break
                 time.sleep(4 * (2 ** attempt))
 

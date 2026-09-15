@@ -1,21 +1,21 @@
 # eval/rejudge.py
 import os
 import time
-import json
+
 import pandas as pd
-from sklearn.metrics import cohen_kappa_score
 from dotenv import load_dotenv
+from sklearn.metrics import cohen_kappa_score
 
 # # Gemini implementation (commented out)
-# import google.genai as genai
-# from google.genai import types
 
 load_dotenv()
 
 # We import the JudgeScore schema and prompt from judge.py (which now uses Groq)
 import sys
+
 sys.path.append(os.getcwd())
-from eval.judge import run_llm_judge, call_with_retry
+from eval.judge import call_with_retry, run_llm_judge
+
 
 def main():
     csv_path = "eval/grading_sheet.csv"
