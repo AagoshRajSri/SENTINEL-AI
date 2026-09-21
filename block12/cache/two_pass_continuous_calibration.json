@@ -998,5 +998,29 @@
   "c1402186fb1e46d6a5dccff4a831bfd2eb7d632d4287986fe8dc9624bfb37fe0": {
     "escalation_score": 0.0,
     "reasoning": "Mocked to bypass daily API limit"
+  },
+  "793d9643401c9453e0fc2086465a8940a89fa91ec00228bf46144e2072373ee4": {
+    "escalation_score": 0.65,
+    "reasoning": "The customer reports a stolen package and expresses that no assistance is being provided, indicating significant frustration and potential PR risk. While there is no explicit legal threat, the situation involves a loss of property and could lead to negative public perception if not handled promptly. It does not fall under automatically escalated intents like Account Locked or Refund Failed, but the severity of the delivery failure and the emotional distress warrant human intervention to mitigate risk and provide a satisfactory resolution."
+  },
+  "184fef67ca205e81b9c6b290da0e6c2ad2e3e6e2c5cc72482985d81bade6dae6": {
+    "escalation_score": 0.3,
+    "reasoning": "The issue is a standard delivery delay with no expressed threat of legal action, PR risk, severe distress, or repeated failures. While the customer is understandably frustrated, the situation can typically be resolved through standard support channels (tracking update, reshipment, or refund) without immediate human escalation. Therefore, a low to moderate escalation score is appropriate."
+  },
+  "d78bb2479d65d7b5ccca92f17c179a7fd566e6fa8ccc44c27ce970ac5cbd216c": {
+    "escalation_score": 0.2,
+    "reasoning": "The issue is a standard delivery delay with no indication of legal threats, PR concerns, severe distress, or repeated failures. While the customer is understandably frustrated, the problem can be resolved through standard tracking updates or a refund/replacement process without immediate human escalation."
+  },
+  "12a3be2566bde351e2371a275a600d8f97b56d717a42087e11727830020042fd": {
+    "escalation_score": 0.4,
+    "reasoning": "The request concerns a double charge and an immediate refund, which is a standard payment\u2011refund scenario that can often be resolved through automated processes. There is no explicit threat of legal action, no indication of severe distress, and no repeated failure history. While timely handling is important to avoid PR impact, the issue does not inherently require immediate human intervention, so a moderate escalation score is assigned."
+  },
+  "abec4858a5e1b42fe0643fea84b68aec69fc0b2c9f1470dc7ab57a1521f622b6": {
+    "escalation_score": 0.3,
+    "reasoning": "The complaint concerns a delivery driver\u2019s rude behavior and a package left in the rain. While it reflects a potential PR issue, there is no explicit threat of legal action, no indication of severe distress, and no pattern of repeated failures. Delivery\u2011issue intents are typically handled by standard support workflows and do not inherently require immediate human escalation (unlike Account Locked or Refund Failed). Therefore, a modest escalation score is assigned, suggesting monitoring but not urgent human intervention."
+  },
+  "608bd19f71e3454132c2322c8265546b8e2f625a76e237543bf429c11c14cc9e": {
+    "escalation_score": 0.2,
+    "reasoning": "The issue is a standard delivery problem (order not arrived) with high confidence but no indication of legal threats, PR risk, severe distress, or repeated failures. It does not fall under intent types that inherently require immediate human handling (e.g., account locked, refund failed). Therefore, it can be addressed through normal support workflows rather than urgent escalation."
   }
 }

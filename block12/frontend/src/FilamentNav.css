@@ -1,0 +1,96 @@
+
+/* ---------- Filament navbar ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  background: var(--bg);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.bar { position: relative; height: 64px; }
+#thread { position: absolute; left: 0; top: 0; display: block; pointer-events: none; }
+.inner {
+  position: relative; height: 100%;
+  max-width: 1120px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 32px);
+  display: flex; align-items: center;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+  color: var(--text); text-decoration: none;
+  font-weight: 500; letter-spacing: -.015em;
+  border-radius: 6px;
+  animation: fade .7s var(--ease-out) both;
+}
+.brand svg { flex: none; }
+
+.rail { position: absolute; inset: 0; pointer-events: none; }
+.rail ul {
+  list-style: none; padding: 0 clamp(16px, 4vw, 32px) 20px;
+  position: absolute; inset: 0;
+  display: flex; justify-content: flex-end; align-items: flex-end; gap: 20px;
+}
+.rail a {
+  pointer-events: auto;
+  font: 500 13px/1 var(--sans, 'Geist', sans-serif); letter-spacing: -.005em;
+  color: var(--text-3); text-decoration: none;
+  touch-action: pan-y; -webkit-tap-highlight-color: transparent;
+}
+.js .rail ul { display: block; padding: 0; }
+.js .rail a {
+  position: absolute; left: 0; bottom: 0; height: 44px;
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 24px;
+  border-radius: 6px;
+  color: var(--text-3);
+  color: color-mix(in srgb, var(--text) calc(var(--p,0) * 100%), var(--text-3));
+  will-change: transform;
+  animation: fade .7s var(--ease-out) both;
+  animation-delay: calc(.55s + var(--i) * 70ms);
+}
+.rail a:focus-visible { outline-offset: -4px; }
+
+.skip {
+  position: fixed; left: clamp(16px, 4vw, 32px); top: calc(env(safe-area-inset-top, 0px) + 8px); z-index: 100;
+  padding: 10px 14px; border: 1px solid var(--line-strong); border-radius: 8px;
+  background: var(--bg); color: var(--text); font: 500 13px/1 var(--sans, 'Geist', sans-serif); text-decoration: none;
+  transform: translateY(-200%); transition: transform .2s var(--ease-out);
+}
+.skip:focus-visible { transform: none; }
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 479px) {
+  .brand .word { display: none; }
+  .rail a, .js .rail a { font-size: 12px; }
+}
+
+.brand.prompt {
+  display: flex;
+  align-items: center;
+  width: 25vw;
+  max-width: 320px;
+  height: 64px;
+  padding: 0 24px;
+  margin-left: calc(-1 * clamp(16px, 4vw, 32px));
+  background: rgba(255, 255, 255, 0.02);
+  border-right: 1px solid var(--line);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 15px;
+  letter-spacing: 0;
+  gap: 8px;
+}
+
+.prompt-arrow {
+  color: var(--ok, #4ade80);
+}
+
+.prompt-path {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.prompt-cursor {
+  color: var(--text-3);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

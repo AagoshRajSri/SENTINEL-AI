@@ -1268,5 +1268,35 @@
     "intent": "Delivery Issues",
     "confidence": 0.5,
     "reasoning": "Mocked to bypass daily API limit"
+  },
+  "793d9643401c9453e0fc2086465a8940a89fa91ec00228bf46144e2072373ee4": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that their package was stolen, which is a problem directly related to the delivery of an order. This falls under the 'Delivery Issues' category rather than payment, account, or escalation categories."
+  },
+  "184fef67ca205e81b9c6b290da0e6c2ad2e3e6e2c5cc72482985d81bade6dae6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer explicitly mentions a package that was expected yesterday and has not arrived, which directly matches the Delivery Issues category concerning late or missing deliveries."
+  },
+  "d78bb2479d65d7b5ccca92f17c179a7fd566e6fa8ccc44c27ce970ac5cbd216c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer reports a package that was expected three days ago and notes that the tracking information has not been updated, which directly matches the Delivery Issues category concerning late or missing deliveries."
+  },
+  "12a3be2566bde351e2371a275a600d8f97b56d717a42087e11727830020042fd": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.98,
+    "reasoning": "The customer reports being charged twice for the same order and explicitly requests an immediate refund, which directly pertains to payment issues and refund requests."
+  },
+  "abec4858a5e1b42fe0643fea84b68aec69fc0b2c9f1470dc7ab57a1521f622b6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer complains about the driver\u2019s behavior and the condition of the delivered package, which directly relates to a problem with the delivery service rather than the product itself, order process, payment, account, or subscription."
+  },
+  "608bd19f71e3454132c2322c8265546b8e2f625a76e237543bf429c11c14cc9e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.99,
+    "reasoning": "The user explicitly states that their order never arrived, which directly matches the Delivery Issues category (late or missing delivery)."
   }
 }
