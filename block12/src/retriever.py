@@ -3,15 +3,28 @@ import os
 
 import faiss
 import pandas as pd
-from sentence_transformers import SentenceTransformer
+
+# Anchor all paths to this file so they resolve correctly
+# regardless of working directory (critical on HF Spaces).
+_HERE = os.path.abspath(os.path.dirname(__file__))
+_ROOT = os.path.dirname(_HERE)   # block12/
 
 # File paths
-DATA_PATH = "data/clean_pairs.csv"
-CACHE_DIR = "cache"
+DATA_PATH  = os.path.join(_ROOT, "data", "clean_pairs.csv")
+CACHE_DIR  = os.path.join(_ROOT, "cache")
 INDEX_PATH = os.path.join(CACHE_DIR, "faiss_index.bin")
 
-# Load the local, free embedding model
-model = SentenceTransformer('all-MiniLM-L6-v2')
+# Lazy-loaded model — avoids triggering torch._C._cuda_init at import time,
+# which would crash ZeroGPU before any @spaces.GPU context is active.
+# Explicitly pinned to CPU since embeddings don't need GPU here.
+_model = None
+
+def _get_model():
+    global _model
+    if _model is None:
+        from sentence_transformers import SentenceTransformer
+        _model = SentenceTransformer('all-MiniLM-L6-v2', device='cpu')
+    return _model
 
 def _build_or_load_index(df: pd.DataFrame):
     """Builds a FAISS index or loads it from disk if it already exists."""
@@ -24,7 +37,7 @@ def _build_or_load_index(df: pd.DataFrame):
         print("Building FAISS index for the first time. This may take a minute...")
         # Embed the customer's text to match incoming queries to historical queries
         texts = df['text_customer'].tolist()
-        embeddings = model.encode(texts, show_progress_bar=True)
+        embeddings = _get_model().encode(texts, show_progress_bar=True)
         
         # Create a FAISS index (L2 distance)
         dimension = embeddings.shape[1]
@@ -55,7 +68,7 @@ def retrieve(text: str, k: int = 3) -> list:
     index = _INDEX
     
     # Embed the incoming customer text
-    query_vector = model.encode([text])
+    query_vector = _get_model().encode([text])
     
     # Search the index for the closest matches
     distances, indices = index.search(query_vector, k)

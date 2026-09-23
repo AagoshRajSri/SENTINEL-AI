@@ -1,3 +1,14 @@
+---
+title: Sentinel AI
+emoji: 🛡️
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: "5.0.1"
+app_file: app.py
+pinned: false
+---
+
 # Sentinel-AI 🛡️
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -27,17 +38,18 @@
 
 ---
 
-## ⚡ Grader Quickstart & Reproducibility
+## ⚡ Quickstart & Local Development
 
-The entire evaluation harness is **100% deterministic and offline-reproducible** using pre-populated disk caches and a local FAISS index. Graders can verify the full 250-case benchmark in **under 15 minutes** with zero external API keys or billing.
+The entire pipeline—both the interactive web interface and the offline evaluation harness—is designed for seamless local deployment. The FAISS index and deterministic cache are pre-populated, allowing for zero-shot reproducibility without burning API credits.
 
 ```bash
 # 1. Clone repository
 git clone https://github.com/AagoshRajSri/SENTINEL-AI.git
 cd SENTINEL-AI/block12
 
-# 2. Create isolated virtual environment
+# 2. Create and activate isolated virtual environment
 python -m venv venv
+
 # Linux / macOS:
 source venv/bin/activate
 # Windows (PowerShell):
@@ -46,18 +58,16 @@ venv\Scripts\Activate.ps1
 # 3. Install pinned dependencies
 pip install -r requirements.txt
 
-# 4. (Optional) Configure environment for live generation
+# 4. Configure environment secrets
 cp .env.example .env
-# Edit .env if testing live APIs (GROQ_API_KEY, GEMINI_API_KEY)
+# Edit .env and populate GROQ_API_KEY / GEMINI_API_KEY
 
-# 5. Run deterministic evaluation suite
-bash run.sh
+# 5A. Launch the Interactive Web Interface (Localhost)
+python app.py
+
+# 5B. Run the Deterministic Evaluation Benchmark (Offline)
+python run_eval.py
 ```
-
-> **Note for Windows Graders:** If `bash run.sh` is unavailable, execute the evaluation script directly:
-> ```powershell
-> python run_eval.py
-> ```
 
 ---
 
