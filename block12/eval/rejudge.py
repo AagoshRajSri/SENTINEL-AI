@@ -18,37 +18,43 @@ from eval.judge import call_with_retry, run_llm_judge
 
 
 def main():
-    csv_path = "eval/grading_sheet.csv"
+    # Use absolute path so the script works regardless of working directory
+    _HERE = os.path.abspath(os.path.dirname(__file__))
+    csv_path = os.path.join(_HERE, "grading_sheet.csv")
     df = pd.read_csv(csv_path)
 
     print("Re-running LLM Judge on existing drafted replies via Groq...")
     new_llm_scores = []
-    
+    new_llm_reasoning = []
+
     for idx, row in df.iterrows():
         print(f"Judging {idx+1}/{len(df)}...")
-        
+
         cust_text = row["customer_text"]
         reply = row["drafted_reply"]
-        
+
         # Ask Groq judge to evaluate the reply
         judge_res = call_with_retry(run_llm_judge, cust_text, reply)
         new_llm_scores.append(judge_res.overall_score)
-        
-        time.sleep(0.5)  # Small pace to stay within qwen rate limits
+        new_llm_reasoning.append(judge_res.reasoning)
 
-    # Update the dataframe
-    df["llm_overall_score"] = new_llm_scores
-    df.to_csv(csv_path, index=False)
+        time.sleep(3)  # 3s between calls to stay under qwen TPM limits
+
+    # Final save — Create a fresh DataFrame to ensure the write succeeds cleanly
+    df_out = df.copy()
+    df_out["llm_overall_score"] = new_llm_scores
+    df_out["llm_reasoning"] = new_llm_reasoning
+    df_out.to_csv(csv_path, index=False)
     
-    # Recalculate Kappa
+    # Recalculate Kappa using the guaranteed-new scores
     kappa = cohen_kappa_score(
-        df["llm_overall_score"],
-        df["human_overall_score"],
+        new_llm_scores,
+        df["human_overall_score"].tolist(),
         weights="linear"
     )
 
-    exact_matches = (df["llm_overall_score"] == df["human_overall_score"]).sum()
-    near_matches = (abs(df["llm_overall_score"] - df["human_overall_score"]) <= 1).sum()
+    exact_matches = sum(1 for a, b in zip(new_llm_scores, df["human_overall_score"].tolist()) if a == b)
+    near_matches = sum(1 for a, b in zip(new_llm_scores, df["human_overall_score"].tolist()) if abs(a - b) <= 1)
     total = len(df)
 
     print("\n=== NEW LLM-AS-JUDGE AGREEMENT (GROQ) ===")

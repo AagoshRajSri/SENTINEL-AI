@@ -97,7 +97,18 @@ def _patched_create_app(blocks, **kwargs):
 
             h = hashlib.sha256(text.encode()).hexdigest()
             esc = _get_cache().get(h, {})
-            reply_res = draft_reply(text)
+
+            # Derive severity from classifier output to drive severity-aware RAG
+            if intent_res.intent.value == "Severe Escalation":
+                severity = "CRITICAL"
+            elif intent_res.confidence >= 0.85:
+                severity = "HIGH"
+            elif intent_res.confidence >= 0.55:
+                severity = "MEDIUM"
+            else:
+                severity = "LOW"
+
+            reply_res = draft_reply(text, severity=severity)
 
             return JSONResponse({
                 "intent":            intent_res.intent.value,
@@ -161,7 +172,18 @@ def _gradio_triage(text: str) -> dict:
     escalation_decision = gatekeeper(text, intent_res.intent.value, intent_res.confidence, intent_res.reasoning)
     h = hashlib.sha256(text.strip().encode()).hexdigest()
     esc = _get_cache().get(h, {})
-    reply_res = draft_reply(text)
+
+    # Derive severity from classifier output to drive severity-aware RAG
+    if intent_res.intent.value == "Severe Escalation":
+        severity = "CRITICAL"
+    elif intent_res.confidence >= 0.85:
+        severity = "HIGH"
+    elif intent_res.confidence >= 0.55:
+        severity = "MEDIUM"
+    else:
+        severity = "LOW"
+
+    reply_res = draft_reply(text, severity=severity)
 
     return {
         "intent":            intent_res.intent.value,

@@ -37,6 +37,50 @@ def _save_cache(cache):
     with open(CACHE_FILE, "w") as f:
         json.dump(cache, f, indent=2)
 
+
+# ---------------------------------------------------------------------------
+# Per-intent escalation thresholds (Phase 4 improvement)
+#
+# Replaces the single global ESCALATION_THRESHOLD env var with a graduated
+# per-intent map. Lower thresholds maximize recall on high-risk categories;
+# higher thresholds reduce false-positive escalations for routine categories.
+#
+# The env var ESCALATION_THRESHOLD is still honoured as a fallback for any
+# intent not listed here, and for local override during experimentation.
+# NOTE: Cached escalation_scores remain valid — only the comparison threshold
+# changes, so no cache invalidation is required when deploying this change.
+# ---------------------------------------------------------------------------
+INTENT_THRESHOLDS = {
+    # Catch nearly everything — criminal/safety issues must not slip through
+    "Severe Escalation":              0.20,
+    # Locked/frozen accounts feel urgent to customers and carry PR risk
+    "Account & Access":               0.40,
+    # Failed charges carry legal risk (double billing, unauthorized charges)
+    "Payment & Refunds":              0.50,
+    # Physical product failures can be severe (health/safety hazard items)
+    "Product Issues":                 0.55,
+    # Most order issues are manageable but some (frozen account + order) are not
+    "Order Issues":                   0.60,
+    # High volume, mostly routine; tuned to keep FNR low without over-escalating
+    "Delivery Issues":                0.65,
+    # Lowest risk category — billing/access edge cases still get caught via rules
+    "Subscription & Digital Services": 0.75,
+}
+
+
+def _get_threshold(intent: str) -> float:
+    """Return the escalation threshold for a given intent category.
+
+    Falls back to the ESCALATION_THRESHOLD env var (default 0.70) for any
+    intent not in INTENT_THRESHOLDS.
+    """
+    if intent in INTENT_THRESHOLDS:
+        return INTENT_THRESHOLDS[intent]
+    try:
+        return float(os.getenv("ESCALATION_THRESHOLD", "0.70"))
+    except ValueError:
+        return 0.70
+
 def rule_based_escalation(text: str, confidence: float) -> tuple[bool, str]:
     """Fast, free deterministic rules to catch obvious escalations."""
     # 1. PII (Personally Identifiable Information) Regex Check
@@ -129,13 +173,12 @@ Output a JSON object with:
                     break
                 time.sleep(4 * (2 ** attempt))
 
-    try:
-        threshold = float(os.getenv("ESCALATION_THRESHOLD", "0.70"))
-    except ValueError:
-        threshold = 0.70
-    
+    # Use the per-intent threshold map for graduated escalation sensitivity.
+    # Severe Escalation triggers at 0.20; Subscription at 0.75. See INTENT_THRESHOLDS.
+    threshold = _get_threshold(intent)
+
     should_escalate = res.escalation_score >= threshold
-    
+
     return EscalationDecision(should_escalate=should_escalate, reason=res.reasoning)
 
 if __name__ == "__main__":

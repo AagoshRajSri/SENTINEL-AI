@@ -6,6 +6,7 @@ from groq import Groq
 from pydantic import BaseModel
 
 from src.retriever import retrieve
+from src.pii_sanitizer import sanitize, build_pii_note
 
 load_dotenv()
 
@@ -14,24 +15,43 @@ class ReplyResult(BaseModel):
     draft_reply: str
     policy_adherence_check: str # Forces the AI to explain why the reply is safe
 
-def draft_reply(customer_text: str) -> ReplyResult:
+def draft_reply(customer_text: str, severity: str = "MEDIUM") -> ReplyResult:
     """Drafts a brand-safe reply grounded ONLY in historical retrieved context."""
-    # 1. Retrieve the top 3 similar past resolutions
-    historical_context = retrieve(customer_text, k=3)
+    # 0. Sanitize PII before it reaches the LLM or the retriever.
+    #    This eliminates the scolding anti-pattern at the source.
+    sanitized_text, detected_pii = sanitize(customer_text)
+    pii_note = build_pii_note(detected_pii)
+
+    # 1. Retrieve top 3 similar past resolutions using the sanitized text
+    #    so PII tokens don't distort the embedding similarity.
+    historical_context = retrieve(sanitized_text, k=3, severity=severity)
     context_str = "\n".join([f"- {reply}" for reply in historical_context])
-    
+
     # 2. Build the strict prompt
-    prompt = f"""You are a customer support agent for @AmazonHelp. 
+    prompt = f"""You are a customer support agent for @AmazonHelp.
 Write a draft reply to the customer's message.
 
 RULES:
 1. Match the brand's tone from the historical examples.
 2. DO NOT invent policies, coupon amounts, or refund timelines.
-3. PII PROTECTION: If the customer has shared any sensitive data (order ID, tracking number, account number, phone) in their public message, explicitly tell them NOT to share that publicly and direct them to a private link instead (e.g. "Please share your details here: [link]"). Do not just say "send us a DM".
-4. CONVENIENCE RULE — PREFER LINKS OVER DM: Always prefer a direct link over a DM redirect. Say "reach out to us here: [link]" or "share your details here: [link]" rather than "send us a DM" or "reach out via DM". Only use DM language when no relevant link is available and account authentication genuinely requires a private channel.
-5. DO NOT use phrases like "send us a DM", "reach out via DM", "drop us a DM", or "message us directly" as the primary call to action. Instead use: "reach out to us here: [link]", "share your details here: [link]", "we're looking into this and will get back to you shortly", or "tag us and we'll take it from there".
-6. DIRECT ANSWER RULE: If the customer asks a specific question (e.g. carrier pickup, depot collection), address that specific question directly instead of giving generic boilerplate asking them to explain again.
-7. ACKNOWLEDGE PRIOR STEPS: If the customer states they already emailed, called, or replied, acknowledge their effort explicitly. Do not contradict them by telling them to re-email or re-call the same channel.
+3. PII PROTECTION: The customer's message has already been sanitized — any sensitive
+   data (order ID, tracking number, phone) has been replaced with a placeholder.
+   If a PII placeholder is present AND you need to route the customer to a private
+   channel, do so WARMLY and naturally. ALWAYS address their core issue first with
+   empathy, THEN mention the private link. NEVER open with a scolding instruction
+   like "Please don't share..." or "We cannot process public order details...".
+   Correct pattern: "We're sorry to hear about [issue]. For your security, please
+   share your details here: [link] and we'll look into it right away."
+4. CONVENIENCE RULE — PREFER LINKS OVER DM: Always prefer a direct link over a DM
+   redirect. Say "reach out to us here: [link]" rather than "send us a DM".
+   Only use DM language when no relevant link is available.
+5. DO NOT use phrases like "send us a DM", "reach out via DM", or "drop us a DM"
+   as the primary call to action. Use: "reach out to us here: [link]" instead.
+6. DIRECT ANSWER RULE: If the customer asks a specific question, address it directly
+   instead of giving generic boilerplate asking them to explain again.
+7. ACKNOWLEDGE PRIOR STEPS: If the customer states they already emailed, called, or
+   replied, acknowledge their effort explicitly. Do not contradict them by telling
+   them to re-email or re-call the same channel.{pii_note}
 
 Return valid JSON with the exact structure:
 {{
@@ -43,7 +63,7 @@ HISTORICAL EXAMPLES (Use these to ground your policy):
 {context_str}
 
 CUSTOMER MESSAGE:
-"{customer_text}"
+"{sanitized_text}"
 """
 
     # --- GROQ API IMPLEMENTATION ---

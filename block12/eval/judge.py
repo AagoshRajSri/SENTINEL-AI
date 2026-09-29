@@ -23,6 +23,7 @@ load_dotenv()
 
 # Enforce the 1-5 grading rubric
 class JudgeScore(BaseModel):
+    reasoning: str = Field(..., description="Chain-of-thought analysis before scoring")
     brand_fidelity: int = Field(..., ge=1, le=5, description="Brand tone match")
     groundedness: int = Field(..., ge=1, le=5, description="No hallucinations")
     actionability_safety: int = Field(..., ge=1, le=5, description="No PII leaks")
@@ -109,6 +110,16 @@ MICRO-RULE 5 — NON-ACTIONABLE OR AMBIGUOUS MESSAGES:
   asking for clarification is the ONLY correct response. Score 3 (not 1) for reasonable clarification requests.
   If the message is just a link/image/tag with no text, a polite holding reply is acceptable → score 3-4.
 
+MICRO-RULE 6 — TONE-DEAF PENALTY (NEW):
+  If the customer's message is clearly distressing, emotionally charged, or severe (loss, anger, urgency,
+  trauma, criminal act) AND the reply's OPENING LINE is a procedural instruction or rule
+  (e.g. "Please don't share...", "We recommend checking...", "We need your details first...",
+  "Please provide your order ID...") with NO empathy acknowledgement before it —
+  apply a mandatory -1 penalty to overall_score.
+  A technically correct action does NOT redeem an emotionally dismissive or procedurally robotic opening.
+  This rule applies EVEN if the rest of the reply is polite.
+  EXCEPTION: If the message severity is LOW (positive feedback, casual question), this rule does not apply.
+
 ═══════════════════════════════════════════════
 SCORING RUBRIC
 ═══════════════════════════════════════════════
@@ -129,97 +140,206 @@ CRITICAL RULES (these override everything else):
 ═══════════════════════════════════════════════
 FEW-SHOT CALIBRATION EXAMPLES
 ═══════════════════════════════════════════════
+Each example shows the EXACT reasoning structure you must follow before scoring.
+Write your reasoning field first, then output the four integer scores.
 
 EXAMPLE A — CRITICAL + EXHAUSTED CHANNEL → Score 2
 Customer: "Are you able to get in contact with DPD? I had a notification my parcel won't be delivered and have tried to contact them multiple times with no answer."
 Reply: "We're sorry. We recommend checking your tracking info here: [link] for any updates or direct carrier contact options."
-Score: 2
-Reason: Customer explicitly said DPD doesn't answer. Reply sends them to a tracking link — no new concrete action, redirects to same carrier. Polite but brings them back to square one. MICRO-RULE 2 hard cap applies (Score 2).
+{{
+  "reasoning": "SEVERITY: HIGH — undelivered parcel, carrier unresponsive. EXHAUSTED CHANNEL CHECK: Customer explicitly said DPD doesn't answer calls. Reply sends them to a tracking link that includes 'direct carrier contact options' — this is the same exhausted channel restated. MICRO-RULE 2 hard cap: max score is 2. TONE: Polite, but politeness cannot rescue the substance failure. CONCLUSION: Score capped at 2.",
+  "brand_fidelity": 3,
+  "groundedness": 4,
+  "actionability_safety": 2,
+  "overall_score": 2
+}}
 
 EXAMPLE B — CRIMINAL EMERGENCY, DM NOT ENOUGH → Score 1
 Customer: "your delivery guy in Lincoln park NJ took my friends puppy. Need help now!!! Police next call..."
 Reply: "We are so concerned. Please reach out to us via DM immediately with your details so we can look into this."
-Score: 1
-Reason: Criminal emergency. A DM redirect is what Amazon sends for a delayed parcel. This requires explicit acknowledgment of severity and immediate human escalation — not a copy-paste DM prompt.
+{{
+  "reasoning": "SEVERITY: CRITICAL — stolen pet, police mentioned, criminal act by driver. TIER ASSESSMENT: DM redirect (TIER 2) is what Amazon sends for a delayed parcel. This is a criminal emergency requiring explicit acknowledgment of severity and immediate human escalation. MICRO-RULE 6 TONE-DEAF PENALTY: Reply opens with 'We are so concerned' but then immediately routes to a standard DM — the same response a bot gives for any query. No named team escalation, no hotline, no acknowledgment of the criminal nature. CONCLUSION: Reply is dangerously inadequate. Score 1.",
+  "brand_fidelity": 1,
+  "groundedness": 4,
+  "actionability_safety": 1,
+  "overall_score": 1
+}}
 
 EXAMPLE C — EXHAUSTED CHANNEL, LINK STILL COUNTS AS EXHAUSTED → Score 2
 Customer: "WTF! IT'S NOT POSSIBLE TO CONNECT TO YOUR CS TEAM, EITHER ON 1800-XXX OR THROUGH THE APP"
 Reply: "I'm sorry you're having trouble. Please share your details here: [CS link] so we can take a closer look."
-Score: 2
-Reason: Customer explicitly said phone AND app do not work. A general CS link routes them to the same exhausted system. This is MICRO-RULE 2 (Score 2) — no new, concrete escalation path is offered, bringing them back to square one.
+{{
+  "reasoning": "SEVERITY: HIGH — customer explicitly exhausted phone AND app. EXHAUSTED CHANNEL CHECK: A general CS link routes to the same digital system the customer said is broken. MICRO-RULE 2 hard cap: max 2. TONE: Empathetic opening, but empathy cannot overcome the substance failure. No new concrete escalation offered. CONCLUSION: Score capped at 2.",
+  "brand_fidelity": 3,
+  "groundedness": 4,
+  "actionability_safety": 2,
+  "overall_score": 2
+}}
 
 EXAMPLE D — PII SCOLDING INSTEAD OF HELPING → Score 1
 Customer: "@AmazonHelp my order id is 403-XXXXXXX, I haven't received my cashback"
 Reply: "Please don't provide your order details publicly. Our page is visible to the public. Please share your details privately here: [link]"
-Score: 1
-Reason: The reply refuses to acknowledge or act on the customer's stated issue (missing cashback). Instead it lectures them and forces them through another hoop. This is PII scolding (MICRO-RULE 1 violation) — it lacks the polite assurance that their issue is being looked into.
+{{
+  "reasoning": "SEVERITY: MEDIUM — missing cashback. MICRO-RULE 1 (PII): Customer shared an order ID. The reply (a) warns them, BUT (b) completely ignores the stated issue of missing cashback. No acknowledgment of 'we are looking into your cashback issue.' MICRO-RULE 6 TONE-DEAF PENALTY: Reply opens with a scolding instruction ('Please don't provide...') — this is procedural, not empathetic. The customer feels lectured, not helped. This is PII scolding — it lacks assurance that their issue is being looked into. Score 1.",
+  "brand_fidelity": 2,
+  "groundedness": 4,
+  "actionability_safety": 1,
+  "overall_score": 1
+}}
 
 EXAMPLE E — MISSING HIGH-VALUE ITEM, DM ONLY → Score 3
 Customer: "My laptop was not delivered even though tracking says it was delivered."
 Reply: "We're sorry to hear this! Please send us a DM with your order details so we can investigate."
-Score: 3
-Reason: Takes action but asks for DM (TIER 2) when a direct link where the customer can submit order details immediately would be far more convenient. HIGH severity — a TIER 1 direct link was expected.
+{{
+  "reasoning": "SEVERITY: HIGH — missing laptop (high-value item), tracking mismatch. TIER ASSESSMENT: DM redirect is TIER 2. For HIGH severity with a clear, specific issue, a TIER 1 direct link was expected. The customer has to send a DM, wait for a reply, then provide details — extra friction. MICRO-RULE 6: Opening is appropriately empathetic ('We're sorry to hear this!'). No tone-deaf penalty. ACTION: Correct intent, wrong tier. CONCLUSION: Acceptable but below expectation for severity. Score 3.",
+  "brand_fidelity": 4,
+  "groundedness": 5,
+  "actionability_safety": 3,
+  "overall_score": 3
+}}
 
 EXAMPLE F — MISSING HIGH-VALUE ITEM, DIRECT LINK → Score 5
 Customer: "My laptop was not delivered even though tracking says it was delivered."
 Reply: "We're truly sorry about this. Please share your order details directly here: [link] and our team will investigate right away."
-Score: 5
-Reason: Acknowledges the problem, offers a direct link (TIER 1). No extra navigation required. Grounded, actionable, appropriate to severity.
+{{
+  "reasoning": "SEVERITY: HIGH — missing laptop. TIER ASSESSMENT: Direct link (TIER 1). Customer can submit order details immediately without a back-and-forth DM exchange. MICRO-RULE 6: 'We're truly sorry' is warm and empathetic — appropriate opener. Substance matches severity. CONCLUSION: Fully correct response. Score 5.",
+  "brand_fidelity": 5,
+  "groundedness": 5,
+  "actionability_safety": 5,
+  "overall_score": 5
+}}
 
 EXAMPLE G — RESOLVED SITUATION, WARM ACKNOWLEDGEMENT → Score 5
 Customer: "It's okay. I don't need a call. I made him deliver the order. But the behavior was extremely unprofessional."
 Reply: "I'm sorry to hear about the unprofessional behavior. I'll make sure to forward your feedback internally for review."
-Score: 5
-Reason: MICRO-RULE 3 — customer resolved the situation themselves. They are not asking for further help, just venting. A warm acknowledgement that takes note of the feedback is the COMPLETE and correct response. Do NOT penalise for lacking a link or action step.
+{{
+  "reasoning": "SEVERITY: LOW — situation self-resolved. MICRO-RULE 3: Customer is not asking for further help; they are venting and sharing feedback. The correct and complete response is a warm acknowledgment that takes their feedback on board. A link or action step is NOT needed and NOT missing. Reply correctly acknowledges the professionalism concern and commits to internal forwarding. CONCLUSION: Score 5. Do NOT penalise for lacking a link.",
+  "brand_fidelity": 5,
+  "groundedness": 5,
+  "actionability_safety": 5,
+  "overall_score": 5
+}}
 
 EXAMPLE H — DIRECT FACTUAL ANSWER → Score 5
 Customer: "I clicked next day delivery just after the cut-off time, is there any chance it comes today?"
 Reply: "Because the order was placed after the cut-off time, it will arrive on the estimated delivery date shown at checkout."
-Score: 5
-Reason: MICRO-RULE 4 — customer asked a specific factual question. Reply answers it directly, accurately, and on-brand. No further action needed. Do NOT penalise for lacking a link.
+{{
+  "reasoning": "SEVERITY: LOW — general enquiry, no frustration. MICRO-RULE 4: Customer asked a specific, answerable factual question. Reply answers it directly and accurately. No further action needed. A link would add noise, not value. CONCLUSION: Score 5. Do NOT penalise for lacking a link.",
+  "brand_fidelity": 5,
+  "groundedness": 5,
+  "actionability_safety": 5,
+  "overall_score": 5
+}}
 
 EXAMPLE I — UNEXPECTED DELIVERY, WARM HELPFUL REPLY → Score 5
 Customer: "We have something arriving tomorrow but we didn't order anything!! 😱"
 Reply: "Hi there! Surprises can be fun, but we understand the concern! You can check your recent orders or reach out to us here so we can take a closer look: [link]"
-Score: 5
-Reason: LOW/MEDIUM concern. Reply reassures, offers a link to investigate, and stays on-brand. Warm and actionable.
+{{
+  "reasoning": "SEVERITY: LOW/MEDIUM — unexpected delivery, mild concern. TIER: Direct link (TIER 1). MICRO-RULE 6: 'Surprises can be fun, but we understand the concern!' — warm, human, appropriate opener. Reply is reassuring, investigative, and actionable. CONCLUSION: Score 5.",
+  "brand_fidelity": 5,
+  "groundedness": 5,
+  "actionability_safety": 5,
+  "overall_score": 5
+}}
 
 EXAMPLE J — NON-ACTIONABLE MESSAGE, POLITE HOLDING REPLY → Score 4
 Customer: "@AmazonHelp [link only, no text]"
 Reply: "Could you please share more details about the issue you are experiencing through the link provided earlier so we can assist you further?"
-Score: 4
-Reason: MICRO-RULE 5 — message has no usable information. Asking politely for clarification while providing a contact link is a reasonable and helpful response.
+{{
+  "reasoning": "SEVERITY: UNKNOWN — no usable information. MICRO-RULE 5: Asking for clarification is the only correct response. Reply does this politely while providing a contact link. Scores 4 not 5 because clarification is a one-step-removed solution, but it is the BEST possible response given zero input. CONCLUSION: Score 4.",
+  "brand_fidelity": 4,
+  "groundedness": 5,
+  "actionability_safety": 4,
+  "overall_score": 4
+}}
 
 EXAMPLE K — AMBIGUOUS MESSAGE, DM REDIRECT → Score 3
 Customer: "@AmazonHelp [URL only, no text]"
 Reply: "Could you please share more details about the issue via DM so we can assist you further?"
-Score: 3
-Reason: No usable information. Asking for clarification is correct and should not be penalised. Scores 3 not 4 because a direct link is more convenient than a DM redirect for clarification.
+{{
+  "reasoning": "SEVERITY: UNKNOWN. MICRO-RULE 5: No usable information — asking for clarification is correct and should not be penalised. However, reply asks for a DM (TIER 2) when a direct link is more convenient. Compare to Example J (TIER 1 link) which scores 4. Scores 3 because DM adds friction vs a direct link. CONCLUSION: Score 3.",
+  "brand_fidelity": 4,
+  "groundedness": 5,
+  "actionability_safety": 3,
+  "overall_score": 3
+}}
 
 EXAMPLE L — PUBLIC PII, PROACTIVELY PROTECTED → Score 5
 Customer: "@AmazonHelp delivery attempt at 11:54 pm? Looks like courier fraud. Please check Tracking #913115081942"
 Reply: "That was unexpected. Please don't provide your tracking number here as it is personal information. Kindly share your details privately here: [link] and we'll look into this delivery attempt right away."
-Score: 5
-Reason: Customer shared a sensitive tracking number publicly. Reply (a) warns them, (b) provides a private link, (c) acknowledges the concern. This is MICRO-RULE 1 in action — a protective, high-convenience response.
+{{
+  "reasoning": "SEVERITY: HIGH — suspected courier fraud, late-night delivery. MICRO-RULE 1 (PII): Reply (a) warns the customer about the tracking number, (b) provides a private link, AND (c) crucially adds 'we'll look into this delivery attempt right away' — assuring the customer their issue IS being addressed. This is MICRO-RULE 1 done correctly. MICRO-RULE 6: 'That was unexpected' is warm, not robotic. CONCLUSION: Score 5.",
+  "brand_fidelity": 5,
+  "groundedness": 5,
+  "actionability_safety": 5,
+  "overall_score": 5
+}}
 
 EXAMPLE M — ROBOTIC BRUSH-OFF, IGNORES SPECIFICS → Score 2
 Customer: "I have ordered Maharaja Whiteline Juicer... and this is what comes out of box..... [picture of stone]"
 Reply: "We're so sorry to see this! We'd like to look into this for you. Please share your details here: [link] so we can help."
-Score: 2
-Reason: Customer stated a highly specific, severe issue (received a stone instead of product). Reply gives a fully generic response without naming what happened or asking for the Order ID specifically. Robotically dismissive.
+{{
+  "reasoning": "SEVERITY: HIGH — received a stone instead of a product, photo evidence mentioned. SPECIFICITY CHECK: Reply is completely generic — could apply to any complaint. It does not name what happened ('received wrong item'), does not reference the evidence ('video/photo'), does not ask for the Order ID specifically. MICRO-RULE 6: 'We're so sorry to see this!' is warm, but warmth alone cannot rescue the robotic substance. CONCLUSION: Robotically dismissive of a specific, severe situation. Score 2.",
+  "brand_fidelity": 3,
+  "groundedness": 3,
+  "actionability_safety": 2,
+  "overall_score": 2
+}}
 
 EXAMPLE N — CUSTOMER ASKS FOR PHONE NUMBER, GETS CALLBACK INSTEAD → Score 3
 Customer: "@AmazonHelp Can u atleast provide your customer care number so that I can contact them?"
 Reply: "We don't have a direct incoming phone number, but you can request a call back or chat directly with our Customer Support team here: [link]"
-Score: 3
-Reason: Customer asked for a phone number. Reply correctly explains there isn't one and offers an alternative (callback/chat). This is acceptable but not perfect — it doesn't fully resolve the frustration and is a one-step-removed solution.
-
+{{
+  "reasoning": "SEVERITY: MEDIUM — customer frustrated, wants phone contact. DIRECT ANSWER: Reply correctly explains there is no direct number and offers an alternative (callback/chat link). This is the best technically possible answer. However, it is one step removed from what the customer asked for. CONCLUSION: Acceptable, not perfect — customer needs one more step. Score 3.",
+  "brand_fidelity": 4,
+  "groundedness": 5,
+  "actionability_safety": 3,
+  "overall_score": 3
+}}
 
 EXAMPLE O — PII SCOLDING WITHOUT ASSURANCE → Score 2
 Customer: "@AmazonHelp Can u please check the order. Trackin no. Is119106082923..."
 Reply: "Please don't provide your tracking numbers or order details publicly, as our page is visible to everyone. We'd like to take a closer look at this for you. Please share your details securely here: [link]"
-Score: 2
-Reason: While the bot correctly identifies PII, it opens with a scolding tone ("Please don't provide...") instead of addressing the issue politely and assuring the customer first. It feels robotic and dismissive.
+{{
+  "reasoning": "SEVERITY: MEDIUM — order tracking issue. MICRO-RULE 1 (PII): Reply warns about PII and provides a private link. HOWEVER, MICRO-RULE 6 TONE-DEAF PENALTY APPLIES: The reply OPENS with a scolding instruction ('Please don't provide...') as the very first sentence. Even though 'We'd like to take a closer look' follows, the opening creates a reprimanded, not-helped feeling. Compare to Example L (score 5) where the issue acknowledgment is woven into the PII warning. CONCLUSION: Score 2.",
+  "brand_fidelity": 2,
+  "groundedness": 4,
+  "actionability_safety": 2,
+  "overall_score": 2
+}}
+
+EXAMPLE P — HIGH SEVERITY, DM REDIRECT vs DIRECT LINK (3 vs 4 boundary)
+Customer: "My laptop was not delivered. Tracking says it was delivered 3 days ago."
+Reply: "We're really sorry about this stressful situation. Please DM us your order details so our team can investigate urgently."
+{{
+  "reasoning": "SEVERITY: HIGH — missing laptop, 3 days elapsed. MICRO-RULE 6: 'Really sorry about this stressful situation' — empathetic opener, no tone-deaf penalty. TIER: DM redirect (TIER 2). For HIGH severity (high-value item, multi-day delay), TIER 1 direct link was expected. DM adds friction: customer must wait for agent reply before submitting details. Compared to Example F (score 5, same scenario with direct link), this scores lower due to the DM tier. CONCLUSION: Correct intent, suboptimal tier. Score 3.",
+  "brand_fidelity": 4,
+  "groundedness": 5,
+  "actionability_safety": 3,
+  "overall_score": 3
+}}
+
+EXAMPLE Q — VENTING CUSTOMER, WARM REPLY, NO LINK (4 vs 5 boundary)
+Customer: "Finally sorted out. After 6 calls it got resolved. Never shopping here again probably."
+Reply: "We're really sorry it took 6 calls to get this sorted — that's not the experience we want you to have. Your feedback has been noted, and we truly hope to serve you better in the future."
+{{
+  "reasoning": "SEVERITY: LOW — situation self-resolved. MICRO-RULE 3: Customer is not asking for help; they are venting and expressing disappointment. Warm acknowledgment is the correct and complete response. Reply explicitly acknowledges the 6-call effort ('that's not the experience we want you to have') which shows it is not generic. No link or action step is needed. MICRO-RULE 6: No tone-deaf opening. CONCLUSION: The specificity and warmth are excellent. Score 5. Do NOT penalise for lacking a link.",
+  "brand_fidelity": 5,
+  "groundedness": 5,
+  "actionability_safety": 5,
+  "overall_score": 5
+}}
+
+EXAMPLE R — EXHAUSTED CHANNEL: SECOND LINK NOT THE SAME SYSTEM (2 vs 3 boundary)
+Customer: "I've tried the app and the website CS chat already. Both say the same thing. Need human help."
+Reply: "We're sorry for the frustration. As an alternative, you can request a direct callback from our specialist team here: [callback-specific link] — a human agent will call you within 24 hours."
+{{
+  "reasoning": "SEVERITY: HIGH — customer explicitly exhausted app AND website chat. MICRO-RULE 2 ANALYSIS: The reply offers a 'callback from a specialist team' via a specific callback link — this is a NEW, CONCRETE escalation path not mentioned or tried before. It is not a generic CS link. MICRO-RULE 6: 'Sorry for the frustration' is an appropriate, warm opener. CONCLUSION: Reply breaks the loop by offering a genuinely new channel (phone callback vs digital chat). MICRO-RULE 2 hard cap does NOT apply here because a new channel IS offered. Score 3 — not a perfect 5 because 24-hour wait is a significant gap for a high-severity issue, and the reply doesn't urgently acknowledge that.",
+  "brand_fidelity": 4,
+  "groundedness": 5,
+  "actionability_safety": 3,
+  "overall_score": 3
+}}
 
 ═══════════════════════════════════════════════
 NOW EVALUATE
@@ -234,15 +354,18 @@ DRAFTED REPLY: "{drafted_reply}"
     # Fallback: groq/compound-mini if qwen hits issues
     client = Groq(api_key=os.getenv("GROQ_API_KEY"))
     groq_prompt = prompt + """
-Format your response as a valid JSON object with the following integer keys (1 to 5):
+Format your response as a valid JSON object. You MUST write the reasoning field FIRST,
+then the four integer scores. This forces you to think before scoring.
 {
+  "reasoning": "<your step-by-step analysis: severity, tier, rule checks, tone assessment, conclusion>",
   "brand_fidelity": <int 1-5>,
   "groundedness": <int 1-5>,
   "actionability_safety": <int 1-5>,
   "overall_score": <int 1-5>
 }
+The reasoning field is REQUIRED. Do not skip it.
 """
-    for model_name in ["qwen/qwen3.8-27b", "groq/compound-mini"]:
+    for model_name in ["qwen/qwen3.8-27b", "openai/gpt-oss-20b"]:
         try:
             response = client.chat.completions.create(
                 model=model_name,
@@ -256,8 +379,10 @@ Format your response as a valid JSON object with the following integer keys (1 t
             return JudgeScore.model_validate_json(response.choices[0].message.content)
         except Exception as e:
             if "RateLimit" in type(e).__name__ or "429" in str(e):
-                print(f"  [INFO] {model_name} rate limited, trying fallback...")
-                time.sleep(5)
+                # Let call_with_retry's outer backoff handle rate limits on primary model.
+                # Only fall through to the next model if it's still rate-limited.
+                print(f"  [INFO] {model_name} rate limited, waiting 30s then trying fallback...")
+                time.sleep(30)
                 continue
             raise e
     raise RuntimeError("All judge models failed.")
@@ -359,6 +484,7 @@ def main():
             "customer_text": cust_text,
             "drafted_reply": reply,
 
+            "llm_reasoning": judge_res.reasoning,
             "llm_fidelity": judge_res.brand_fidelity,
             "llm_groundedness": judge_res.groundedness,
             "llm_safety": judge_res.actionability_safety,
