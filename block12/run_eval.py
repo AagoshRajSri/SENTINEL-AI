@@ -24,6 +24,15 @@ def main():
     print(f" Target Dataset: {args.subset}")
     print("=" * 60)
 
+    # Automatic bootstrap if cache or index artifacts are missing on a fresh checkout
+    cache_index = os.path.join(os.path.dirname(__file__), "cache", "faiss_index_ip.bin")
+    cache_json = os.path.join(os.path.dirname(__file__), "cache", "classifier_cache_groq.json")
+    if not os.path.exists(cache_index) or not os.path.exists(cache_json):
+        print("[BOOTSTRAP] Offline artifacts not found. Running scripts/bootstrap.py...")
+        bootstrap_script = os.path.join(os.path.dirname(__file__), "scripts", "bootstrap.py")
+        if os.path.exists(bootstrap_script):
+            subprocess.run([sys.executable, bootstrap_script], check=True)
+
     try:
         # Execute the core evaluation suite built in Block 7
         import time

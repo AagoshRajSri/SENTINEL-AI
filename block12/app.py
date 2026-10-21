@@ -97,7 +97,15 @@ def _patched_create_app(blocks, **kwargs):
 
             h = hashlib.sha256(text.encode()).hexdigest()
             esc = _get_cache().get(h, {})
-            reply_res = draft_reply(text)
+
+            # Two-pass gating: High-risk escalated queries withhold automated reply
+            if escalation_decision.should_escalate:
+                draft_reply_text = "[ESCALATED TO HUMAN AGENT] Automated reply withheld for safety review. Case routed to Tier-2 support team."
+                policy_adherence_text = f"Safety Gate Triggered: {escalation_decision.reason}. High-risk cases require human specialist intervention."
+            else:
+                reply_res = draft_reply(text)
+                draft_reply_text = reply_res.draft_reply
+                policy_adherence_text = reply_res.policy_adherence_check
 
             return JSONResponse({
                 "intent":            intent_res.intent.value,
@@ -106,8 +114,8 @@ def _patched_create_app(blocks, **kwargs):
                 "escalation_score":  round(float(esc.get("escalation_score", 1.0)), 3) if "escalation_score" in esc else 1.0,
                 "should_escalate":   escalation_decision.should_escalate,
                 "escalation_reason": escalation_decision.reason,
-                "draft_reply":       reply_res.draft_reply,
-                "policy_adherence":  reply_res.policy_adherence_check,
+                "draft_reply":       draft_reply_text,
+                "policy_adherence":  policy_adherence_text,
             })
         except Exception as e:
             traceback.print_exc()
@@ -161,7 +169,14 @@ def _gradio_triage(text: str) -> dict:
     escalation_decision = gatekeeper(text, intent_res.intent.value, intent_res.confidence, intent_res.reasoning)
     h = hashlib.sha256(text.strip().encode()).hexdigest()
     esc = _get_cache().get(h, {})
-    reply_res = draft_reply(text)
+    # Two-pass gating: High-risk escalated queries withhold automated reply
+    if escalation_decision.should_escalate:
+        draft_reply_text = "[ESCALATED TO HUMAN AGENT] Automated reply withheld for safety review. Case routed to Tier-2 support team."
+        policy_adherence_text = f"Safety Gate Triggered: {escalation_decision.reason}. High-risk cases require human specialist intervention."
+    else:
+        reply_res = draft_reply(text)
+        draft_reply_text = reply_res.draft_reply
+        policy_adherence_text = reply_res.policy_adherence_check
 
     return {
         "intent":            intent_res.intent.value,
@@ -170,8 +185,8 @@ def _gradio_triage(text: str) -> dict:
         "escalation_score":  round(float(esc.get("escalation_score", 1.0)), 3) if "escalation_score" in esc else 1.0,
         "should_escalate":   escalation_decision.should_escalate,
         "escalation_reason": escalation_decision.reason,
-        "draft_reply":       reply_res.draft_reply,
-        "policy_adherence":  reply_res.policy_adherence_check,
+        "draft_reply":       draft_reply_text,
+        "policy_adherence":  policy_adherence_text,
     }
 
 

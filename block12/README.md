@@ -38,9 +38,9 @@ pinned: false
 
 ---
 
-## ⚡ Quickstart & Local Development
+## ⚡ Quickstart & Clean-Checkout Reproducibility
 
-The entire pipeline—both the interactive web interface and the offline evaluation harness—is designed for seamless local deployment. The FAISS index and deterministic cache are pre-populated, allowing for zero-shot reproducibility without burning API credits.
+The entire pipeline is designed for seamless, reproducible execution from a clean checkout. Source data (`data/clean_pairs.csv`) and deterministic evaluation fixtures (`eval/fixtures/`) are tracked in the repository. Running the bootstrap script builds the normalized FAISS `IndexFlatIP` index and restores response caches for deterministic offline evaluation without incurring external API charges.
 
 ```bash
 # 1. Clone repository
@@ -58,15 +58,25 @@ venv\Scripts\Activate.ps1
 # 3. Install pinned dependencies
 pip install -r requirements.txt
 
-# 4. Configure environment secrets
-cp .env.example .env
-# Edit .env and populate GROQ_API_KEY / GEMINI_API_KEY
+# 4. Bootstrap Offline Fixtures & FAISS IndexFlatIP (Clean Checkout)
+# Rebuilds the normalized IndexFlatIP vector index (15,000 vectors, d=384) from data/clean_pairs.csv
+python scripts/bootstrap.py
 
-# 5A. Launch the Interactive Web Interface (Localhost)
-python app.py
+# 5. Run Hermetic Unit & Regression Suite (27 tests, 100% offline)
+python -m unittest tests.test_sentinel
 
-# 5B. Run the Deterministic Evaluation Benchmark (Offline)
+# 6. Run Core Triage Threshold Sweep Benchmark (Offline)
 python run_eval.py
+
+# 7. Run Full End-to-End Pipeline Evaluation (All 250 Golden Cases)
+# Evaluates classification, calibrated escalation gate (threshold 0.40), FAISS retrieval, and reply drafting
+python eval/evaluate_end_to_end.py
+
+# 8. Run Controlled Grounding Audit (Baseline vs. RAG)
+python eval/grounding_eval.py
+
+# 9. Launch the Interactive Web Application (Localhost)
+python app.py
 ```
 
 ---

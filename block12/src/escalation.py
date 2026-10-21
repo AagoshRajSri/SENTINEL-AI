@@ -39,6 +39,9 @@ def _save_cache(cache):
 
 def rule_based_escalation(text: str, confidence: float) -> tuple[bool, str]:
     """Fast, free deterministic rules to catch obvious escalations."""
+    if not text or not isinstance(text, str) or not text.strip():
+        return False, "Passed rule-based checks."
+
     # 1. PII (Personally Identifiable Information) Regex Check
     if re.search(r'\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b', text):
         return True, "Escalated: Potential phone number detected in public tweet."
@@ -57,6 +60,8 @@ def rule_based_escalation(text: str, confidence: float) -> tuple[bool, str]:
 
 def gatekeeper(text: str, intent: str, intent_confidence: float, intent_reasoning: str) -> EscalationDecision:
     """Decides if a human must intervene, favoring recall over precision."""
+    if not text or not isinstance(text, str) or not text.strip():
+        return EscalationDecision(should_escalate=False, reason="Empty text input.")
     
     # Layer 1: Check free deterministic rules first (Safety backstop)
     rule_fails, rule_reason = rule_based_escalation(text, intent_confidence)
@@ -129,10 +134,13 @@ Output a JSON object with:
                     break
                 time.sleep(4 * (2 ** attempt))
 
+    # Explicit calibrated threshold: 0.40 is the recall-biased operating point (FNR < 35%).
+    # The legacy uncalibrated code defaulted to 0.70, which caused severe false negative rates (~47.6%).
+    DEFAULT_ESCALATION_THRESHOLD = 0.40
     try:
-        threshold = float(os.getenv("ESCALATION_THRESHOLD", "0.70"))
+        threshold = float(os.getenv("ESCALATION_THRESHOLD", str(DEFAULT_ESCALATION_THRESHOLD)))
     except ValueError:
-        threshold = 0.70
+        threshold = DEFAULT_ESCALATION_THRESHOLD
     
     should_escalate = res.escalation_score >= threshold
     

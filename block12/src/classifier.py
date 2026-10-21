@@ -146,15 +146,13 @@ def classify(text: str) -> ClassificationResult:
     """
     Classify a customer tweet into one of the seven intent
     categories.
-
-    The function uses:
-
-    1. Local disk caching
-    2. SHA-256 hashing
-    3. Gemini
-    4. Pydantic structured output validation
-    5. Retry logic with exponential backoff
     """
+    if not text or not isinstance(text, str) or not text.strip():
+        return ClassificationResult(
+            intent=IntentCategory.ORDER_ISSUES,
+            confidence=0.0,
+            reasoning="Empty or invalid input text."
+        )
 
     # --------------------------------------------------------
     # Load existing cache

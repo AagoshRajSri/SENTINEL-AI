@@ -105,7 +105,9 @@ def evaluate_system(dataset_path: str = None):
         
         tn, fp, fn, tp = confusion_matrix(y_true_esc, y_pred_esc, labels=[False, True]).ravel()
         fnr = fn / (fn + tp) if (fn + tp) > 0 else 0.0
+        recall_esc = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         prec_esc = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+        spec_esc = tn / (tn + fp) if (tn + fp) > 0 else 0.0
         
         sweep_results.append({
             'Threshold': th,
@@ -114,7 +116,9 @@ def evaluate_system(dataset_path: str = None):
             'FP': fp,
             'TN': tn,
             'FNR': round(fnr, 3),
+            'Recall': round(recall_esc, 3),
             'Precision': round(prec_esc, 3),
+            'Specificity': round(spec_esc, 3),
             'Macro-F1': round(f1, 3),
             'Latency': round(avg_latency, 3)
         })

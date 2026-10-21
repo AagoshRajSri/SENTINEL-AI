@@ -6,3 +6,4 @@ __pycache__/
 data/*.csv
 !data/clean_pairs.csv
 cache/
+scratch/

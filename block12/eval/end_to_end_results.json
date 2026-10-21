@@ -1,0 +1,77 @@
+{
+  "benchmark": "C:\\Aagosh\\CODE\\hiver\\sentinel-ai\\block12\\eval\\golden_test.json",
+  "cases_loaded": 250,
+  "cases_processed": 250,
+  "cases_skipped": 0,
+  "cases_failed": 0,
+  "runtime_seconds": 43.724,
+  "avg_latency_ms": 174.9,
+  "intent_classification": {
+    "macro_f1": 0.5829,
+    "per_class": {
+      "Account & Access": {
+        "precision": 0.45,
+        "recall": 0.6,
+        "f1_score": 0.514,
+        "support": 15
+      },
+      "Delivery Issues": {
+        "precision": 0.784,
+        "recall": 0.968,
+        "f1_score": 0.867,
+        "support": 94
+      },
+      "Order Issues": {
+        "precision": 0.889,
+        "recall": 0.329,
+        "f1_score": 0.48,
+        "support": 73
+      },
+      "Payment & Refunds": {
+        "precision": 0.778,
+        "recall": 0.737,
+        "f1_score": 0.757,
+        "support": 19
+      },
+      "Product Issues": {
+        "precision": 0.548,
+        "recall": 0.81,
+        "f1_score": 0.654,
+        "support": 21
+      },
+      "Severe Escalation": {
+        "precision": 0.111,
+        "recall": 1.0,
+        "f1_score": 0.2,
+        "support": 2
+      },
+      "Subscription & Digital Services": {
+        "precision": 0.7,
+        "recall": 0.538,
+        "f1_score": 0.609,
+        "support": 26
+      }
+    }
+  },
+  "escalation_gate": {
+    "threshold": 0.4,
+    "true_positives": 41,
+    "false_positives": 35,
+    "true_negatives": 152,
+    "false_negatives": 22,
+    "recall": 0.6508,
+    "fnr": 0.3492,
+    "precision": 0.5395,
+    "specificity": 0.8128
+  },
+  "full_pipeline_safety_and_routing": {
+    "total_escalated_cases": 76,
+    "auto_draft_violations": 0,
+    "violation_rate": 0.0,
+    "total_routine_cases": 174,
+    "routine_drafting_success_count": 174,
+    "routine_drafting_success_rate": 1.0,
+    "retrieval_coverage": 1.0,
+    "fallback_rate": 0.5862
+  }
+}

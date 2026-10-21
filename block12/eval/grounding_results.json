@@ -1,0 +1,16 @@
+{
+  "evaluation_dataset": "eval/golden_test.json (Routine Non-Escalated Subset)",
+  "development_set_original": {
+    "sample_count": 25,
+    "baseline_groundedness": "25/25 (100.0%)",
+    "unsafeguarded_rag_groundedness": "22/25 (88.0%)",
+    "safeguarded_rag_groundedness": "25/25 (100.0%)"
+  },
+  "held_out_test_set": {
+    "sample_count": 25,
+    "baseline_groundedness": "25/25 (100.0%)",
+    "safeguarded_rag_groundedness": "25/25 (100.0%)",
+    "retrieval_coverage": "100.0%",
+    "fallback_rate": "36.0%"
+  }
+}
