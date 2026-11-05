@@ -154,10 +154,11 @@ class TestPipelineRegression(unittest.TestCase):
     # ---------------------------------------------------------
     # 6. Invalid Model Output Handling
     # ---------------------------------------------------------
+    @patch("src.classifier.time.sleep", return_value=None)
     @patch("src.classifier.requests.post")
     @patch("src.classifier._get_cache", return_value={})
     @patch.dict(os.environ, {"GROQ_API_KEY": "dummy_key", "SENTINEL_OFFLINE_EVAL": "0"})
-    def test_classifier_invalid_json_fallback(self, mock_cache, mock_post):
+    def test_classifier_invalid_json_fallback(self, mock_cache, mock_post, mock_sleep):
         # Mock API returning malformed response
         mock_resp = MagicMock()
         mock_resp.json.return_value = {"choices": [{"message": {"content": "INVALID NOT JSON"}}]}

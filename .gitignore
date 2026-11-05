@@ -37,7 +37,11 @@ Thumbs.db
 *.swp
 *.swo
 
-# Temporary & scratch files
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+*.cover
 temp.txt
 *.tmp
 *.bak

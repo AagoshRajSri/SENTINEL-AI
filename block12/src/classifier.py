@@ -393,7 +393,7 @@ Respond with a JSON object containing exactly three fields:
 #
 # It does NOT run if another Python file imports classify().
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
 
     # Three simple test cases covering different categories.
 

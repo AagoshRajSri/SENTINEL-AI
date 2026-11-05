@@ -9,7 +9,7 @@
 #   - @spaces.GPU is applied to the actual triage function so ZeroGPU
 #     detects and registers it at startup time.
 
-import os, sys, csv, hashlib, traceback, mimetypes
+import os, sys, csv, hashlib, traceback, mimetypes, time, asyncio
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -22,7 +22,7 @@ sys.path.insert(0, ROOT)
 DIST = os.path.join(ROOT, "frontend", "dist")
 
 # ──────────────────────────────────────────────────────────────
-# 1.  Imports
+# 1.  Imports & Prometheus Observability Metrics
 # ──────────────────────────────────────────────────────────────
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
@@ -30,6 +30,90 @@ from starlette.responses import Response, HTMLResponse
 from fastapi.responses import JSONResponse
 import gradio as gr
 import spaces
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+
+FAISS_LOOKUP_LATENCY = Histogram(
+    "faiss_lookup_latency_ms",
+    "FAISS vector search latency in milliseconds",
+    buckets=[0.1, 0.5, 1.0, 2.5, 5.0, 10.0, 25.0, 50.0, 100.0]
+)
+
+LLM_INFERENCE_LATENCY = Histogram(
+    "llm_inference_latency_ms",
+    "Groq LLM inference latency in milliseconds",
+    buckets=[100, 250, 500, 1000, 2000, 3500, 5000, 8000, 12000]
+)
+
+ESCALATION_GATE_TRIPPED = Counter(
+    "escalation_gate_tripped_total",
+    "Total queries tripped by the escalation safety gate",
+    ["gate_layer"]
+)
+
+TOTAL_TRIAGE_LATENCY = Histogram(
+    "triage_request_latency_ms",
+    "Total end-to-end triage latency in milliseconds",
+    buckets=[10, 50, 100, 250, 500, 1000, 2500, 5000, 10000]
+)
+
+def _process_triage_sync(text: str) -> dict:
+    t0 = time.perf_counter()
+    from src.classifier import classify
+    from src.escalation import gatekeeper, _get_cache, rule_based_escalation
+    from src.reply_drafter import draft_reply
+    from src.retriever import retrieve
+
+    # Measure FAISS lookup latency
+    t_faiss_start = time.perf_counter()
+    _ = retrieve(text, k=3)
+    t_faiss_end = time.perf_counter()
+    faiss_ms = (t_faiss_end - t_faiss_start) * 1000.0
+    FAISS_LOOKUP_LATENCY.observe(faiss_ms)
+
+    # Deterministic rule gate check
+    rule_esc, rule_reason = rule_based_escalation(text, 1.0)
+    if rule_esc:
+        ESCALATION_GATE_TRIPPED.labels(gate_layer="rule_based").inc()
+
+    # Classification & LLM reasoning
+    t_llm_start = time.perf_counter()
+    intent_res = classify(text)
+    escalation_decision = gatekeeper(text, intent_res.intent.value, intent_res.confidence, intent_res.reasoning)
+    t_llm_end = time.perf_counter()
+    llm_ms = (t_llm_end - t_llm_start) * 1000.0
+    LLM_INFERENCE_LATENCY.observe(llm_ms)
+
+    h = hashlib.sha256(text.encode()).hexdigest()
+    esc = _get_cache().get(h, {})
+
+    if escalation_decision.should_escalate:
+        if not rule_esc:
+            ESCALATION_GATE_TRIPPED.labels(gate_layer="llm_gatekeeper").inc()
+        draft_reply_text = "[ESCALATED TO HUMAN AGENT] Automated reply withheld for safety review. Case routed to Tier-2 support team."
+        policy_adherence_text = f"Safety Gate Triggered: {escalation_decision.reason}. High-risk cases require human specialist intervention."
+    else:
+        reply_res = draft_reply(text)
+        draft_reply_text = reply_res.draft_reply
+        policy_adherence_text = reply_res.policy_adherence_check
+
+    t_total_ms = (time.perf_counter() - t0) * 1000.0
+    TOTAL_TRIAGE_LATENCY.observe(t_total_ms)
+
+    return {
+        "intent":            intent_res.intent.value,
+        "confidence":        round(intent_res.confidence, 3),
+        "reasoning":         intent_res.reasoning,
+        "escalation_score":  round(float(esc.get("escalation_score", 1.0)), 3) if "escalation_score" in esc else 1.0,
+        "should_escalate":   escalation_decision.should_escalate,
+        "escalation_reason": escalation_decision.reason,
+        "draft_reply":       draft_reply_text,
+        "policy_adherence":  policy_adherence_text,
+        "latency_breakdown": {
+            "faiss_lookup_ms": round(faiss_ms, 2),
+            "llm_inference_ms": round(llm_ms, 2),
+            "total_ms": round(t_total_ms, 2)
+        }
+    }
 
 # ──────────────────────────────────────────────────────────────
 # 2.  React middleware  (intercepts / and /assets/* before Gradio routing)
@@ -83,8 +167,9 @@ def _patched_create_app(blocks, **kwargs):
     # ── React middleware (runs before every route lookup) ──
     app.add_middleware(ReactMiddleware)
 
-    # ── API: POST /api/triage ──────────────────────────────
+    # ── API: POST /api/triage and /classify (Asynchronous execution) ──
     @app.post("/api/triage")
+    @app.post("/classify")
     async def _api_triage(request: Request):
         try:
             body = await request.json()
@@ -92,38 +177,17 @@ def _patched_create_app(blocks, **kwargs):
             if not text:
                 return JSONResponse({"error": "text is required"}, status_code=400)
 
-            from src.classifier import classify
-            from src.escalation import gatekeeper, _get_cache
-            from src.reply_drafter import draft_reply
-
-            intent_res = classify(text)
-            escalation_decision = gatekeeper(text, intent_res.intent.value, intent_res.confidence, intent_res.reasoning)
-
-            h = hashlib.sha256(text.encode()).hexdigest()
-            esc = _get_cache().get(h, {})
-
-            # Two-pass gating: High-risk escalated queries withhold automated reply
-            if escalation_decision.should_escalate:
-                draft_reply_text = "[ESCALATED TO HUMAN AGENT] Automated reply withheld for safety review. Case routed to Tier-2 support team."
-                policy_adherence_text = f"Safety Gate Triggered: {escalation_decision.reason}. High-risk cases require human specialist intervention."
-            else:
-                reply_res = draft_reply(text)
-                draft_reply_text = reply_res.draft_reply
-                policy_adherence_text = reply_res.policy_adherence_check
-
-            return JSONResponse({
-                "intent":            intent_res.intent.value,
-                "confidence":        round(intent_res.confidence, 3),
-                "reasoning":         intent_res.reasoning,
-                "escalation_score":  round(float(esc.get("escalation_score", 1.0)), 3) if "escalation_score" in esc else 1.0,
-                "should_escalate":   escalation_decision.should_escalate,
-                "escalation_reason": escalation_decision.reason,
-                "draft_reply":       draft_reply_text,
-                "policy_adherence":  policy_adherence_text,
-            })
+            # Asynchronous offload to threadpool to allow concurrent FAISS + LLM execution
+            result = await asyncio.to_thread(_process_triage_sync, text)
+            return JSONResponse(result)
         except Exception as e:
             traceback.print_exc()
             return JSONResponse({"error": str(e)}, status_code=500)
+
+    # ── Prometheus Observability: GET /metrics ─────────────
+    @app.get("/metrics")
+    async def _metrics():
+        return Response(content=generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
     # ── API: GET /api/stats ────────────────────────────────
     @app.get("/api/stats")
@@ -222,4 +286,5 @@ with gr.Blocks(title="Sentinel-AI") as demo:
 # ──────────────────────────────────────────────────────────────
 # 6.  Launch  (ssr_mode=False avoids the Node.js error in Gradio 5)
 # ──────────────────────────────────────────────────────────────
-demo.launch(server_port=7860, ssr_mode=False)
+server_port = int(os.getenv("PORT", "7860"))
+demo.launch(server_port=server_port, ssr_mode=False)

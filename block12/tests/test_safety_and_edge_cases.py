@@ -17,10 +17,23 @@ _ROOT = os.path.dirname(_HERE)
 if _ROOT not in sys.path:
     sys.path.insert(0, _ROOT)
 
-from src.classifier import classify
-from src.escalation import evaluate_risk, rule_based_escalation
+from src.classifier import (
+    ClassificationResult,
+    IntentCategory,
+    _get_cache as class_get_cache,
+    _save_cache as class_save_cache,
+    classify,
+)
+from src.escalation import (
+    _get_cache as esc_get_cache,
+    _save_cache as esc_save_cache,
+    evaluate_risk,
+    gatekeeper,
+    rule_based_escalation,
+)
 from src.pipeline import run_full_pipeline
 from src.reply_drafter import apply_grounding_safeguards
+from unittest.mock import MagicMock, patch
 
 
 class TestSafetyAndEdgeCases:
@@ -94,4 +107,132 @@ class TestSafetyAndEdgeCases:
             should_esc, reason = rule_based_escalation(text, 0.90)
             assert should_esc is True, f"Keyword '{kw}' failed rule-based escalation!"
             assert kw in reason.lower()
+
+    # -------------------------------------------------------------
+    # 4. Strict Code Receipts & Branch Execution Tests
+    # -------------------------------------------------------------
+    @patch("src.classifier.requests.post")
+    @patch("src.classifier._save_cache")
+    @patch("src.classifier._get_cache")
+    def test_classifier_uncached_api_success(self, mock_get_cache, mock_save_cache, mock_post):
+        mock_get_cache.return_value = {}
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {
+            "choices": [{
+                "message": {
+                    "content": '{"intent": "Product Issues", "confidence": 0.88, "reasoning": "Uncached success test"}'
+                }
+            }]
+        }
+        mock_resp.raise_for_status = MagicMock()
+        mock_post.return_value = mock_resp
+
+        res = classify("My mixer stopped turning yesterday")
+        assert res.intent == IntentCategory.PRODUCT_ISSUES
+        assert res.confidence == 0.88
+        assert mock_save_cache.called
+
+    @patch("src.escalation.requests.post")
+    @patch("src.escalation._save_cache")
+    @patch("src.escalation._get_cache")
+    def test_gatekeeper_uncached_api_success(self, mock_get_cache, mock_save_cache, mock_post):
+        mock_get_cache.return_value = {}
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {
+            "choices": [{
+                "message": {
+                    "content": '{"escalation_score": 0.85, "reasoning": "Critical unhandled issue"}'
+                }
+            }]
+        }
+        mock_resp.raise_for_status = MagicMock()
+        mock_post.return_value = mock_resp
+
+        dec = gatekeeper("Uncached high risk escalation message", "Order Issues", 0.9, "Damaged item")
+        assert dec.should_escalate is True
+        assert "Critical" in dec.reason
+        assert mock_save_cache.called
+
+    @patch("src.escalation.time.sleep", return_value=None)
+    @patch("src.escalation.requests.post")
+    @patch("src.escalation._get_cache")
+    def test_gatekeeper_api_failure_fallback(self, mock_get_cache, mock_post, mock_sleep):
+        mock_get_cache.return_value = {}
+        mock_post.side_effect = RuntimeError("Groq rate limit exceeded")
+
+        dec = gatekeeper("Any message when API fails", "Order Issues", 0.9, "Damaged item")
+        assert dec.should_escalate is True
+        assert "API Error" in dec.reason
+
+    @patch("src.escalation._get_cache")
+    def test_gatekeeper_invalid_threshold_env_fallback(self, mock_get_cache):
+        mock_get_cache.return_value = {
+            "dummy_hash": {"escalation_score": 0.50, "reasoning": "Score above 0.40"}
+        }
+        with patch("hashlib.sha256") as mock_hash:
+            mock_hash.return_value.hexdigest.return_value = "dummy_hash"
+            with patch.dict(os.environ, {"ESCALATION_THRESHOLD": "not_a_valid_float"}):
+                dec = gatekeeper("Test message", "Order Issues", 0.9, "Reason")
+                assert dec.should_escalate is True
+
+    @patch("src.classifier.classify")
+    @patch("src.escalation._get_cache")
+    def test_evaluate_risk_with_string_target(self, mock_cache, mock_classify):
+        mock_classify.return_value = ClassificationResult(
+            intent=IntentCategory.DELIVERY_ISSUES,
+            confidence=0.92,
+            reasoning="Late arrival"
+        )
+        mock_cache.return_value = {
+            "hash_123": {"escalation_score": 0.20, "reasoning": "Minor delay"}
+        }
+        with patch("hashlib.sha256") as mock_hash:
+            mock_hash.return_value.hexdigest.return_value = "hash_123"
+            score, should_esc = evaluate_risk("Where is my package?", threshold=0.40)
+            assert should_esc is False
+            assert score == 0.20
+
+    def test_rule_based_credit_card_escalation(self):
+        should_esc, reason = rule_based_escalation("My card number is 4111-2222-3333-4444 please refund", 0.90)
+        assert should_esc is True
+        assert "credit/debit card" in reason.lower()
+
+    @patch("src.escalation._get_cache", return_value={})
+    def test_gatekeeper_missing_credentials_raises_value_error(self, mock_cache):
+        with patch.dict(os.environ, {"GROQ_API_KEY": "", "SENTINEL_OFFLINE_EVAL": "0"}):
+            with pytest.raises(ValueError) as excinfo:
+                gatekeeper("Uncached query", "Order Issues", 0.9, "Damaged item")
+            assert "CRITICAL: GROQ_API_KEY environment variable is missing" in str(excinfo.value)
+
+    @patch("src.escalation._get_cache", return_value={})
+    def test_gatekeeper_offline_eval_cache_miss_exits(self, mock_cache):
+        with patch.dict(os.environ, {"SENTINEL_OFFLINE_EVAL": "1"}):
+            with pytest.raises(SystemExit):
+                gatekeeper("Uncached query", "Order Issues", 0.9, "Damaged item")
+
+    def test_evaluate_risk_severe_intent_immediate(self):
+        severe_res = ClassificationResult(
+            intent=IntentCategory.SEVERE_ESCALATION,
+            confidence=0.99,
+            reasoning="Severe distress"
+        )
+        score, should_esc = evaluate_risk(severe_res)
+        assert should_esc is True
+        assert score == 1.0
+
+    def test_cache_helpers_and_empty_rule_checks(self):
+        should_esc, reason = rule_based_escalation("", 0.9)
+        assert should_esc is False
+
+        # Verify cache serialization works cleanly
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_cache_file = os.path.join(tmp_dir, "cache.json")
+            with patch("src.classifier.CACHE_FILE", tmp_cache_file):
+                class_save_cache({"test_key": {"intent": "Feedback"}})
+                assert os.path.exists(tmp_cache_file)
+            with patch("src.escalation.CACHE_FILE", tmp_cache_file):
+                esc_save_cache({"test_key": {"escalation_score": 0.9}})
+                assert os.path.exists(tmp_cache_file)
+
 

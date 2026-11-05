@@ -12,5 +12,6 @@ gradio
 spaces
 scikit-learn
 groq
+prometheus-client
 torch<=2.13.0
 huggingface_hub<1.0.0

@@ -24,20 +24,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r block12/requirements.txt
-          pip install pytest
+          pip install pytest pytest-cov
 
       - name: Bootstrap Offline Fixtures & FAISS Index
         run: |
           cd block12
           python scripts/bootstrap.py
 
-      - name: Run Hermetic Regression & Unit Tests
+      - name: Verify Automated Threshold Calibration (FNR <= 35%)
         run: |
           cd block12
-          python -m unittest tests.test_sentinel
+          python scripts/calibrate_threshold.py 0.35
 
-      - name: Run Safety & Failure Mode Edge-Case Tests (Pytest)
+      - name: Run Hermetic Regression & Safety Test Suite with Coverage
         run: |
           cd block12
-          python -m pytest tests/test_safety_and_edge_cases.py -v
+          python -m pytest tests/ --cov=src --cov-report=term-missing
 

@@ -200,7 +200,7 @@ def evaluate_risk(target, threshold: float = 0.40) -> tuple[float, bool]:
     return score, decision.should_escalate
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     # Test queries
     test_cases = [
         ("Where is my package?", 0.95),
