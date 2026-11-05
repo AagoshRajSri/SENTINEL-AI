@@ -1,0 +1,829 @@
+{
+  "benchmark": "RAG Triad Generative Quality Evaluation",
+  "dataset": "eval/golden_test.json (Non-Escalated Stratum)",
+  "sample_size": 40,
+  "judge_model": "openai/gpt-oss-120b",
+  "metrics": {
+    "faithfulness_count": 8,
+    "faithfulness_percentage": "20.0%",
+    "faithfulness_ratio": 0.2,
+    "relevance_count": 37,
+    "relevance_percentage": "92.5%",
+    "relevance_ratio": 0.925,
+    "hallucination_rate": "80.0%",
+    "irrelevance_rate": "7.5%"
+  },
+  "failure_mode_analysis": {
+    "unfaithful_failures": [
+      {
+        "index": 2,
+        "tweet_id": 1887464,
+        "query": "@AmazonHelp Tomorrow but i clicked next day delivery not long after the cut off time so i was wondering if there would be a chance that it would come today.",
+        "draft": "Hi there! I see you selected next\u2011day delivery after the cut\u2011off time, so delivery timing will depend on the estimated date shown in your order confirmation.. same-day or expedited delivery depends on the cutoff times displayed at checkout.. If you\u2019d like us to double\u2011check the status of your order, please share your order details here: https://www.amazon.com/contact-us Thanks for reaching out! ^AM",
+        "reasoning": "The draft adds details about estimated dates and cutoff policies that are not present in the retrieved context, making it unfaithful, but it does address the user's question about delivery timing."
+      },
+      {
+        "index": 3,
+        "tweet_id": 1209818,
+        "query": "@117804, melhor not\u00edcia do dia, meu Kindle ta a caminho! https://t.co/CTKZKQfrdj",
+        "draft": "Ol\u00e1! Que \u00f3tima not\u00edcia saber que seu Kindle est\u00e1 a caminho \ud83d\ude9a\ud83d\udcda. Se precisar de ajuda com a configura\u00e7\u00e3o, rastreamento ou tiver qualquer d\u00favida, estamos aqui para ajudar. Aproveite a leitura!",
+        "reasoning": "The draft adds information about configuration, tracking, and assistance that is not present in the retrieved context, violating faithfulness. However, it responds to the user's statement about the Kindle arriving, making it relevant to the user's message."
+      },
+      {
+        "index": 4,
+        "tweet_id": 1424680,
+        "query": "@AmazonHelp Es que no suelo ver TV... \ud83d\ude2c\ud83d\ude05",
+        "draft": "Hola, gracias por contactarnos. Entendemos que no sueles ver TV y queremos asegurarnos de que todo est\u00e9 funcionando como esperas. Si tienes alguna duda o inconveniente con tu servicio, tu dispositivo o la configuraci\u00f3n, por favor cu\u00e9ntanos un poco m\u00e1s para poder asistirte mejor. Puedes compartir los detalles de forma segura aqu\u00ed: https://www.amazon.com/contact-us Estamos aqu\u00ed para ayudarte.",
+        "reasoning": "The draft introduces details about TV service and device issues that are not present in the retrieved context, violating faithfulness. It does attempt to address the user's comment about not watching TV, so it is relevant."
+      },
+      {
+        "index": 6,
+        "tweet_id": 848197,
+        "query": "@AmazonHelp Sorted. Thanks!",
+        "draft": "Glad to hear it\u2019s sorted! If you have any other questions, just let us know. ^AmazonHelp",
+        "reasoning": "The draft adds new phrasing ('Glad to hear it\u2019s sorted!') not present in the retrieved context, violating faithfulness, but it appropriately acknowledges the user's thanks and offers further help, making it relevant."
+      },
+      {
+        "index": 7,
+        "tweet_id": 2774113,
+        "query": "@AmazonHelp  https://t.co/dImDiRcQeA",
+        "draft": "Hi there, thanks for reaching out! To protect your privacy, please don\u2019t share order or tracking details publicly. Could you share the relevant information securely here: https://www.amazon.com/contact-us We'll look into it right away and get back to you as soon as possible.",
+        "reasoning": "The draft adds a privacy warning not present in the retrieved context, which makes it unfaithful. However, it directs the user to the contact-us link as suggested in the context, addressing the user's request, so it is relevant."
+      },
+      {
+        "index": 9,
+        "tweet_id": 2531285,
+        "query": "@AmazonHelp why do you guys still use @3375 theyre just terrible they never deliver packages and theyre a rip off please get rid of them",
+        "draft": "Hi there, I\u2019m sorry to hear about the delivery issues you\u2019ve experienced with @3375 \u2013 that sounds frustrating. We work with a range of carriers to get packages to you, and we take feedback like yours seriously. To look into the specific orders affected, could you please share your order number and any relevant details here: https://www.amazon.com/contact-us Our team will review the information and review your inquiry.",
+        "reasoning": "The draft adds statements not present in the retrieved context, such as \"We work with a range of carriers\" and \"we take feedback like yours seriously,\" which are not supported by the provided excerpts. However, it does address the user's complaint about delivery issues and asks for order details, aligning with the user's core concern."
+      },
+      {
+        "index": 10,
+        "tweet_id": 2569666,
+        "query": "@AmazonHelp Y de ser posible se cancele",
+        "draft": "Hola, entendemos que deseas cancelar tu pedido. Para poder ayudarte de forma segura, por favor comparte el n\u00famero de pedido y cualquier detalle adicional aqu\u00ed: https://www.amazon.com/contact-us Nuestro equipo revisar\u00e1 la situaci\u00f3n y te contactar\u00e1 lo antes posible. Si el pedido ya ha sido enviado, podr\u00edamos iniciar el proceso de devoluci\u00f3n. Gracias por tu paciencia.",
+        "reasoning": "The draft adds statements about reviewing the situation, contacting the user, and initiating a return if shipped, which are not present in the retrieved context, violating faithfulness. However, it addresses the user's request to cancel the order, so it is relevant."
+      },
+      {
+        "index": 11,
+        "tweet_id": 742436,
+        "query": "@AmazonHelp merci beaucoup. Vous \u00eates le meilleur site d'e-commerce, et de loin.",
+        "draft": "Merci beaucoup pour votre gentil message\u202f! Nous sommes ravis de vous offrir la meilleure exp\u00e9rience d'achat. N'h\u00e9sitez pas \u00e0 nous contacter si vous avez la moindre question ou besoin d'aide. \u00c0 bient\u00f4t\u202f!",
+        "reasoning": "The draft adds a statement about offering the best shopping experience, which is not present in the retrieved context, violating faithfulness. It does address the user's thank\u2011you, so it is relevant."
+      },
+      {
+        "index": 12,
+        "tweet_id": 2917262,
+        "query": "Eita, @117086 fazendo entrega a jato, s\u00f3 pode! Compras da Black Friday j\u00e1 chegaram!\nS\u00f3 coisa boa q peguei esse ano. https://t.co/8BUuDwHYnS",
+        "draft": "Ol\u00e1! Que \u00f3timo saber que sua entrega chegou rapidinho e que voc\u00ea est\u00e1 feliz com as compras da Black Friday! \ud83d\ude0d\ud83d\udce6 Conte pra gente, quais produtos voc\u00ea recebeu? Estamos curiosos! Se precisar de qualquer coisa, \u00e9 s\u00f3 nos chamar aqui. Obrigado por compartilhar!",
+        "reasoning": "The draft adds details (delivery speed, Black Friday happiness) not present in the retrieved context, violating faithfulness. However, it addresses the user's excitement and asks about the received products, which is relevant to the user's core issue."
+      },
+      {
+        "index": 13,
+        "tweet_id": 1666049,
+        "query": "@AmazonHelp It's okay. I don't need a call. I made him deliver the order. But the behavior was extremely unprofessional.",
+        "draft": "Hi there, we\u2019re sorry to hear about the unprofessional behavior you experienced during delivery. Thank you for letting us know, and we understand you don\u2019t need a call. If you\u2019d like us to look into this further, please share any order details securely here: https://www.amazon.com/contact-us We\u2019ll investigate and get back to you as soon as possible. Thank you for your patience.",
+        "reasoning": "The draft adds promises like investigating and responding, which are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about unprofessional delivery behavior, so it is relevant."
+      },
+      {
+        "index": 14,
+        "tweet_id": 2929489,
+        "query": "@115821 @AmazonHelp my package never came. I'm on Amazon prime too.. Smh",
+        "draft": "Hi there! I'm really sorry to hear your package didn't arrive, especially as a Prime member. Could you please share your order number and any tracking info you have so we can look into this for you? You can securely provide those details here: https://www.amazon.com/contact-us Thanks for your patience\u2014we\u2019ll work to get this sorted out as quickly as possible.",
+        "reasoning": "The draft adds a promise ('we\u2019ll work to get this sorted out as quickly as possible') that is not present in the retrieved context, violating faithfulness. However, it directly addresses the user's missing package issue, making it relevant."
+      },
+      {
+        "index": 15,
+        "tweet_id": 1271885,
+        "query": "@AmazonHelp @115850 my order id is 403-4483179-3669121, I haven\u2019t yet got my amazon pay balance cashback",
+        "draft": "Hi there, thanks for reaching out and letting us know about the missing Amazon Pay balance cashback. I see you\u2019ve posted your order ID publicly \u2013 for your security, please don\u2019t share order details in a public forum. Could you share the order ID and any related information through our secure channel so we can investigate further? You can do that here: https://www.amazon.com/contact-us Once we have the details, we\u2019ll look into the status of your cashback and get back to you as soon as possible. Thank you for your patience!",
+        "reasoning": "The draft adds information not present in the retrieved context, such as a specific contact URL and a promise to investigate the cashback, which are facts/promises not explicitly provided. However, it does address the user's issue about missing Amazon Pay cashback and follows the policy about not sharing order details, so it is relevant."
+      },
+      {
+        "index": 18,
+        "tweet_id": 294768,
+        "query": "@AmazonHelp o\u00f9 est mon colis svp ?\n171-9260850-5134725",
+        "draft": "Bonjour, nous comprenons que vous souhaitez conna\u00eetre le statut de votre colis. Merci de ne pas partager votre num\u00e9ro de commande publiquement pour prot\u00e9ger vos informations. Veuillez nous communiquer vos d\u00e9tails en toute confidentialit\u00e9 via le lien s\u00e9curis\u00e9 suivant : https://www.amazon.com/contact-us Nous v\u00e9rifierons l\u2019\u00e9tat de votre livraison et reviendrons vers vous rapidement.",
+        "reasoning": "The draft adds statements (e.g., advising not to share the order number publicly and promising to check the delivery status) that are not present in the retrieved context, violating faithfulness. However, it directs the user to contact Amazon via the provided link, which aligns with the context and addresses the user's request, so it is relevant."
+      },
+      {
+        "index": 19,
+        "tweet_id": 382644,
+        "query": "@AmazonHelp Can u please check the order. Trackin no. Is119106082923 and 5180752616480.",
+        "draft": "Hi there, we\u2019re sorry you\u2019re having trouble with your order. Thanks for sharing the tracking numbers, but for your privacy we can\u2019t discuss them publicly. Please share your order details securely so we can investigate further: https://www.amazon.com/contact-us We\u2019ll look into it as soon as possible.",
+        "reasoning": "The draft adds privacy policy statements and a promise to look into the issue, which are not present in the retrieved context, violating faithfulness. However, it directs the user to share order details for investigation, addressing the request to check the order, so it remains relevant."
+      },
+      {
+        "index": 20,
+        "tweet_id": 1056777,
+        "query": "@115850 no response yet",
+        "draft": "Hi @115850, I\u2019m sorry you haven\u2019t received a response yet. We\u2019re here to help. Could you please share your order number or any relevant details through our secure support form? Please do not post personal information publicly. You can reach out to us here: https://www.amazon.com/contact-us Thank you for your patience!",
+        "reasoning": "The draft adds details not present in the retrieved context, such as mentioning a 'secure support form' and advising not to post personal information, which are not in the source material. However, it addresses the user's concern about not receiving a response by offering help and providing the contact link, so it is relevant."
+      },
+      {
+        "index": 21,
+        "tweet_id": 2126209,
+        "query": "@AmazonHelp Still no change to my delivery and the game comes out tomorrow? Help? \ud83d\ude30 https://t.co/nTXP7gMbqX",
+        "draft": "Hi there, I\u2019m sorry to hear your delivery still hasn\u2019t updated and the game releases tomorrow. I understand how important this is. For your privacy, please don\u2019t share order details publicly \u2013 instead, share your order number and any relevant information through our secure contact form here: https://www.amazon.com/contact-us Our team will investigate the status and get back to you as soon as possible. Thank you for your patience!",
+        "reasoning": "The draft adds statements (apology, privacy advice, promise to investigate) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about the delivery status, so it remains relevant."
+      },
+      {
+        "index": 22,
+        "tweet_id": 969626,
+        "query": "@AmazonHelp Dunno what\u2019s happening here ordered last night and it\u2019s meant to be here today but not despatched?? https://t.co/TeJRZKbekR",
+        "draft": "Hi there, I\u2019m sorry to hear your order placed last night hasn\u2019t been dispatched yet. I understand how frustrating that can be. To investigate further, could you please share your order number and any other relevant details here: https://www.amazon.com/contact-us Our team will look into the status and get back to you as quickly as possible. Thank you for your patience!",
+        "reasoning": "The draft adds a promise ('Our team will look into the status and get back to you as quickly as possible') and a request for order number that are not present in the retrieved context, violating faithfulness. However, it directly addresses the user's concern about the undelivered order, so it is relevant."
+      },
+      {
+        "index": 23,
+        "tweet_id": 590032,
+        "query": "@120533 #FLAG For real? L'humour que peuvent avoir les filles de 10 ans est effrayant.... https://t.co/U8cQtk81Q6",
+        "draft": "Hi @120533, we\u2019re sorry you\u2019re upset. Could you let us know more about the issue you\u2019re experiencing so we can assist you? Please share any order details securely here: https://www.amazon.com/contact-us We\u2019ll look into it and review your inquiry.",
+        "reasoning": "The draft introduces apologies, requests for order details, and a support link that are not present in the retrieved context and does not address the user's comment about humor, making it both unfaithful and irrelevant."
+      },
+      {
+        "index": 25,
+        "tweet_id": 485248,
+        "query": "@AmazonHelp Can u atleast provide your customer care number so that I can contact them ?",
+        "draft": "Hi there! We don\u2019t share phone numbers publicly, but you can easily reach Amazon Customer Service through the official help page. Please visit https://www.amazon.com/contact-us or click the \u201cContact Us\u201d button in the Help Center to get the phone number and other support options. Let us know if you need any further assistance!",
+        "reasoning": "The draft adds a statement ('We don\u2019t share phone numbers publicly') that is not present in the retrieved context, violating faithfulness. However, it addresses the user's request by directing them to the contact page to obtain the phone number, so it is relevant."
+      },
+      {
+        "index": 27,
+        "tweet_id": 2759704,
+        "query": "We have something arriving tomorrow from @115821 - but we didn't order anything!! \ud83d\ude31 https://t.co/twe1nPlcSL",
+        "draft": "Hi there, we understand how concerning it can be to receive an unexpected package. For your safety, please do not open the package until we can verify the order details. To investigate further, kindly share any order information (order number, tracking number, etc.) through our secure contact page: https://www.amazon.com/contact-us Our team will review your inquiry and get back to you as soon as possible. Thank you for bringing this to our attention.",
+        "reasoning": "The draft includes advice to not open the package and promises to review the inquiry, which are not present in the retrieved context. However, it addresses the user's concern about an unexpected delivery, making it relevant."
+      },
+      {
+        "index": 28,
+        "tweet_id": 1667169,
+        "query": "Tday first tme, plgin Seagate extrnl hrd dsk, 1st item, NT wrkng. Seal Pack broken, overlap wth sellotpe, Hw return? @56660 @115850 https://t.co/2p2vsuTP3x",
+        "draft": "Hi there, sorry to hear your Seagate external hard drive arrived with a broken seal and isn\u2019t working. I understand this is your first experience with us and you\u2019d like to know how to return it. Please start a return through our Returns Center here: https://www.amazon.com/contact-us If you need any help locating your order or uploading a photo of the damage, you can share those details securely via this link: https://www.amazon.com/contact-us We\u2019ll review the information and get the return process moving for you as quickly as possible. Thank you for bringing this to our attention.",
+        "reasoning": "The draft adds details not present in the retrieved context, such as a specific Returns Center link, instructions to upload photos, and promises to review information, which are not mentioned in the source. However, it does address the user's request for a return, so it is relevant."
+      },
+      {
+        "index": 29,
+        "tweet_id": 2104982,
+        "query": "@AmazonHelp Je ne l'apprends qu'aujourd'hui puisqu'aucun suivi n'\u00e9tait indiqu\u00e9... TNT",
+        "draft": "Bonjour, nous sommes d\u00e9sol\u00e9s d\u2019apprendre que le suivi de votre commande n\u2019\u00e9tait pas indiqu\u00e9. Pour que nous puissions v\u00e9rifier cela rapidement, merci de ne pas partager d\u2019informations sensibles ici et de nous communiquer votre num\u00e9ro de commande ainsi que tout autre d\u00e9tail pertinent via notre formulaire s\u00e9curis\u00e9\u202f: https://www.amazon.com/contact-us Nous examinerons votre dossier et reviendrons vers vous d\u00e8s que possible.",
+        "reasoning": "The draft adds statements (e.g., asking not to share sensitive info, promising to examine the case) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about missing tracking and directs them to contact support, so it is relevant."
+      },
+      {
+        "index": 31,
+        "tweet_id": 2885728,
+        "query": "@115830 I signed up for student prime on Sunday night... why have you taken a pound out my bank?? Not that I\u2019m about to lose sleep over that one pound just curious \ud83d\ude02",
+        "draft": "Hi @115830, thanks for reaching out! I see you signed up for Prime Student on Sunday night and noticed a \u00a31 charge. That small amount is often a temporary verification hold that should be released shortly. To look into the details of your account securely, please share any relevant information (order ID, email, etc.) here: https://www.amazon.com/contact-us We\u2019ll review it and get back to you as soon as possible. Thanks for your patience!",
+        "reasoning": "The draft adds details not present in the retrieved context, such as the \u00a31 being a temporary verification hold and the specific timing of the sign\u2011up, which are not supported by the provided snippets. However, it does address the user's question about the unexpected charge, making it relevant."
+      },
+      {
+        "index": 32,
+        "tweet_id": 2281499,
+        "query": "Dear @115821 , \n\nYou told me my package would arrive on Monday.....but you delivered it today. \n\nThank you\n\n#AmazonPrime \ud83d\udcaf",
+        "draft": "Hi there, thanks for letting us know! We\u2019re glad your package arrived earlier than expected. If you have any other questions or need further assistance, please reach out to us here: https://www.amazon.com/contact-us Have a great day!",
+        "reasoning": "The draft adds statements (e.g., \"We\u2019re glad your package arrived earlier than expected\") that are not present in the retrieved context, violating faithfulness. However, it addresses the user's comment about the delivery timing, so it remains relevant."
+      },
+      {
+        "index": 33,
+        "tweet_id": 454564,
+        "query": "\u8d77\u304d\u305f\u3089\u3053\u3093\u306a\u30e1\u30fc\u30eb\u6765\u3066\u305f\u3002\nAmazon\u3055\u3093\u306e\u5546\u54c1\u306f\u3082\u3046\u53d7\u3051\u53d6\u3063\u3066\u308b\u3057\n#Amazon https://t.co/sP4HVs0foA",
+        "draft": "\u304a\u306f\u3088\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u3054\u9023\u7d61\u3044\u305f\u3060\u304d\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u5546\u54c1\u306f\u3059\u3067\u306b\u304a\u53d7\u3051\u53d6\u308a\u3068\u306e\u3053\u3068\u3001\u5b89\u5fc3\u3044\u305f\u3057\u307e\u3057\u305f\u3002\u3054\u63d0\u793a\u3044\u305f\u3060\u3044\u305f https://www.amazon.com/contact-us \u306f\u77ed\u7e2eURL\u3067\u3042\u308a\u3001\u5f53\u793e\u306e\u516c\u5f0f\u30ea\u30f3\u30af\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u306e\u3067\u3001\u500b\u4eba\u60c5\u5831\u3084\u6ce8\u6587\u60c5\u5831\u306f\u516c\u958b\u3057\u306a\u3044\u3088\u3046\u304a\u9858\u3044\u3044\u305f\u3057\u307e\u3059\u3002\u3054\u8cea\u554f\u3084\u3054\u4e0d\u5b89\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u4ee5\u4e0b\u306e\u516c\u5f0f\u30b5\u30dd\u30fc\u30c8\u30da\u30fc\u30b8\u304b\u3089\u5b89\u5168\u306b\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002https://www.amazon.com/contact-us",
+        "reasoning": "The draft adds information not present in the retrieved context, specifically claiming the provided link is a short URL and not official, which is not stated in the context. However, it addresses the user's concern about the email and advises on safe contact, making it relevant."
+      },
+      {
+        "index": 34,
+        "tweet_id": 2310821,
+        "query": "@AmazonHelp Intelcom Courrier Canada Inc.",
+        "draft": "Hi there,\n\nThank you for reaching out to Amazon Help. I see you mentioned Intelcom Courrier Canada Inc. \u2013 we\u2019d like to look into that for you. To investigate further, we\u2019ll need some details such as your order number or tracking information. Please do not share that publicly; you can securely provide it here: https://www.amazon.com/contact-us Our team will review your inquiry and get back to you as soon as possible.\n\nWe appreciate your patience and are here to help!",
+        "reasoning": "The draft introduces policies and promises (e.g., \"Please do not share that publicly\", \"Our team will review your inquiry and get back to you as soon as possible\") that are not present in the retrieved context, violating faithfulness. However, it addresses the user's mention of Intelcom Courrier Canada Inc. by requesting order details and offering assistance, which is relevant to the core issue."
+      },
+      {
+        "index": 35,
+        "tweet_id": 1229526,
+        "query": "Halloween is sorted ladies and gents, @115821 have me broken glasses but you get the idea \ud83c\udf83\ud83d\ude02 https://t.co/cuuMxcU1Cr",
+        "draft": "Glad to hear you\u2019re all set for Halloween! \ud83c\udf83 If you need any assistance, feel free to reach out to us here: https://www.amazon.com/contact-us",
+        "reasoning": "The draft adds a statement ('Glad to hear you\u2019re all set for Halloween!') that is not present in the retrieved context, violating faithfulness. It also does not address the user's comment about Halloween and broken glasses, offering generic assistance instead, so it is not relevant to the user's core issue."
+      },
+      {
+        "index": 36,
+        "tweet_id": 2976449,
+        "query": "@AmazonHelp I ordered the same exact shoes from the same seller twice and received men\u2019s shoes the first time, and women\u2019s shoes the second time. This is my third order of the same product so I\u2019m hoping I get the right shoes. I want to wear them on my birthday :(",
+        "draft": "Hi @AmazonHelp, I'm sorry to hear about the mix\u2011up with your shoes, especially with your birthday coming up. I understand how frustrating that must be. To help us sort this out quickly, could you please share your order numbers and any relevant details through our secure contact form? You can reach out to us here: https://www.amazon.com/contact-us Once we have that information, we\u2019ll investigate the issue with the seller and work on getting you the correct pair in time for your celebration. Thank you for your patience!",
+        "reasoning": "The draft asks for order details via a secure form, aligning with the context's privacy guidance, but it adds promises (e.g., investigating with the seller and ensuring the correct shoes arrive for the birthday) that are not present in the retrieved context, violating faithfulness."
+      },
+      {
+        "index": 37,
+        "tweet_id": 279371,
+        "query": "@AmazonHelp  https://t.co/nojv3hwcA9",
+        "draft": "Hi there, thank you for reaching out. For your safety, we recommend not sharing external links publicly. To help us investigate your concern, please share any order details or relevant information through our secure contact page: https://www.amazon.com/contact-us Our team will review your inquiry once we have the necessary information. Thank you for your understanding.",
+        "reasoning": "The draft adds a safety recommendation about not sharing external links, which is not present in the retrieved context, violating faithfulness. However, it addresses the user's implied request for assistance by asking for order details via the contact page, so it remains relevant."
+      },
+      {
+        "index": 38,
+        "tweet_id": 1054800,
+        "query": "@115850 My one month subscription of kindle unlimited has expired. But still it allows me to borrow books. ??????????",
+        "draft": "Hi there, I\u2019m sorry you\u2019re experiencing this issue with your Kindle Unlimited subscription. If your subscription has expired but you\u2019re still able to borrow books, that\u2019s not expected. To investigate further, please share your account details securely through our contact page here: https://www.amazon.com/contact-us Our support team will review the information and get back to you as soon as possible. In the meantime, please avoid posting any personal or account information publicly.",
+        "reasoning": "The draft includes statements and promises (e.g., 'that's not expected', 'support team will review and get back as soon as possible') that are not present in the retrieved context, violating faithfulness. However, it addresses the user's issue about the expired Kindle Unlimited subscription, so it is relevant."
+      },
+      {
+        "index": 39,
+        "tweet_id": 1595234,
+        "query": "@AmazonHelp Und da wird mir ganz sicher was anderes gesagt, als in der E-Mail",
+        "draft": "Hallo, es tut uns leid zu h\u00f6ren, dass Sie unterschiedliche Informationen erhalten haben. Wir verstehen, wie verwirrend das sein kann. Damit wir das schnell pr\u00fcfen k\u00f6nnen, teilen Sie uns bitte Ihre Bestell\u2011 oder Kontaktdaten \u00fcber unser sicheres Kontaktformular mit: https://www.amazon.com/contact-us Bitte geben Sie keine pers\u00f6nlichen Daten in \u00f6ffentlichen Beitr\u00e4gen preis. Unser Team wird Ihr Anliegen pr\u00fcfen und sich bei Ihnen melden.",
+        "reasoning": "The draft introduces details (contact form link, request for order data) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about receiving conflicting information, so it remains relevant."
+      },
+      {
+        "index": 40,
+        "tweet_id": 1129851,
+        "query": "J'\u00e9tais chez moi. La gardienne ne r\u00e9cup\u00e8re jamais les colis. J'ai rien dans ma bo\u00eete au lettres. @120533 t'es de pire en pire. https://t.co/mxDcWvBaCG",
+        "draft": "Bonjour, nous sommes d\u00e9sol\u00e9s d\u2019apprendre que votre colis n\u2019a pas \u00e9t\u00e9 r\u00e9cup\u00e9r\u00e9 par la gardienne. Afin de prot\u00e9ger vos informations personnelles, merci de ne pas partager de d\u00e9tails de commande publiquement. Vous pouvez nous transmettre ces informations en toute s\u00e9curit\u00e9 via notre centre d\u2019aide\u202f: https://www.amazon.com/contact-us Notre \u00e9quipe examinera votre demande et vous contactera rapidement. Nous vous remercions pour votre compr\u00e9hension.",
+        "reasoning": "The draft adds statements about protecting personal information and team follow\u2011up that are not present in the retrieved context, violating faithfulness. However, it addresses the user's issue about the missing parcel and directs them to contact support, which aligns with the context, so it is relevant."
+      }
+    ],
+    "irrelevant_failures": [
+      {
+        "index": 23,
+        "tweet_id": 590032,
+        "query": "@120533 #FLAG For real? L'humour que peuvent avoir les filles de 10 ans est effrayant.... https://t.co/U8cQtk81Q6",
+        "draft": "Hi @120533, we\u2019re sorry you\u2019re upset. Could you let us know more about the issue you\u2019re experiencing so we can assist you? Please share any order details securely here: https://www.amazon.com/contact-us We\u2019ll look into it and review your inquiry.",
+        "reasoning": "The draft introduces apologies, requests for order details, and a support link that are not present in the retrieved context and does not address the user's comment about humor, making it both unfaithful and irrelevant."
+      },
+      {
+        "index": 26,
+        "tweet_id": 2385801,
+        "query": "@115850 when did I request to reschedule this order, Amazon? https://t.co/w7by82XXPH",
+        "draft": "Hi there, we understand you\u2019re looking for details about a reschedule request for your order. For your privacy and security, please avoid sharing personal order information or links publicly and share the order number and any related details through our secure contact page: https://www.amazon.com/contact-us Our team will review your inquiry once we have the details. Thank you for reaching out.",
+        "reasoning": "The draft only repeats a generic suggestion to contact support, which aligns with the retrieved context and does not introduce new facts, so it is faithful. However, it does not provide the requested information about when the reschedule was made, thus it fails to address the user's core issue."
+      },
+      {
+        "index": 35,
+        "tweet_id": 1229526,
+        "query": "Halloween is sorted ladies and gents, @115821 have me broken glasses but you get the idea \ud83c\udf83\ud83d\ude02 https://t.co/cuuMxcU1Cr",
+        "draft": "Glad to hear you\u2019re all set for Halloween! \ud83c\udf83 If you need any assistance, feel free to reach out to us here: https://www.amazon.com/contact-us",
+        "reasoning": "The draft adds a statement ('Glad to hear you\u2019re all set for Halloween!') that is not present in the retrieved context, violating faithfulness. It also does not address the user's comment about Halloween and broken glasses, offering generic assistance instead, so it is not relevant to the user's core issue."
+      }
+    ]
+  },
+  "detailed_results": [
+    {
+      "index": 1,
+      "tweet_id": 153720,
+      "user_query": "Thanks @115821 for leaving my parcels in a safe place https://t.co/W959kz0j9w",
+      "retrieved_context": [
+        "@742474 So sorry to hear this! Please be sure to contact us so we can leave courier feedback: https://www.amazon.com/contact-us ^BG",
+        "@175762 I'm so sorry you parcel was left unattended like that, Josh! When you have a moment, please phone us here: https://www.amazon.com/contact-us to report this delivery and discuss the available options. ^LB",
+        "@321738 I'm sorry your parcel was delivered that way! Please reach out to us here: https://www.amazon.com/contact-us so we can look into and report this delivery. ^AH"
+      ],
+      "generated_draft": "Hi there! We're glad to hear your parcels were left in a safe place. If you have any other questions or need assistance, feel free to reach out to us here: https://www.amazon.com/contact-us Thank you for choosing Amazon!",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only includes a generic positive acknowledgment and the contact link, both consistent with the tone of the retrieved responses. It does not introduce any new policies or factual claims not present in the context, and it addresses the user's thank\u2011you message."
+    },
+    {
+      "index": 2,
+      "tweet_id": 1887464,
+      "user_query": "@AmazonHelp Tomorrow but i clicked next day delivery not long after the cut off time so i was wondering if there would be a chance that it would come today.",
+      "retrieved_context": [
+        "@253810 Thank you for your patience. Please reach out if you do not receive by the new delivery date. ^LM",
+        "@322305 Hi there, Phoebe! I'm sorry for the wait! Deliveries are made until 21:00. ^WJ",
+        "@159139 Hi, do you know which carrier is delivering your order? ^KI"
+      ],
+      "generated_draft": "Hi there! I see you selected next\u2011day delivery after the cut\u2011off time, so delivery timing will depend on the estimated date shown in your order confirmation.. same-day or expedited delivery depends on the cutoff times displayed at checkout.. If you\u2019d like us to double\u2011check the status of your order, please share your order details here: https://www.amazon.com/contact-us Thanks for reaching out! ^AM",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds details about estimated dates and cutoff policies that are not present in the retrieved context, making it unfaithful, but it does address the user's question about delivery timing."
+    },
+    {
+      "index": 3,
+      "tweet_id": 1209818,
+      "user_query": "@117804, melhor not\u00edcia do dia, meu Kindle ta a caminho! https://t.co/CTKZKQfrdj",
+      "retrieved_context": [
+        "@434829 Ol\u00e1, Stargirl! Me diga, voc\u00ea sabe qual conte\u00fado vai ler no seu Kindle?. \ud83e\udd14 ^NB",
+        "@410307 Ol\u00e1, Lucas. No momento n\u00e3o temos previs\u00e3o, mas as futuras promo\u00e7\u00f5es ser\u00e3o anunciadas no nosso site oficial e redes sociais. ^CR",
+        "@460813 Hola abigail. Siento mucho saber del inconveniente. \u00bfRecibiste un correo con informaciones para desbloquear tu cuenta? ^JJ"
+      ],
+      "generated_draft": "Ol\u00e1! Que \u00f3tima not\u00edcia saber que seu Kindle est\u00e1 a caminho \ud83d\ude9a\ud83d\udcda. Se precisar de ajuda com a configura\u00e7\u00e3o, rastreamento ou tiver qualquer d\u00favida, estamos aqui para ajudar. Aproveite a leitura!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds information about configuration, tracking, and assistance that is not present in the retrieved context, violating faithfulness. However, it responds to the user's statement about the Kindle arriving, making it relevant to the user's message."
+    },
+    {
+      "index": 4,
+      "tweet_id": 1424680,
+      "user_query": "@AmazonHelp Es que no suelo ver TV... \ud83d\ude2c\ud83d\ude05",
+      "retrieved_context": [
+        "@344552 Gracias por la informaci\u00f3n, recuerda que el tiempo de env\u00edo empieza a correr a partir del momento en que el producto sale de nuestros centros de almacenaje, para m\u00e1s informaciones puedes consultar aqu\u00ed: https://www.amazon.com/contact-us . ^MB",
+        "@234620 Oscar, lamentamos el retraso en la entrega de tu paquete. Te recomendamos ponerte en contacto con nuestros compa\u00f1eros de Servicio al Cliente para que ellos puedan buscar alguna opci\u00f3n para ti. En el siguiente enlace podr\u00e1s hacerlo: https://www.amazon.com/contact-us  ^RC",
+        "@235770 \u00a1H\u00e9ctor es todo un secreto!. Ya vamos a verificarlo. \ud83d\ude00\n^DB"
+      ],
+      "generated_draft": "Hola, gracias por contactarnos. Entendemos que no sueles ver TV y queremos asegurarnos de que todo est\u00e9 funcionando como esperas. Si tienes alguna duda o inconveniente con tu servicio, tu dispositivo o la configuraci\u00f3n, por favor cu\u00e9ntanos un poco m\u00e1s para poder asistirte mejor. Puedes compartir los detalles de forma segura aqu\u00ed: https://www.amazon.com/contact-us Estamos aqu\u00ed para ayudarte.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft introduces details about TV service and device issues that are not present in the retrieved context, violating faithfulness. It does attempt to address the user's comment about not watching TV, so it is relevant."
+    },
+    {
+      "index": 5,
+      "tweet_id": 1763136,
+      "user_query": "@AmazonHelp I am sure it was amazon but i totally don\u2019t want them reordered if they come back this way. The wax and softener were of no use",
+      "retrieved_context": [
+        "@391345 Thank you for the info! A specialist would like to reach out to you directly to get this sorted: https://www.amazon.com/contact-us ^JZ",
+        "@407433 We would like to look more into this. Please reach out to us via phone or chat for available options: https://www.amazon.com/contact-us ^JP",
+        "@216152 Thanks for that information! We do ask that you allow 2 business days to hear back from our team. If you've not heard back by end of day tomorrow, please let us know. We'd like to help! ^SM"
+      ],
+      "generated_draft": "Hi there, we\u2019re sorry to hear the wax and softener didn\u2019t meet your expectations. We definitely don\u2019t want you to receive another order you\u2019re not happy with. To investigate further and find the best solution, could you please share your order number and any other relevant details here: https://www.amazon.com/contact-us We\u2019ll review the information and get back to you as soon as possible. Thank you for bringing this to our attention!",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only uses information present in the retrieved context (contact link) and makes no unsupported claims. It directly addresses the user's concern about unwanted reorders and offers a way to resolve the issue."
+    },
+    {
+      "index": 6,
+      "tweet_id": 848197,
+      "user_query": "@AmazonHelp Sorted. Thanks!",
+      "retrieved_context": [
+        "@354158 You're welcome! Please let us know if you have further questions or concerns. We're here to help. ^TG",
+        "@267531 Great! Thank you for keeping us in the loop! ^JO",
+        "@133558 No problem! \ud83d\ude0a  ^JZ"
+      ],
+      "generated_draft": "Glad to hear it\u2019s sorted! If you have any other questions, just let us know. ^AmazonHelp",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds new phrasing ('Glad to hear it\u2019s sorted!') not present in the retrieved context, violating faithfulness, but it appropriately acknowledges the user's thanks and offers further help, making it relevant."
+    },
+    {
+      "index": 7,
+      "tweet_id": 2774113,
+      "user_query": "@AmazonHelp  https://t.co/dImDiRcQeA",
+      "retrieved_context": [
+        "@447293 Could you please confirm if you've shared the details in the link provided earlier? ^RB",
+        "@233032 Thank you for that information, Anjum! One-Day Shipping refers to the transit time in business days after the item is ready to ship. Some orders may require extra processing time. Please let us know if the item doesn't arrive by December 6th. ^HM",
+        "@209759 Please get in touch with us here: https://www.amazon.com/contact-us and we'll look into this for you. ^RL"
+      ],
+      "generated_draft": "Hi there, thanks for reaching out! To protect your privacy, please don\u2019t share order or tracking details publicly. Could you share the relevant information securely here: https://www.amazon.com/contact-us We'll look into it right away and get back to you as soon as possible.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds a privacy warning not present in the retrieved context, which makes it unfaithful. However, it directs the user to the contact-us link as suggested in the context, addressing the user's request, so it is relevant."
+    },
+    {
+      "index": 8,
+      "tweet_id": 197827,
+      "user_query": "@AmazonHelp Oui si je viens ici s'est sue j'ai pas forc\u00e9ment eue de nouvelles",
+      "retrieved_context": [
+        "@562905 Entendu. Nous restons \u00e0 votre enti\u00e8re disposition en cas de besoin. ^FA",
+        "@471147 Votre dossier est-il actuellement pris en charge par notre SAV?^FT",
+        "@690531 Notre service client est joignable via https://www.amazon.com/contact-us  ^KD"
+      ],
+      "generated_draft": "Bonjour, nous sommes d\u00e9sol\u00e9s que vous n'ayez pas encore re\u00e7u de nouvelles. Pour que nous puissions examiner votre dossier rapidement, merci de partager vos informations de commande ici\u202f: https://www.amazon.com/contact-us Nous restons \u00e0 votre disposition et reviendrons vers vous d\u00e8s que possible.",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only uses information present in the context (the contact link and offering assistance) and does not introduce unsupported facts or policies. It directly addresses the user's concern about not receiving updates, making it relevant."
+    },
+    {
+      "index": 9,
+      "tweet_id": 2531285,
+      "user_query": "@AmazonHelp why do you guys still use @3375 theyre just terrible they never deliver packages and theyre a rip off please get rid of them",
+      "retrieved_context": [
+        "@442118 Oh no! I can certainly understand your frustration! We're here to help! Were all 4 packages shipped by the same carrier or different ones? You can find that information here: https://www.amazon.com/contact-us ^RB",
+        "@164611 I'd like to have a team member look into this for you. Please provide your info here: https://www.amazon.com/contact-us ^WM",
+        "@658283 I'm sorry for the wait! I can understand how frustrating this is. Have you been able to reach us to review your available options? ^DW"
+      ],
+      "generated_draft": "Hi there, I\u2019m sorry to hear about the delivery issues you\u2019ve experienced with @3375 \u2013 that sounds frustrating. We work with a range of carriers to get packages to you, and we take feedback like yours seriously. To look into the specific orders affected, could you please share your order number and any relevant details here: https://www.amazon.com/contact-us Our team will review the information and review your inquiry.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements not present in the retrieved context, such as \"We work with a range of carriers\" and \"we take feedback like yours seriously,\" which are not supported by the provided excerpts. However, it does address the user's complaint about delivery issues and asks for order details, aligning with the user's core concern."
+    },
+    {
+      "index": 10,
+      "tweet_id": 2569666,
+      "user_query": "@AmazonHelp Y de ser posible se cancele",
+      "retrieved_context": [
+        "@217034 \u00c0lex, cont\u00e1ctanos por este enlace para revisar lo que ha sucedido y ver como podemos ayudarte: https://www.amazon.com/contact-us  ^AV",
+        "@502850 Entendi. O pedido foi vendido pela Amazon ou por um vendedor externo? ^CR",
+        "@247929 Entiendo, \u00bfpodr\u00edas confirmarnos en cual mercado fue realizada tu compra, ya sea Amazon.es, https://www.amazon.com/contact-us o https://www.amazon.com/contact-us ^RC"
+      ],
+      "generated_draft": "Hola, entendemos que deseas cancelar tu pedido. Para poder ayudarte de forma segura, por favor comparte el n\u00famero de pedido y cualquier detalle adicional aqu\u00ed: https://www.amazon.com/contact-us Nuestro equipo revisar\u00e1 la situaci\u00f3n y te contactar\u00e1 lo antes posible. Si el pedido ya ha sido enviado, podr\u00edamos iniciar el proceso de devoluci\u00f3n. Gracias por tu paciencia.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements about reviewing the situation, contacting the user, and initiating a return if shipped, which are not present in the retrieved context, violating faithfulness. However, it addresses the user's request to cancel the order, so it is relevant."
+    },
+    {
+      "index": 11,
+      "tweet_id": 742436,
+      "user_query": "@AmazonHelp merci beaucoup. Vous \u00eates le meilleur site d'e-commerce, et de loin.",
+      "retrieved_context": [
+        "@495929 \u00c0 votre service :)",
+        "@267157 Pourrais-je avoir le num\u00e9ro de suivi je vous prie? ^BR",
+        "@301878 Veuillez remplir le formulaire sur le lien je vous prie afin que je puisse v\u00e9rifier votre dossier :https://www.amazon.com/contact-us"
+      ],
+      "generated_draft": "Merci beaucoup pour votre gentil message\u202f! Nous sommes ravis de vous offrir la meilleure exp\u00e9rience d'achat. N'h\u00e9sitez pas \u00e0 nous contacter si vous avez la moindre question ou besoin d'aide. \u00c0 bient\u00f4t\u202f!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds a statement about offering the best shopping experience, which is not present in the retrieved context, violating faithfulness. It does address the user's thank\u2011you, so it is relevant."
+    },
+    {
+      "index": 12,
+      "tweet_id": 2917262,
+      "user_query": "Eita, @117086 fazendo entrega a jato, s\u00f3 pode! Compras da Black Friday j\u00e1 chegaram!\nS\u00f3 coisa boa q peguei esse ano. https://t.co/8BUuDwHYnS",
+      "retrieved_context": [
+        "@140026 Ol\u00e1! Com certeza adoramos os dispositivos Kindle. Me diga, voc\u00ea sabe qual conte\u00fado vai ler primeiro?. \ud83d\ude0d\ud83e\udd14\ud83d\udc95 ^NB https://www.amazon.com/contact-us",
+        "@155895 Ol\u00e1, Sally! \u00d3timo que recebeu o pedido mas conte para n\u00f3s, quais livros voc\u00ea comprou?. Ficamos curiosos. \ud83d\udcda\ud83e\udd14 ^NB",
+        "@777815 Ol\u00e1, Viquit\u00f4RIA! O amor \u00e9 m\u00fatuo! \ud83d\ude0d Fico feliz em saber que voc\u00ea j\u00e1 recebeu o seu pedido! Me diga, que livros voc\u00ea comprou? ^CR"
+      ],
+      "generated_draft": "Ol\u00e1! Que \u00f3timo saber que sua entrega chegou rapidinho e que voc\u00ea est\u00e1 feliz com as compras da Black Friday! \ud83d\ude0d\ud83d\udce6 Conte pra gente, quais produtos voc\u00ea recebeu? Estamos curiosos! Se precisar de qualquer coisa, \u00e9 s\u00f3 nos chamar aqui. Obrigado por compartilhar!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds details (delivery speed, Black Friday happiness) not present in the retrieved context, violating faithfulness. However, it addresses the user's excitement and asks about the received products, which is relevant to the user's core issue."
+    },
+    {
+      "index": 13,
+      "tweet_id": 1666049,
+      "user_query": "@AmazonHelp It's okay. I don't need a call. I made him deliver the order. But the behavior was extremely unprofessional.",
+      "retrieved_context": [
+        "@359659 That's odd! May I know if you have contacted our support team from this link: https://www.amazon.com/contact-us ^BS",
+        "@299565 I'm sorry to hear you're still having issues with the two-step verification process. Is your account affiliated with amazon.ca or do you use the https://www.amazon.com/contact-us site for your shopping needs? Please use direct message so I may provide you instructions. ^SY https://www.amazon.com/contact-us",
+        "@135275 Oh no! I'm sorry you haven't received a callback! Have you had a chance to reach back out to us for an update? ^JO"
+      ],
+      "generated_draft": "Hi there, we\u2019re sorry to hear about the unprofessional behavior you experienced during delivery. Thank you for letting us know, and we understand you don\u2019t need a call. If you\u2019d like us to look into this further, please share any order details securely here: https://www.amazon.com/contact-us We\u2019ll investigate and get back to you as soon as possible. Thank you for your patience.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds promises like investigating and responding, which are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about unprofessional delivery behavior, so it is relevant."
+    },
+    {
+      "index": 14,
+      "tweet_id": 2929489,
+      "user_query": "@115821 @AmazonHelp my package never came. I'm on Amazon prime too.. Smh",
+      "retrieved_context": [
+        "@271682 I'm sorry for the disappointment, Wade! Just to clarify, did the orders miss the delivery date provided via checkout/e-mail? If so, did they happen with the same carrier? We'd like to help out in any way we can. ^WJ",
+        "@401721 I'm so sorry for the wait! What's the latest tracking show: https://www.amazon.com/contact-us Any delays or new delivery dates? ^LH",
+        "@388562 That's not the experience we hoped you have, Mami! Do you notice a trend in carrier when delays occur? ^CS"
+      ],
+      "generated_draft": "Hi there! I'm really sorry to hear your package didn't arrive, especially as a Prime member. Could you please share your order number and any tracking info you have so we can look into this for you? You can securely provide those details here: https://www.amazon.com/contact-us Thanks for your patience\u2014we\u2019ll work to get this sorted out as quickly as possible.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds a promise ('we\u2019ll work to get this sorted out as quickly as possible') that is not present in the retrieved context, violating faithfulness. However, it directly addresses the user's missing package issue, making it relevant."
+    },
+    {
+      "index": 15,
+      "tweet_id": 1271885,
+      "user_query": "@AmazonHelp @115850 my order id is 403-4483179-3669121, I haven\u2019t yet got my amazon pay balance cashback",
+      "retrieved_context": [
+        "@350529 We apologize for the delay in delivering the order. I\u2019d like to help you; please fill this form:  (1/3)^SU",
+        "@647792 Please don't provide your order details, we consider it to be personal information. Our page is visible to the public. ^PR",
+        "@190653 Could you kindly let us know the cashback offer you are referring to? ^SF"
+      ],
+      "generated_draft": "Hi there, thanks for reaching out and letting us know about the missing Amazon Pay balance cashback. I see you\u2019ve posted your order ID publicly \u2013 for your security, please don\u2019t share order details in a public forum. Could you share the order ID and any related information through our secure channel so we can investigate further? You can do that here: https://www.amazon.com/contact-us Once we have the details, we\u2019ll look into the status of your cashback and get back to you as soon as possible. Thank you for your patience!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds information not present in the retrieved context, such as a specific contact URL and a promise to investigate the cashback, which are facts/promises not explicitly provided. However, it does address the user's issue about missing Amazon Pay cashback and follows the policy about not sharing order details, so it is relevant."
+    },
+    {
+      "index": 16,
+      "tweet_id": 1073731,
+      "user_query": "@115821 I have ordered Maharaja Whiteline Juicer, Mixer Grinder and paid Rs. 2500/- in advance and this is what comes out of box..... https://t.co/mEjB4HzBZI",
+      "retrieved_context": [
+        "@215430 That's unusual, Rick. Kindly submit your feedback directly here: https://www.amazon.com/contact-us and we'll investigate right away. ^HK",
+        "@247931 We don't have access to your via Twitter, but we'd like to help! Could you tell us more about the issue that you're having with your order? ^ZW",
+        "@441732 Please don't provide your order details, we consider it to be personal information. Our page is visible to the public. ^KA"
+      ],
+      "generated_draft": "Hi @115821, I\u2019m sorry to hear that you received the wrong items. We want to get this sorted for you as quickly as possible. Please do not share your order number or any personal details publicly. You can securely share your order information here: https://www.amazon.com/contact-us so we can investigate and arrange a resolution. Thank you for bringing this to our attention.",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only uses information present in the retrieved context: it advises not to share personal details publicly and directs the user to the Amazon contact link, matching the guidance in the context. It addresses the user's complaint about receiving the wrong items, so it is both faithful and relevant."
+    },
+    {
+      "index": 17,
+      "tweet_id": 229776,
+      "user_query": "Hey @AmazonHelp, je viens d'\u00eatre d\u00e9bit\u00e9 49\u20ac pour Amazon Premium or je n'ai jamais souscris \u00e0 \u00e7a :'(",
+      "retrieved_context": [
+        "@186759 Je vous prie de joindre notre SAV via: https://www.amazon.com/contact-us afin que l'on puisse y rem\u00e9dier au plus vite s'il vous pla\u00eet.",
+        "@228328 Bonjour, je suis d\u00e9sol\u00e9e pour la g\u00eane occasionn\u00e9e. L'avez-vous signal\u00e9 \u00e0 notre SAV? ^SB",
+        "@601264 Je vous sugg\u00e8re alors de remplir le formulaire suivant : https://www.amazon.com/contact-us afin que je puisse v\u00e9rifier. Merci ^RA"
+      ],
+      "generated_draft": "Bonjour, nous sommes d\u00e9sol\u00e9s d\u2019apprendre que vous avez \u00e9t\u00e9 d\u00e9bit\u00e9 de 49\u202f\u20ac pour Amazon Premium sans l\u2019avoir souscrit. Pour que nous puissions examiner votre compte en toute s\u00e9curit\u00e9, merci de partager les d\u00e9tails de votre abonnement ici\u202f: https://www.amazon.com/contact-us Nous v\u00e9rifierons cela rapidement et reviendrons vers vous d\u00e8s que possible.",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only uses information present in the retrieved context (apology, request to contact via the provided Amazon link, and promise to verify the issue). It directly addresses the user's concern about the unexpected 49\u202f\u20ac charge, making it both faithful and relevant."
+    },
+    {
+      "index": 18,
+      "tweet_id": 294768,
+      "user_query": "@AmazonHelp o\u00f9 est mon colis svp ?\n171-9260850-5134725",
+      "retrieved_context": [
+        "@728439 Merci de le signaler \u00e0 notre SAV afin de v\u00e9rifier et proposer la solution appropri\u00e9e via le lien : https://www.amazon.com/contact-us ^ASZ",
+        "@467464 Nous tenons \u00e0 regarder cela de plus pr\u00e8s et vous aidez. S\u2019il vous pla\u00eet contactez-nous ici: https://www.amazon.com/contact-us ^BR",
+        "@227890 Vous pouvez demander \u00e0 \u00eatre rappel\u00e9 par notre service client via le lien suivant je voue prie:  https://www.amazon.com/contact-us\n^SA"
+      ],
+      "generated_draft": "Bonjour, nous comprenons que vous souhaitez conna\u00eetre le statut de votre colis. Merci de ne pas partager votre num\u00e9ro de commande publiquement pour prot\u00e9ger vos informations. Veuillez nous communiquer vos d\u00e9tails en toute confidentialit\u00e9 via le lien s\u00e9curis\u00e9 suivant : https://www.amazon.com/contact-us Nous v\u00e9rifierons l\u2019\u00e9tat de votre livraison et reviendrons vers vous rapidement.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements (e.g., advising not to share the order number publicly and promising to check the delivery status) that are not present in the retrieved context, violating faithfulness. However, it directs the user to contact Amazon via the provided link, which aligns with the context and addresses the user's request, so it is relevant."
+    },
+    {
+      "index": 19,
+      "tweet_id": 382644,
+      "user_query": "@AmazonHelp Can u please check the order. Trackin no. Is119106082923 and 5180752616480.",
+      "retrieved_context": [
+        "@230664 I'm sorry for the frustration! We'd like to take a closer look. Please submit your order/contact information here: https://www.amazon.com/contact-us ^TN",
+        "@362766 Is your order shipped by Amazon or by a seller? ^FS",
+        "@308633 We do not have account access on Twitter. Was the order placed on https://www.amazon.com/contact-us or https://www.amazon.com/contact-us ^TR"
+      ],
+      "generated_draft": "Hi there, we\u2019re sorry you\u2019re having trouble with your order. Thanks for sharing the tracking numbers, but for your privacy we can\u2019t discuss them publicly. Please share your order details securely so we can investigate further: https://www.amazon.com/contact-us We\u2019ll look into it as soon as possible.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds privacy policy statements and a promise to look into the issue, which are not present in the retrieved context, violating faithfulness. However, it directs the user to share order details for investigation, addressing the request to check the order, so it remains relevant."
+    },
+    {
+      "index": 20,
+      "tweet_id": 1056777,
+      "user_query": "@115850 no response yet",
+      "retrieved_context": [
+        "@379236 You're welcome! :-) ^PR",
+        "@439487 Please report this to our support team here: https://www.amazon.com/contact-us and we'll look into this. 2/2 ^HD",
+        "@130735 We are here to help you. Could you please elaborate your concern? ^HR"
+      ],
+      "generated_draft": "Hi @115850, I\u2019m sorry you haven\u2019t received a response yet. We\u2019re here to help. Could you please share your order number or any relevant details through our secure support form? Please do not post personal information publicly. You can reach out to us here: https://www.amazon.com/contact-us Thank you for your patience!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds details not present in the retrieved context, such as mentioning a 'secure support form' and advising not to post personal information, which are not in the source material. However, it addresses the user's concern about not receiving a response by offering help and providing the contact link, so it is relevant."
+    },
+    {
+      "index": 21,
+      "tweet_id": 2126209,
+      "user_query": "@AmazonHelp Still no change to my delivery and the game comes out tomorrow? Help? \ud83d\ude30 https://t.co/nTXP7gMbqX",
+      "retrieved_context": [
+        "@380006 Two-Day Shipping refers to transit time in business days! We can check the available options here: https://www.amazon.com/contact-us ^ME",
+        "@117498 I can understand your reluctance, but we can provide you with additional options depending on who the seller is.  ^SY",
+        "@214322 Who's the carrier listed for the order? ^DO"
+      ],
+      "generated_draft": "Hi there, I\u2019m sorry to hear your delivery still hasn\u2019t updated and the game releases tomorrow. I understand how important this is. For your privacy, please don\u2019t share order details publicly \u2013 instead, share your order number and any relevant information through our secure contact form here: https://www.amazon.com/contact-us Our team will investigate the status and get back to you as soon as possible. Thank you for your patience!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements (apology, privacy advice, promise to investigate) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about the delivery status, so it remains relevant."
+    },
+    {
+      "index": 22,
+      "tweet_id": 969626,
+      "user_query": "@AmazonHelp Dunno what\u2019s happening here ordered last night and it\u2019s meant to be here today but not despatched?? https://t.co/TeJRZKbekR",
+      "retrieved_context": [
+        "@689917 Will you link us to the item on our website, Tony? We'd like to investigate this further for you! Thanks! ^CS",
+        "@431898 I'm so sorry for the delay, Matt. Please let us know if it doesn't arrive by the delivery date. ^HS",
+        "@164555 Who is the carrier for delivery? What does the current tracking indicate? You can review these here: https://www.amazon.com/contact-us ^VB"
+      ],
+      "generated_draft": "Hi there, I\u2019m sorry to hear your order placed last night hasn\u2019t been dispatched yet. I understand how frustrating that can be. To investigate further, could you please share your order number and any other relevant details here: https://www.amazon.com/contact-us Our team will look into the status and get back to you as quickly as possible. Thank you for your patience!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds a promise ('Our team will look into the status and get back to you as quickly as possible') and a request for order number that are not present in the retrieved context, violating faithfulness. However, it directly addresses the user's concern about the undelivered order, so it is relevant."
+    },
+    {
+      "index": 23,
+      "tweet_id": 590032,
+      "user_query": "@120533 #FLAG For real? L'humour que peuvent avoir les filles de 10 ans est effrayant.... https://t.co/U8cQtk81Q6",
+      "retrieved_context": [
+        "@752276 Navr\u00e9e d'apprendre cela. Pourriez-vous m'expliquer davantage la situation s'il vous pla\u00eet ? ^FA",
+        "@814204 Bonjour, je suis vraiment d\u00e9sol\u00e9e que le colis soit arriv\u00e9 dans cet \u00e9tat, j'esp\u00e8re que l'article est intact. Vous pouvez soumettre une \u00e9valuation sur l'emballage re\u00e7u via le lien suivant : https://www.amazon.com/contact-us ^ASZ",
+        "@324105 Bonjour, vraiment d\u00e9sol\u00e9 pour ce retard. L'avez-vous signal\u00e9 \u00e0 notre Service client pour de plus amples v\u00e9rifications ?"
+      ],
+      "generated_draft": "Hi @120533, we\u2019re sorry you\u2019re upset. Could you let us know more about the issue you\u2019re experiencing so we can assist you? Please share any order details securely here: https://www.amazon.com/contact-us We\u2019ll look into it and review your inquiry.",
+      "is_faithful": false,
+      "is_relevant": false,
+      "reasoning": "The draft introduces apologies, requests for order details, and a support link that are not present in the retrieved context and does not address the user's comment about humor, making it both unfaithful and irrelevant."
+    },
+    {
+      "index": 24,
+      "tweet_id": 1208404,
+      "user_query": "@115821 You told that you cant give that product in this price although i have made full payment https://t.co/NwE7defGyz adopted a cheap way",
+      "retrieved_context": [
+        "@306783 Please don't provide your order details as we consider it personal information. Our twitter page is visible to public. (2/2)^SQ",
+        "@226491 Apologies for the delay in issuing the refund. Please click on the link here: https://www.amazon.com/contact-us &amp; follow the path: login or skip sign in &gt; Choose an option &gt; Choose Reason &gt; Choose Issue &gt; Choose the mode of contact phone, e-mail or chat &amp; we'll assist you.^SF",
+        "@205814 Thank you for bringing this to our notice. I'll surely pass on your comments to our relevant team internally. ^SH"
+      ],
+      "generated_draft": "Hi @115821, I\u2019m sorry you\u2019re experiencing this pricing issue after making a payment. For your security, please don\u2019t share order numbers or personal details publicly. You can share the relevant information securely here: https://www.amazon.com/contact-us Our team will review the situation and get back to you as soon as possible. Thank you for your patience.",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only uses information present in the retrieved context (privacy warning and Amazon contact link) and does not add unsupported facts. It addresses the user's complaint by acknowledging the issue and directing them to the appropriate support channel, thus staying on topic."
+    },
+    {
+      "index": 25,
+      "tweet_id": 485248,
+      "user_query": "@AmazonHelp Can u atleast provide your customer care number so that I can contact them ?",
+      "retrieved_context": [
+        "@336115 The link shared above will direct you to the customer support you are looking for. ^MJ",
+        "@553966 We wouldn't be able to access your Amazon account or order info on Twitter. Kindly drop in your details through the [1/2]",
+        "@398073 We don't need your number, Nadim. Please share your details in the link provided in this tweet: https://www.amazon.com/contact-us ^HD"
+      ],
+      "generated_draft": "Hi there! We don\u2019t share phone numbers publicly, but you can easily reach Amazon Customer Service through the official help page. Please visit https://www.amazon.com/contact-us or click the \u201cContact Us\u201d button in the Help Center to get the phone number and other support options. Let us know if you need any further assistance!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds a statement ('We don\u2019t share phone numbers publicly') that is not present in the retrieved context, violating faithfulness. However, it addresses the user's request by directing them to the contact page to obtain the phone number, so it is relevant."
+    },
+    {
+      "index": 26,
+      "tweet_id": 2385801,
+      "user_query": "@115850 when did I request to reschedule this order, Amazon? https://t.co/w7by82XXPH",
+      "retrieved_context": [
+        "@798164 I'm sorry for the trouble caused over this delivery. Let us set this right, please connect with our support team here: https://www.amazon.com/contact-us for further assistance on it. ^RW",
+        "@217256 I'm sorry for the hassle. Have you reported this to our support team at: https://www.amazon.com/contact-us ?^AU",
+        "@207033 We've sent a correspondence to your registered email address. Please revert to the same. We'll reach out. ^AU"
+      ],
+      "generated_draft": "Hi there, we understand you\u2019re looking for details about a reschedule request for your order. For your privacy and security, please avoid sharing personal order information or links publicly and share the order number and any related details through our secure contact page: https://www.amazon.com/contact-us Our team will review your inquiry once we have the details. Thank you for reaching out.",
+      "is_faithful": true,
+      "is_relevant": false,
+      "reasoning": "The draft only repeats a generic suggestion to contact support, which aligns with the retrieved context and does not introduce new facts, so it is faithful. However, it does not provide the requested information about when the reschedule was made, thus it fails to address the user's core issue."
+    },
+    {
+      "index": 27,
+      "tweet_id": 2759704,
+      "user_query": "We have something arriving tomorrow from @115821 - but we didn't order anything!! \ud83d\ude31 https://t.co/twe1nPlcSL",
+      "retrieved_context": [
+        "@267744 This is pawsitively the cutest package ever!! \ud83d\udc31\ud83d\ude0d ^WJ",
+        "@750558 Hi, thanks for the feedback! We always aim to deliver as quickly as possible! Enjoy the albums! ^JJ",
+        "@224594 What was the delivery date provided in your order confirmation email? That information can be found here: https://www.amazon.com/contact-us ^QJ"
+      ],
+      "generated_draft": "Hi there, we understand how concerning it can be to receive an unexpected package. For your safety, please do not open the package until we can verify the order details. To investigate further, kindly share any order information (order number, tracking number, etc.) through our secure contact page: https://www.amazon.com/contact-us Our team will review your inquiry and get back to you as soon as possible. Thank you for bringing this to our attention.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft includes advice to not open the package and promises to review the inquiry, which are not present in the retrieved context. However, it addresses the user's concern about an unexpected delivery, making it relevant."
+    },
+    {
+      "index": 28,
+      "tweet_id": 1667169,
+      "user_query": "Tday first tme, plgin Seagate extrnl hrd dsk, 1st item, NT wrkng. Seal Pack broken, overlap wth sellotpe, Hw return? @56660 @115850 https://t.co/2p2vsuTP3x",
+      "retrieved_context": [
+        "@636808 My apologies for this, Shashank. Did you try contacting us via: https://www.amazon.com/contact-us in regard to this? ^KS",
+        "@175389 Sorry for the trouble, Khushboo. Kindly reach out to us via: https://www.amazon.com/contact-us and we will have this checked. ^KS",
+        "@384244 is certainly on the cards. Kindly self- return the package by any feasible courier. Appreciate your understanding. ^VN (2/2)"
+      ],
+      "generated_draft": "Hi there, sorry to hear your Seagate external hard drive arrived with a broken seal and isn\u2019t working. I understand this is your first experience with us and you\u2019d like to know how to return it. Please start a return through our Returns Center here: https://www.amazon.com/contact-us If you need any help locating your order or uploading a photo of the damage, you can share those details securely via this link: https://www.amazon.com/contact-us We\u2019ll review the information and get the return process moving for you as quickly as possible. Thank you for bringing this to our attention.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds details not present in the retrieved context, such as a specific Returns Center link, instructions to upload photos, and promises to review information, which are not mentioned in the source. However, it does address the user's request for a return, so it is relevant."
+    },
+    {
+      "index": 29,
+      "tweet_id": 2104982,
+      "user_query": "@AmazonHelp Je ne l'apprends qu'aujourd'hui puisqu'aucun suivi n'\u00e9tait indiqu\u00e9... TNT",
+      "retrieved_context": [
+        "@174137 L'avez-vous contact\u00e9 par e-mail?^FT",
+        "@713401 Veuillez contacter notre service client directement afin qu'il fasse le n\u00e9cessaire, via: https://www.amazon.com/contact-us ^FT",
+        "@152473 Vous pouvez s\u00e9lectionner n'importe quel produit afin de joindre notre SAV qui ne manquera pas de v\u00e9rifier votre compte et y rem\u00e9dier.\n^KE"
+      ],
+      "generated_draft": "Bonjour, nous sommes d\u00e9sol\u00e9s d\u2019apprendre que le suivi de votre commande n\u2019\u00e9tait pas indiqu\u00e9. Pour que nous puissions v\u00e9rifier cela rapidement, merci de ne pas partager d\u2019informations sensibles ici et de nous communiquer votre num\u00e9ro de commande ainsi que tout autre d\u00e9tail pertinent via notre formulaire s\u00e9curis\u00e9\u202f: https://www.amazon.com/contact-us Nous examinerons votre dossier et reviendrons vers vous d\u00e8s que possible.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements (e.g., asking not to share sensitive info, promising to examine the case) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about missing tracking and directs them to contact support, so it is relevant."
+    },
+    {
+      "index": 30,
+      "tweet_id": 1353645,
+      "user_query": "En @4496 #B\u00e9tera parece que cuando no les da tiempo a entregar un paquete de @116928, dicen que estoy ausente y se ahorran el viaje.",
+      "retrieved_context": [
+        "@775974 Hola Uriel, gracias por reportar lo sucedido. Por favor entra en contacto con Servicio al Cliente para reportar la incidencia: https://www.amazon.com/contact-us ^KS",
+        "@528604 Hola Morgana, \u00bfhas contactado con el transportista directamente? ^MB",
+        "@643935 Hola Lourdes, lamento las molestias. \u00bfHas podido hablar con @137605 sobre esta entrega? ^LG"
+      ],
+      "generated_draft": "Hola, lamentamos que haya tenido esta experiencia con la entrega. Entendemos lo frustrante que es cuando el transportista indica que no hubo nadie en casa. Para que podamos revisar el caso y tomar las medidas necesarias, le pedimos que comparta los detalles de su pedido (n\u00famero de orden, direcci\u00f3n, etc.) a trav\u00e9s de nuestro canal seguro: https://www.amazon.com/contact-us Por favor, evite publicar informaci\u00f3n personal en este espacio. Nuestro equipo revisar\u00e1 su consulta y se pondr\u00e1 en contacto con usted.",
+      "is_faithful": true,
+      "is_relevant": true,
+      "reasoning": "The draft only advises contacting customer service via the provided link and requesting order details, which aligns with the retrieved context and addresses the user's complaint about missed deliveries."
+    },
+    {
+      "index": 31,
+      "tweet_id": 2885728,
+      "user_query": "@115830 I signed up for student prime on Sunday night... why have you taken a pound out my bank?? Not that I\u2019m about to lose sleep over that one pound just curious \ud83d\ude02",
+      "retrieved_context": [
+        "@530807 I'm sorry about the poor experience, Nate! We'd like to help! Have you contacted us by phone so we could cancel a charge? ^FR",
+        "@481577 I'm sorry for the poor experience. Without including any account details, can you tell us more about what's happened? ^ZW",
+        "@218355 We're glad you're enjoying being a Prime Student member! \ud83d\ude01 ^CS"
+      ],
+      "generated_draft": "Hi @115830, thanks for reaching out! I see you signed up for Prime Student on Sunday night and noticed a \u00a31 charge. That small amount is often a temporary verification hold that should be released shortly. To look into the details of your account securely, please share any relevant information (order ID, email, etc.) here: https://www.amazon.com/contact-us We\u2019ll review it and get back to you as soon as possible. Thanks for your patience!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds details not present in the retrieved context, such as the \u00a31 being a temporary verification hold and the specific timing of the sign\u2011up, which are not supported by the provided snippets. However, it does address the user's question about the unexpected charge, making it relevant."
+    },
+    {
+      "index": 32,
+      "tweet_id": 2281499,
+      "user_query": "Dear @115821 , \n\nYou told me my package would arrive on Monday.....but you delivered it today. \n\nThank you\n\n#AmazonPrime \ud83d\udcaf",
+      "retrieved_context": [
+        "@366798 I request you to please reply to the email sent by the social media team and we'll and respond to you. ^NR",
+        "@214880 I'm sorry for the delivery issues! What's the status of your order and who's the carrier here: https://www.amazon.com/contact-us ^WT",
+        "@661959 Apologies Becca. What delivery date was provided to you via the confirmation email sent? Have you checked your weekend delivery preferences for the address in question? You check this in 'Your Account', then 'Manage Address Book' and 'Edit Address' Keep us posted ^TP"
+      ],
+      "generated_draft": "Hi there, thanks for letting us know! We\u2019re glad your package arrived earlier than expected. If you have any other questions or need further assistance, please reach out to us here: https://www.amazon.com/contact-us Have a great day!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements (e.g., \"We\u2019re glad your package arrived earlier than expected\") that are not present in the retrieved context, violating faithfulness. However, it addresses the user's comment about the delivery timing, so it remains relevant."
+    },
+    {
+      "index": 33,
+      "tweet_id": 454564,
+      "user_query": "\u8d77\u304d\u305f\u3089\u3053\u3093\u306a\u30e1\u30fc\u30eb\u6765\u3066\u305f\u3002\nAmazon\u3055\u3093\u306e\u5546\u54c1\u306f\u3082\u3046\u53d7\u3051\u53d6\u3063\u3066\u308b\u3057\n#Amazon https://t.co/sP4HVs0foA",
+      "retrieved_context": [
+        "@333160 \u304a\u652f\u6255\u3044\u756a\u53f7\u306f\u5546\u54c1\u306b\u3088\u3063\u3066\u767a\u884c\u6642\u671f\u304c\u7570\u306a\u308a\u307e\u3059\u3002\u4e88\u7d04\u6ce8\u6587\u306e\u5834\u5408\u306f\u3001\u767a\u9001\u4e88\u5b9a\u65e5\u304c\u8fd1\u304f\u306a\u3063\u3066\u304b\u3089\u767a\u884c\u3055\u308c\u307e\u3059\u3002\u767a\u884c\u30bf\u30a4\u30df\u30f3\u30b0\u306a\u3069\u8a73\u3057\u304f\u306f\u3001\u30ea\u30f3\u30af\u306e\u30d8\u30eb\u30d7\u30da\u30fc\u30b8\u3092\u3054\u53c2\u7167\u304f\u3060\u3055\u3044\u3002https://www.amazon.com/contact-us TN",
+        "@169197 Amazon\u3067\u3059\u3002\u3054\u6ce8\u6587\u5c65\u6b74\u306b\u3066\u3054\u78ba\u8a8d\u3044\u305f\u3060\u304d\u307e\u3057\u3066\u3082\u89e3\u6c7a\u3055\u308c\u306a\u3044\u5834\u5408\u306b\u306f\u3001\u304a\u624b\u6570\u3067\u3059\u304c\u6587\u672b\u306e\u30ea\u30f3\u30af\u3088\u308a\u30ab\u30b9\u30bf\u30de\u30fc\u30b5\u30fc\u30d3\u30b9\u3078\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002https://www.amazon.com/contact-us SK",
+        "@689008 \u30ea\u30d7\u30e9\u30a4\u5931\u793c\u3044\u305f\u3057\u307e\u3059\u3002\u5f53\u30b5\u30a4\u30c8\u3088\u308a\u304a\u9001\u308a\u3057\u305fE\u30e1\u30fc\u30eb\u3092\u524a\u9664\u3055\u308c\u3066\u3057\u307e\u3063\u305f\u5834\u5408\u3067\u3082\u3001\u30e1\u30c3\u30bb\u30fc\u30b8\u30bb\u30f3\u30bf\u30fc\u3067\u3054\u78ba\u8a8d\u3044\u305f\u3060\u3051\u307e\u3059\u306e\u3067\u3054\u5b89\u5fc3\u304f\u3060\u3055\u3044\u3002\n\u4ee5\u4e0b\u30ea\u30f3\u30af\u3088\u308a\u3069\u3046\u305e(\u30b5\u30a4\u30f3\u30a4\u30f3\u304c\u5fc5\u8981\u3068\u306a\u308a\u307e\u3059)\u3000https://www.amazon.com/contact-us HM"
+      ],
+      "generated_draft": "\u304a\u306f\u3088\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u3054\u9023\u7d61\u3044\u305f\u3060\u304d\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u5546\u54c1\u306f\u3059\u3067\u306b\u304a\u53d7\u3051\u53d6\u308a\u3068\u306e\u3053\u3068\u3001\u5b89\u5fc3\u3044\u305f\u3057\u307e\u3057\u305f\u3002\u3054\u63d0\u793a\u3044\u305f\u3060\u3044\u305f https://www.amazon.com/contact-us \u306f\u77ed\u7e2eURL\u3067\u3042\u308a\u3001\u5f53\u793e\u306e\u516c\u5f0f\u30ea\u30f3\u30af\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u306e\u3067\u3001\u500b\u4eba\u60c5\u5831\u3084\u6ce8\u6587\u60c5\u5831\u306f\u516c\u958b\u3057\u306a\u3044\u3088\u3046\u304a\u9858\u3044\u3044\u305f\u3057\u307e\u3059\u3002\u3054\u8cea\u554f\u3084\u3054\u4e0d\u5b89\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u4ee5\u4e0b\u306e\u516c\u5f0f\u30b5\u30dd\u30fc\u30c8\u30da\u30fc\u30b8\u304b\u3089\u5b89\u5168\u306b\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002https://www.amazon.com/contact-us",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds information not present in the retrieved context, specifically claiming the provided link is a short URL and not official, which is not stated in the context. However, it addresses the user's concern about the email and advises on safe contact, making it relevant."
+    },
+    {
+      "index": 34,
+      "tweet_id": 2310821,
+      "user_query": "@AmazonHelp Intelcom Courrier Canada Inc.",
+      "retrieved_context": [
+        "@475635 Thanks for confirming! We'd like to look into available options with you here: https://www.amazon.com/contact-us ^AB",
+        "@255537 Have you contacted us directly to see how we can help? Just click on the link: https://www.amazon.com/contact-us ^BD",
+        "@415442 Has your order shipped? If so, are there any recent tracking updates from the carrier here: https://www.amazon.com/contact-us ^RA"
+      ],
+      "generated_draft": "Hi there,\n\nThank you for reaching out to Amazon Help. I see you mentioned Intelcom Courrier Canada Inc. \u2013 we\u2019d like to look into that for you. To investigate further, we\u2019ll need some details such as your order number or tracking information. Please do not share that publicly; you can securely provide it here: https://www.amazon.com/contact-us Our team will review your inquiry and get back to you as soon as possible.\n\nWe appreciate your patience and are here to help!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft introduces policies and promises (e.g., \"Please do not share that publicly\", \"Our team will review your inquiry and get back to you as soon as possible\") that are not present in the retrieved context, violating faithfulness. However, it addresses the user's mention of Intelcom Courrier Canada Inc. by requesting order details and offering assistance, which is relevant to the core issue."
+    },
+    {
+      "index": 35,
+      "tweet_id": 1229526,
+      "user_query": "Halloween is sorted ladies and gents, @115821 have me broken glasses but you get the idea \ud83c\udf83\ud83d\ude02 https://t.co/cuuMxcU1Cr",
+      "retrieved_context": [
+        "@446600 I'm so sorry to hear this! What is the latest order status showing? You can check here: https://www.amazon.com/contact-us ? ^TH",
+        "@351918 Great! What did you order? \ud83c\udf83\ud83d\udc7b ^KM",
+        "@438343 I'm sorry your dress hasn't arrived! Have you contacted us directly for assistance: https://www.amazon.com/contact-us ^SB"
+      ],
+      "generated_draft": "Glad to hear you\u2019re all set for Halloween! \ud83c\udf83 If you need any assistance, feel free to reach out to us here: https://www.amazon.com/contact-us",
+      "is_faithful": false,
+      "is_relevant": false,
+      "reasoning": "The draft adds a statement ('Glad to hear you\u2019re all set for Halloween!') that is not present in the retrieved context, violating faithfulness. It also does not address the user's comment about Halloween and broken glasses, offering generic assistance instead, so it is not relevant to the user's core issue."
+    },
+    {
+      "index": 36,
+      "tweet_id": 2976449,
+      "user_query": "@AmazonHelp I ordered the same exact shoes from the same seller twice and received men\u2019s shoes the first time, and women\u2019s shoes the second time. This is my third order of the same product so I\u2019m hoping I get the right shoes. I want to wear them on my birthday :(",
+      "retrieved_context": [
+        "@482572 Please don't provide your order details, we consider it to be personal information. Our page is visible to the public. ^KA",
+        "@820877 I'm sorry for the ongoing trouble with your orders! Without sharing account information, can you tell us a little more about what's going on? ^SB",
+        "@144961 Please don't provide your order details, as we consider them to be personal information. Our page is visible to the public. (2/2) ^GK"
+      ],
+      "generated_draft": "Hi @AmazonHelp, I'm sorry to hear about the mix\u2011up with your shoes, especially with your birthday coming up. I understand how frustrating that must be. To help us sort this out quickly, could you please share your order numbers and any relevant details through our secure contact form? You can reach out to us here: https://www.amazon.com/contact-us Once we have that information, we\u2019ll investigate the issue with the seller and work on getting you the correct pair in time for your celebration. Thank you for your patience!",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft asks for order details via a secure form, aligning with the context's privacy guidance, but it adds promises (e.g., investigating with the seller and ensuring the correct shoes arrive for the birthday) that are not present in the retrieved context, violating faithfulness."
+    },
+    {
+      "index": 37,
+      "tweet_id": 279371,
+      "user_query": "@AmazonHelp  https://t.co/nojv3hwcA9",
+      "retrieved_context": [
+        "@169658 Have you been in touch with the seller?^CD",
+        "@278928 That's strange! Who is the carrier for this delivery? Does their tracking tool provide any additional insight? If not, please reach out to us here so that we can investigate the tracking information: https://www.amazon.com/contact-us ^EA",
+        "@242012 Have you used the 'Contact Seller' option provided within your order details? For more information, please refer to the following: https://www.amazon.com/contact-us ^WM"
+      ],
+      "generated_draft": "Hi there, thank you for reaching out. For your safety, we recommend not sharing external links publicly. To help us investigate your concern, please share any order details or relevant information through our secure contact page: https://www.amazon.com/contact-us Our team will review your inquiry once we have the necessary information. Thank you for your understanding.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds a safety recommendation about not sharing external links, which is not present in the retrieved context, violating faithfulness. However, it addresses the user's implied request for assistance by asking for order details via the contact page, so it remains relevant."
+    },
+    {
+      "index": 38,
+      "tweet_id": 1054800,
+      "user_query": "@115850 My one month subscription of kindle unlimited has expired. But still it allows me to borrow books. ??????????",
+      "retrieved_context": [
+        "@243170 Hi Jonas, you can purchase Kindle books only on your PC or Kindle device. There isn't an option of buying then through the app.^MA",
+        "@240704 Sorry for the disappointment. Please connect with our support team using this link here: https://www.amazon.com/contact-us and we'll check this. ^KA",
+        "@127027 Hey Doug, have you tried logging out an in again? ^BD"
+      ],
+      "generated_draft": "Hi there, I\u2019m sorry you\u2019re experiencing this issue with your Kindle Unlimited subscription. If your subscription has expired but you\u2019re still able to borrow books, that\u2019s not expected. To investigate further, please share your account details securely through our contact page here: https://www.amazon.com/contact-us Our support team will review the information and get back to you as soon as possible. In the meantime, please avoid posting any personal or account information publicly.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft includes statements and promises (e.g., 'that's not expected', 'support team will review and get back as soon as possible') that are not present in the retrieved context, violating faithfulness. However, it addresses the user's issue about the expired Kindle Unlimited subscription, so it is relevant."
+    },
+    {
+      "index": 39,
+      "tweet_id": 1595234,
+      "user_query": "@AmazonHelp Und da wird mir ganz sicher was anderes gesagt, als in der E-Mail",
+      "retrieved_context": [
+        "@286218 Ich kann mir morgens ebenfalls was sch\u00f6neres vorstellen, aber lass meinen Kollegen bitte ein wenig Zeit. Sie k\u00fcmmern sich um dein Anliegen und melden sich bei dir. Viele Gr\u00fc\u00dfe ^TR",
+        "@414891 Gerne! ^DW",
+        "@145226 Gerne"
+      ],
+      "generated_draft": "Hallo, es tut uns leid zu h\u00f6ren, dass Sie unterschiedliche Informationen erhalten haben. Wir verstehen, wie verwirrend das sein kann. Damit wir das schnell pr\u00fcfen k\u00f6nnen, teilen Sie uns bitte Ihre Bestell\u2011 oder Kontaktdaten \u00fcber unser sicheres Kontaktformular mit: https://www.amazon.com/contact-us Bitte geben Sie keine pers\u00f6nlichen Daten in \u00f6ffentlichen Beitr\u00e4gen preis. Unser Team wird Ihr Anliegen pr\u00fcfen und sich bei Ihnen melden.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft introduces details (contact form link, request for order data) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about receiving conflicting information, so it remains relevant."
+    },
+    {
+      "index": 40,
+      "tweet_id": 1129851,
+      "user_query": "J'\u00e9tais chez moi. La gardienne ne r\u00e9cup\u00e8re jamais les colis. J'ai rien dans ma bo\u00eete au lettres. @120533 t'es de pire en pire. https://t.co/mxDcWvBaCG",
+      "retrieved_context": [
+        "@264519 Bonjour, je suis d\u00e9sol\u00e9e d'apprendre cela. Pouvez-vous m'indiquer que dit votre suivi de colis s'il vous plait ? ^SB",
+        "@193739 Bjr, je suis sinc\u00e8rement d\u00e9sol\u00e9 d'apprendre cela, avez-vous effectu\u00e9 des recherches aupr\u00e8s de votre voisinage ? ^RA",
+        "@811198 Bonjour, je suis d\u00e9sol\u00e9 pour cet incident. Je vous prie de contacter notre SAV via  https://www.amazon.com/contact-us afin de demander le remplacement ou le remboursement de cet article selon sa nature. ^AR"
+      ],
+      "generated_draft": "Bonjour, nous sommes d\u00e9sol\u00e9s d\u2019apprendre que votre colis n\u2019a pas \u00e9t\u00e9 r\u00e9cup\u00e9r\u00e9 par la gardienne. Afin de prot\u00e9ger vos informations personnelles, merci de ne pas partager de d\u00e9tails de commande publiquement. Vous pouvez nous transmettre ces informations en toute s\u00e9curit\u00e9 via notre centre d\u2019aide\u202f: https://www.amazon.com/contact-us Notre \u00e9quipe examinera votre demande et vous contactera rapidement. Nous vous remercions pour votre compr\u00e9hension.",
+      "is_faithful": false,
+      "is_relevant": true,
+      "reasoning": "The draft adds statements about protecting personal information and team follow\u2011up that are not present in the retrieved context, violating faithfulness. However, it addresses the user's issue about the missing parcel and directs them to contact support, which aligns with the context, so it is relevant."
+    }
+  ]
+}
