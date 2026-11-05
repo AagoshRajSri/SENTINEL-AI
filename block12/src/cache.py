@@ -331,3 +331,4 @@ def triage_with_semantic_cache(
     c.store(text, res)
     latency_ms = (time.perf_counter() - t0) * 1000.0
     return (res, False, 0.0, latency_ms)
+

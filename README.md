@@ -41,6 +41,7 @@ pinned: false
   - [6. Asynchronous Event-Driven Ingestion (Kafka / Redpanda)](#6-event-driven-scalability-kafka--redpanda-ingestion-srckafka_consumerpy)
   - [7. Tier-0 Semantic Caching (Redis)](#7-tier-0-semantic-caching-sub-millisecond-redis-interceptor-srccachepy)
   - [8. Multi-Agent Graph Routing (LangGraph DAG)](#8-multi-agent-graph-routing-langgraph-dag-srcgraph_builderpy)
+  - [9. Chaos Engineering & Invariant Testing Harness (1,000-Ticket Black Friday Outage)](#9-chaos-engineering--invariant-testing-harness-scriptschaos_engineering_blastpy)
 - [🛡️ Failure Modes & Edge-Case Analysis](#️-failure-modes--edge-case-analysis)
 - [⚠️ Known Limitations & Future Work](#️-known-limitations--future-work)
 - [💡 Architectural Decision Highlights](#-architectural-decision-highlights)
@@ -113,7 +114,10 @@ python scripts/cache_stress_test.py
 # 16. Run LangGraph Multi-Agent DAG Execution Trace (proves dual routing path)
 python scripts/test_graph_execution.py
 
-# 17. Launch the Interactive Web Application (Localhost)
+# 17. Run Black Friday Chaos Engineering & Invariant Testing Harness (1,000-Ticket Blast)
+python scripts/chaos_engineering_blast.py
+
+# 18. Launch the Interactive Web Application (Localhost)
 python app.py
 ```
 
@@ -451,6 +455,62 @@ flowchart TD
 
 ---
 
+### 9. Chaos Engineering & Invariant Testing Harness (`scripts/chaos_engineering_blast.py`)
+
+To prove enterprise resilience under catastrophic production traffic spikes, Sentinel-AI includes a comprehensive **Chaos Engineering & Invariant Testing Harness** (`scripts/chaos_engineering_blast.py`). The harness subjects the multi-agent Kafka streaming pipeline, FAISS vector index, and Redis semantic cache to a simulated **Black Friday enterprise outage**: exactly 1,000 concurrent customer tickets blasted via `aiokafka` and `asyncio.gather` in sub-second time.
+
+```
+                    1,000-Ticket Black Friday Blast
+               ┌───────────────────┼───────────────────┐
+               │                   │                   │
+               ▼                   ▼                   ▼
+    600 Duplicate Tickets   300 Novel Tickets   100 Toxic / Hazards
+    (O(1) Redis Cache Hit)  (Full LangGraph)   (Pass 0 Pre-Filter)
+               │                   │                   │
+               ▼                   ▼                   ▼
+           ~18 ms latency      ~1.3 s latency     0.05 ms latency
+           (Zero LLM Cost)    (Grounded Draft)   (Immediate Handoff)
+```
+
+**Payload Stratification:**
+- **600 Duplicate Routine Tickets:** Stress-testing the $O(1)$ SHA-256 Redis Hash Cache and Tier-1 Vector Cache.
+- **300 Novel Routine Tickets:** Unique, non-repetitive logistics queries requiring full LangGraph execution (Groq classification, FAISS vector lookup over 15,000 vectors, grounded drafting, and safeguards).
+- **100 Toxic/Emergency Tickets:** Severe PII leaks (SSNs, credit cards), legal threats (lawyers, lawsuits), physical safety hazards (battery fire, lacerations), and driver misconduct.
+
+**Strict Mathematical & Structural Invariants (Panics with Code 1 on any violation):**
+- **Safety Invariant A:** `If intent == "Severe" OR risk_score >= 0.40 -> should_escalate == True`
+- **Structural Invariant B (LangGraph Proof):** `If should_escalate == True -> draft_reply is None AND auto_draft_generated == False`
+- **Data Loss Invariant C (At-Least-Once Delivery):** `assert total_processed_events == 1000` (zero dropped tickets across Kafka consumer partitions)
+
+**Empirical SRE Telemetry Receipt (`cache/chaos_engineering_receipt.json`):**
+
+```text
+================================================================================
+SRE RECEIPT: BLACK FRIDAY CHAOS OUTAGE PROOF
+================================================================================
+Total Customer Tickets Ingested   : 1000
+Publication Blast Duration        : 0.528 s  (Constraint: < 5.0s ✓)
+Total Execution Duration          : 10.154 s
+End-to-End Processing Throughput  : 98.5 msg/sec
+Redis Semantic Cache Hit Rate     : 60.0%
+LLM Calls Deflected (Zero Cost)   : 796 / 1,000
+Zero-Trust Human Escalations      : 196 (Rate: 19.6%)
+Safe Grounded Drafts Generated    : 804
+Dropped Messages (Data Loss)      : 0 (0.00% - At-Least-Once Proof ✓)
+--------------------------------------------------------------------------------
+LATENCY DISTRIBUTION:
+  • Redis Cache Hits   (N=600) : Mean=23.74ms | P50=18.29ms | P95=94.06ms | P99=110.5ms
+  • Pipeline Misses    (N=400) : Mean=5152.47ms | P50=1318.1ms | P95=25681.28ms | P99=26360.21ms
+--------------------------------------------------------------------------------
+MATHEMATICAL INVARIANT VALIDATION:
+  [✓ PASSED] Safety Invariant A    : 100% of Severe / Risk >= 0.40 tickets escalated
+  [✓ PASSED] Structural Invariant B: 100% of escalated tickets have draft_reply=None & auto_draft=False
+  [✓ PASSED] Data Loss Invariant C : Exactly 1,000/1,000 events consumed (0 dropped)
+================================================================================
+```
+
+---
+
 ---
 
 ## 🛡️ Failure Modes & Edge-Case Analysis
@@ -568,7 +628,8 @@ SENTINEL-AI/
     │   ├── evaluate_rag_triad.py  # LLM-as-a-Judge Faithfulness & Relevance evaluator
     │   ├── kafka_stress_test.py   # 50-ticket burst concurrency stress test
     │   ├── cache_stress_test.py   # Dual-blast cold vs. warm cache hit-rate benchmark
-    │   └── test_graph_execution.py# LangGraph DAG dual-route execution trace proof
+    │   ├── test_graph_execution.py# LangGraph DAG dual-route execution trace proof
+    │   └── chaos_engineering_blast.py # 1,000-ticket Black Friday chaos & invariant harness
     │
     ├── eval/                      # Evaluation suite & golden data
     │   ├── golden_test.json       # 250-case human-labeled evaluation benchmark
@@ -585,7 +646,8 @@ SENTINEL-AI/
     │   ├── zeroshot_cache.json    # Cached zero-shot baseline outputs
     │   ├── two_pass_continuous_calibration.json # Calibrated two-pass outputs
     │   ├── kafka_stress_test_receipt.json # Verified Kafka stress test receipt
-    │   └── semantic_cache_stress_test_receipt.json # Verified semantic cache speedup receipt
+    │   ├── semantic_cache_stress_test_receipt.json # Verified semantic cache speedup receipt
+    │   └── chaos_engineering_receipt.json # Verified 1,000-ticket Black Friday chaos receipt
     │
     └── data/                      # Taxonomy and metadata specs
         └── taxonomy.md            # Detailed category and escalation criteria

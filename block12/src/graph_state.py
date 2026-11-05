@@ -29,3 +29,4 @@ class TriageState(TypedDict):
 
     # ── Audit ──────────────────────────────────────────────────────────────
     routing_path: List[str]             # Ordered list of nodes visited
+

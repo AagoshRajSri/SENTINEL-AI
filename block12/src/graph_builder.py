@@ -77,3 +77,4 @@ def build_graph() -> StateGraph:
 
 # Module-level compiled graph — import this in scripts / tests
 app = build_graph()
+

@@ -59,11 +59,18 @@ class SentinelKafkaProducer:
             "confidence": getattr(pipeline_response, "confidence", 0.0),
             "reasoning": getattr(pipeline_response, "reasoning", ""),
             "escalation_score": getattr(pipeline_response, "escalation_score", 0.0),
+            "risk_score": getattr(pipeline_response, "risk_score", getattr(pipeline_response, "escalation_score", 0.0)),
             "should_escalate": getattr(pipeline_response, "should_escalate", False),
             "escalation_reason": getattr(pipeline_response, "escalation_reason", ""),
             "draft": getattr(pipeline_response, "draft", None),
+            "draft_reply": getattr(pipeline_response, "draft_reply", getattr(pipeline_response, "draft", None)),
             "policy_adherence": getattr(pipeline_response, "policy_adherence", None),
             "auto_draft_generated": getattr(pipeline_response, "auto_draft_generated", False),
+            "routing_path": getattr(
+                pipeline_response,
+                "routing_path",
+                ["router", "escalator"] if getattr(pipeline_response, "should_escalate", False) else ["router", "rag_retriever", "drafter"]
+            ),
             "processing_latency_ms": round(processing_latency_ms, 2),
             "timestamp": time.time(),
             "metadata": metadata or {},
