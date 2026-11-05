@@ -40,6 +40,7 @@ pinned: false
   - [5. RAG Triad Generative Evaluation](#5-generative-quality-the-rag-triad-evaluation-evalrag_triad_resultsjson)
   - [6. Asynchronous Event-Driven Ingestion (Kafka / Redpanda)](#6-event-driven-scalability-kafka--redpanda-ingestion-srckafka_consumerpy)
   - [7. Tier-0 Semantic Caching (Redis)](#7-tier-0-semantic-caching-sub-millisecond-redis-interceptor-srccachepy)
+  - [8. Multi-Agent Graph Routing (LangGraph DAG)](#8-multi-agent-graph-routing-langgraph-dag-srcgraph_builderpy)
 - [🛡️ Failure Modes & Edge-Case Analysis](#️-failure-modes--edge-case-analysis)
 - [⚠️ Known Limitations & Future Work](#️-known-limitations--future-work)
 - [💡 Architectural Decision Highlights](#-architectural-decision-highlights)
@@ -109,7 +110,10 @@ python scripts/kafka_stress_test.py
 # 15. Run Semantic Cache Dual-Blast Hit-Rate Test (193x Speedup)
 python scripts/cache_stress_test.py
 
-# 16. Launch the Interactive Web Application (Localhost)
+# 16. Run LangGraph Multi-Agent DAG Execution Trace (proves dual routing path)
+python scripts/test_graph_execution.py
+
+# 17. Launch the Interactive Web Application (Localhost)
 python app.py
 ```
 
@@ -379,6 +383,76 @@ When high-volume viral events or regional logistics outages trigger hundreds of 
 
 ---
 
+### 8. Multi-Agent Graph Routing: LangGraph DAG (`src/graph_builder.py`)
+
+A linear `Classify → Retrieve → Escalate → Draft` pipeline is brittle when a customer query blends multiple intents (e.g. *"My order is delayed and I'm going to sue if it isn't fixed today"*). To solve this, Sentinel-AI migrates to a **LangGraph Directed Acyclic Graph (DAG)** — a formal state machine where a Supervisor routes payloads to specialized, independent agents based on dynamic runtime reasoning.
+
+```mermaid
+flowchart TD
+    A([Inbound Ticket]) --> B[router_node\nClassify intent + evaluate risk]
+    B --> C{should_escalate?}
+    C -->|YES| D[escalation_node\nFlag for human handoff\ndraft_reply = None]
+    C -->|NO| E[rag_node\nFetch top-3 FAISS policy snippets]
+    E --> F[drafter_node\nGenerate grounded reply]
+    D --> G([END])
+    F --> G
+
+    classDef escalate fill:#ff4d4f,stroke:#d9363e,color:#fff;
+    classDef rag fill:#1890ff,stroke:#096dd9,color:#fff;
+    classDef router fill:#faad14,stroke:#d48806,color:#000;
+    class D escalate;
+    class E,F rag;
+    class B router;
+```
+
+**Verified DAG Routing Traces (`scripts/test_graph_execution.py`):**
+
+```text
+════════════════════════════════════════════════════════════════════════
+  TICKET : TICKET-ROUTINE-001
+  QUERY  : Where is my package? It has been 5 days since I ordered.
+════════════════════════════════════════════════════════════════════════
+  NODE PATH   : router → rag_retriever → drafter → END
+  INTENT      : Delivery Issues
+  RISK SCORE  : 0.15
+  ESCALATED   : False
+  DRAFT       : Hi there, I'm sorry you haven't received your package yet…
+
+  ✅  Routing path CORRECT: router → rag_retriever → drafter → END
+  ✅  Escalation flag CORRECT: NOT ESCALATED ✓
+
+════════════════════════════════════════════════════════════════════════
+  TICKET : TICKET-SEVERE-001
+  QUERY  : If I don't get my refund today, you will be hearing from my lawyer.
+════════════════════════════════════════════════════════════════════════
+  NODE PATH   : router → escalator → END
+  INTENT      : Payment & Refunds
+  RISK SCORE  : 1.00
+  ESCALATED   : True
+  DRAFT       : ∅  (escalated — no AI draft generated)
+
+  ✅  Routing path CORRECT: router → escalator → END
+  ✅  Escalation flag CORRECT: ESCALATED ✓
+
+════════════════════════════════════════════════════════════════════════
+  RESULT  : ✅  ALL ROUTING ASSERTIONS PASSED
+  PROOF   :
+    • Routine ticket traversed  router → rag_retriever → drafter → END
+    • Severe  ticket traversed  router → escalator → END
+    • No AI draft generated for escalated ticket (draft_reply = None)
+════════════════════════════════════════════════════════════════════════
+```
+
+**Key implementation properties:**
+- **State isolation:** Each `TriageState` TypedDict flows immutably between nodes — no shared mutable state.
+- **Conditional edges:** `route_ticket()` reads `should_escalate` and dispatches to `escalator` or `rag_retriever` dynamically, decoupling routing logic from node business logic.
+- **Hard escalation contract:** The `escalation_node` explicitly sets `draft_reply = None`, making it structurally impossible for the graph to auto-draft on a flagged ticket.
+- **Composability:** New specialized nodes (e.g., a fraud-detection agent or multilingual pre-processor) can be inserted as new graph vertices without modifying existing node functions.
+
+---
+
+---
+
 ## 🛡️ Failure Modes & Edge-Case Analysis
 
 Thorough evaluation on the 250-case regression suite surfaced 4 primary failure modes documented in [REPORT.md](./block12/REPORT.md):
@@ -477,6 +551,9 @@ SENTINEL-AI/
     │   ├── cache.py               # Tier-0 Redis semantic caching layer (>0.95 sim)
     │   ├── kafka_producer.py      # Async Kafka dispatch producer (acks=all)
     │   ├── kafka_consumer.py      # Async Kafka ingestion daemon (at-least-once commits)
+    │   ├── graph_state.py         # LangGraph TriageState TypedDict (shared DAG state)
+    │   ├── graph_nodes.py         # LangGraph node functions (router, escalator, rag, drafter)
+    │   ├── graph_builder.py       # Compiled LangGraph StateGraph DAG with conditional edges
     │   ├── baseline_heuristic.py  # Regex & keyword baseline
     │   └── baseline_zeroshot.py   # Raw zero-shot LLM baseline
     │
@@ -490,7 +567,8 @@ SENTINEL-AI/
     │   ├── bootstrap.py           # FAISS index builder & fixture validator
     │   ├── evaluate_rag_triad.py  # LLM-as-a-Judge Faithfulness & Relevance evaluator
     │   ├── kafka_stress_test.py   # 50-ticket burst concurrency stress test
-    │   └── cache_stress_test.py   # Dual-blast cold vs. warm cache hit-rate benchmark
+    │   ├── cache_stress_test.py   # Dual-blast cold vs. warm cache hit-rate benchmark
+    │   └── test_graph_execution.py# LangGraph DAG dual-route execution trace proof
     │
     ├── eval/                      # Evaluation suite & golden data
     │   ├── golden_test.json       # 250-case human-labeled evaluation benchmark
