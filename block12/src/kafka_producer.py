@@ -91,3 +91,4 @@ class SentinelKafkaProducer:
             key=ticket_id,
             value=payload
         )
+

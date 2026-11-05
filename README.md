@@ -39,6 +39,7 @@ pinned: false
   - [4. Prometheus Observability Engine](#4-prometheus-observability-engine-get-metrics)
   - [5. RAG Triad Generative Evaluation](#5-generative-quality-the-rag-triad-evaluation-evalrag_triad_resultsjson)
   - [6. Asynchronous Event-Driven Ingestion (Kafka / Redpanda)](#6-event-driven-scalability-kafka--redpanda-ingestion-srckafka_consumerpy)
+  - [7. Tier-0 Semantic Caching (Redis)](#7-tier-0-semantic-caching-sub-millisecond-redis-interceptor-srccachepy)
 - [🛡️ Failure Modes & Edge-Case Analysis](#️-failure-modes--edge-case-analysis)
 - [⚠️ Known Limitations & Future Work](#️-known-limitations--future-work)
 - [💡 Architectural Decision Highlights](#-architectural-decision-highlights)
@@ -105,7 +106,10 @@ python src/kafka_consumer.py --max-messages 50
 # 14. Run Kafka Concurrency & Zero-Drop Stress Test (50-ticket burst)
 python scripts/kafka_stress_test.py
 
-# 15. Launch the Interactive Web Application (Localhost)
+# 15. Run Semantic Cache Dual-Blast Hit-Rate Test (193x Speedup)
+python scripts/cache_stress_test.py
+
+# 16. Launch the Interactive Web Application (Localhost)
 python app.py
 ```
 
@@ -357,6 +361,20 @@ flowchart LR
   - **Routing Breakdown:** **38 Escalations (76.0%)** routed to Tier-2 human queue; **12 Safe Automated Drafts (24.0%)** delivered for human review.
   - **Receipt Artifact:** `cache/kafka_stress_test_receipt.json`.
 
+### 7. Tier-0 Semantic Caching: Sub-Millisecond Redis Interceptor (`src/cache.py`)
+
+When high-volume viral events or regional logistics outages trigger hundreds of repetitive queries (e.g. *"Where is my order?"*), Sentinel-AI intercepts them with a **Tier-0 Redis Semantic Cache** before they ever reach Groq LLM inference:
+
+- **Two-Tier Lookups:**
+  1. **Tier 0A (Exact $O(1)$ Hash Match):** SHA-256 normalized hash lookup in Redis resolving identical requests in **~1.1 ms**.
+  2. **Tier 0B (Semantic Vector Cosine Search):** Uses `all-MiniLM-L6-v2` dense embeddings with dot-product cosine similarity over Redis vector hashes. Queries matching with **cosine similarity $\ge 0.95$** return the cached `PipelineResponse` immediately.
+- **Empirical Dual-Blast Stress Test Receipts (`scripts/cache_stress_test.py`):**
+  - **Blast 1 (Cold Cache):** 1,172.43 ms mean latency (Full RAG + FAISS + Groq LLM execution).
+  - **Blast 2 (Warm Cache):** **6.05 ms** mean latency (**99.48% latency reduction**).
+  - **Throughput Speedup:** **193.8x faster execution**.
+  - **LLM Token Deflection:** **100.0%** of LLM calls eliminated during the warm burst (20/20 tickets intercepted).
+  - **Receipt Artifact:** `cache/semantic_cache_stress_test_receipt.json`.
+
 ---
 
 ---
@@ -456,6 +474,7 @@ SENTINEL-AI/
     │   ├── retriever.py           # FAISS vector store & embedding retrieval
     │   ├── reply_drafter.py       # Pass 2: Context-grounded RAG reply drafter
     │   ├── pipeline.py            # Unified end-to-end two-pass triage pipeline
+    │   ├── cache.py               # Tier-0 Redis semantic caching layer (>0.95 sim)
     │   ├── kafka_producer.py      # Async Kafka dispatch producer (acks=all)
     │   ├── kafka_consumer.py      # Async Kafka ingestion daemon (at-least-once commits)
     │   ├── baseline_heuristic.py  # Regex & keyword baseline
@@ -464,12 +483,14 @@ SENTINEL-AI/
     ├── tests/                     # Automated testing suite
     │   ├── test_sentinel.py       # 28 hermetic unit & regression tests
     │   ├── test_safety_and_edge_cases.py # Targeted failure mode & PII safety tests
-    │   └── test_kafka_pipeline.py # Mocked Kafka serialization & at-least-once tests
+    │   ├── test_kafka_pipeline.py # Mocked Kafka serialization & at-least-once tests
+    │   └── test_semantic_cache.py # Redis semantic cache threshold & hit tests
     │
     ├── scripts/                   # Verification & stress testing scripts
     │   ├── bootstrap.py           # FAISS index builder & fixture validator
     │   ├── evaluate_rag_triad.py  # LLM-as-a-Judge Faithfulness & Relevance evaluator
-    │   └── kafka_stress_test.py   # 50-ticket burst concurrency stress test
+    │   ├── kafka_stress_test.py   # 50-ticket burst concurrency stress test
+    │   └── cache_stress_test.py   # Dual-blast cold vs. warm cache hit-rate benchmark
     │
     ├── eval/                      # Evaluation suite & golden data
     │   ├── golden_test.json       # 250-case human-labeled evaluation benchmark
@@ -485,7 +506,8 @@ SENTINEL-AI/
     │   ├── classifier_cache_groq.json # Cached Pass 1 classifications
     │   ├── zeroshot_cache.json    # Cached zero-shot baseline outputs
     │   ├── two_pass_continuous_calibration.json # Calibrated two-pass outputs
-    │   └── kafka_stress_test_receipt.json # Verified Kafka stress test receipt
+    │   ├── kafka_stress_test_receipt.json # Verified Kafka stress test receipt
+    │   └── semantic_cache_stress_test_receipt.json # Verified semantic cache speedup receipt
     │
     └── data/                      # Taxonomy and metadata specs
         └── taxonomy.md            # Detailed category and escalation criteria

@@ -86,20 +86,20 @@ class TestKafkaPipeline(unittest.IsolatedAsyncioTestCase):
             offset=10
         )
 
-        with patch("src.kafka_consumer.run_full_pipeline") as mock_pipeline:
-            mock_pipeline.return_value = PipelineResponse(
-                intent="Severe Escalation",
-                confidence=0.99,
-                reasoning="Legal threat keyword 'sue' detected.",
-                escalation_score=1.0,
-                should_escalate=True,
-                escalation_reason="Escalated: Legal keywords present.",
-                draft=None,
-                policy_adherence="Safety Gate: High-risk query withheld.",
-                auto_draft_generated=False,
-                route="🚨 ESCALATED (Human Queue)"
-            )
+        mock_res = PipelineResponse(
+            intent="Severe Escalation",
+            confidence=0.99,
+            reasoning="Legal threat keyword 'sue' detected.",
+            escalation_score=1.0,
+            should_escalate=True,
+            escalation_reason="Escalated: Legal keywords present.",
+            draft=None,
+            policy_adherence="Safety Gate: High-risk query withheld.",
+            auto_draft_generated=False,
+            route="🚨 ESCALATED (Human Queue)"
+        )
 
+        with patch("src.kafka_consumer.triage_with_semantic_cache", return_value=(mock_res, False, 0.0, 5.0)):
             result = await consumer._process_single_ticket(raw_msg)
             self.assertEqual(result["ticket_id"], "ticket_esc_01")
             self.assertEqual(consumer.total_dispatched, 1)

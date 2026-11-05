@@ -27,6 +27,7 @@ load_dotenv()
 from aiokafka import AIOKafkaConsumer
 from src.kafka_producer import SentinelKafkaProducer
 from src.pipeline import run_full_pipeline, PipelineResponse
+from src.cache import triage_with_semantic_cache, get_semantic_cache
 
 logging.basicConfig(
     level=logging.INFO,
@@ -113,9 +114,10 @@ class SentinelKafkaConsumer:
         text = payload.get("text", "") if isinstance(payload, dict) else str(payload)
         t0 = time.perf_counter()
 
-        # Non-blocking async execution offloaded to threadpool
-        pipeline_res: PipelineResponse = await asyncio.to_thread(run_full_pipeline, text)
-        latency_ms = (time.perf_counter() - t0) * 1000.0
+        # Tier 0 Semantic Cache Interceptor -> Two-Pass Pipeline Fallback
+        pipeline_res, is_cache_hit, sim_score, latency_ms = await asyncio.to_thread(
+            triage_with_semantic_cache, text
+        )
 
         # Dispatch finalized decision to output topic
         dispatched_event = await self.producer.publish_triage_result(
@@ -127,6 +129,8 @@ class SentinelKafkaConsumer:
                 "inbound_topic": raw_message.topic,
                 "inbound_partition": raw_message.partition,
                 "inbound_offset": raw_message.offset,
+                "cache_hit": is_cache_hit,
+                "cache_similarity": round(sim_score, 4),
             },
             topic=self.processed_topic
         )
@@ -140,8 +144,9 @@ class SentinelKafkaConsumer:
             self.total_auto_drafted += 1
 
         route_flag = "🚨 ESCALATED (Human Queue)" if pipeline_res.should_escalate else "⚡ AUTO-DRAFTED"
+        cache_flag = f" [CACHE HIT sim={sim_score:.2f}]" if is_cache_hit else " [CACHE MISS / LLM]"
         logger.info(
-            f"Processed [{ticket_id}] in {latency_ms:.1f}ms -> {pipeline_res.intent} | {route_flag}"
+            f"Processed [{ticket_id}] in {latency_ms:.1f}ms{cache_flag} -> {pipeline_res.intent} | {route_flag}"
         )
         return dispatched_event
 
@@ -244,3 +249,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
