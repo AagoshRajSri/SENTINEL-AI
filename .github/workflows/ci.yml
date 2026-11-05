@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      GROQ_API_KEY: "mock_ci_groq_api_key_placeholder"
+      SENTINEL_OFFLINE_EVAL: "0"
 
     steps:
       - name: Checkout Repository
