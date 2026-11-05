@@ -232,7 +232,10 @@ DRAFTED REPLY: "{drafted_reply}"
     # --- GROQ API IMPLEMENTATION ---
     # Model: qwen/qwen3.8-27b — fast, high rate limits, reliable JSON output
     # Fallback: groq/compound-mini if qwen hits issues
-    client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    groq_api_key = os.getenv("GROQ_API_KEY")
+    if not groq_api_key:
+        raise ValueError("CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file.")
+    client = Groq(api_key=groq_api_key)
     groq_prompt = prompt + """
 Format your response as a valid JSON object with the following integer keys (1 to 5):
 {

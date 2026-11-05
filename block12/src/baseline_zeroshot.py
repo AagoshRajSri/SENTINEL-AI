@@ -82,7 +82,7 @@ def baseline_zeroshot(text: str) -> dict:
     # 3. Setup Groq API
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        raise ValueError("GROQ_API_KEY is not set. Check your .env file.")
+        raise ValueError("CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file.")
     groq_url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {api_key}",

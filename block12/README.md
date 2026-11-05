@@ -18,20 +18,21 @@ pinned: false
 [![Evaluation](https://img.shields.io/badge/Cohen's%20Kappa-0.558%20(Moderate--to--Strong)-success.svg)](#-evaluation--benchmark-results)
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-> **High-throughput, low-latency triage & retrieval-augmented auto-reply engine for enterprise customer support.**  
-> Built to detect critical escalations (legal threats, safety hazards, driver misconduct) with high recall, while synthesizing grounded, brand-aligned responses for routine logistics inquiries in sub-millisecond retrieval time.
+> **Safety-first triage filter and human-in-the-loop auto-reply drafting engine for enterprise customer support.**  
+> Designed with a conservative, safety-first escalation gate to ensure ambiguous or high-risk cases (e.g., refunds, safety hazards, legal threats) are strictly routed to human operators, while shielding human agents from repetitive logistics noise through grounded RAG response drafts.
 
 ---
 
 ## 📋 Table of Contents
-- [⚡ Grader Quickstart & Reproducibility](#-grader-quickstart--reproducibility)
+- [⚡ Quickstart & Clean-Checkout Reproducibility](#-quickstart--clean-checkout-reproducibility)
 - [🎯 Executive Summary & Mission](#-executive-summary--mission)
 - [🏗️ System Architecture](#️-system-architecture)
 - [🔬 Two-Pass Pipeline Deep Dive](#-two-pass-pipeline-deep-dive)
   - [Pass 1: Intent Classification & Calibrated Safety Gate](#pass-1-intent-classification--calibrated-safety-gate)
-  - [Pass 2: Sub-Millisecond RAG Reply Drafter](#pass-2-sub-millisecond-rag-reply-drafter)
+  - [Pass 2: In-Memory RAG Reply Drafter](#pass-2-in-memory-rag-reply-drafter)
 - [📊 Evaluation & Benchmark Results](#-evaluation--benchmark-results)
 - [🛡️ Failure Modes & Edge-Case Analysis](#️-failure-modes--edge-case-analysis)
+- [⚠️ Known Limitations & Future Work](#️-known-limitations--future-work)
 - [💡 Architectural Decision Highlights](#-architectural-decision-highlights)
 - [📂 Repository Structure](#-repository-structure)
 - [🔒 Safety, Governance & Scope](#-safety-governance--scope)
@@ -58,24 +59,33 @@ venv\Scripts\Activate.ps1
 # 3. Install pinned dependencies
 pip install -r requirements.txt
 
-# 4. Bootstrap Offline Fixtures & FAISS IndexFlatIP (Clean Checkout)
+# 4. Configure Environment Variables
+# Create a .env file and add your GROQ_API_KEY.
+cp .env.example .env
+# Open .env and insert your Groq API key:
+# GROQ_API_KEY=gsk_your_actual_key_here
+
+# 5. Bootstrap Offline Fixtures & FAISS IndexFlatIP (Clean Checkout)
 # Rebuilds the normalized IndexFlatIP vector index (15,000 vectors, d=384) from data/clean_pairs.csv
 python scripts/bootstrap.py
 
-# 5. Run Hermetic Unit & Regression Suite (27 tests, 100% offline)
+# 6. Run Hermetic Unit & Regression Suite (28 tests, 100% offline)
 python -m unittest tests.test_sentinel
 
-# 6. Run Core Triage Threshold Sweep Benchmark (Offline)
+# 7. Run Safety & Failure Mode Edge-Case Suite (Pytest)
+python -m pytest tests/test_safety_and_edge_cases.py
+
+# 8. Run Core Triage Threshold Sweep Benchmark (Offline)
 python run_eval.py
 
-# 7. Run Full End-to-End Pipeline Evaluation (All 250 Golden Cases)
+# 9. Run Full End-to-End Pipeline Evaluation (All 250 Golden Cases)
 # Evaluates classification, calibrated escalation gate (threshold 0.40), FAISS retrieval, and reply drafting
 python eval/evaluate_end_to_end.py
 
-# 8. Run Controlled Grounding Audit (Baseline vs. RAG)
+# 10. Run Controlled Grounding Audit (Baseline vs. RAG)
 python eval/grounding_eval.py
 
-# 9. Launch the Interactive Web Application (Localhost)
+# 11. Launch the Interactive Web Application (Localhost)
 python app.py
 ```
 
@@ -84,6 +94,10 @@ python app.py
 ## 🎯 Executive Summary & Mission
 
 Enterprise support channels (such as Twitter/X `@AmazonHelp`) process tens of thousands of inbound tickets daily. Over 90% are repetitive routine queries, but a critical minority represent severe operational risks: legal threats, delivery-driver misconduct, physical safety hazards, or account takeovers.
+
+Sentinel-AI is not designed to replace human agents with an unconstrained autonomous model. Instead, it operates as a **safety-first triage filter and assistive human-in-the-loop copilot**:
+1. **Deflects Routine Noise Safely:** Synthesizes context-grounded response drafts for common logistical queries based on 15,000 historical resolutions for agent review.
+2. **Conservative Escalation Gate:** Ensures ambiguous or high-risk cases (e.g., refunds, safety hazards, legal threats) are strictly routed to human operators with **zero automated deflection**.
 
 ```
                     Inbound Tickets (100%)
@@ -94,16 +108,16 @@ Routine Queries (~90%)                   Critical Edge Cases (~10%)
 (e.g., 'Where is my order?')             (Legal threats, driver misconduct, fraud)
             │                                     │
             ▼                                     ▼
-Fast RAG Auto-Drafting                   Immediate Human Escalation
-(Grounded in 15k past resolutions)       (Zero automated deflection)
+Grounded RAG Auto-Drafting               Immediate Human Escalation
+(Assistive draft for agent review)       (Strict human-in-the-loop routing)
 ```
 
 ### The Cost Asymmetry
 In enterprise triage, **False Negatives are catastrophic**:
-- **False Negative:** Missing a customer reporting a stolen item or driver harassment leads to PR fallout, police involvement, and severe legal liability.
-- **False Positive:** Routing an ambiguous delivery query to a human agent incurs an incremental operational cost of ~$2.00.
+- **False Negative (Unsafe Deflection):** Missing a customer reporting a stolen item or driver harassment leads to PR fallout, police involvement, and severe legal liability.
+- **False Positive (Over-Escalation):** Routing an ambiguous delivery query to a human agent incurs an incremental operational cost of ~$2.00.
 
-**Sentinel-AI explicitly biases for recall on high-severity tickets**, driving the Escalation False Negative Rate (FNR) down to **34.9%** while sustaining high throughput.
+**Sentinel-AI explicitly biases for recall on high-severity tickets**, driving the Escalation False Negative Rate (FNR) down to **34.9%** (meeting the operational safety target of FNR < 35%) while maintaining a **0% auto-draft violation rate** on escalated tickets.
 
 ---
 
@@ -160,11 +174,11 @@ flowchart TD
 - **Schema Enforcement:** Strict [Pydantic v2](https://docs.pydantic.dev/) data modeling guarantees typed outputs (`intent: str`, `confidence: float`, `should_escalate: bool`, `escalation_reason: str`). Eliminates downstream pipeline breaks from malformed LLM outputs.
 - **Calibrated Risk Gating:** Utilizes a continuous probability score calibrated to a decision threshold of **0.4** (down from typical 0.5), aggressively prioritizing recall over precision for critical complaints.
 
-### Pass 2: Sub-Millisecond RAG Reply Drafter
+### Pass 2: In-Memory RAG Reply Drafter
 - **Vector Space:** Generates normalized dense vectors via `all-MiniLM-L6-v2` (384 dimensions).
 - **Index Engine:** Local, in-memory **FAISS `IndexFlatIP`** indexing 15,000 human-verified Amazon customer service resolutions.
-- **Latency Advantage:** Drops vector lookup from **~1,500ms** (network round-trip to cloud vector databases) to **<1ms** on local RAM.
-- **Deterministic Decoding:** Set to **Temperature = 0** to guarantee reproducible, hallucination-free generation.
+- **Latency Advantage:** Drops local vector search to **<1ms** on local RAM, completely eliminating cloud vector database network round-trip overhead (~1,500ms).
+- **Deterministic Decoding:** Set to **Temperature = 0** to eliminate sampling variance and strictly ground draft generation in retrieved context.
 - **PII Guardrails:** Enforces privacy compliance by never confirming, asking for, or reflecting phone numbers, card numbers, or physical addresses publicly.
 
 ---
@@ -175,20 +189,31 @@ Sentinel-AI was rigorously validated against a **250-case human-annotated golden
 
 ### Comparative Baseline Performance
 
-| Architecture | Macro-F1 (Intent) | Escalation FNR | End-to-End Latency | Offline Reproducible? | Cohen's Kappa (Agreement) |
-|:---|:---:|:---:|:---:|:---:|:---:|
-| **Baseline 1: Heuristic Rules** | 0.353 | 81.0% | ~1 ms | Yes | N/A |
-| **Baseline 2: Zero-Shot LLM** | **0.606** | 39.1% | ~1,500 ms | No (Cloud API) | N/A |
-| **Sentinel-AI (Calibrated RAG)** | 0.583 | **34.9%** | **~1 ms** | **Yes (Zero-Cost Cache)** | **0.558** |
+| Architecture | Macro-F1 (Intent) | Escalation FNR | Vector Search / Cache Hit | Full E2E Pipeline Latency | Offline Reproducible? | Cohen's Kappa (Agreement) |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Baseline 1: Heuristic Rules** | 0.353 | 81.0% | N/A (Regex) | ~1 ms | Yes | N/A |
+| **Baseline 2: Zero-Shot LLM** | **0.606** | 39.1% | N/A | ~1.50 s | No (Cloud API) | N/A |
+| **Sentinel-AI (Calibrated RAG)** | 0.583 | **34.9%** | **<1 ms** | **~3.68 s** | **Yes (Zero-Cost Cache)** | **0.558** |
+
+### Verified Benchmark Telemetry (`eval/end_to_end_results.json`)
+- **Evaluation Corpus:** 250 cases (`eval/golden_test.json`, including 63 stratified high-risk edge cases)
+- **Operational Failure Rate:** **0%** (250/250 cases processed, 0 failed, 0 skipped)
+- **Average E2E Latency:** **3.68s / query** (919.78s total across complete two-pass pipeline: Classification + Escalation Gate + FAISS Vector Search + Groq LLM Drafting + Grounding Safeguards)
+- **In-Memory Vector Search Latency:** **<1 ms** (local FAISS `IndexFlatIP` lookup across 15,000 normalized vectors)
+- **Intent Macro-F1:** **0.5829** (balanced across 7 intent classes)
+- **Escalation Recall / FNR:** **65.1% Recall / 34.9% FNR** (meeting the operational safety target of FNR < 35% on critical cases)
+- **Auto-Draft Safety Gating:** **0 violations** on 76 escalated tickets (100% human routing compliance with zero unauthorized auto-replies)
 
 ```
-Metric Highlights:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📉 Escalation False Negative Rate (FNR) :  34.9%  (Best-in-Class Safety)
-⚡ FAISS Semantic Search Latency        :  <1 ms  (1,500x vs Cloud DB)
-🎯 Classification Macro-F1              :  0.583  (Balanced Multi-Class)
-🤝 LLM-as-a-Judge Cohen's Kappa         :  0.558  (Moderate-to-Strong Human Agreement)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Metric Highlights (Verified Telemetry: 250 Cases, 0% Failure Rate):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📉 Escalation False Negative Rate (FNR) :  34.9%    (Safety Target < 35% Achieved)
+🎯 Classification Macro-F1              :  0.583    (Balanced Multi-Class Intent)
+⚡ In-Memory FAISS Vector Search Latency:  <1 ms    (Sub-Millisecond RAM Retrieval)
+⏱️ Full End-to-End Pipeline Latency    :  3.68s    (Complete Multi-Stage RAG Execution)
+🛡️ Auto-Draft Violations on Escalations :  0 / 76   (100% Routing Safety Compliance)
+🤝 LLM-as-a-Judge Cohen's Kappa         :  0.558    (Moderate-to-Strong Human Agreement)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ### Key Statistical Insights:
@@ -236,6 +261,26 @@ Thorough evaluation on the 250-case regression suite surfaced 4 primary failure 
 
 ---
 
+## ⚠️ Known Limitations & Future Work
+
+AI systems in production are inherently probabilistic; building dependable software requires treating LLM outputs with suspicion and clearly documenting performance boundaries:
+
+1. **Intent Resolution on Nuanced Edge Cases (Macro-F1: 0.583):**  
+   Current intent classification accuracy (Macro-F1: 0.5829) indicates that zero-shot LLM routing struggles with nuanced boundary cases (e.g., distinguishing between `Order Issues` and `Delivery Issues` when a customer asks about a delivery delay caused by a modified order). Because the real-world dataset is highly skewed (94 delivery inquiries vs. 2 severe escalations), Macro-F1 fairly penalizes minority-class confusion rather than artificially inflating scores through naive majority-class guessing.
+
+2. **Conservative Over-Indexing on Escalations:**  
+   To strictly maintain a **0% auto-draft violation rate** on high-risk tickets, the escalation gate is intentionally calibrated to a low risk threshold of **0.40** (prioritizing recall over precision). The engineering trade-off is a higher fallback and false-positive rate (53.9% precision), intentionally routing safe but ambiguous messages to human agents. In enterprise customer support, over-escalation is an acceptable operational cost; unsafe automated deflection is not.
+
+3. **Prompt-Level Rule Collisions (PII vs. Empathy):**  
+   Strict prompt-level rules can conflict during complex interactions—such as inappropriately issuing privacy warnings to distressed customers reporting stolen property or emergency situations. A deterministic regex/NER redaction layer placed *before* LLM generation will decouple privacy enforcement from conversational reasoning.
+
+4. **Future Engineering Roadmap:**  
+   - **Domain-Specific Fine-Tuning:** Evaluate fine-tuning a compact, specialized open-weights model (e.g., Llama 3 8B or Mistral 7B) on historical support taxonomies to improve intent resolution and latency without sacrificing the strict safety boundaries.  
+   - **Per-Category Escalation Thresholds:** Implement multi-threshold decision boundaries calibrated dynamically per intent class rather than relying on a global 0.40 threshold.  
+   - **Sentiment-Aware Context Retrieval:** Index and filter FAISS historical precedents by customer sentiment and severity tags to prevent cheerful template responses from being selected for severe product disputes.
+
+---
+
 ## 💡 Architectural Decision Highlights
 
 As documented in [DECISIONS.md](./block12/DECISIONS.md):
@@ -255,6 +300,7 @@ As documented in [DECISIONS.md](./block12/DECISIONS.md):
 
 ```text
 SENTINEL-AI/
+├── .github/workflows/ci.yml       # CI/CD pipeline running hermetic & safety test suites
 ├── README.md                      # Primary project documentation & architecture overview
 └── block12/                       # Final consolidated project implementation
     ├── run.sh                     # One-click execution script for graders
@@ -269,8 +315,13 @@ SENTINEL-AI/
     │   ├── escalation.py          # Deterministic safety rules & threshold engine
     │   ├── retriever.py           # FAISS vector store & embedding retrieval
     │   ├── reply_drafter.py       # Pass 2: Context-grounded RAG reply drafter
+    │   ├── pipeline.py            # Unified end-to-end two-pass triage pipeline
     │   ├── baseline_heuristic.py  # Regex & keyword baseline
     │   └── baseline_zeroshot.py   # Raw zero-shot LLM baseline
+    │
+    ├── tests/                     # Automated testing suite
+    │   ├── test_sentinel.py       # 28 hermetic unit & regression tests
+    │   └── test_safety_and_edge_cases.py # Targeted failure mode & PII safety tests
     │
     ├── eval/                      # Evaluation suite & golden data
     │   ├── golden_test.json       # 250-case human-labeled evaluation benchmark

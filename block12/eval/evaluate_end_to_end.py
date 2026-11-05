@@ -156,8 +156,15 @@ def evaluate_end_to_end(dataset_path: str = None, threshold: float = 0.40):
     fallback_count = sum(1 for r in routine_cases if r["is_fallback"])
     fallback_rate = fallback_count / len(routine_cases) if routine_cases else 0.0
 
+    dataset_identifier = os.path.basename(dataset_path)
+    try:
+        rel_dataset_path = os.path.relpath(dataset_path, start=_ROOT).replace("\\", "/")
+    except Exception:
+        rel_dataset_path = f"eval/{dataset_identifier}"
+
     results_summary = {
-        "benchmark": dataset_path,
+        "benchmark": rel_dataset_path,
+        "dataset_identifier": dataset_identifier,
         "cases_loaded": total_cases,
         "cases_processed": processed_count,
         "cases_skipped": skipped_count,

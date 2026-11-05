@@ -15,13 +15,15 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 
 # ============================================================
-# ENVIRONMENT VARIABLES
+# ENVIRONMENT VARIABLES & API CONFIGURATION
 # ============================================================
 
 # Loads variables from the .env file.
-# We use this to access GEMINI_API_KEY without hardcoding
-# the API key directly into the Python source code.
 load_dotenv()
+
+groq_api_key = os.getenv("GROQ_API_KEY")
+if not groq_api_key:
+    raise ValueError("CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file.")
 
 
 # ============================================================
@@ -31,7 +33,7 @@ load_dotenv()
 # This enum mirrors the exact 7-category taxonomy created
 # and manually labeled in Block 1.
 #
-# Using an Enum means Gemini is constrained to return
+# Using an Enum means the model is constrained to return
 # exactly one of these valid categories.
 
 class IntentCategory(str, Enum):
@@ -78,6 +80,9 @@ class ClassificationResult(BaseModel):
 
     # Short explanation for why the category was selected.
     reasoning: str
+
+    # Original input text associated with this classification
+    text: str = ""
 
 # ============================================================
 # 3. CACHE CONFIGURATION
@@ -151,7 +156,8 @@ def classify(text: str) -> ClassificationResult:
         return ClassificationResult(
             intent=IntentCategory.ORDER_ISSUES,
             confidence=0.0,
-            reasoning="Empty or invalid input text."
+            reasoning="Empty or invalid input text.",
+            text=text or ""
         )
 
     # --------------------------------------------------------
@@ -195,15 +201,9 @@ def classify(text: str) -> ClassificationResult:
     # of tweets.
 
     if text_hash in cache:
-
-        return ClassificationResult(
-            **cache[text_hash]
-        )
-
-    if os.environ.get("SENTINEL_OFFLINE_EVAL") == "1":
-        print(f"[ERROR] Cache miss during offline evaluation in classifier for text: {text[:30]}...")
-        import sys
-        sys.exit(1)
+        res = ClassificationResult(**cache[text_hash])
+        res.text = text.strip()
+        return res
 
     if os.environ.get("SENTINEL_OFFLINE_EVAL") == "1":
         print(f"[ERROR] Cache miss during offline evaluation in classifier for text: {text[:30]}...")
@@ -214,18 +214,12 @@ def classify(text: str) -> ClassificationResult:
     # 7. GROQ API CONFIGURATION
     # ========================================================
 
-    # Retrieve the API key from the .env file.
-
+    # Retrieve the API key from the environment / .env file.
     api_key = os.getenv("GROQ_API_KEY")
 
-
     # Fail early if the API key wasn't configured.
-
     if not api_key:
-        raise ValueError(
-            "GROQ_API_KEY is not set. "
-            "Add it to your .env file."
-        )
+        raise ValueError("CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file.")
 
     groq_url = "https://api.groq.com/openai/v1/chat/completions"
     
@@ -356,7 +350,7 @@ Respond with a JSON object containing exactly three fields:
 
 
             # Return the validated classification.
-
+            result.text = text.strip()
             return result
 
 
@@ -376,7 +370,8 @@ Respond with a JSON object containing exactly three fields:
                 return ClassificationResult(
                     intent=IntentCategory.SEVERE_ESCALATION,
                     confidence=0.0,
-                    reasoning=f"API Error fallback: {e!s}"
+                    reasoning=f"API Error fallback: {e!s}",
+                    text=text.strip()
                 )
 
 

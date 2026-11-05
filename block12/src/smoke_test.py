@@ -1,34 +1,28 @@
 import os
-
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
+from groq import Groq
 
 
 def verify_setup():
     load_dotenv()
 
-    api_key = os.getenv("GEMINI_API_KEY")
-
-    if not api_key:
+    groq_api_key = os.getenv("GROQ_API_KEY")
+    if not groq_api_key:
         raise ValueError(
-            "GEMINI_API_KEY not set in environment. "
-            "Please check your .env file."
+            "CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file."
         )
 
-    client = genai.Client(api_key=api_key)
+    client = Groq(api_key=groq_api_key)
 
-    print("Sending request to Gemini API (temperature=0.0)...")
-
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents="Respond exactly with this text: 'Sentinel-AI setup verified.'",
-        config=types.GenerateContentConfig(
-            temperature=0.0,
-        ),
+    print("Sending request to Groq API...")
+    response = client.chat.completions.create(
+        model="openai/gpt-oss-120b",
+        messages=[
+            {"role": "user", "content": "Respond exactly with this text: 'Sentinel-AI setup verified.'"}
+        ],
+        temperature=0.0
     )
-
-    print(f"Response: {response.text.strip()}")
+    print(f"Response: {response.choices[0].message.content.strip()}")
 
 
 if __name__ == "__main__":

@@ -13,6 +13,10 @@ import os, sys, csv, hashlib, traceback, mimetypes
 from dotenv import load_dotenv
 load_dotenv()
 
+groq_api_key = os.getenv("GROQ_API_KEY")
+if not groq_api_key:
+    raise ValueError("CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file.")
+
 ROOT = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(0, ROOT)
 DIST = os.path.join(ROOT, "frontend", "dist")

@@ -1,11 +1,12 @@
 {
-  "benchmark": "C:\\Aagosh\\CODE\\hiver\\sentinel-ai\\block12\\eval\\golden_test.json",
+  "benchmark": "eval/golden_test.json",
+  "dataset_identifier": "golden_test.json",
   "cases_loaded": 250,
   "cases_processed": 250,
   "cases_skipped": 0,
   "cases_failed": 0,
-  "runtime_seconds": 43.724,
-  "avg_latency_ms": 174.9,
+  "runtime_seconds": 919.784,
+  "avg_latency_ms": 3679.14,
   "intent_classification": {
     "macro_f1": 0.5829,
     "per_class": {
@@ -72,6 +73,6 @@
     "routine_drafting_success_count": 174,
     "routine_drafting_success_rate": 1.0,
     "retrieval_coverage": 1.0,
-    "fallback_rate": 0.5862
+    "fallback_rate": 0.0115
   }
 }

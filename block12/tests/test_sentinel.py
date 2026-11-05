@@ -136,6 +136,14 @@ class TestPipelineRegression(unittest.TestCase):
     # 5. Missing API Credentials & Error Handling
     # ---------------------------------------------------------
     @patch.dict(os.environ, {"GROQ_API_KEY": ""}, clear=False)
+    @patch("src.classifier._get_cache", return_value={})
+    def test_classifier_missing_credentials_raises_value_error(self, mock_cache):
+        # When GROQ_API_KEY is not set and uncached query is passed, raises explicit ValueError
+        with self.assertRaises(ValueError) as ctx:
+            classify("Uncached query needing Groq API")
+        self.assertIn("CRITICAL: GROQ_API_KEY environment variable is missing", str(ctx.exception))
+
+    @patch.dict(os.environ, {"GROQ_API_KEY": ""}, clear=False)
     @patch("src.reply_drafter._get_cache", return_value={})
     def test_reply_drafter_missing_credentials_fallback(self, mock_cache):
         # When GROQ_API_KEY is not set, draft_reply returns safe fallback rather than crashing

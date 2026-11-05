@@ -47,10 +47,17 @@ def rule_based_escalation(text: str, confidence: float) -> tuple[bool, str]:
         return True, "Escalated: Potential phone number detected in public tweet."
     if re.search(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', text):
         return True, "Escalated: Potential email address detected in public tweet."
+    if re.search(r'\b\d{3}-\d{2}-\d{4}\b', text):
+        return True, "Escalated: Potential Social Security Number (SSN) detected."
+    if re.search(r'\b(?:\d{4}[-\s]?){3}\d{4}\b', text):
+        return True, "Escalated: Potential credit/debit card number detected."
 
-    # 2. Severe Negative Sentiment / Legal Keywords Check
-    # Removed generic words like 'furious', 'ruined', 'scam' per experimental criteria
-    keywords = ["sue", "lawyer", "attorney", "legal", "police"]
+    # 2. Severe Safety, Legal, Medical & Misconduct Check
+    keywords = [
+        "sue", "lawyer", "attorney", "legal", "police",
+        "hospital", "ambulance", "emergency", "injury", "injured",
+        "cut my hand", "bleeding", "threatened", "verbally abusive", "abusive", "assault"
+    ]
     text_lower = text.lower()
     for kw in keywords:
         if kw in text_lower:
@@ -103,7 +110,7 @@ Output a JSON object with:
 
         api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
-            raise ValueError("GROQ_API_KEY is not set.")
+            raise ValueError("CRITICAL: GROQ_API_KEY environment variable is missing. Please check your .env file.")
 
         groq_url = "https://api.groq.com/openai/v1/chat/completions"
         headers = {
@@ -145,6 +152,53 @@ Output a JSON object with:
     should_escalate = res.escalation_score >= threshold
     
     return EscalationDecision(should_escalate=should_escalate, reason=res.reasoning)
+
+
+def evaluate_risk(target, threshold: float = 0.40) -> tuple[float, bool]:
+    """Evaluates risk score and escalation decision for a message or classification result.
+    
+    Args:
+        target: Customer text string OR ClassificationResult object.
+        threshold: Decision boundary for escalation (defaults to calibrated 0.40).
+        
+    Returns:
+        tuple[float, bool]: (escalation_risk_score, should_escalate)
+    """
+    if isinstance(target, str):
+        query_text = target
+        from src.classifier import classify
+        res = classify(query_text)
+        intent = res.intent.value if hasattr(res.intent, "value") else str(res.intent)
+        conf = res.confidence
+        reason = res.reasoning
+    else:
+        query_text = getattr(target, "text", "") or ""
+        intent = target.intent.value if hasattr(target.intent, "value") else str(target.intent)
+        conf = getattr(target, "confidence", 1.0)
+        reason = getattr(target, "reasoning", "")
+    
+    # 1. Check deterministic safety rules (PII, legal, medical, misconduct)
+    rule_fails, rule_reason = rule_based_escalation(query_text, conf)
+    if rule_fails:
+        return 1.0, True
+
+    # 2. If already categorized as Severe Escalation
+    if intent == "Severe Escalation":
+        return 1.0, True
+
+    # 3. Two-pass gatekeeper evaluation
+    decision = gatekeeper(query_text, intent, conf, reason)
+    
+    # Extract continuous escalation score
+    h = hashlib.sha256(query_text.encode("utf-8")).hexdigest()
+    cache = _get_cache()
+    if h in cache:
+        score = float(cache[h].get("escalation_score", 1.0 if decision.should_escalate else 0.0))
+    else:
+        score = 1.0 if decision.should_escalate else 0.0
+
+    return score, decision.should_escalate
+
 
 if __name__ == "__main__":
     # Test queries

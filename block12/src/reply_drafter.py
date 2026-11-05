@@ -107,6 +107,10 @@ def apply_grounding_safeguards(reply: str) -> str:
         clean
     )
 
+    # 4. PII Scrubbing Safeguard: Never echo sensitive credentials
+    clean = re.sub(r'\b\d{3}-\d{2}-\d{4}\b', '[REDACTED_SSN]', clean)
+    clean = re.sub(r'\b(?:\d{4}[-\s]?){3}\d{4}\b', '[REDACTED_CARD]', clean)
+
     return clean
 
 def draft_reply(
