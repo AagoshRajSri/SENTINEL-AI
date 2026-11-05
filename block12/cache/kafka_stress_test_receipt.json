@@ -1,0 +1,16 @@
+{
+  "test_name": "Kafka Event-Driven Ingestion Stress Test",
+  "inbound_topic": "inbound_support_tickets",
+  "processed_topic": "processed_triage_events",
+  "tickets_published": 50,
+  "events_verified": 50,
+  "data_loss_dropped_messages": 0,
+  "publication_burst_throughput_msg_per_sec": 4724.07,
+  "pipeline_drain_throughput_msg_per_sec": 0.47,
+  "human_escalations_routed": 38,
+  "safe_auto_drafts_generated": 12,
+  "mean_latency_ms": 20331.1,
+  "p95_latency_ms": 37939.11,
+  "delivery_guarantee": "At-Least-Once (Manual Offset Commits on Consumer)",
+  "timestamp": 1793904027.340573
+}

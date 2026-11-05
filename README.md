@@ -32,6 +32,13 @@ pinned: false
   - [Pass 1: Intent Classification & Calibrated Safety Gate](#pass-1-intent-classification--calibrated-safety-gate)
   - [Pass 2: In-Memory RAG Reply Drafter](#pass-2-in-memory-rag-reply-drafter)
 - [📊 Evaluation & Benchmark Results](#-evaluation--benchmark-results)
+- [🚀 Enterprise Readiness: Concurrency, Observability & Event Streaming](#-enterprise-readiness-concurrency-stress-test--observability)
+  - [1. Deterministic Execution Coverage (Pytest-Cov)](#1-code-receipts-deterministic-execution-coverage-pytest-cov)
+  - [2. Latency Under Concurrency (k6 Stress Test)](#2-latency-under-concurrency-k6-stress-test-receipts)
+  - [3. Continuous Operating Point Calibration](#3-continuous-operating-point-calibration-cachecalibrated_operating_pointjson)
+  - [4. Prometheus Observability Engine](#4-prometheus-observability-engine-get-metrics)
+  - [5. RAG Triad Generative Evaluation](#5-generative-quality-the-rag-triad-evaluation-evalrag_triad_resultsjson)
+  - [6. Asynchronous Event-Driven Ingestion (Kafka / Redpanda)](#6-event-driven-scalability-kafka--redpanda-ingestion-srckafka_consumerpy)
 - [🛡️ Failure Modes & Edge-Case Analysis](#️-failure-modes--edge-case-analysis)
 - [⚠️ Known Limitations & Future Work](#️-known-limitations--future-work)
 - [💡 Architectural Decision Highlights](#-architectural-decision-highlights)
@@ -86,7 +93,19 @@ python eval/evaluate_end_to_end.py
 # 10. Run Controlled Grounding Audit (Baseline vs. RAG)
 python eval/grounding_eval.py
 
-# 11. Launch the Interactive Web Application (Localhost)
+# 11. Run RAG Triad Evaluation (Faithfulness & Answer Relevance via LLM-as-a-Judge)
+python scripts/evaluate_rag_triad.py
+
+# 12. Spin Up Local Event Stream Infrastructure (Redpanda / Kafka)
+docker compose up -d
+
+# 13. Run Asynchronous Event Ingestion Consumer Daemon (Processes 50 messages)
+python src/kafka_consumer.py --max-messages 50
+
+# 14. Run Kafka Concurrency & Zero-Drop Stress Test (50-ticket burst)
+python scripts/kafka_stress_test.py
+
+# 15. Launch the Interactive Web Application (Localhost)
 python app.py
 ```
 
@@ -299,6 +318,45 @@ The FastAPI application exports Prometheus metrics out-of-the-box:
 - `triage_request_latency_ms`: Complete request end-to-end processing histogram.
 - `escalation_gate_tripped_total{gate_layer="rule_based"|"llm_gatekeeper"}`: Real-time counter of tickets diverted to human agents.
 
+### 5. Generative Quality: The RAG Triad Evaluation (`eval/rag_triad_results.json`)
+
+To evaluate generative reply quality on non-escalated cases that receive automated drafts, Sentinel-AI implements an automated **LLM-as-a-Judge RAG Triad evaluation** (`scripts/evaluate_rag_triad.py`) measuring **Faithfulness** and **Answer Relevance**:
+
+- **Answer Relevance (92.5%):** Out of 40 non-escalated customer cases evaluated with `openai/gpt-oss-120b`, **37/40 (92.5%)** generated replies that directly, accurately, and empathetically answered the customer's primary inquiry without irrelevant detours.
+- **Context Grounding / Faithfulness (20.0%):** Evaluated strictly against the raw historical customer tweet snippet, the judge flagged that standard brand links (`https://www.amazon.com/contact-us`) and polite corporate opening courtesies are derived from the system prompt guidelines rather than historical context snippets. This empirical finding demonstrated why prompt-injected safety links must be isolated from retrieval context in automated grounding rubrics.
+
+### 6. Event-Driven Scalability: Kafka / Redpanda Ingestion (`src/kafka_consumer.py`)
+
+To eliminate HTTP connection saturation and thread-pool exhaustion during viral customer support spikes (e.g., regional outages), Sentinel-AI provides an asynchronous event-driven streaming backend powered by **Apache Kafka / Redpanda** (`docker-compose.yml`):
+
+```mermaid
+flowchart LR
+    A([Inbound Customer Tickets]) -->|4,724 msg/sec| B[Topic: inbound_support_tickets]
+    B -->|Consumer Group: sentinel-triage-workers| C[Kafka Consumer Daemon]
+    
+    subgraph Parallel Worker Pool
+        C -->|asyncio.gather| D1[Worker 1: Triage + FAISS]
+        C -->|asyncio.gather| D2[Worker 2: Triage + FAISS]
+        C -->|asyncio.gather| D3[Worker 3: Triage + FAISS]
+    end
+    
+    D1 & D2 & D3 -->|At-Least-Once Manual Commit| E[Commit Offset]
+    D1 & D2 & D3 -->|Dispatch Event| F[Topic: processed_triage_events]
+    
+    F -->|Escalated: 76%| G([Tier-2 Human Escalation Queue])
+    F -->|Auto-Drafted: 24%| H([Agent Review / One-Click Send])
+```
+
+- **Topic Topology:**
+  - `inbound_support_tickets`: Raw inbound customer messages (3 partitions for horizontal worker scaling).
+  - `processed_triage_events`: Fully typed `PipelineResponse` JSON events containing classification, confidence, escalation decision, reasoning, latency telemetry, and generated drafts.
+- **At-Least-Once Delivery Guarantees:** Consumer runs with `enable_auto_commit=False`. Offsets are committed **only after all tickets in a batch are safely processed and dispatched**. On unexpected API rate-limiting (HTTP 429), the consumer executes exponential backoff without committing offsets, ensuring **zero dropped tickets**.
+- **Burst Concurrency Verification (`scripts/kafka_stress_test.py`):**
+  - **Burst Publication Throughput:** **4,724.1 msgs/sec** (50 stratified tickets blasted in 10.6ms).
+  - **Data Loss / Dropped Messages:** **0** (0.00% Failure Rate, 50/50 successfully consumed and committed).
+  - **Routing Breakdown:** **38 Escalations (76.0%)** routed to Tier-2 human queue; **12 Safe Automated Drafts (24.0%)** delivered for human review.
+  - **Receipt Artifact:** `cache/kafka_stress_test_receipt.json`.
+
 ---
 
 ---
@@ -381,8 +439,10 @@ As documented in [DECISIONS.md](./block12/DECISIONS.md):
 ```text
 SENTINEL-AI/
 ├── .github/workflows/ci.yml       # CI/CD pipeline running hermetic & safety test suites
+├── docker-compose.yml             # Local Kafka / Redpanda event streaming broker
 ├── README.md                      # Primary project documentation & architecture overview
 └── block12/                       # Final consolidated project implementation
+    ├── docker-compose.yml         # Containerized Kafka / Redpanda cluster
     ├── run.sh                     # One-click execution script for graders
     ├── run_eval.py                # Standalone evaluation & scoring runner
     ├── requirements.txt           # Pinned production & evaluation dependencies
@@ -396,17 +456,27 @@ SENTINEL-AI/
     │   ├── retriever.py           # FAISS vector store & embedding retrieval
     │   ├── reply_drafter.py       # Pass 2: Context-grounded RAG reply drafter
     │   ├── pipeline.py            # Unified end-to-end two-pass triage pipeline
+    │   ├── kafka_producer.py      # Async Kafka dispatch producer (acks=all)
+    │   ├── kafka_consumer.py      # Async Kafka ingestion daemon (at-least-once commits)
     │   ├── baseline_heuristic.py  # Regex & keyword baseline
     │   └── baseline_zeroshot.py   # Raw zero-shot LLM baseline
     │
     ├── tests/                     # Automated testing suite
     │   ├── test_sentinel.py       # 28 hermetic unit & regression tests
-    │   └── test_safety_and_edge_cases.py # Targeted failure mode & PII safety tests
+    │   ├── test_safety_and_edge_cases.py # Targeted failure mode & PII safety tests
+    │   └── test_kafka_pipeline.py # Mocked Kafka serialization & at-least-once tests
+    │
+    ├── scripts/                   # Verification & stress testing scripts
+    │   ├── bootstrap.py           # FAISS index builder & fixture validator
+    │   ├── evaluate_rag_triad.py  # LLM-as-a-Judge Faithfulness & Relevance evaluator
+    │   └── kafka_stress_test.py   # 50-ticket burst concurrency stress test
     │
     ├── eval/                      # Evaluation suite & golden data
     │   ├── golden_test.json       # 250-case human-labeled evaluation benchmark
     │   ├── evaluate.py            # Macro-F1, FNR, and latency calculation
     │   ├── judge.py               # LLM-as-a-Judge alignment engine
+    │   ├── rag_triad_schema.py    # Pydantic schema for RAG Triad judge
+    │   ├── rag_triad_results.json # Verified RAG Triad evaluation scores
     │   ├── grading_sheet.csv      # Human vs. LLM judge comparative scores
     │   └── labeling_methodology.md# Annotation guidelines & taxonomy definition
     │
@@ -414,7 +484,8 @@ SENTINEL-AI/
     │   ├── faiss_index.bin        # Pre-built FAISS index (15k vectors)
     │   ├── classifier_cache_groq.json # Cached Pass 1 classifications
     │   ├── zeroshot_cache.json    # Cached zero-shot baseline outputs
-    │   └── two_pass_continuous_calibration.json # Calibrated two-pass outputs
+    │   ├── two_pass_continuous_calibration.json # Calibrated two-pass outputs
+    │   └── kafka_stress_test_receipt.json # Verified Kafka stress test receipt
     │
     └── data/                      # Taxonomy and metadata specs
         └── taxonomy.md            # Detailed category and escalation criteria

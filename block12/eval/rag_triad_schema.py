@@ -18,3 +18,4 @@ class GenerativeEvalResult(BaseModel):
     reasoning: str = Field(
         description="Brief justification for the scores."
     )
+
