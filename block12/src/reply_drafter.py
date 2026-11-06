@@ -209,7 +209,7 @@ CUSTOMER MESSAGE:
     client = Groq(api_key=api_key)
     try:
         response = client.chat.completions.create(
-            model="openai/gpt-oss-120b",
+            model=os.getenv("GROQ_MODEL", "openai/gpt-oss-20b"),
             messages=[
                 {"role": "system", "content": "You are a professional customer support AI. Always output valid JSON conforming to the requested schema."},
                 {"role": "user", "content": prompt}

@@ -289,7 +289,7 @@ Respond with a JSON object containing exactly three fields:
         try:
 
             payload = {
-                "model": "openai/gpt-oss-120b",
+                "model": os.getenv("GROQ_MODEL", "openai/gpt-oss-20b"),
                 "messages": [
                     {
                         "role": "system",

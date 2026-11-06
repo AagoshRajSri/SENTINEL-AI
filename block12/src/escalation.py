@@ -119,7 +119,7 @@ Output a JSON object with:
         }
 
         payload = {
-            "model": "openai/gpt-oss-120b",
+            "model": os.getenv("GROQ_MODEL", "openai/gpt-oss-20b"),
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.0,
             "response_format": {"type": "json_object"}

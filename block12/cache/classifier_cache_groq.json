@@ -2790,5 +2790,29 @@
     "confidence": 1.0,
     "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
     "text": "Courier was dangerously aggressive, police are reviewing security cameras."
+  },
+  "4c12f9b637ad2770f1af134296504ddf29d09c66ca4a36f8b3e42d0e4e2f93fe": {
+    "intent": "Delivery Issues",
+    "confidence": 0.99,
+    "reasoning": "The user asks where their package is, which is a question about the status of a delivery, matching the Delivery Issues category.",
+    "text": ""
+  },
+  "a412506b1683155bad170b3c68d3f3cf3c78cba612f2c2d6c885540fbd1677d1": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is asking about the whereabouts of their package and notes that the tracking hasn't updated for several days, which directly matches the Delivery Issues category (late or missing delivery).",
+    "text": ""
+  },
+  "a9ed41f1920e77f668337009a1c3738a6aef85cf2c9b77593835961bf6f881b7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.95,
+    "reasoning": "The customer reports that their package was never delivered and the tracking status is stuck, indicating a delivery problem.",
+    "text": ""
+  },
+  "c6cf1309cd700e5a84e18d0b1d5877b9a608141037ac40445d484398256fc56c": {
+    "intent": "Order Issues",
+    "confidence": 0.2,
+    "reasoning": "The message \"warmup\" is ambiguous and does not clearly match any specific category. It could be a placeholder or test message, so the safest generic category is Order Issues with low confidence.",
+    "text": ""
   }
 }

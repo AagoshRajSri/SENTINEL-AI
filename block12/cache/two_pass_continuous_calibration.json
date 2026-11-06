@@ -2002,5 +2002,21 @@
   "6a166b57eb9ae182a5e375cd106606ff5b0c1ec69aea172e3ce816e9638f9cc0": {
     "escalation_score": 1.0,
     "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation."
+  },
+  "4c12f9b637ad2770f1af134296504ddf29d09c66ca4a36f8b3e42d0e4e2f93fe": {
+    "escalation_score": 0.1,
+    "reasoning": "The inquiry is a standard delivery status question with no indication of legal threats, PR concerns, severe distress, or repeated failures. It does not fall under intent types that inherently require human handling (e.g., account locked, refund failed). Therefore, it does not merit urgent escalation."
+  },
+  "a412506b1683155bad170b3c68d3f3cf3c78cba612f2c2d6c885540fbd1677d1": {
+    "escalation_score": 0.15,
+    "reasoning": "The issue is a standard delivery inquiry with no indication of legal threats, PR risk, severe distress, or repeated failures. While the customer is concerned about a delayed tracking update, this can typically be resolved by standard support processes without immediate human escalation."
+  },
+  "a9ed41f1920e77f668337009a1c3738a6aef85cf2c9b77593835961bf6f881b7": {
+    "escalation_score": 0.3,
+    "reasoning": "The customer reports a delivery failure with a stuck tracking status, which is a common issue that can often be resolved through automated updates or standard customer service procedures. There is no indication of legal threats, PR risk, or severe distress, and the issue does not fall into categories that inherently require human intervention (e.g., account lock or refund failure). Therefore, the case can be handled by the automated or standard support workflow, but a moderate escalation score is assigned to ensure timely follow\u2011up if the issue persists."
+  },
+  "c6cf1309cd700e5a84e18d0b1d5877b9a608141037ac40445d484398256fc56c": {
+    "escalation_score": 0.1,
+    "reasoning": "The customer\u2019s message \"warmup\" is ambiguous and likely a placeholder or test. It does not indicate any legal threat, PR risk, severe distress, or a scenario that inherently requires human intervention such as account lock or refund failure. Therefore, the urgency for escalation is low."
   }
 }
