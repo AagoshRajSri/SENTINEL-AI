@@ -1,0 +1,2794 @@
+{
+  "e521b238e5d8f9a2b02c314572d74ef917fc5fce44926a3a9c7ada3ed1a67629": {
+    "intent": "Delivery Issues",
+    "confidence": 0.99,
+    "reasoning": "The customer explicitly states that their package has not arrived, which directly relates to a delivery problem such as a late or missing order."
+  },
+  "187f53fcd1dd34903d2c2dc5d8135dc7247197865667c327d3760a63c36e7b81": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer is asking about the whereabouts of their package and notes that the tracking information has not changed for several days, which directly relates to a delivery problem."
+  },
+  "aaf19dbcee93467ae7877d9c25beef96842fb4e6ce00baea4b71a1de33012b3b": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The customer reports property damage and verbal abuse by a driver, which constitutes a serious safety and security incident requiring immediate human intervention."
+  },
+  "b27a9eeb7cedf38eb434bb98d603e344677b35007b63a8c2413969fde2582446": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.78,
+    "reasoning": "The customer is explicitly requesting a refund due to a broken (defective) product. While the defect relates to product issues, the primary action they seek is a refund, which falls under the Payment & Refunds category."
+  },
+  "713310634428023ac8ac8bdf22201ee5b0166b69244ae5fcfd5a70c7a5d4d1ec": {
+    "intent": "Delivery Issues",
+    "confidence": 0.42,
+    "reasoning": "The message mentions parcels being left in a safe place, which relates to the delivery process. Although the tone is appreciative rather than a complaint, the content is most closely tied to delivery handling, making 'Delivery Issues' the best fit among the given categories."
+  },
+  "d72cedaba8cfb418b43c1e5e187505a8cac9d2c3dff6d9817613305f3b739e2b": {
+    "intent": "Product Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer reports receiving a stone instead of the laptop they ordered, indicating a problem with the product received. This matches the Product Issues category."
+  },
+  "528a25e18eac785be08065fb09c12d9bd2d23804f9ea2c4b2f3e5218ab94415b": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.32,
+    "reasoning": "The message is a vague comment about not watching TV, which could be loosely related to streaming services like Prime Video. No explicit problem is described, making the classification uncertain, but the closest category is Subscription & Digital Services."
+  },
+  "f26f710d13f926ca5cfe95ca23195daaed26a172173eea9c251d889e005081b8": {
+    "intent": "Severe Escalation",
+    "confidence": 0.32,
+    "reasoning": "The message does not clearly fit any of the standard categories (Delivery Issues, Order Issues, Product Issues, Payment & Refunds, Account & Access, Subscription & Digital Services). It appears to be an internal coordination request about scheduling a call with a replacement person, which could be considered a potentially urgent or atypical situation requiring human attention. Since no better match exists, I assign it to Severe Escalation with low confidence."
+  },
+  "f367c6ae204111a566b325d57a69e35b3d2aa69ceb356086d30185ba01c77d57": {
+    "intent": "Severe Escalation",
+    "confidence": 0.99,
+    "reasoning": "The user reports a delivery person allegedly taking a puppy, which is a potential criminal act and urgent safety concern requiring immediate human intervention."
+  },
+  "dc0552d123c3cb0054836b81def84c45b4cc938c9d8c344f4205cca1def60215": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "The customer mentions not receiving an Amazon Pay balance cashback for a specific order, which is a payment-related issue concerning a missing refund or credit."
+  },
+  "73df5d3f76ff95c78cee5d01576dcce968da382e334640719931e29b153c8e25": {
+    "intent": "Order Issues",
+    "confidence": 0.86,
+    "reasoning": "The user explicitly requests to cancel one of their orders, which falls under problems with placing, changing, or cancelling an order. Although they mention a frozen account, the primary actionable request is order cancellation, so the best match is the Order Issues category."
+  },
+  "7266ad0dfa3651a30984107e379394ca51c81b0377d6942ec51b851fb56361cb": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user mentions not having received a previously ordered item, indicating a problem with the delivery of an order."
+  },
+  "c6d6d9d62f6cb7b0dee68b80bf3661123fa34fde35b6a490f10aa630ba53dddc": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.78,
+    "reasoning": "The customer states they have made full payment but were told the product cannot be provided at that price, indicating a dispute over payment and potential refund rather than delivery, order placement, or product condition."
+  },
+  "3cc8e6dc73ffedfc103e4b3796a8fd0a6041292d7aae8e8b0369b58399aeb45b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.62,
+    "reasoning": "The message expresses that the user hasn't received any news or updates, which suggests a concern about the status of an order, likely a delivery problem."
+  },
+  "1f6bf9aabc0cf1076c52c280e4d506dcdb8645580f89381623272a88d7422a24": {
+    "intent": "Order Issues",
+    "confidence": 0.2,
+    "reasoning": "The message contains only a friendly greeting and thanks, with no clear problem described. Since none of the categories directly match, the most neutral choice is a generic category like Order Issues, but confidence is low due to lack of relevant content."
+  },
+  "cfe17d6cd9cc005eb3675e09ac832cc57f5c7cc0109ae51943f5fe0fd9f3c843": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.92,
+    "reasoning": "The user is requesting that missing Alexa skills (digital content) be enabled in the India store, which pertains to digital services rather than delivery, order, product, payment, account, or severe issues."
+  },
+  "8db4d1f33bee00180b4e0f61153d18f0aff3e728e73e1bda87b18edd01473534": {
+    "intent": "Account & Access",
+    "confidence": 0.97,
+    "reasoning": "The user reports being unable to reach the password entry screen due to a 500 error, which is a login/access problem. This fits the Account & Access category."
+  },
+  "383db2fdf847615d92df9785facdc6fed7853527efd408dd080feb00a639d339": {
+    "intent": "Order Issues",
+    "confidence": 0.94,
+    "reasoning": "The user mentions having ordered consumer durable items and wants them canceled at delivery, which pertains to managing/canceling an order."
+  },
+  "8e3a878d9686cc767b0a7343b3c572eedf58f90a15d3def933aea488e7767c48": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is complaining that a package was not delivered and was incorrectly marked as the recipient being absent, which directly relates to a delivery problem."
+  },
+  "fe10745d81a19cccd2ca650c59794024af13d7e2765e198ad52499662c65a0c5": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.32,
+    "reasoning": "The message asks about the winner of an iPhone 8 app quiz, which relates to a digital application rather than a delivery, order, product defect, payment, account, or safety issue. While not directly about Amazon's digital services, it is the closest category among the options."
+  },
+  "7fad893e8cbb0a1034e6229a4011ffe8139c23beb00a8c5f2a0741c130d42d01": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that an item they booked was not delivered for Diwali despite multiple calls to customer care, which directly matches the Delivery Issues category."
+  },
+  "a4ca6c0a211aed90463d6a4c2ac39bb2563b6d18ae02b35310b92366768c203d": {
+    "intent": "Product Issues",
+    "confidence": 0.94,
+    "reasoning": "The customer complains that the wax and softener were ineffective and does not want them reordered, indicating dissatisfaction with the product itself rather than delivery, payment, or account issues."
+  },
+  "fa3fef546ec7447c846ca43a0dfbb0e6c653603822bd6209c033cb1900957a40": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.96,
+    "reasoning": "Customer was charged for two items, returned one, and reports that no refund has been issued, which is a payment/refund problem."
+  },
+  "b6ce66c7f7b243f9013585a8d35e4427f09aae9f1242db6f648dd3d260f470db": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.96,
+    "reasoning": "The user reports a problem with an iPad app's functionality (stuck in portrait orientation), which pertains to a digital service/app rather than delivery, order, product, payment, account, or severe escalation."
+  },
+  "71bf8c083c4dfa461a782081cc8e77ea233a5517fd707ec076b7519790aa9efd": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.78,
+    "reasoning": "The user reports a non\u2011functional link specifically for UK accounts, which relates to accessing Amazon's online/digital services rather than a physical product, order, payment, or account login issue. This fits best under the Subscription & Digital Services category."
+  },
+  "f3f5952f83eb62fb924f5a557a9048cec7e8249c24edf9d60f8dc3b55d944470": {
+    "intent": "Product Issues",
+    "confidence": 0.32,
+    "reasoning": "The message mentions a book title ('The Ocean at the End of the Lane' by Neil Gaiman) but does not describe a problem. It is the only category loosely related to a product, so it is the best fit despite low confidence."
+  },
+  "81f5dc08bb182874943de95851dfad124f9144bcca3ae87ce65d0be8a4058f96": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.62,
+    "reasoning": "The message references Amazon's exclusive Prime shipping, which relates to Prime membership benefits. While no explicit problem is stated, the content pertains to a subscription service (Prime), making the Subscription & Digital Services category the most appropriate."
+  },
+  "658aa55911304521a91ca680233eedfd24da5b4f3ab8e2d0df8c4e47183cba1c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer asks where their package is, indicating a problem with the delivery of an order."
+  },
+  "6f5dcb5e0a41117042c78b256424c4c25d820e246a365da824b440a0f94e6571": {
+    "intent": "Delivery Issues",
+    "confidence": 0.94,
+    "reasoning": "The customer reports that one item from their order has not been dispatched while the rest have arrived, indicating a problem with the delivery of a specific item."
+  },
+  "daa2f37ea81ad00376608ff396b73adc89021dbe19c3dc5425343cb3379f42e0": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports paying for two Alexa devices that were not delivered and requests them to be sent, which directly pertains to a missing or undelivered order\u2014a classic delivery issue."
+  },
+  "ac8809d78dd5eb9cd642fde4c2154aa28dc242c088da268ec3622ba3188fdc72": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer complains about the carrier (OnTrac) mishandling packages, leaving them on the street, which is a problem with how the order was delivered."
+  },
+  "005bd51e878513b65c13d0f37acb79913e360d1405600fe48f02529ca961504b": {
+    "intent": "Account & Access",
+    "confidence": 0.33,
+    "reasoning": "The user is asking how to identify themselves to complete a survey after a support interaction. While not a direct account access issue, the request involves personal identification, which best fits the Account & Access category among the given options."
+  },
+  "0dbfa576be0b8d99b4b3de2cc772e5de457658b97520d16e4840357fb12481d9": {
+    "intent": "Product Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports receiving an unexpected or incorrect item after paying in advance, indicating a problem with the product received rather than delivery, order placement, payment, or account issues."
+  },
+  "0eaf0ed32a09d62e4cedf43c35644036089e79edcca91c935a647ec2f97fa94f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is complaining that the supposed delivery was not a parcel but a cat, indicating a problem with how the delivery was handled or marked as delivered."
+  },
+  "ff82f86aca9e152c6acc6df06f2e80b7cd9d030f0d063a3a29b9362271d2c248": {
+    "intent": "Account & Access",
+    "confidence": 0.35,
+    "reasoning": "The message only says thank you and that details have been entered, without specifying a problem. The mention of entering details hints at an account-related action, but there is no clear issue, so confidence is low."
+  },
+  "631de65290bd6ed9d933f3243ce95ada6ddf7921ccbceed8557310f84d2b5770": {
+    "intent": "Delivery Issues",
+    "confidence": 0.3,
+    "reasoning": "The message contains only a mention and a link without explicit details. The most common reason for contacting Amazon support via a short tweet with a link is to report a problem with an order's delivery status (e.g., missing or delayed package). However, the lack of specific keywords makes the classification uncertain, resulting in a low confidence score."
+  },
+  "3deb80c069043b9412575b8ff5123038bdc5bf0e5d23d4d3989d134f81d6f00a": {
+    "intent": "Order Issues",
+    "confidence": 0.45,
+    "reasoning": "The message expresses gratitude that something was resolved, implying a prior issue likely related to an order (e.g., placement, change, or cancellation). No specific details point to delivery, product, payment, account, subscription, or severe escalation, so the best fit is Order Issues with moderate confidence due to ambiguity."
+  },
+  "abe012376f09deb2c1db02aa789e14b4b3e243045d834ac39b75c23848f347b9": {
+    "intent": "Severe Escalation",
+    "confidence": 0.65,
+    "reasoning": "The user expresses frustration over repeated unanswered attempts and explicitly requests intervention, indicating an urgent need for human assistance. While no specific safety or security issue is mentioned, the urgency and demand for immediate help align best with the Severe Escalation category."
+  },
+  "56ba2e0e430cf83b6a1811272ddcba44d2f60934fd3c079080ef07d3e501307e": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "The user asks about the status and details of a refund, explicitly mentioning '\u8fd4\u91d1' (refund) and seeking clarification, which directly maps to the Payment & Refunds category."
+  },
+  "36f0f65f2a98af118f9336acc143361c36793c1414a4f6f864c8597a2e6518a7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is reporting how the courier handled the delivery\u2014breakables were thrown over a fence and the package was left in an insecure location\u2014indicating a problem with the delivery process rather than the order, product, payment, account, or subscription."
+  },
+  "e7127225fa474d95fddb720c08427e55a0667dd0764eb862b570447ccd8be6fd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user asks whether a specific order can be delivered by tomorrow, which concerns the timing and arrival of an order, fitting the Delivery Issues category."
+  },
+  "2111646a2134911112bddc9f555ddb704b41d3da5364b2ef413977dc434c8062": {
+    "intent": "Severe Escalation",
+    "confidence": 0.32,
+    "reasoning": "The message contains a vague expression of seriousness and a location, suggesting a potential urgent or safety-related concern, though the content lacks clear details about Amazon services. The ambiguity leads to low confidence in this classification."
+  },
+  "8bec1cdf69c4936175e6f4bc3be6e7899dbde76787b601b1e7e341e82139b249": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.94,
+    "reasoning": "The customer is complaining about unexpected Prime subscription charges and lack of awareness of benefits, which directly relates to a subscription service. While there is a mention of a Fire Stick requiring card registration, the core issue is the unwanted Prime charge, fitting the Subscription & Digital Services category."
+  },
+  "81c7019d2d7c4b5dfba6f5f375d8ae3fd570796a09aa2d9d9aa57045a8fee0a2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer states the order was purchased and shipped on Wednesday but has not been delivered yet, which directly describes a problem with the delivery of an order."
+  },
+  "b136934fc6243ade8fec001edd318d79b21da8d64ed17f73810c8d6639325349": {
+    "intent": "Product Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer received the wrong type of shoes (men's instead of women's) despite ordering the same product multiple times, indicating an issue with the product received rather than delivery or payment."
+  },
+  "bbc12b96a6d5650e7954442b9ad07ce2fe4ed3c53c8f47e54aa225efad8082e3": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.96,
+    "reasoning": "The user is describing issues setting up a Kindle Fire Kids device and managing parental controls, which involve Kindle digital services and a subscription trial (Kindle Free Time Unlimited). This falls under the Subscription & Digital Services category."
+  },
+  "1ea977e74fbcb810bf978a0d430e57fd708a74e3c3d707f2992fca49c2998289": {
+    "intent": "Product Issues",
+    "confidence": 0.32,
+    "reasoning": "The message mentions a specific product (\"caixa de p\u00e1ssaros\") but does not describe a clear problem. Among the provided categories, the only one related to products is \"Product Issues,\" so it is the best fit despite low confidence."
+  },
+  "07c3b9f9d1cce145eee8fe91040e0f259782dc08130cf02a06b99032842a0e13": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.96,
+    "reasoning": "The customer complains that a purchase intended to be paid in installments was charged as a full amount, which is a problem with how the payment was processed. This fits the Payment & Refunds category."
+  },
+  "126de6e0754edec1060a1bc2de7b8395971b4d58b3c7a03863e1d496c9e090bd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is asking about the timing of their shipment and whether it can arrive earlier than the selected next\u2011day delivery, which is a delivery\u2011related concern."
+  },
+  "e7f8857c479da2fdb0f60101229fa26e3bd0eab6921d2c954430e9c7d552208d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.62,
+    "reasoning": "The message mentions that the customer's Kindle is on its way, which relates to the delivery status of an order. Although the tone is positive, it still pertains to the shipping/delivery of a product, fitting best under the Delivery Issues category."
+  },
+  "7abbf31caa10d7935b56fac175c6d7fc0f900e7098438105308b2c1ee88017ab": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is concerned that their parcel was not delivered and wants to arrange collection from the depot, which is a classic delivery problem."
+  },
+  "4c0410e121c6ea3e93e57958096c4112c7cf912672dac406ae38f9d52ceae105": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user complains that a specific carrier does not deliver packages, which is a problem with the delivery of orders."
+  },
+  "192efed69f572397ddcc2b4c64a54ec501e01df2e57290b9799e2d808561442c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer describes a driver arriving, ringing the doorbell, and leaving without delivering the package, which is a clear problem with the delivery process."
+  },
+  "3045161260c30b0fa9684346b19ea2572f6755db8601b70a4656c16aa208e614": {
+    "intent": "Order Issues",
+    "confidence": 0.97,
+    "reasoning": "The user asks for a cancellation ('se cancele'), which pertains to managing or cancelling an order, fitting the Order Issues category."
+  },
+  "4ead188cd54b8a6736f6f36d98b588155710f7fe718ed2e3ae7b9a53c51456bf": {
+    "intent": "Order Issues",
+    "confidence": 0.2,
+    "reasoning": "The message is a positive thank\u2011you note and does not describe a problem. Since none of the categories directly match praise, the closest generic category is Order Issues, but confidence is low because the message is not an issue at all."
+  },
+  "fea4340681cd7ce819ad962c459d9df1552ab5b7fcf40d99cb877a3b2bb1a6c0": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is concerned about the carrier information and Amazon's responsibility for the delivery, which directly relates to problems with order delivery and tracking."
+  },
+  "be76789f3fd91391b7aa73d2c9e5d6de70c8429507e527ae6d7d2d0a5a83dfa9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.71,
+    "reasoning": "The message comments on the speed of the Black Friday order delivery, mentioning that the purchases have already arrived. While it is positive feedback, it pertains to the delivery experience, making 'Delivery Issues' the most appropriate category."
+  },
+  "d6977bd861a83cbae4b653b70243f42bf0bea9ba787d3cf9c891665880f7fa17": {
+    "intent": "Order Issues",
+    "confidence": 0.62,
+    "reasoning": "The user mentions having 'reverted' something (likely a change or cancellation) and is awaiting a response, which aligns with issues related to placing, changing, or managing an order."
+  },
+  "a818a8d4a27e7b99b5840ac455d1d0c507c85cb3d4cc966894357bc70ff1f2d6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.86,
+    "reasoning": "The customer mentions the delivery person\u2019s unprofessional behavior during the order delivery, which relates to a problem with the delivery experience."
+  },
+  "001c58d530f0a176e98bb411f20276a599e492ab7db4d9560a0cb4f7c41df424": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer states that their package never arrived, which directly relates to a problem with delivery timing or missing shipment."
+  },
+  "b354799a2a9d9f5a702084efda5fda72cb2119bf27b59bb863ced1ff9b7bba90": {
+    "intent": "Account & Access",
+    "confidence": 0.65,
+    "reasoning": "The customer is frustrated about being unable to reach the customer service team via phone or app, which relates to accessing support rather than a specific order, product, payment, or subscription issue. This best fits the 'Account & Access' category as it involves difficulty contacting Amazon support."
+  },
+  "e97a74de9a96dc0016c6cf50128bc5e5affbb46dce85d0a5cad2872652dc5d75": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.92,
+    "reasoning": "The user reports an unexpected charge for Amazon Premium, a subscription service they never signed up for. This directly concerns a subscription issue rather than a generic payment error, fitting the Subscription & Digital Services category."
+  },
+  "12c65953202f8204bc6948865bce4e22213c904e0e10038ffe0f139aba697394": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer asks to check the order using tracking numbers, which relates to the status, location, or delivery of an order. This falls under Delivery Issues."
+  },
+  "3a250166b4f9d5636a2847d9e7bc60ddb8b6b7dd6f079ad16403c865a022e863": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports a Prime order that has been waiting since Friday and has not arrived, indicating a problem with the delivery timeline."
+  },
+  "b7f0c4f4441341bdfb267135649299d6f79ae020c9924bdc0632cc9d7f4a0b91": {
+    "intent": "Severe Escalation",
+    "confidence": 0.32,
+    "reasoning": "The message is a brief follow\u2011up indicating the customer has not received a reply ('no response yet'). While it does not describe a safety or security emergency, the lack of response suggests the issue may need higher\u2011level attention or escalation. The intent is ambiguous, so confidence is low."
+  },
+  "a72ad1c91e24ef25ea9a79f4bf140185aeb40fcc364d60bdcf169d2930e24a6c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is concerned that their delivery has not been updated and a time-sensitive item (the game) is due tomorrow, indicating a problem with the order's delivery status."
+  },
+  "fe6ec0cb4696d879b33f52c8e8d95a048fe3ef6b741eceb3da1feba828d508cf": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports that an order placed the previous night has not been dispatched and is expected today, indicating a problem with the delivery timeline."
+  },
+  "fbd2477613323bccd2cf4185caa4d86181e97920df19d0b51fc4962b1944db01": {
+    "intent": "Severe Escalation",
+    "confidence": 0.22,
+    "reasoning": "The message does not correspond to any standard Amazon support categories (delivery, order, product, payment, account, or subscription). It appears to be an off-topic comment with a link, which could be considered potentially unsafe or inappropriate content, thus the fallback to the 'Severe Escalation' category with low confidence."
+  },
+  "0a08d7e895350eea2ca291099419de6ab32137f45afb0ad5a6da5d3f64fc5c86": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports a suspicious delivery attempt and possible courier fraud related to a specific tracking number, which pertains to problems with the order's delivery."
+  },
+  "8b385c7803217c91b9d66d8254e1c1bf3fc1db35a574a2ac0701cfac71428eae": {
+    "intent": "Account & Access",
+    "confidence": 0.45,
+    "reasoning": "The user is requesting a customer care phone number to get help, which does not directly relate to delivery, order, product, payment, subscription, or severe issues. The request is a general support contact need, most closely aligning with the Account & Access category for assistance with account-related inquiries."
+  },
+  "183b45f9a6a0d0552cba4ffde997e644e82b30ac03a748afd060226f219ee3d3": {
+    "intent": "Order Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is questioning an unexpected reschedule request for an order, which pertains to changing/managing an order rather than delivery, product, payment, account, or other categories."
+  },
+  "8def92b091b84abf58b03048277a566a674a9a918a0b1d43019da50b28fe732d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer reports an unexpected package arriving that they did not order, which is a problem related to a delivery that appears incorrectly marked or unsolicited. This fits the Delivery Issues category."
+  },
+  "2b821613255565264c6e948da59ee0851833faad4dfc4b4041b9a67994787550": {
+    "intent": "Product Issues",
+    "confidence": 0.93,
+    "reasoning": "The customer reports a newly purchased Seagate external hard drive that is not working and arrived with broken packaging, indicating a damaged/defective product. They ask how to return it, which aligns with the Product Issues category."
+  },
+  "87813a8afe8caed3ffdcf1a44483ea87e004ba4e7f259e9c466852d74f6ff2ec": {
+    "intent": "Delivery Issues",
+    "confidence": 0.95,
+    "reasoning": "The user mentions that no tracking was provided for their shipment (TNT), indicating a problem with the delivery status or missing tracking information, which falls under Delivery Issues."
+  },
+  "5eebbe5bb243e4c5739b9ab3e681f63a317e98d51d99a523114b896260d87368": {
+    "intent": "Delivery Issues",
+    "confidence": 0.86,
+    "reasoning": "The customer mentions a '3 day late prime order' and expresses dissatisfaction with the service, indicating a problem with the timeliness of delivery."
+  },
+  "dd45817e48c3844bbc16a6148083aa7f75ccd33de1e966e66b9b760a15a6a655": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.92,
+    "reasoning": "The user is questioning a charge taken from their bank after signing up for Student Prime, which is a payment-related concern rather than a subscription functionality issue."
+  },
+  "a6438e07f33b4175458fbbf7cf169d3954b0b2cc871113d6ed9fdab1b307d50c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.95,
+    "reasoning": "The customer is discussing the arrival date of a package and notes a discrepancy between the promised delivery date and the actual delivery, which falls under delivery-related concerns."
+  },
+  "da578f8ef01198e2fdf2c2d6d48277b8ce5ac343f2f543ba76100c104df428b5": {
+    "intent": "Order Issues",
+    "confidence": 0.45,
+    "reasoning": "The message expresses frustration about an unresolved problem but does not specify delivery, product, payment, account, or digital service details. It likely pertains to a general order-related issue, though the lack of specifics reduces confidence."
+  },
+  "759bca33909316c1506695e8482c5bb6c082bcc0d777dbe64870ee7bec9fd46f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.88,
+    "reasoning": "The user mentions receiving an email about an Amazon product they have already received, indicating a problem with the delivery notification or status, which fits the Delivery Issues category."
+  },
+  "57affb8a3edaadb57f937d79c9eb4424caf4e4af6bff0c9ff9166cadf62afe9b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.73,
+    "reasoning": "The message references a courier (Intelcom Courrier Canada Inc.), which indicates a concern related to the delivery of an order."
+  },
+  "b17af50e2a91050d95670704ff6e507de38240a27a7eae80a458d66372c96cb1": {
+    "intent": "Product Issues",
+    "confidence": 0.45,
+    "reasoning": "The message mentions \"broken glasses,\" which could be interpreted as a complaint about a damaged product, fitting the Product Issues category. However, the tone is informal and lacks a clear request for assistance, making the classification somewhat uncertain."
+  },
+  "a6f12a9ef1eaab8602e7568c571ebb9a7152511c835735530e3bd8475d669a46": {
+    "intent": "Order Issues",
+    "confidence": 0.32,
+    "reasoning": "The message only contains a mention and a link, providing no explicit details about the problem. The link likely points to an order-related screenshot or page, which is common when customers have questions about placing, changing, or canceling orders. Due to the lack of specific keywords, confidence is low."
+  },
+  "5e9a5634575d15056d66dfe929b4e3f6ff30433dc0dfef40a92fb79292746156": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.96,
+    "reasoning": "The user is reporting that their Kindle Unlimited subscription appears to have expired yet they can still borrow books, which is an issue related to a digital subscription service."
+  },
+  "411e296134d2a0ce4e6046399c6816137028e561c6198396c1598787e83ce75b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.55,
+    "reasoning": "The user mentions receiving conflicting information compared to an email, which often relates to delivery status or expectations. While the message is vague and doesn't explicitly reference a specific category, the context of differing statements suggests a possible issue with delivery details."
+  },
+  "fc56bf7d86b7e1f53a6fde54e4260224e0ac570b5d87c7e9fa3bc19d138b258a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports that no package was received in their mailbox and blames the caretaker for not retrieving parcels, indicating a missing or undelivered order, which falls under Delivery Issues."
+  },
+  "598206e48d6331e0f26479a33cdb9a4ad5ab6c825c79621fa7daf84482d30186": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer complains that the delivery company failed to deliver the package multiple times, citing missed delivery and incorrect address. This directly matches the Delivery Issues category."
+  },
+  "1db6573aadc158c9ebd64988dddf0f4107edc65f96048cdedb42286f35e0c980": {
+    "intent": "Product Issues",
+    "confidence": 0.97,
+    "reasoning": "The user asks where to have a Dyson vacuum purchased in 2013 repaired, which pertains to a product problem (repair), fitting the Product Issues category."
+  },
+  "8b0209e89d597b62854e949b50ce1f2fe41a6083b12d6139527b380afde64f5b": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.96,
+    "reasoning": "The user is complaining about being unable to purchase a TV show season due to regional availability, which pertains to digital content access and restrictions, fitting the Subscription & Digital Services category."
+  },
+  "77a2490010cdb90af1a37c9adafce53e4ad1257a69727b63cb5d2ff1a3795973": {
+    "intent": "Order Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is attempting to edit the shipping address for an existing order, which falls under order modification rather than delivery, product, payment, or account problems."
+  },
+  "c4673b1a8a5b130ff9a9afccaf477f58d9f7b6b4dd9956746afffb8d0d741559": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer complains that shipping is slow and mentions buying the same product elsewhere, indicating a problem with delivery speed. Although they reference Prime membership, the primary concern is the delayed shipping, which falls under Delivery Issues."
+  },
+  "b3aae28c5470e97b23714a5c983b97e67d72fb8a6f787fe3cfa5a29a4ca58b83": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.95,
+    "reasoning": "The message references a 'Channel Subscription', which pertains to digital services and subscription management, matching the Subscription & Digital Services category."
+  },
+  "ac7cd076d800590ca849581e6981b65afe0d88b2df4bea2f5623021bf24dbd5d": {
+    "intent": "Severe Escalation",
+    "confidence": 0.86,
+    "reasoning": "The user reports receiving a suspicious email requesting account information and asks to verify its authenticity, which is a security concern that could involve fraud or account compromise, fitting the Severe Escalation category."
+  },
+  "8f82178d0355fcec57bd6ac9fe9fd458530ea4f9fbcd51622dc5b575b452e97b": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "The user reports being unable to complete a payment using a 100% discount code, which is a payment problem rather than delivery, order, product, account, subscription, or escalation issue."
+  },
+  "4e323e076883d7097ee083a04214e1aaa3b509e9a03482b74c9a602fa1e82eb6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer complains that the item they preordered has not arrived, indicating a problem with the delivery timeline."
+  },
+  "5eb32a05beaccbdca26da13ae0deb44b5a8fc353d3f2bc35fb1d87827518384b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is asking about the status of a shipment that was supposed to ship yesterday, indicating a problem with the delivery timeline."
+  },
+  "99a99a3b710f82a4cac6e48501b06f5e06bfbd3186022ed5c7fd81d93ee4edba": {
+    "intent": "Product Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer mentions a damaged order and the need for a replacement, which directly relates to product condition issues."
+  },
+  "557e7e1591f7f77eed683ead81dec2a41bbc63758dc767b181e3d13eae9a4203": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that the package was marked as delivered and handed to a resident, but they have not received it, which directly pertains to a delivery problem."
+  },
+  "c1402186fb1e46d6a5dccff4a831bfd2eb7d632d4287986fe8dc9624bfb37fe0": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.96,
+    "reasoning": "The customer is concerned that a promised cashback (a refund/credit) has not been received within the expected timeframe, which falls under payment and refund issues."
+  },
+  "469f33a1f475a59d587c7ce05926e32ff2b5502b8d5e7727e70af4aaec8c3266": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that their product is missing after 15 days, indicating a problem with the delivery of the order."
+  },
+  "3397f09d83293c25fadc8618b10dfd2973bb35748bb3f1f852983e600ec3f1ad": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer mentions that the package was supposed to arrive yesterday but will not arrive until tonight, referencing Amazon Logistics and a repeat delay, which directly pertains to a delivery problem."
+  },
+  "b268c33a7a1bfe82c1a29e047f1c7b40e411c8486f0caac4acffb40417737398": {
+    "intent": "Account & Access",
+    "confidence": 0.92,
+    "reasoning": "The user reports that another Amazon account has been created using the same email address, indicating an issue with account ownership/access and potential unauthorized registration, which falls under Account & Access."
+  },
+  "113e7987b0f7a476aca05b1085767e11f90e8d8f037a0e4b3efbfd7839850781": {
+    "intent": "Account & Access",
+    "confidence": 0.86,
+    "reasoning": "The user reports being locked out of their account due to card information, which is a classic account access problem rather than a payment dispute or product issue."
+  },
+  "f5c9f4dfa55e9601d5bc45eb321d57610ec6e958b33437b232232825e7df0a23": {
+    "intent": "Account & Access",
+    "confidence": 0.45,
+    "reasoning": "The message is vague but mentions something odd in the user's 'cSe' (likely 'case' or account-related issue). It does not reference delivery, order, product defects, payments, subscriptions, or urgent safety concerns, making Account & Access the most plausible category despite low confidence."
+  },
+  "852f5719fbe2c1ed6c629a899bbb17999b61e64c6a8f5f06b99101a955220414": {
+    "intent": "Delivery Issues",
+    "confidence": 0.93,
+    "reasoning": "The customer is complaining that a promised delivery within a specific timeframe has not arrived, indicating a problem with the delivery schedule."
+  },
+  "1c5d9cf5803436d7342ff76a1589d558dcd2c93a53ee1de2fa3b8efd2fca0603": {
+    "intent": "Severe Escalation",
+    "confidence": 0.45,
+    "reasoning": "The message expresses a loss of trust toward a user handle, hinting at potential fraud or security concerns, which aligns best with the 'Severe Escalation' category despite lacking explicit safety or criminal details. Confidence is moderate due to ambiguity."
+  },
+  "6a84256a63083851dcd8b71c2ecfbf375809e2f065fc4741bc0be3e361d4546f": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.96,
+    "reasoning": "The customer mentions a refund processing after returning an item for exchange, indicating a concern about the refund status rather than delivery, order placement, product condition, account, or subscription issues."
+  },
+  "eb4e455e12d15363f7db7e05bdbbec7c7e18cacabab9f430a354dda311c3d503": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.96,
+    "reasoning": "The user is asking why subtitles are missing for a specific episode of a streaming show, which pertains to digital content functionality rather than delivery, order, product, payment, account, or severe issues."
+  },
+  "b58e3bb98b0a7d6ae77770dbdacdbcadfe97bab08b42d5625280fc2aaacf327b": {
+    "intent": "Severe Escalation",
+    "confidence": 0.42,
+    "reasoning": "The message expresses extreme frustration about not being able to reach English\u2011speaking support and uses profanity. While it does not describe a safety or security threat, the tone is highly urgent and escalated, fitting best into the Severe Escalation category as the only option for a strongly escalated complaint."
+  },
+  "5b80642177746ec9b6e2da219086da4c768b4c051df05def9f1721fcf74157a3": {
+    "intent": "Account & Access",
+    "confidence": 0.97,
+    "reasoning": "The user reports being unable to log in because the password is reported as incorrect and asks about resetting it, which directly relates to account login and password issues."
+  },
+  "5004180196d978664e49b5d990bfb88794b51783a5d98cb88ae98d7ff82fe356": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The user reports not receiving any mail, which directly relates to a delivery problem (missing or undelivered correspondence). This fits the Delivery Issues category rather than order, product, payment, account, subscription, or severe escalation topics."
+  },
+  "2faef61325573b4ee923c16fd7df145dc35ae2c7fac0545cd7ad9f4580cef6bd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer focuses on the timeliness and reliability of deliveries, expressing dissatisfaction with the delivery service. This aligns with the Delivery Issues category, while other categories (refund, order, product, payment) are not the primary concern."
+  },
+  "a06495e5e4fbc583d3c91c33533f2669747712d707ce00c900396b9424e8deb6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is upset about a promised delivery date not being met, indicating a late/missed delivery problem, which falls under Delivery Issues."
+  },
+  "f9d82f07f8a91f0c3761621ee3f5391cb53f67373f4648dae7a179caa92955f4": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports a package that is 3 days late and mentions false information about delivery, which directly relates to a delivery problem."
+  },
+  "7aaeacfe5c0e5cf07d13ccbb571ed374d307b6503cde7d41dbe6b92746d23962": {
+    "intent": "Account & Access",
+    "confidence": 0.78,
+    "reasoning": "The user references having already given a phone number for connection, indicating an issue related to account verification or access rather than delivery, order, product, payment, subscription, or a severe escalation."
+  },
+  "f86edd3bd02870708c3f1c95c6da0f9da1c7e02e9824ed5356624910253884f3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.95,
+    "reasoning": "The customer explicitly states that items are not delivered despite the system indicating they are, and mentions repeated failed callbacks, which directly relates to delivery problems."
+  },
+  "0394b3adca50f8458941b807f1f4cbcc984efd627cf20a098fb21502fa202323": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that the order is marked as delivered but they have not received it, which directly matches a delivery issue (missing/not delivered)."
+  },
+  "64c9d6166f32e8b0bc0bf4c19cbf372a70b0abd7414690992c7d4f4777210d8b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is complaining that a package expected by a specific time has not arrived, indicating a delivery problem."
+  },
+  "51988e6ddd79f060871da672c2c52c2cba4296d6c9b309b70b89d03bfab4cc37": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.78,
+    "reasoning": "The customer is trying to place an order but reports that their transactions are being cancelled, indicating a problem with payment processing rather than the order details themselves."
+  },
+  "82e5f47474e08b0e97a627713cf285b7af9734bc395411bd1fb736b81c2a76e5": {
+    "intent": "Delivery Issues",
+    "confidence": 0.58,
+    "reasoning": "The message expresses a willingness to wait for something, implying a pending delivery or fulfillment. The phrase \"Assurance won't work\" suggests prior assurances about timing or arrival have failed, which aligns with delivery-related concerns."
+  },
+  "b336a92b82cf3f15de691ee8b5d25981618f45fbd3edb53754d3176965f50036": {
+    "intent": "Account & Access",
+    "confidence": 0.93,
+    "reasoning": "The user reports that their account was closed and they have not received a follow\u2011up, indicating an issue with accessing or managing their Amazon account."
+  },
+  "8ed138e3b2342e5b7fd1ee15a77e6718ca4087fd361fcdb8d3005fbd302df4d1": {
+    "intent": "Severe Escalation",
+    "confidence": 0.2,
+    "reasoning": "The message '@AmazonHelp Un ultra marat\u00f3n de 55K y varios maratones' does not correspond to any of the defined support categories (delivery, order, product, payment, account, subscription). It appears to be an unrelated comment, so the best fit is the catch\u2011all 'Severe Escalation' with low confidence."
+  },
+  "157f8f51431f0584a1062b1b2b6e1233db31f8f8615bd1aa177a102ed6bbb48d": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.55,
+    "reasoning": "The brief reply 'Yes twice in the last week' most likely confirms a repeated monetary problem (e.g., being charged twice), which aligns with the Payment & Refunds category. The lack of explicit delivery or product details makes this the best fit, though confidence is moderate due to limited context."
+  },
+  "4704aa41dc68293b77cb68cef6321a72e10bb56164850b9ae88ba8f13120bc39": {
+    "intent": "Account & Access",
+    "confidence": 0.45,
+    "reasoning": "The message references having already reported an email, which suggests the user is dealing with an account-related matter (e.g., email address or login). No details point to delivery, order, product, payment, subscription, or severe escalation issues, making Account & Access the most fitting category despite limited context."
+  },
+  "f525d3f15ab9cc91e4f63b0d8dfa4dcd48c78e68d791ee1ca17a49d2b0ddf9fd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that the order shows as delivered on 19 Nov but was not received, expressing frustration and requesting a call. This directly matches the Delivery Issues category (late/missing/not delivered)."
+  },
+  "8125d24fdd1218ef38ee3e548bae6f6736100cfd4e47b3b34f18626e213f0fae": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is upset about packages that have been sitting in their city since yesterday and are not being delivered until Tuesday, indicating a delivery delay problem."
+  },
+  "a71e4c44378ee17ebf8c477f235e14bdfe424e0afaab258ac3b68285dfb1c7ca": {
+    "intent": "Delivery Issues",
+    "confidence": 0.86,
+    "reasoning": "The user mentions the timing of mail delivery, indicating a concern about when their items arrived, which aligns with delivery-related issues."
+  },
+  "947a15713859744d1d2de996ce4cde4742f8e4cf13ac1d52071eb2363cbb2390": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user complains about waiting at home for a package that hasn't arrived and threatens to take action if it doesn't arrive today, indicating a delivery delay problem."
+  },
+  "f3b8dff16f4b9e3ae1b484a7d55f195b969bbab3dabe10448a82016863112ce3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer complains that the order they selected for 1\u2011day delivery is delayed and they don't know when it will arrive, which directly relates to a delivery timing problem."
+  },
+  "83be2fce2bc391740eadd96038b78703b57b328983cd0f1893e5f82f81c7a688": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The message complains about the price per ounce of a product, indicating dissatisfaction with the product's value/price rather than delivery, order, payment, account, subscription, or a severe emergency. This aligns best with the Product Issues category."
+  },
+  "d382bf73c34917b9a33ead5d30edd11de0281d84447a20d25479dc76b5e3c34c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is upset about the Flex delivery option and wants a way to opt out, which pertains to delivery choices and problems rather than order placement, product defects, payments, account access, subscriptions, or severe emergencies."
+  },
+  "8f7f3780ad4c8943de26031913849660db1839d0ea39ad8cf25cc07de9f70f76": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer states the package is marked as delivered but they cannot find it, indicating a missing or undelivered package, which falls under Delivery Issues."
+  },
+  "5730fcdf80971723ad0dcbd940694ac82d58713b1b48aa34ef97717719b64ed2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.68,
+    "reasoning": "The user states they did not receive any mail, indicating a missing or undelivered communication related to their order, which aligns with the Delivery Issues category."
+  },
+  "4b39145f186af095c40589aa6af52873dc531c26e18d541dc2ad10865fe4c7b1": {
+    "intent": "Order Issues",
+    "confidence": 0.55,
+    "reasoning": "The user mentions an order number but provides no specific details about delivery, product condition, or payment. The request appears to be about the order itself, making 'Order Issues' the most appropriate category."
+  },
+  "0643e6c6a499cfed897ed9b340fc64ab7bc35e64beaaeb361a849b07a68b6c72": {
+    "intent": "Product Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports receiving the wrong item and requests the correct product promptly, which aligns with the Product Issues category (incorrect item)."
+  },
+  "4317314788ecd637e94079dea1ec30c04299129e7fdd9f0a8686b867ce6e91b4": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.78,
+    "reasoning": "The user reports being unable to find Bajaj Finserv, a payment service, indicating an issue with locating or using a payment method, which aligns with the Payment & Refunds category."
+  },
+  "4e318ce20180e07413420cd7016634ca77d61ff8f7f19730111c632bb9aa9962": {
+    "intent": "Delivery Issues",
+    "confidence": 0.93,
+    "reasoning": "The customer asks about paying an extra fee to ensure Prime orders are delivered on time, which directly concerns delivery timing and service, fitting the Delivery Issues category."
+  },
+  "a0e1a2757dbcc556514afa0232e7efe0b99210f422328a25fd0c3ef7679f5ec7": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.94,
+    "reasoning": "The customer is requesting a refund or replacement because Amazon has not recognized a returned item, which directly relates to payment and refund issues."
+  },
+  "bce0d515b88ab43c7f517d7142425efbb46b1887d70e5769f68acf234c723e4f": {
+    "intent": "Order Issues",
+    "confidence": 0.2,
+    "reasoning": "The message only says \"Merci\" (thanks) and includes a link, providing no clear indication of a specific support issue. It could be a generic thank\u2011you after receiving an order, so the closest matching category is Order Issues, but confidence is low due to lack of explicit context."
+  },
+  "65ac122519b70d9550ee2bbaaec6e34670d096b37a602e39255ef1a4ea22323d": {
+    "intent": "Product Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports receiving a soap bar instead of the purchased mobile phone, indicating a problem with the product received (incorrect item), which falls under Product Issues."
+  },
+  "ce8e80a484678df76f8d76ddd6313625970cdf982913b6443e81a89bca25c3fd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.92,
+    "reasoning": "The user is upset about being told to go and collect a package and spent time on the phone without resolution, which aligns with a delivery problem such as a missed or undelivered shipment."
+  },
+  "7e5de5264dc1e54f36663682842dcbb3f7f7f88e84fc079a0f4eea3ab59a3422": {
+    "intent": "Product Issues",
+    "confidence": 0.68,
+    "reasoning": "The message mentions a specific product generation and that it was recently installed, which suggests the user is referring to a product-related concern rather than delivery, order, payment, account, or subscription issues."
+  },
+  "aebebb426f54fc9c85112bca1ce056659ff5c6ad3579dbcbe2fce0c5610709a2": {
+    "intent": "Account & Access",
+    "confidence": 0.92,
+    "reasoning": "The user reports being redirected to a sign\u2011in page and cannot access help, indicating a problem with logging in or account access."
+  },
+  "82f849ae6d936d29cdfca9d5f8ba1106e83db8a94d04a548ff1ef4fb3fd7f407": {
+    "intent": "Severe Escalation",
+    "confidence": 0.92,
+    "reasoning": "The user references an escalation team and expresses frustration over lack of response, indicating a serious, urgent issue that fits the Severe Escalation category."
+  },
+  "69f61aff0ca48ced9612bd7d0e8de4d26fb75cccb1017f33a67c869b253948ad": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer mentions they have already started a return process, which typically relates to a product problem (e.g., damaged, defective, or incorrect item) and seeking a resolution through return. This aligns best with the Product Issues category."
+  },
+  "15f189d3440a53b54ee003582f20108d344d0f4ea5cb65019f83ffa2610a0aaf": {
+    "intent": "Order Issues",
+    "confidence": 0.12,
+    "reasoning": "The message is a brief thank\u2011you with no clear problem or request. It does not match any specific category, so the classifier defaults to a generic category (Order Issues) with low confidence."
+  },
+  "df143d51d2f4a64db9ae5959687d98a9b979b2cc3a062a865cddd18b56e2694d": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.93,
+    "reasoning": "The user asks about Kindle ordering and cloud delivery, which pertains to digital content/services rather than delivery, order changes, product defects, payments, account access, or severe issues."
+  },
+  "deb33a40505c72700a5f6134d3795160ebf825a609ecfb266f7a3b62f1cb57a9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The user reports that the order is still out for delivery and has not arrived within the promised time window, indicating a delivery problem."
+  },
+  "a3d1dce67a529219688fa332ace86e469377e9b856c29cf2ca181e9398760ce6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer reports their package did not arrive and is 2 days late, which directly matches delivery problem concerns."
+  },
+  "375a9b122ebae715c4f32c66dc5aa065af7478b2e30d10ee78d522b077bb4a03": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer states the item was due today and now reports it could not be delivered, which directly matches a delivery problem (late/missing/not delivered)."
+  },
+  "bd5b058ba61dab1efd80bc3e7232f9e4603894d76d6ea43757e165a7b46774f9": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.92,
+    "reasoning": "The customer explicitly requests a refund ('give me my money back') and expresses frustration with the support process. This aligns with issues related to charges, failed transactions, and refunds, fitting the Payment & Refunds category. The tone is angry but does not indicate safety or security concerns, so it is not a Severe Escalation."
+  },
+  "e2b7037511e0e688980340b8ecff92167c02d56e1ba5b2671b3962a5323aa1b2": {
+    "intent": "Order Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer is discussing the inability to replace their order due to stock issues and is seeking a resolution (gift card, UPS status). This pertains to changing or handling an existing order rather than a delivery delay or missing package, fitting the 'Order Issues' category."
+  },
+  "58702e3527058e495a7bbe1dfe9c5f758d80566b09e1ce7169ab7639c90d8cd0": {
+    "intent": "Order Issues",
+    "confidence": 0.42,
+    "reasoning": "The user mentions sending an email to Amazon support and not receiving a reply. While the specific issue (e.g., delivery, payment) is not stated, the complaint likely relates to a pending order-related inquiry, making 'Order Issues' the most plausible category among the given options."
+  },
+  "556417aced7370ccfa85b9b646df1aceefa0beba99c7f52cf75b8b42feeef0e9": {
+    "intent": "Order Issues",
+    "confidence": 0.55,
+    "reasoning": "The message references a pre\u2011order bonus, which relates to the ordering process (pre\u2011ordering a product). It does not mention delivery, product defects, payment, account, or subscription matters, so the best fit is Order Issues, though the brief nature of the text gives moderate confidence."
+  },
+  "150e5ce4dff174827d179cc0b5fd9d0a7de33ae7fe910ac380a7822d3511e1be": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer is upset about frequent and large price variations on product listings, indicating incorrect or misleading product information rather than delivery, payment, account, or subscription problems."
+  },
+  "d62f7c691729efda536a59eb7efb059cedeba6dfe41dc7fecd9dd399c04c95d2": {
+    "intent": "Severe Escalation",
+    "confidence": 0.45,
+    "reasoning": "The customer is upset about poor phone support and is demanding compensation (gift card). While not a safety or security issue, the complaint reflects a highly urgent dissatisfaction that may require escalation beyond standard support categories."
+  },
+  "7e73d643e2c39b4036c15f82d0c16c913028d9833aad0b35ede2774dfdd32f9f": {
+    "intent": "Order Issues",
+    "confidence": 0.85,
+    "reasoning": "The user is upset that preordered books vanished before their release date, which relates to problems with placing or maintaining an order (preorder) rather than delivery, product defects, payment, or account issues."
+  },
+  "048c7344b47d0ef22858d4bcc9421452444606da9ca194be74fabbc2149073de": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.92,
+    "reasoning": "The user asks about the availability of the third season of a TV series, which pertains to digital content streaming rather than physical delivery, order, product defect, payment, account, or escalation issues."
+  },
+  "e114bbf897bbf02b8317623cb99aa258f4209cc1928e0e60ffdd3d72ed4ae6c1": {
+    "intent": "Order Issues",
+    "confidence": 0.45,
+    "reasoning": "The message mentions a deal's geographic limitation, which relates to purchasing conditions. While not a direct order problem, it is closest to order-related concerns among the given categories."
+  },
+  "70d57f2356a956aaecb67ba7d2f439fb4fb1047b4aef0dcf9812239c1ced975f": {
+    "intent": "Severe Escalation",
+    "confidence": 0.2,
+    "reasoning": "The message contains no specific details about delivery, order, product, payment, account, or subscription issues. The user expresses frustration and a desire for a relevant response, which could indicate heightened urgency, but there is no clear indication of safety, security, or criminal concerns. Given the ambiguity, the best fit is a low-confidence assignment to Severe Escalation as a fallback for potentially urgent dissatisfaction."
+  },
+  "ed14884f3012e0699cee71f009bbdd093e726e2cb40fa5a3069dee99ea618cd0": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.35,
+    "reasoning": "The message expresses excitement about a promotion on books, which relates to digital content (books) but does not describe a specific problem. It loosely aligns with the Subscription & Digital Services category, though the fit is weak, resulting in low confidence."
+  },
+  "3fe7ff01764260b7e50623ed3e54a48c20d98361c5e65482a4476252ea6412d3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that the carrier TNT failed to deliver the parcels, with the driver not arriving and delivering to a relay point instead, and requests a different carrier. This aligns with the Delivery Issues category."
+  },
+  "c60d98ae773981328e48a5c7f43376ebb1a503bd17c651de019a9482f92604bf": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is complaining that replacement orders are not being delivered to the same location (post office) as their regular orders, which is a delivery-related problem."
+  },
+  "caf05792de9a07247ed5e68fb2f0400bd0fc003fb1b91026d71169c08a82239a": {
+    "intent": "Severe Escalation",
+    "confidence": 0.35,
+    "reasoning": "The message expresses strong frustration with receiving irrelevant replies and poor service, but does not specifically mention delivery, order, product, payment, account, or subscription issues. It is not a safety or security matter, yet it is the only category left that can capture a highly urgent complaint about support quality."
+  },
+  "2f007b52fc9f4a0c60d17d419218c125708e7a7144ccfd3f72ff048d7c9f0366": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.32,
+    "reasoning": "The message is a comment about narrative, research, and dramatization, likely referring to a digital content (e.g., a TV series) rather than a specific delivery, order, payment, or account issue. It does not fit other categories, so the closest match is Subscription & Digital Services, though confidence is low due to the lack of a clear support request."
+  },
+  "650da8407963814b6cba789ceaf1b88a9c2b3c8f7466bcc89ae355f4181fbdf2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user reports that the carrier has not contacted them regarding their shipment, which directly pertains to a problem with the delivery process."
+  },
+  "dc7c934ae0553f40bfee3257a091b67eb1defcb435309f64340bcadaf3a3f14d": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.93,
+    "reasoning": "The user reports being unable to download books despite troubleshooting steps, which pertains to Kindle/digital content functionality, fitting the Subscription & Digital Services category."
+  },
+  "fee04f581b402031b6fcf1d07bd2a905a6ee800323b536a6f6e396976ba6d34a": {
+    "intent": "Product Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer mentions the product is wrong and defective, which directly relates to product quality problems, fitting the Product Issues category."
+  },
+  "8d8da2369625082be1e736ffb15474d91001b92f740502779c27c5eddac7d152": {
+    "intent": "Severe Escalation",
+    "confidence": 0.45,
+    "reasoning": "The message expresses strong dissatisfaction but does not specify a particular issue like delivery, order, product, payment, account, or subscription. While it is not a clear safety or security emergency, it is the only category that can capture the escalated tone of the complaint."
+  },
+  "fe621e025fcb03ef6e254802929635a57d4d70334964b25ab44acdc5202fc47b": {
+    "intent": "Account & Access",
+    "confidence": 0.92,
+    "reasoning": "The user mentions regaining account access but notes missing reward points, which is an issue tied to their account status rather than delivery, order, product, payment, subscription, or a severe escalation."
+  },
+  "3d7a490789568cf56655f0893fd565a9bf696ba68c077a802dec50055cde437c": {
+    "intent": "Product Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports receiving a product (Disc Magnets) that does not match the advertised specifications (3mm thick instead of 4mm), which is a classic product issue involving incorrect or defective items."
+  },
+  "5ed6e744a9f98b4d31ed0e442d8d73dd09c9bc7e89e54805b4cc0bdb6fa39e6d": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The user is apologizing for poor graphics and providing a better image, which relates to a problem with visual representation of a product rather than delivery, order, payment, account, or subscription matters."
+  },
+  "09ba786410bf5d6082a2b35cf887a3ae5ad45d435b02ce6c6b161d4cb8baf732": {
+    "intent": "Delivery Issues",
+    "confidence": 0.94,
+    "reasoning": "The user is asking for the delivery date and confirmation of when the order was delivered, which relates to tracking or missing delivery, fitting the Delivery Issues category."
+  },
+  "bab12ed36c928fb8a7e30f2f6e05f7eb5fc922d3e194fd537e66590b928276b6": {
+    "intent": "Order Issues",
+    "confidence": 0.33,
+    "reasoning": "The short French message \"Pas cette fois non\" is vague and does not explicitly mention delivery, product defects, payment problems, account access, or subscriptions. It seems to express a general dissatisfaction or a failed attempt related to an order (e.g., placing or changing it). Given the lack of specific cues, the best fit is the generic 'Order Issues' category, but confidence is low due to ambiguity."
+  },
+  "d22317423cd2b9ed7fb5861d26ca4802f7b4f306f78ae158363142a51faec177": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer references a promised release date that is today and expresses disappointment that the item has not arrived, indicating a problem with the expected delivery timing."
+  },
+  "7043ab797ca98a7a393cfe54ed232db3315d5bd3d44ac865b811da243b931e89": {
+    "intent": "Order Issues",
+    "confidence": 0.55,
+    "reasoning": "The user wants to cancel a previously sent email/request, which aligns most closely with the 'cancelling' aspect of Order Issues, as no other category (delivery, product, payment, account, subscription, or severe escalation) fits the request."
+  },
+  "cebdda011b0534f129f1adde2e87bb67d08215b6fc7a3d608680e7a1371854d5": {
+    "intent": "Delivery Issues",
+    "confidence": 0.92,
+    "reasoning": "The user is asking to change the delivery day or arrange pickup from the carrier, which pertains to scheduling or receiving the shipment, matching the Delivery Issues category."
+  },
+  "cc9797dbc8f8859791c30aa976a39666ddae268810cb13930dcec01b89cb1f53": {
+    "intent": "Severe Escalation",
+    "confidence": 0.2,
+    "reasoning": "The message does not correspond to any standard support topics like delivery, order, product, payment, account, or subscription. It appears to be an off\u2011topic comment, so the best fit is the catch\u2011all Severe Escalation category, albeit with low confidence."
+  },
+  "316d48e4331a458fd64cd931f35c1f539ddf397b9209867e83161607fbfbee79": {
+    "intent": "Delivery Issues",
+    "confidence": 0.88,
+    "reasoning": "The user is complaining that the service cannot deliver on time and is asking for an answer, which directly relates to delivery problems."
+  },
+  "58091f23dc7ca0cbe30c036c6a42f62398ab69e7f771ed62bbce5a48e4f3cb74": {
+    "intent": "Severe Escalation",
+    "confidence": 0.55,
+    "reasoning": "The message expresses strong frustration about repeated contact attempts, lack of information, and false claims, indicating a highly urgent and escalated concern, though it does not specify safety or security issues, so confidence is moderate."
+  },
+  "c1f4c1bafbb5d6ee45065aaeca78750cdb87c3d011ca4348ccfb5937e5c6d1db": {
+    "intent": "Delivery Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer complains about repeated deliveries of the same product to the same address and the delivery agent not answering calls, which directly relates to problems with the delivery process."
+  },
+  "577c519cf4dd6044b2dc2d8a75f708462179f71718b9e8b5017d17d3508fed5e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.45,
+    "reasoning": "The message references a shipment ('\u6025\u304e\u306e\u7269\u3067\u3082\u306a\u3044' meaning 'not an urgent item'), indicating it relates to a delivery context, but it contains no explicit problem, making the classification uncertain."
+  },
+  "4f8112b5627d1df2da14d2ae9ae08ecc9e97b55897da0b8b9a329fa134f0a809": {
+    "intent": "Delivery Issues",
+    "confidence": 0.1,
+    "reasoning": "The message '@AmazonHelp Grazie ancora!' is simply a thank\u2011you note and does not describe any problem. Since none of the defined categories match, the classifier defaults to the most generic category (Delivery Issues) with very low confidence."
+  },
+  "8cbfe8ca23293566d737361d8591c4d8663ab4d0ef0a76c58f2fb5ca8956d3e1": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user reports not receiving the email for a convenience\u2011store pickup despite the item being ready for two hours, which is a problem with the delivery notification process."
+  },
+  "a15e8c0ddf852e569e8a67c526d3f89b5bcaf154df2b06580dfca408b92466ec": {
+    "intent": "Order Issues",
+    "confidence": 0.66,
+    "reasoning": "The user is dealing with the return process for items, which relates to managing their order (changing/returning). No product defect or payment problem is mentioned, so the best fit is Order Issues."
+  },
+  "00fdca72e340cf1ed13c328572f215c8012e59a5756e94f1526f639343ee8a9e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer explicitly mentions a failed delivery and being dissatisfied with the timeliness of their order, which aligns with the Delivery Issues category."
+  },
+  "be704d07d89b1d5b7c5fdf7afb03bfb0ee17ce8c61a31b0901d5a9217847d96e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer complains about a delayed delivery date that will cause them to miss an event, which directly relates to a delivery issue."
+  },
+  "06150626aec9faf93cac02d4138bd6c3ab16258ae33a3d8516b676815348ee6a": {
+    "intent": "Product Issues",
+    "confidence": 0.94,
+    "reasoning": "The customer says the ordered item is missing a marker that should have been included per the product description, indicating an issue with the product itself (incomplete/incorrect) rather than a delivery delay."
+  },
+  "8301a4ba725c95842b749fcffd19329cf60404a348c19549129fd905669c5c0f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports a delay and lack of a new delivery date for an item, indicating a problem with the shipment status, which falls under delivery issues."
+  },
+  "7f2a0c83c94dd492104474a72765503d82fc058c3079370fe81ceadcaec8bf1d": {
+    "intent": "Account & Access",
+    "confidence": 0.2,
+    "reasoning": "The message is a polite thank\u2011you and states that an inquiry was made, but it provides no specific details about delivery, order, product, payment, subscription, or severe issues. It is ambiguous, so the best guess is a general account\u2011related inquiry, though confidence is low."
+  },
+  "6766c4a572d6a64285e7ff6e5c95e08338a7b3a9835716979317d612bc113a31": {
+    "intent": "Order Issues",
+    "confidence": 0.78,
+    "reasoning": "The user reports that after selecting an order, a call says the order cannot be found, indicating a problem locating or managing their order rather than a delivery, payment, or account issue."
+  },
+  "8e6923abf1674bc3a182f26ac2b09758de52b75affc10d0300a65d5e4fa72eea": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports a missing package left at an unknown location with no delivery notice and mentions the driver, which is a classic delivery problem rather than order, payment, or account issues."
+  },
+  "4ca39b732b6667e7351886fed63f68ef7d349d25c6ea3c0076fd576e0a2c7cfa": {
+    "intent": "Delivery Issues",
+    "confidence": 0.94,
+    "reasoning": "The customer is asking for the item to be delivered today due to an upcoming wedding, indicating a problem with the delivery timing."
+  },
+  "b0f5aec3338e7d21fe12bc09fb98c0fd1fc9f9e34dde19d79e0fc23ea1aa4513": {
+    "intent": "Product Issues",
+    "confidence": 0.73,
+    "reasoning": "The customer complains about excessive packaging, which relates to the product's presentation and condition rather than delivery timing, order changes, payment, account, or subscription matters. This fits best under Product Issues."
+  },
+  "5d948468974e57cf21d09858c41bdf2986cca13451a7624f28baa1d0154aa8b5": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The user is asking about the future availability of a specific product (Fire TV Stick Basic Edition) in Mexico, which pertains to product availability rather than delivery, order placement, payment, account, or subscription matters."
+  },
+  "5cb16e15d8aacb9d59efcb75ce7fa70dfd463c568a5339d94d7b01987106cdb3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The user mentions the shipping carrier (UPS) and expresses frustration that no help was provided, indicating a problem related to the delivery of their order."
+  },
+  "87b3d5ec343d8b47e9543003c58f3816ccd372d540a848fa4784bc0d9307c324": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports not receiving all items from their order, which directly relates to missing or incomplete delivery, fitting the Delivery Issues category."
+  },
+  "c90ff4cd06169da375b7c981120515725aa29f3c71c7c7e99f6da0bf685bc60a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.93,
+    "reasoning": "The customer is upset because a preordered item that should have been dispatched on its release date has not been sent yet, which is a classic delivery problem (late/missing shipment)."
+  },
+  "aefdc0956e6311050bbc8af8435dd575afcff5ce584399839cfc6680ffc5684f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is asking whether the order will ship tonight based on the current time, which pertains to delivery timing and scheduling."
+  },
+  "c37899f69eab65ed64b098e160c6c102c83d152eb947bea548302082430c898f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is asking about delivery schedule (Sunday) and reports that a promised delivery hasn't arrived yet, which directly relates to delivery timing and potential lateness."
+  },
+  "abc209df478a12a4997bac06f20b94099a115d32d39f9547f95649f665c106c1": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is upset that the order has not arrived within the expected timeframe despite being close to the fulfillment center, which directly relates to a delivery problem."
+  },
+  "88d5de708b3b1f4d273ee695f5719d8dbc96e06162d9e4e35a3c2480d285f764": {
+    "intent": "Product Issues",
+    "confidence": 0.86,
+    "reasoning": "The customer references a problem with their Fire TV device and expresses frustration after a phone call, indicating an issue with the product itself rather than delivery, payment, account, or subscription matters."
+  },
+  "9aa34c37b6cc61f38e24d50a371e0c3c7d6d97e00b3c22d84199d8fbabb1cf94": {
+    "intent": "Product Issues",
+    "confidence": 0.32,
+    "reasoning": "The message expresses interest in 'Amazon Bar' but does not describe a problem. Among the provided categories, the closest fit is Product Issues, as it references a product, though the lack of an actual issue makes confidence low."
+  },
+  "dab2b1df0c79b8137b56510c0996a7b0b0c9259fa29b37070d17b511cc7aea28": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that their parcels are located at a distant UPS relay instead of being delivered to their home as expected, which directly relates to a delivery problem."
+  },
+  "e9ebf440ce6e69c5f975c1c4a7a22f7b52edfcf56db911835d30388e40df902a": {
+    "intent": "Product Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer complains about Amazon India selling duplicate (likely counterfeit) products of global brands, which pertains to product authenticity and quality, fitting the Product Issues category."
+  },
+  "1db1ce0be46ae9629de24e7e9795640fd3bae6233a10763e016588ebf79aff14": {
+    "intent": "Account & Access",
+    "confidence": 0.92,
+    "reasoning": "The user reports that their phone number is blocked and requests a callback, which relates to accessing their account or communication methods rather than delivery, order, product, payment, subscription, or a severe safety issue."
+  },
+  "865252cf6a2d4a381fbd2d2fd94807af6d138d5f8008e557c397f4b659238c0f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is complaining that the expected one\u2011day Amazon Locker shipping is taking longer (until Monday), indicating a problem with the delivery timeframe."
+  },
+  "2d8c352959dea40a06d058285d5fdb5a47aadc57c3042c2c6cda83894a8900d2": {
+    "intent": "Account & Access",
+    "confidence": 0.96,
+    "reasoning": "The user reports being unable to log into their Kindle email because a verification code is required, which they cannot retrieve. This is a classic login/access problem, fitting the Account & Access category."
+  },
+  "ecf6daaf776a15866dd2edfcb023aaddb9de7528955ac321589e502aee025a41": {
+    "intent": "Account & Access",
+    "confidence": 0.2,
+    "reasoning": "The message is a casual greeting and does not contain any specific request related to delivery, order, product, payment, subscription, or severe issues. Since none of the categories directly match, the most generic category (Account & Access) is selected with low confidence."
+  },
+  "85ef572dd4cc0ba156d88d41150424af32d06bd95e620ab5e6d32a0ba6b07a2d": {
+    "intent": "Order Issues",
+    "confidence": 0.68,
+    "reasoning": "The customer complains about a slow process after contacting support, indicating frustration with order handling or fulfillment rather than delivery, product defects, payment, account, or subscription matters."
+  },
+  "2dcd1fa5d85d8543805f15f60008acdc507d14e5a13312dba9c8b5f4adcdc62d": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.97,
+    "reasoning": "The user asks about getting a refund for an unused Prime subscription, which falls under the Subscription & Digital Services category."
+  },
+  "c7a33da5cef95610f686e9b5e822490623a9cb1ad9b8448374d123863864631b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer explicitly states the order was never delivered, indicating a problem with the delivery of their order."
+  },
+  "662d446adb518cdcb51d99fed1ba42a639622c95b9f8551cf7da9d586d23ee5c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer is upset about the delivery personnel, implying the package was not delivered as expected and accusing them of lying. This directly relates to a delivery problem rather than order placement, product condition, payment, account, subscription, or a severe safety issue."
+  },
+  "37e9d9ebc17d827ab71cca50ed7a40a8e5c0420fae7c8fc4763d938592e2e942": {
+    "intent": "Delivery Issues",
+    "confidence": 0.85,
+    "reasoning": "The customer talks about the order arriving quickly and comments on the delivery speed, which relates to the delivery aspect of their purchase. No other categories (order, product defect, payment, account, subscription, or severe escalation) fit the content."
+  },
+  "e3c5c34d771eb38b24755ddee65c84ae16e37f73894876d95c9cc0a03f34e6d5": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "User explicitly requests a refund after a long wait, which falls under payment and refunds issues."
+  },
+  "914b4b37336f373b9cde7bd6e6c68f12da04d8cf0accb77cac202f479c77875e": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer references receiving a product and multiple contacts about it, indicating dissatisfaction with the product or post\u2011delivery support rather than payment, account, or delivery timing issues. This aligns best with the Product Issues category."
+  },
+  "02def96d01022e2f6bd6c03ff39b5e7ac6b09389a47ddc0aa1ef6d5ed2df16ca": {
+    "intent": "Product Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer is complaining that a promised product replacement has not arrived after 5 days, indicating a problem with the product (likely defective or damaged) and the need for a replacement, which falls under Product Issues."
+  },
+  "2b6feb29c23ca4d9e9a494472e9edde929125a0d7b1b5334760f4935fd6f5862": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that a DVD marked as delivered has not been received, which is a classic delivery problem (missing/undelivered item)."
+  },
+  "22431df8c3ab221e581b2cdb50674858a796a7ebf759520453cfea015cdbf0f6": {
+    "intent": "Subscription & Digital Services",
+    "confidence": 0.93,
+    "reasoning": "The customer is expressing dissatisfaction with the quality of movies available through Prime, a digital streaming service, and is requesting better content. This pertains to the subscription and digital services category."
+  },
+  "f563f437241773c655f3e1ca3ca2b4fcac72be47a293e765ae0664d793382fcd": {
+    "intent": "Order Issues",
+    "confidence": 0.55,
+    "reasoning": "The user complains about not receiving a response to their support email, which typically relates to an unresolved order-related problem. While no specific order detail is given, the lack of reply suggests an ongoing order issue rather than delivery, product, payment, account, subscription, or severe safety concerns."
+  },
+  "201d5e08bc066ab09c35ffdaee2e4de2b25c3a893e9cc8ac98fd057356a5e8d7": {
+    "intent": "Product Issues",
+    "confidence": 0.35,
+    "reasoning": "The message is ambiguous and does not clearly match any specific category. It mentions a condition ('fritos') that could be interpreted as a product defect, but the overall content is nonsensical, leading to low confidence in this classification."
+  },
+  "282699b24a32f3f895a3038c38a1ef450445dc23aa8c29cdcd77c14ff5ef5d19": {
+    "intent": "Product Issues",
+    "confidence": 0.86,
+    "reasoning": "The message references a 'wrinkled box' and includes a link likely showing damaged packaging, which aligns with product issues such as damaged or defective items."
+  },
+  "ae253c9c732b145c6a1620c736d56047d2746afb1081ac9ddd72bdd9f60835e0": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user mentions a tracking update and doubts the estimated delivery time, indicating a problem with the shipment's arrival."
+  },
+  "394e057e41dd89b5d12b7644c9c41af73971f027acff3a10b621ab0dabc4d0ba": {
+    "intent": "Account & Access",
+    "confidence": 0.35,
+    "reasoning": "The message expresses frustration about not receiving a response, which does not directly map to delivery, order, product, payment, subscription, or severe escalation categories. The closest fit is a general access/support issue, so it is categorized under Account & Access with low confidence."
+  },
+  "63a54fe5c51b53527d8d017c81456672a0e50617ee1701ddf5abdc096e231510": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is complaining about multiple orders being delayed and attributes the slowdown to UPS, which directly relates to delivery timing problems."
+  },
+  "67a619a88515369bf901a57692e58e45c6cd3459347b36845b220b7c32b84a14": {
+    "intent": "Account & Access",
+    "confidence": 0.1,
+    "reasoning": "The message is a friendly greeting in German and does not describe any delivery, order, product, payment, subscription, or emergency issue. Since none of the defined categories directly match, the most neutral category (Account & Access) is selected with low confidence."
+  },
+  "a4b03e2a0533b250d9f3bbce0d637c392098d0012e2c614df1f465b71cb0d704": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.86,
+    "reasoning": "The user reports an unexpected charge of 92 euros after their account was blocked and supposedly deleted, indicating a payment issue that likely requires a refund or charge dispute."
+  },
+  "77bfb881917c021c373352fc54021a412bf314850489a38711e55cc7484fac1c": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.78,
+    "reasoning": "The customer reports that their bank card was removed from their account, leading to an order being cancelled. This relates to payment method issues and the resulting order cancellation, which fits the Payment & Refunds category. The login/password change is mentioned but appears resolved, making the payment problem the primary concern."
+  },
+  "bdd290f355f9cd63a68492c0a2af585b79c2a0a10707df2d2ad75c26cb71a23a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer states the product was marked as out for delivery but has not arrived, indicating a delivery problem and possible mishandling of the shipment."
+  },
+  "c7e7d4e5150a8fc22433611e18f2899dad0f76f5b4fff80c2946b06d2590d01f": {
+    "intent": "Order Issues",
+    "confidence": 0.55,
+    "reasoning": "The user says \"No se el numero\" (I don't know the number), which suggests they lack an order or tracking number needed to address a problem. This aligns best with Order Issues, where customers often need to reference an order number for placing, changing, or cancelling orders. The message is vague, so confidence is moderate."
+  },
+  "4bc8577598d6bb9c08057dd76d3fe0b6d2e61aad4404abe545414c1a0b6b3c56": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "The user mentions receiving a shipping refund, which directly relates to refunds and payment issues, fitting the Payment & Refunds category."
+  },
+  "e488b23c16a694f3a49ddf6a00486a74578eed6eba6e01c6d7a89a3bf3cb251a": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer notes the item arrived in an envelope and there is no return box option, indicating a problem with returning the product. This aligns with product issues such as needing a return solution."
+  },
+  "7ae3fa30b57620faac1950c3d3695ff6c014b16c84443dfad719c5b36df5c5a4": {
+    "intent": "Product Issues",
+    "confidence": 0.78,
+    "reasoning": "The user is upset about a price increase for a specific product (32\u202fGB) and mentions needing a different size (64\u202fGB). This concerns product pricing/availability rather than delivery, ordering, payment, account, subscription, or a severe emergency."
+  },
+  "9a3e70be33ef09887f2d238e2ba91c6c22e6bb7334efaa286330c7fd0dda57fc": {
+    "intent": "Severe Escalation",
+    "confidence": 0.35,
+    "reasoning": "The message references a deleted tweet and a lack of awareness, which could imply a potentially serious issue (e.g., a policy violation or security concern). However, the content is vague and does not clearly map to the other categories, so confidence is low."
+  },
+  "b6350d6e653ba594a66c759cebe7a41d6957add07f6ecb280da58d2f4a775c67": {
+    "intent": "Order Issues",
+    "confidence": 0.85,
+    "reasoning": "The customer is confused about a return request for an item they already sent back, which relates to managing an order (returning/cancelling) rather than delivery, product defect, payment, account, or subscription matters."
+  },
+  "3dd0f1bf362ce5cb93583227bb84c1df7f112d818e02f1b39355202142addec5": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "d44e0b8a3f131004594738fd408328381572e71e2f90f4e869eb19f6b01b4175": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "1d9bd7ec7ae52b68d05b67dab01218b98b26395bb53ccd6a476a6bdc76b98057": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "e430a65a99aaf6400e91b9bcfeec237cfcb8711366b4a6799a4f9ccf144793f3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "f0666896279ee3bde8b785484fd92495871e32a06a902402bd78c0936de71f03": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "e3526243cbd7bfecc502e358a1a01322650d1d526dafabea0f59e02b47826680": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "d6c7e5e0032b3a5c3c6503dc1aeddfa4c6e1ecc03ca4d5a16aa238b49606ac5d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "025ca928ddf53512e8aa0ecbd9df9f8844551c4d15f0ae2eb2c1911ac97493f7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "7a1dc07ff677f7e6bc02e1fd5eecc222df755cd417fd87765a05a4e4188c7c3d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "56ebc64524e3f4b57e86ca1378ff98ce54b23840741e9afd0b9a268cee99606b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "2db75003635075557f9aeeffad8b50d5c97b5bcf62c020a83b66d5f47ea5c059": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "2ccc6ceb62ce072894d379483a42ba51d849e62faa881d7c560737c9ec24aec8": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "cc3dec6de04d1988f3ec59caa0c772418974b34dd066589474859658dc2c8d80": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "8ea52548b64ed0cd1dfcb42db41e679797e3f1727ef505388c94f86d69002a28": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "04529917b080c1555b2bb8af328a25c2a7a421d84845fc162df1691f37b638bc": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "753a0536dd23abe840afc746e34f79eeea58dddf25989e3ccb0a3bdca3cb5140": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "d2f26e08e862ccd3ceade9bb5d35c2f0d46c8dc8825c588df21f8ac1d8a306a6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "5812773d59e9d26ef0c0d81c45f00fb57ef9030e3ac35b6ab526616380ee4f1e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "eedc761bbca4eebbc8c9256a748e8307d0ad89c1718b8debdc602983114ac60a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "7d746d2e46cbbb79ee629dee2a0439168ddac129167ebdb01a3c0e2dabfe489e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.5,
+    "reasoning": "Mocked to bypass daily API limit"
+  },
+  "793d9643401c9453e0fc2086465a8940a89fa91ec00228bf46144e2072373ee4": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that their package was stolen, which is a problem directly related to the delivery of an order. This falls under the 'Delivery Issues' category rather than payment, account, or escalation categories."
+  },
+  "184fef67ca205e81b9c6b290da0e6c2ad2e3e6e2c5cc72482985d81bade6dae6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer explicitly mentions a package that was expected yesterday and has not arrived, which directly matches the Delivery Issues category concerning late or missing deliveries."
+  },
+  "d78bb2479d65d7b5ccca92f17c179a7fd566e6fa8ccc44c27ce970ac5cbd216c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer reports a package that was expected three days ago and notes that the tracking information has not been updated, which directly matches the Delivery Issues category concerning late or missing deliveries."
+  },
+  "12a3be2566bde351e2371a275a600d8f97b56d717a42087e11727830020042fd": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.98,
+    "reasoning": "The customer reports being charged twice for the same order and explicitly requests an immediate refund, which directly pertains to payment issues and refund requests."
+  },
+  "abec4858a5e1b42fe0643fea84b68aec69fc0b2c9f1470dc7ab57a1521f622b6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer complains about the driver\u2019s behavior and the condition of the delivered package, which directly relates to a problem with the delivery service rather than the product itself, order process, payment, account, or subscription."
+  },
+  "608bd19f71e3454132c2322c8265546b8e2f625a76e237543bf429c11c14cc9e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.99,
+    "reasoning": "The user explicitly states that their order never arrived, which directly matches the Delivery Issues category (late or missing delivery)."
+  },
+  "4e2e6e08dcfeda016eef14580cdfd68ba358f83aea59a32870137236069948bd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer is asking about the whereabouts of a package that was expected yesterday, which directly relates to a delivery problem such as a late or missing shipment."
+  },
+  "8342e7d336580f9ebefff69aa9c24af95d577d1ed2663997df85cc15ffe2918d": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The customer reports a personal injury caused by broken packaging and mentions going to the hospital, indicating a serious safety concern that requires immediate escalation.",
+    "text": ""
+  },
+  "ac874324d2a3c12370c400d5ecd73da48a442d83faa2282961074c0f4199bdc0": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.85,
+    "reasoning": "The customer explicitly demands a refund and threatens legal action if it is not received, indicating the primary concern is about a payment/refund issue.",
+    "text": ""
+  },
+  "cbadf9ef809ed3acbcc119b2589b6de42296c3b84ee342abb272753a29bd27b0": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The customer reports verbal abuse and threats from a driver, which is a safety and security concern requiring immediate escalation.",
+    "text": ""
+  },
+  "ee18868ddbafdc16eebf5a019a646554fc75912966727b18cd61a47040b91678": {
+    "intent": "Account & Access",
+    "confidence": 0.97,
+    "reasoning": "The user reports their account is locked and includes personal identifiers, indicating an access problem that fits the Account & Access category.",
+    "text": ""
+  },
+  "ea3fdb069046d2a4dab293e107cd68bc1280eaf9bbc7273ac090486205c60e26": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer is inquiring about the delivery status and delay of their order."
+  },
+  "0717427c62f377dd2824df17ffb33f54b0e2697a02a26d6f60a9f864c4f22fc9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer references the tracking status indicating the package was handed to a resident, but they were not present to receive it, indicating a problem with the delivery (potentially missing or misdelivered). This aligns with the Delivery Issues category.",
+    "text": ""
+  },
+  "92d3c30c3d8c2bd280a1397f492f9fe71372ab9c1541ad19d7929fa45cc9e517": {
+    "intent": "Delivery Issues",
+    "confidence": 0.85,
+    "reasoning": "The customer explicitly mentions the package arriving safely and praises the speedy delivery, which directly relates to the delivery experience. Although it's positive feedback rather than a problem, it still falls under the Delivery Issues category as it concerns the delivery outcome.",
+    "text": ""
+  },
+  "0a46b5e5a0cc24f6eba0bb5c687b6d8d4d608588cbe0fb7902759df51817f615": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The user is asking when a specific order will be out for delivery, which is a delivery status inquiry.",
+    "text": ""
+  },
+  "0ae4125ae3250c159b15a20fe167a81c9677882de961b5ffa98b9be8ec4e7d3d": {
+    "intent": "Severe Escalation",
+    "confidence": 0.96,
+    "reasoning": "The customer references a stolen package and threatens legal action, indicating a highly urgent and potentially serious issue that fits the Severe Escalation category.",
+    "text": ""
+  },
+  "630421e57f0f49377d431e84eae2e3ca8b8247d089c2f59bf1d181a0f77bc2e2": {
+    "intent": "Order Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is asking how to locate the return QR code for an order, which relates to managing or modifying an existing order (returning it). This fits the Order Issues category.",
+    "text": ""
+  },
+  "65ea0d0b4318f783eb94b0247742480530c5bab4701d82f5c10441025037fff0": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "The user asks when the refund will be processed after dropping off a return, which is a payment/refund inquiry.",
+    "text": ""
+  },
+  "90539f1f4068cf71d7be2ef0039575c85f627c26fbb872cb688182c42eead987": {
+    "intent": "Order Issues",
+    "confidence": 0.99,
+    "reasoning": "The user asks about cancelling an order that is still pending dispatch, which is a request to change/cancel an order, fitting the Order Issues category.",
+    "text": ""
+  },
+  "c4a572e9899a5a87cfcc241a0d617a9a6732b1746816d7c3b4fceec4dc8f51c9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The user reports that the app shows the package as delivered but they cannot locate it on their porch, which aligns with a delivery issue (missing or not delivered).",
+    "text": ""
+  },
+  "a682307c34eba11afd6aec369b1777415bd0b16f6a71a0571ce8c16ed2b82e6d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is asking to modify where the driver leaves the parcel, which relates to delivery instructions and falls under the Delivery Issues category.",
+    "text": ""
+  },
+  "4a934bdeaf6cf329b5b5ec7da4b0831788ec9c0819fbaf60509b95b2c9fa9b01": {
+    "intent": "Severe Escalation",
+    "confidence": 0.98,
+    "reasoning": "The customer reports a courier physically assaulting their service dog, which is a serious safety and potential legal issue requiring immediate managerial attention, fitting the Severe Escalation category.",
+    "text": ""
+  },
+  "14f020b458cc11c3491a424754d11b35bc9d15e2bfe56f3b9686ffcfe66b856e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.93,
+    "reasoning": "The customer mentions the driver not calling as promised, which relates to a problem with the delivery process.",
+    "text": ""
+  },
+  "2d5969e795d47cca66847ff789c32c9d7454a591608a561b2c699a7a95920728": {
+    "intent": "Severe Escalation",
+    "confidence": 0.85,
+    "reasoning": "The customer reports an unauthorized, fraudulent charge and has involved law enforcement, indicating a serious security/criminal issue that warrants immediate escalation.",
+    "text": ""
+  },
+  "cdf1280a3fcbfdff9e65f2bb1e5ee1607cc43df451b49bb5b24345c71e29f794": {
+    "intent": "Severe Escalation",
+    "confidence": 0.55,
+    "reasoning": "The user asks for a direct customer care phone line, indicating an urgent need for personal contact. While no specific issue (delivery, order, product, etc.) is mentioned, the request for immediate phone assistance aligns best with the Severe Escalation category for urgent matters.",
+    "text": ""
+  },
+  "8454c582733af0c0f7f2b75f0ff7250b1aab28d2ad4d53588d46859f03c7554c": {
+    "intent": "Payment & Refunds",
+    "confidence": 0.97,
+    "reasoning": "The user is providing personal identification (SSN) to verify a refund, which directly pertains to a payment/refund issue.",
+    "text": ""
+  },
+  "426d027f3843fd66ad3c0d70eb9c9340b3a5d385150319127d124251377fd8ba": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that the driver marked a missed delivery without ringing the bell, indicating a problem with the delivery attempt, which fits the Delivery Issues category.",
+    "text": ""
+  },
+  "c1baa4b420f931031fbfc94ec5b3f6f673e263d9bf0b2da4f9d778e3bb1d2c35": {
+    "intent": "Severe Escalation",
+    "confidence": 0.88,
+    "reasoning": "The customer is threatening legal action by contacting consumer protection authorities and filing a class action complaint, indicating a highly urgent and serious escalation beyond standard support topics.",
+    "text": ""
+  },
+  "6c9460f968a1f289f2f04713f8f0c4657b6afde2775e973abc6f55c75cf00388": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer mentions missing items, which is a classic delivery problem (late or not delivered). This aligns with the Delivery Issues category.",
+    "text": ""
+  },
+  "5c4d92b0c6051f39dcb0497867ef77fe73a542db9a9f861c32d9cbd91e90ddc2": {
+    "intent": "Severe Escalation",
+    "confidence": 0.87,
+    "reasoning": "The customer reports a toxic reaction from a mislabeled shampoo and includes a hospital bill, indicating a serious health and safety concern that requires immediate attention and escalation.",
+    "text": ""
+  },
+  "2e8c2d0529029ca27b29aaa5a6f6ca30652624afbfc8aa2d6ad4b633015e4613": {
+    "intent": "Order Issues",
+    "confidence": 0.97,
+    "reasoning": "The user is asking for the procedure to return a purchased item (shoes) because it doesn't fit. This pertains to managing an existing order (returning/cancelling), which falls under the 'Order Issues' category.",
+    "text": ""
+  },
+  "31cee5b18a0aae664c16cad6c018cd5fdc1f696ec2fcab8836b1d7c5fec61511": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The message discusses where the driver placed the package, which relates to the delivery process. It does not involve ordering, product condition, payment, account, subscription, or severe escalation, so the best matching category is Delivery Issues.",
+    "text": ""
+  },
+  "437571100f19b1d83676f851d2e8527d883a3f73e05b51141848a0215e8beda5": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The user is questioning an unexpected change to their delivery schedule, which directly relates to delivery timing and notification concerns, fitting the Delivery Issues category.",
+    "text": ""
+  },
+  "38f0f6641ea057d37051a65f0d1803cedc5bbdcf5300aba17cb2233fb2329027": {
+    "intent": "Severe Escalation",
+    "confidence": 0.92,
+    "reasoning": "The customer alleges a criminal charge (grand larceny) and threatens legal action, indicating a highly urgent, security\u2011related complaint that fits the Severe Escalation category rather than a standard payment dispute.",
+    "text": ""
+  },
+  "3623ee313ddbedf986f85c0e1fdff74570908abf9d43c53749f263affe003673": {
+    "intent": "Severe Escalation",
+    "confidence": 0.99,
+    "reasoning": "The customer reports a driver attempting to force open their patio door, describing it as criminal trespass and assault, which constitutes a serious safety and security issue requiring immediate escalation.",
+    "text": ""
+  },
+  "8f6390a86dccdc5e02a5df821fce02e71f36889db99ae728533d1596a1102e09": {
+    "intent": "Account & Access",
+    "confidence": 0.96,
+    "reasoning": "The user is requesting a password reset link to be emailed, which pertains to logging in and account access issues.",
+    "text": ""
+  },
+  "96f1cd1db5159dcda95edf948e5dd0ad7bb21dd130cbaca6c41c40bd35e659db": {
+    "intent": "Severe Escalation",
+    "confidence": 0.85,
+    "reasoning": "The user is requesting a gate entry code to be sent via text, which involves security-sensitive information and is not related to delivery, order, product, payment, account, or subscription issues. This falls under the security/urgent category.",
+    "text": ""
+  },
+  "7e6167f75cf26b67f017b246cf1d4ef66c95217b5d05a980553563a519eb0fbf": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The user threatens legal action against Amazon, indicating a serious, urgent matter that fits the Severe Escalation category.",
+    "text": ""
+  },
+  "26df499fc04cc1aa494f05053cc140ca03dd905be17cd35d3e6d8963eb2117c6": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer explicitly asks about a delayed package and mentions that the tracking has not updated for several days, which matches the Delivery Issues category.",
+    "text": ""
+  },
+  "978ba88ecf31d7b9b0d5f032b1ca695c8603ff0111dc5c92b0fcf6cc31569db9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer asks about the whereabouts of their package and notes it has been 5 days since ordering, which directly matches a delivery issue (late or missing delivery).",
+    "text": ""
+  },
+  "c2ce2af4392ae8ea899df61d27764a2fb0d82d41873a587afa234619e4b42078": {
+    "intent": "Delivery Issues",
+    "confidence": 0.98,
+    "reasoning": "The customer is asking about the whereabouts of their package and notes that the tracking hasn't updated for several days, which directly matches delivery\u2011related problems such as late or missing shipments.",
+    "text": ""
+  },
+  "465aab70bbcb689bb7a4fd54ab89dbbe01019895bee0b5801f0fa6838dff0ef4": {
+    "intent": "Severe Escalation",
+    "confidence": 0.78,
+    "reasoning": "The customer is demanding a refund while threatening legal action and disclosing sensitive personal information (SSN). This combines a payment issue with a security/privacy concern and an urgent, potentially hostile threat, which fits the Severe Escalation category for highly urgent or security\u2011related matters.",
+    "text": ""
+  },
+  "2f5bda58a9c488bb3a8ee116e48811f611ff5a0544458b4613333ce8f4c44e01": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is asking about the whereabouts of their order and notes that the tracking information hasn't changed for several days, which directly relates to a delivery problem.",
+    "text": ""
+  },
+  "c5ecad733283c08c079e47ae702bc9d17055d9d9f301e0e2a1d76bc531326d7d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer asks whether Amazon delivers on Sundays to residential addresses in Edinburgh, which pertains to delivery scheduling and availability, fitting the Delivery Issues category.",
+    "text": ""
+  },
+  "0554757ee243da91cfd39e9f014a1862fc8828a1a40b1d0590d92bb46bc54476": {
+    "intent": "Order Issues",
+    "confidence": 0.92,
+    "reasoning": "The user asks where to download a VAT receipt for a recent order, which pertains to obtaining documentation related to an order rather than delivery, product defects, payment problems, account access, subscriptions, or severe issues.",
+    "text": ""
+  },
+  "49669a31b2497fe33fa1644d1995a9c7e1153139e6e5a56e1180a009cb508e53": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is requesting a specific delivery instruction for the driver, which pertains to how the parcel should be placed during delivery, fitting the Delivery Issues category.",
+    "text": ""
+  },
+  "84d327a6b21fee8f218e4249dc2c2e4a8a7d62b9101efcea7429e7950c43e67d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is asking to change the scheduled time for a grocery delivery, which pertains to managing a delivery slot rather than placing or canceling an order, product condition, payment, account, or subscription matters.",
+    "text": ""
+  },
+  "87bfad5381a72fd2ceb3487a1e7779238ed7dbf319bbf97fe095cb51e9851be2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is asking about the current location of a parcel based on the tracking number, which pertains to a delivery status inquiry.",
+    "text": ""
+  },
+  "4abe3b7d6c5b14dec490cf7e20ec2276f8b66d5d6f63f9923043ff0bffbf10fd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer is inquiring about a package that has been stuck in transit between sorting facilities for several days, which is a delivery problem.",
+    "text": ""
+  },
+  "f8c75fdd5e3d9f154536b249aaf3fef1a0dc80ae5bf9ef702443dacd0697ff0a": {
+    "intent": "Order Issues",
+    "confidence": 0.98,
+    "reasoning": "The user explicitly wants to change the delivery address for an order that hasn't shipped yet, which is a request to modify an existing order rather than a delivery problem, product defect, payment issue, account matter, subscription query, or severe escalation.",
+    "text": ""
+  },
+  "11f9dd42938931aadab6a4a91f97d516a672ed1699e46e5e156568f3a2b2fa6c": {
+    "intent": "Order Issues",
+    "confidence": 0.95,
+    "reasoning": "The user asks how to obtain a return shipping label without a printer, which pertains to handling a return for an order, fitting the Order Issues category.",
+    "text": ""
+  },
+  "d9dccc2e093f789ec4121cc3428f70b93492621ef427702f8b7856a4fe957f45": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports that the package was marked as an attempted delivery even though someone was home all day, indicating a problem with the delivery process.",
+    "text": ""
+  },
+  "007f1543878f322d8ec95474eda82cac44c1e286c9bc7c56eea5469577366ba9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The user is requesting to hold their shipment at a local parcel shop for pickup, which pertains to managing the delivery of an order.",
+    "text": ""
+  },
+  "c0e17eeecec6e18538156f1e65736840709b731b03d2cde49418a44f84781cdd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The user asks for the nearest Amazon counter location to drop off a parcel, which pertains to the logistics of sending/receiving packages, fitting the Delivery Issues category.",
+    "text": ""
+  },
+  "3b45863680ba4d7984a4ea29a5b60a10ccfb1c63c018d88697dfd07293c9f1fb": {
+    "intent": "Delivery Issues",
+    "confidence": 0.4,
+    "reasoning": "The message mentions the delivery driver and parcel placement, which relates to the delivery process. Although it is positive feedback rather than a problem, it is most closely aligned with the Delivery Issues category compared to the other intents.",
+    "text": ""
+  },
+  "b26a81fb0fedb408fc5eca3b1fb5469d705a9cf1a1e4bc0cda7d245fb763752e": {
+    "intent": "Order Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer is asking where to drop off a return parcel, which relates to handling and returning an order rather than delivery, product defects, payment, account, or subscription matters.",
+    "text": ""
+  },
+  "61a7d7cdaada9aec30ec9e63a6ea161894771c1fd524fb938ce8a157a7361043": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is asking where to provide special delivery instructions for their apartment building, which relates to managing delivery details rather than order placement, product problems, payment, account, subscription, or an emergency escalation.",
+    "text": ""
+  },
+  "3afb2158992dca0bd7399a4cc81ce63736e7fc83c05c14caac2c209a1e061f2b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports that the delivery was rescheduled without their request, indicating a problem with the delivery schedule, which falls under Delivery Issues.",
+    "text": ""
+  },
+  "f5e33291c1704b130883af022cc3a1573a7dae7d6c5da0c4b5d9f7eac1d35b65": {
+    "intent": "Product Issues",
+    "confidence": 0.92,
+    "reasoning": "The customer is asking how to locate the tablet's serial number for warranty registration, which pertains to product information rather than delivery, order, payment, account, subscription, or escalation matters. This fits best under the Product Issues category.",
+    "text": ""
+  },
+  "082f897ecb0f6e62e68c66bf70633a1c897937c9d6a44820f2a2119b3bff023c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.88,
+    "reasoning": "The user asks how to view active deliveries for the week, which pertains to tracking and managing deliveries. This falls under the Delivery Issues category, as it relates to delivery information rather than order placement, product problems, payments, account access, subscriptions, or severe escalations.",
+    "text": ""
+  },
+  "1d480e8a70b3a8be20f09cf6335600aceeb58c6e349edc93a19e536e2055ae3c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.97,
+    "reasoning": "The user is asking whether they can give the driver permission to leave the package behind the garden gate, which relates to delivery instructions and potential delivery problems.",
+    "text": ""
+  },
+  "c5010ae1e5f1692ce6b5d42f05c10e8ba3e228322632a0430126d3091a23aebb": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The user threatens legal action by mentioning taking the company to small claims court, which is a serious, urgent escalation beyond typical support topics.",
+    "text": ""
+  },
+  "e909d816d99416558748d782f83a6e55d1189d777b9c6f285e84bfc0f4d06b1e": {
+    "intent": "Severe Escalation",
+    "confidence": 0.99,
+    "reasoning": "The customer reports a driver who was visibly intoxicated and nearly ran over a toddler, indicating a serious safety and potentially criminal incident that requires immediate escalation.",
+    "text": ""
+  },
+  "3340166868bcbabe827e3efbad594b6e9f91a8e282d1d124d70dd549eade9ff4": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The message describes a delivery vehicle causing property damage and fleeing, indicating a serious safety and potential criminal incident that requires immediate escalation.",
+    "text": ""
+  },
+  "059c3096beef1ac8769b28311de6b08a3adb5a88d68e35d9e81943c12c9c0b80": {
+    "intent": "Severe Escalation",
+    "confidence": 0.92,
+    "reasoning": "The message reports toxic fumes from a melted charger causing respiratory distress, which is a serious safety and health hazard. This warrants immediate attention and escalation beyond a standard product defect.",
+    "text": ""
+  },
+  "e7ea2d1bb2726f6aa9865bbd4947bb6c6ad91d11f996202eb065ffc84e4a98e3": {
+    "intent": "Severe Escalation",
+    "confidence": 0.97,
+    "reasoning": "The customer reports verbal abuse by a delivery driver toward an elderly person, which is a serious safety and harassment issue requiring immediate escalation.",
+    "text": ""
+  },
+  "2a080b60df08aca5d1af7783c94a913161005c8b00650dc612df2070be2fc034": {
+    "intent": "Delivery Issues",
+    "confidence": 0.86,
+    "reasoning": "The customer is asking whether one\u2011day delivery is available for a specific item to a given postal code, which pertains to delivery availability and timing. This falls under the Delivery Issues category.",
+    "text": ""
+  },
+  "c379eca6d4c822a07bbe0c7b1450e2c1a291d018bc935cbdf7baa960f2d18846": {
+    "intent": "Product Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer reports a missing power cable, which is a defect/incorrect component in the product they received, and asks how to request a replacement. This aligns with the Product Issues category.",
+    "text": ""
+  },
+  "fcdb4e3be61d00751694e4982297d5645d5a692a2500a7392f457c76e017e3a4": {
+    "intent": "Delivery Issues",
+    "confidence": 0.78,
+    "reasoning": "The customer comments on the condition of the outer shipping box, which pertains to how the item was delivered rather than the product itself, fitting the Delivery Issues category.",
+    "text": ""
+  },
+  "c99a00acc90ee96b4cbed096b41756ef69e842c236e33e0e791764a98ea9c86c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer reports that tracking shows the package was delivered to a receptionist, but the office front desk is closed, indicating a problem with the delivery receipt.",
+    "text": ""
+  },
+  "fea349b176ade9cd87cbf9078dfc3f4a3534c48edcd75042f46e2337621c052c": {
+    "intent": "Order Issues",
+    "confidence": 0.97,
+    "reasoning": "The customer asks about returning a purchased item for store credit, which pertains to post\u2011purchase order management (returns/cancellations) rather than delivery, product defects, payment, account, or subscription matters.",
+    "text": ""
+  },
+  "3b7d0ba57f46cfe435320e152f81d582c26f7266f6e00f8ef4225a19b382b05e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The user is asking for a text message alert about the driver\u2019s location, which pertains to delivery notifications and tracking, fitting the Delivery Issues category.",
+    "text": ""
+  },
+  "1cd93953b19075ab2647eefffff24313864e0454df1a8845da6dc61d24313fcc": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Will my delivery arrive before 2 PM today as originally indicated on checkout?"
+  },
+  "c4614069c0f5a2db5bd4ecf89591ee1861da953d6df366e0aebe993dc8159e1c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How long do I have to pick up my order from the Amazon Hub Locker?"
+  },
+  "315c4321a9d48f39925fa70c80c5663c1e66945cd6eb6fdf2fa435d2803e7bf2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is the return window 30 days from delivery or from the original purchase date?"
+  },
+  "324e854b73a4d0be3755690596b88c0a827d913358f811729838a0473db2797d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "I received a red kettle instead of the silver kettle I purchased."
+  },
+  "ec33c166286ca233fd8de1a494d1059d877b1f923f69d75d4d752bfacd5b8d42": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Gate access code is 4921, please do not ring the loud buzzer at delivery."
+  },
+  "363ade983569de22965fe9785e759a6bc431f482404f41ebfe93006b9dea1c4d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "I made a typo in my street number on order 112-984210, can it be updated?"
+  },
+  "831a12aad757d192adb6ed521669e7cd37d14a62282b4ee705a3fb80189abcc4": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is it possible to combine shipping for two orders placed 10 minutes apart?"
+  },
+  "456938292307f51fb66b65417c3773f696b2a0ed547882211818a76545dda19e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Courier left parcel on front door mat in the rain, package is slightly damp."
+  },
+  "a4466caf4276b415b35925e6d5a425901c635baa4750caeb701c69cf73cebafa": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I return an open box item if all accessories and manuals are intact?"
+  },
+  "55330fff00d0375e1fa35ffd493a8926992abb8da418933cfd861b08bc824e35": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I track international shipping progress once parcel clears customs?"
+  },
+  "0b07e353ae72646a17704c1f0f4ea141e2b3bea9d86518739241d72728098b1f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I change the recipient name on the shipping label before dispatch?"
+  },
+  "e45e67067ef8fe0e7efa6e53d76b5dbff44d9f85280dd1770cdb6a8ec6cf266e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is gift wrapping available for large household appliances?"
+  },
+  "9e622c60fa37434803dc1955ee4c249a355060091b4a095799e510fd4e2f8330": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "The tracking status says delayed due to severe weather, when will it resume?"
+  },
+  "a7ecc62a81ce899e13642fda793c0aa3f213f99a89e98bf8baa58d0b46a218a3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I get an exchange for shoes that are one size too small?"
+  },
+  "00bc495b43ccae15b5c03822e223c687ee4e98e98e31f691bf46cc7e44463397": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can the courier call my phone 10 minutes before arrival at my flat?"
+  },
+  "20e97b6b14f4c3c86362b921113a11a0be33f8341728943a131813b31942cdec": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I redirect my delivery to my work office address instead?"
+  },
+  "74589ce77355e0e73f0222f93b64c91dcdc4bceb2e546c71532160ffabcb7b9e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is signed delivery mandatory for this consumer electronics order?"
+  },
+  "594bcfe8f3d74c054a5de945f471e1b988a6d1a637653ee73fdb0fa5e8b8d68d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Does Prime shipping cover Saturday delivery for heavy furniture?"
+  },
+  "3472d966b992f275e0af959b1ecc3d007795bbd7a35e533e936c1e0c7ed74343": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I check if my return package reached the fulfillment center?"
+  },
+  "f1456c44bc7698da6f80fa16125059e205cfa7f70f5e920e684538c4604f0fd5": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "I received two identical packages for an order I only placed once."
+  },
+  "202f03d4f9581dc16f30547dba49af60df7fca3683ecf38925f93d0057568c13": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I schedule evening delivery after 6 PM when I return from work?"
+  },
+  "7eb65f46a1fffe2d180b1e6c41278d8228a962d5dca35159935f63903f137cc2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "My order status says preparing for dispatch for 48 hours, is it in stock?"
+  },
+  "dfb670c5848ca0c90b4a8f1ac5f3087f6084158e035ee9a69d74c7ff0ffd14fc": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I print a gift receipt for an order sent directly to a friend?"
+  },
+  "05933af94471841d6307de41dec4a985ba00f453c39323887f77e7aa3d0b2e59": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Tracking says handed to neighbor, which house number was it left with?"
+  },
+  "c86e448d1c56a9a85fd36e94c971ed6a4bc579f69830c62a42ee6e24b721e1bd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I cancel an order that is currently in dispatch process?"
+  },
+  "cbb088554e5136598a8ad8b20946ec71f01fbafa8917fcee42a91680d7672184": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What is the estimated delivery time for standard non-Prime shipping?"
+  },
+  "827f4cbad69d8d477eff394cc226d5f0b038812a4f8b54caeaa41f5dfad4a9fb": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I apply for a refund on shipping fees for a late guaranteed delivery?"
+  },
+  "11e376f60d82124ce7dd39a71f920a9b0914e81121cd8560f8e1a8bf29109301": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can the driver leave the parcel inside the greenhouse in the back garden?"
+  },
+  "13ec9532452143b94df26002d2364dee40580624c623dabb6f6af27e349fe176": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I update the delivery instructions for my default home address?"
+  },
+  "4601f9c5f0f61a1f3d11f1c7475415cec317e826a6a3f95715ca22aa3fabcfb4": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is signature required upon receipt for laptop computers?"
+  },
+  "4c63dbd695bc0e871a988f386b00374727656d72637d7ad469da4b85be7538a3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "My package was delivered to the wrong apartment door in building B."
+  },
+  "cbbe275a269ed056dfd0cecb5ef2c6eb0249e237de25bbc34574055faa3c212e": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I track the delivery van location on a live map in the mobile app?"
+  },
+  "a5591d43edbf49701da1d5f5195a4f97a836576c75043d353b19a496afec00da": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I know which carrier is handling the final mile delivery?"
+  },
+  "c765776d79edbadc545a0275e54c6e96d8b7ab27b5f47214d36387002eb85a87": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "The tracking says departed facility, when will the next scan show up?"
+  },
+  "3d78ab20f3dbd7566a90306573c7a507e5ca58544ce989c7e0cac70c83cba342": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I pick up my parcel directly from the local courier depot?"
+  },
+  "ac2d14fbcf0e47d9aee60ad5d406597506dd559d2d809c7ffa8d2b98512ac3e9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Does Amazon offer curbside pickup for warehouse orders?"
+  },
+  "c7bce52c8c66aba2a03736343043a0c21d1e68144a498cf61402ad7b7f9e66ce": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where can I find my invoice history for the previous tax year?"
+  },
+  "e6ad1d5144a7c37ce27c1c14970ece6aede72ab791fb8b0287f85e7194c5a9c7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "I would like to add a note to leave the package with the concierge."
+  },
+  "d863e3ad604eb98f2f54dc9399786cbe124ce8e72e36724eb27e634ef598557a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I request biodegradable or recyclable packaging on my orders?"
+  },
+  "0d9134a4f38e0b1e6b1d6606a3e0c9654c8c8f9d29faed39d58a5b8a4401a76a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I report a missing item from a multi-item consolidated box?"
+  },
+  "285f9af60638a0ebb43ba80efb0e916a0d79ba72730de23f8c4efa6827abea85": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is there a way to verify if my return has been processed yet?"
+  },
+  "02e10ff4916a3178285a3016fefd1819a981b349833d419c9cbc11cbca147e34": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I change my default delivery speed on my Amazon account?"
+  },
+  "146d864168d36e45b0f4493d974a875e575d550b6025daee4a5387d5ea518fca": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can delivery drivers access gated communities with virtual callboxes?"
+  },
+  "c2bedeed114926462408de86bbcf15b284150852085abf1a5024c480e978586f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What should I do if the parcel locker screen displays an error code?"
+  },
+  "a03982087e550cac81f43687ad7a54761f564cb4c673ebb6770fd327bda2c4bd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I track my order if I checked out as a guest without an account?"
+  },
+  "acd8834c120790628917e79a205e7109ea16835a8df27d7b3425d7bd42097929": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I specify a preferred delivery day for all my weekly orders?"
+  },
+  "d712b43c9bcc02bd5487e45d84c4dd7fb426da356d5d5a3d408ff1f380459888": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Tracking indicates out for delivery since 8 AM, what is the latest delivery cutoff?"
+  },
+  "63a002a16d9fc6499c6b3cf8e802754eb302f94918c0c2d3c686d717ab8b25da": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I return a bulky item that does not fit in my personal vehicle?"
+  },
+  "6e6f964256b672863e0da089a0ffa870504a9901e865dc2ae2a6f54fdff74d11": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Does Amazon deliver to PO Box addresses in rural areas?"
+  },
+  "99e8c5cdfcb8059973a60e8bac2ec81f2e32bca4cbc7818e19538ef443f8e6dd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I request delivery without plastic bubble mailers for environmental reasons?"
+  },
+  "7b414c59ede9f3b6dbd69946c5813ab12e9ebf6dfd57f8bdb924409815c56f74": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where do I enter my apartment buzzer number on my shipping address?"
+  },
+  "6ec26868d7d5810f054bdb762b6c492a73d452f65b06e59136144564f2846df7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What happens to my package if I am not home to sign for it?"
+  },
+  "067bc611c491f1adbe47a4a5c1716b3dd50213bd8ad22873db7f6a7c82184fa3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I exchange an item for a different color variant directly?"
+  },
+  "9cc6294b09134f3c14c1a3e0fa687cfec8a0e3204c4549c072ec7f4fba65c02b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How long does it take for return tracking to show initial carrier scan?"
+  },
+  "52d13b8710aca1286a1ea90e2aee6cd9f84b966b9776966e43da31e85c3faf40": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I download a digital copy of the warranty certificate?"
+  },
+  "d70049286ef0d047e0fb21771846ad2195603e9d071297337c94a24dbc3cd039": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I redirect an order to an Amazon pickup location in another city?"
+  },
+  "17544603b93b0d432ee8c49a7b4d82fff73bbc23dfe0da27157e1a4ca6bc08d1": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What is the policy for items delivered to a locker that expired?"
+  },
+  "7a594e54a6310d15c4baef3dea66f582cae9fb70348d5f43534d4eedb023ca24": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I request a delivery slot between 12 PM and 2 PM on weekdays?"
+  },
+  "3cad24ce0e5a58958c8b0e8b866741a362ed1ba2c2f57299a7b11f2af4546bbb": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I update the phone number associated with delivery notifications?"
+  },
+  "72edc7056fcfe5f4b9aff053d238ca86b8db1edef55c08231ff745115eb60ed3": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "The package was left under the carport just as requested, thanks!"
+  },
+  "fb5848c43fadbc3126637d2ca6b95ead84f429ca1369dfd360c343913ecaa995": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where do I find the return barcode on the mobile application?"
+  },
+  "290f72effb112a819f5031cd02f1b95738fb0fb2cf3838b170f6a896c41dbcbd": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I track multiple tracking numbers under the same order ID?"
+  },
+  "a2ed2a6a81f1bb35a9b10ba35890468528cb27d1b212444e4e0fcf971d7dbb44": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is same-day delivery available on bank holidays in London?"
+  },
+  "3303c86d379f22dbe258022b7df9dab6235a2ec018b8cb99c5f8505ed7a1edb7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I confirm if my order has left the overseas sorting hub?"
+  },
+  "5a02b1f492e7b3c7e25c8e1cc7f724a58c974eefd98ac0b906345678e7274a6c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What is the procedure for returning a hazardous material like lithium coin batteries?"
+  },
+  "48f0f789d34b044330865346f8a8313fe68bf6311464f27617c94d6cda067638": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I verify the delivery pin code given to the courier?"
+  },
+  "ef84bbfeb5894975ec70abc23c0720329984acdf5cc205e2c44df3af372459ab": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I change the delivery speed from standard to expedited after ordering?"
+  },
+  "e9029a571ef57bd3e456883f14ebd3e2db6e5273545a1507ae35201d6fec9cd8": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where do I see the photo proof of delivery uploaded by the courier?"
+  },
+  "1858ffdd799f81354378817f1d7459e0ceb35afdff52cc1d1485823a5afb251b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I refuse delivery at the doorstep so it gets returned automatically?"
+  },
+  "a9208125d8d2b51706bd1ee06e17662388eda852baa8f8979cc240971ec8913c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I update my billing address without affecting the shipping destination?"
+  },
+  "fe6f51820936641618c5416c4ab537e5dc7e309bf401e7df6d859b2e7691a320": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is delivery available to third-party shipping forwarders in Miami?"
+  },
+  "2d656cb9a64a90b1a2c9f7a02edca47c98e55e35bf0c3626e6f5cf705d711d1a": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can the driver ring the doorbell twice so I know the package has arrived?"
+  },
+  "3de3c5fee0998e3eb171e7269ca0421ece4091392c261f600e33e62a853f15d7": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What is the maximum weight limit for Amazon Hub Locker deliveries?"
+  },
+  "b806d556dfc76b15b5ea01724ef6538b302116cf2a78183dba21b56c8cb1e0cf": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I retrieve a forgotten locker collection pickup code?"
+  },
+  "c4144230df76c3d4fc651307daa0fad3c41dc86c39444facb83f33fea247871c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I request that packages not be left unattended on the front porch?"
+  },
+  "58aff17c672c04e39f9145177528b75d3d5504ce61470113856dbcfc554b048b": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where do I find tracking details for orders shipped by third-party sellers?"
+  },
+  "a4d665991f35d2967c304148f07078c83b4016154323a56a27627a22ff4a297d": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Is Saturday delivery included with standard Prime membership benefits?"
+  },
+  "669680cf5651186b0b82013115932a9d6bd61e556f3a6df46cd383e844a1fd4c": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I file a claim for a parcel marked delivered but never received?"
+  },
+  "75197524c87062bc25b998b58c96f0933ee6172b50c1303c3597dd51fb42d275": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I change the payment method on an order that has not yet dispatched?"
+  },
+  "9e1b0fdd5300327315d84a685237e3bcd18dd428a0fef2fb3d83a39637333d48": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where do I drop off return items with pre-printed Hermes QR codes?"
+  },
+  "4039a9272157ec6e55fb657341c55879a43c16dbdbae73965e885c32a5d49b35": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I request contactless delivery for all future household shipments?"
+  },
+  "0f6e69825d13988559aa5c4d1f8d423c1ea77e771cae0f49d44692d75d9307e2": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I know if my package was shipped via Royal Mail or Amazon Logistics?"
+  },
+  "29514de7c5e3cb769e765dc00d838bb034a48dc989f5307303796c174897c6c9": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I add delivery instructions to leave the box behind the recycling bin?"
+  },
+  "727054bbcb942fb009fe7344865d31fba6e92045ddfbafa77cdad0c9818502e5": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "What should I do if the parcel locker compartment was empty upon opening?"
+  },
+  "4c6e9e5152ade30cee6198625ca3049b3cf0fafb95391b20b063e05b95e17516": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I update the postal code on a pending Amazon Fresh delivery?"
+  },
+  "1c2a9b2b080fa5189588a2fd9c2113088b217abb219263585a9df57452ed1a0f": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I schedule my parcel delivery for after 5 PM on Monday?"
+  },
+  "8f73f1059f5ba66ced154a37e8595c99fa576caed2015f4e70cd167bc00f2214": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Where do I see the driver notes associated with an unsuccessful delivery attempt?"
+  },
+  "6a2fc59a668f262b1de0019e7bf596698eb3f66b55f2813fa73a3295b65e6130": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "How do I initiate a return for an item purchased through Amazon Warehouse?"
+  },
+  "e926828aa1590f79373684f7569f971874abd446d13e0d7027da4c52eca1c1bf": {
+    "intent": "Delivery Issues",
+    "confidence": 0.96,
+    "reasoning": "The customer is inquiring about standard shipping, tracking, or delivery logistics.",
+    "text": "Can I choose a different delivery day to consolidate multiple shipments?"
+  },
+  "4b0a6ae0eed7f7a0fca95b5223908afd5799d068489efdff03c8f761fa129d87": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My SSN is 000-12-3456 and my account is locked, unlock it now."
+  },
+  "5c257d6db4e9b5abecfcff081ff89bac73d10a1ee65c3bcc87f49da1319ef9e6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My social security number is 123-45-6789, please confirm my identity."
+  },
+  "ac8a40569d7e53e3936c824d81b0e79a94fa30b1db95eea1ee796712cf432634": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "SSN: 987-65-4321, I need my tax documents re-sent immediately."
+  },
+  "4a4f5055927057a7571de1f52486c6e4491a7d3cc140242224a0e4ef5bba26eb": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "You charged my Visa card 4111-2222-3333-4444 twice for the same order."
+  },
+  "9da9749c3a137353ee313ed6220498f1adac09c44c8f6263e49aabd026d487c6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Card 5500-1111-2222-3333 was billed unauthorized $450, refund it."
+  },
+  "c441a9af22a1ed89f43269270c3de0865c6b1c49ecb85dea7faaa37bfb5d5eb9": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My Mastercard is 5100 2200 3300 4400, why was this charged?"
+  },
+  "abd65c72ff22e8d96abba9b505bf4d241f86678f0d24a1094145969dc6ea3fe5": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Credit card 4532-1100-8822-9911 had fraudulent transactions today."
+  },
+  "34dd2d61429662b01b14ea64318aaad47c946a0d380888cc47a8ccd940aa6d9d": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Debit card ending 4000-1234-5678-9010 was charged without consent."
+  },
+  "0e9064ead436ec3c5f04360b55facf6187c3cd867035c2b221f1641a9df020b5": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Please call me urgently at 555-123-4567 regarding my lost parcel."
+  },
+  "ee71bcff89d297f755154c4e712eb367b5db0c7e032dc66ad31450e362a78fec": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My phone number is 212-555-0199, call me back immediately."
+  },
+  "83e9294943a798ff4d74c27ef0c921d6e8b2098f3a6194e4522885fc6e767961": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Reach me on mobile at 415-888-2345 to discuss the damaged order."
+  },
+  "e8f9ea853fed19780e8c4f6b54a7499c60f33fa00a0954d538d57f1ff407fb3d": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Direct customer line is 312-555-7788, call me to fix this."
+  },
+  "bdb8f2226c5b6dde1faa05870e024edc4f67d9b41784471a44b849420ff5291f": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Phone is 617-555-9090, I have been on hold for two hours."
+  },
+  "7e703098b7c28bb4f259ecc2062045bff6ff57d8a671c3638ae232d45c2f0d6b": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Contact me on 206-555-4321 right away about the delivery problem."
+  },
+  "7ec87156a6cd9663af787f1f5133c89b4fca778a88c7215891a1cb40347781e9": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My telephone number is 718-555-6677, ring me as soon as possible."
+  },
+  "69da351652b63965722146582f3998bf73c0af95fee6ca10fa6cd6af6653ef68": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Send the refund confirmation to victim_finance@mycompany.org immediately."
+  },
+  "9348bbb95f13d47d994c9ada24a6ff61af1ca301bd128960be8e9b4997f975f6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Email the invoice copy to personal_account@enterprise-corp.com now."
+  },
+  "5884214903f508beb7fdc29cf3456b72508fc467246ea00c761302313511c02f": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My email is customer_support_victim@gmail.com, reply there directly."
+  },
+  "055295e5c125f0ad7c1ddadcf141159dc797bdb61e0b0d0346598bca0fc53a3f": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Send reset link to accounts_payable@corporate-holdings.co.uk please."
+  },
+  "5708f74de9599c3b6da0b6e1afb5efeea8bf6b8acdf334a4104dc0090809855f": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Forward tracking to direct_inbox@private-investments.net right away."
+  },
+  "e86b29bb3a4621a9c4c0380d7fae7fbff4c19ee117490eb5ec143aa948953a3b": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "SSN is 456-78-9012, cancel all subscriptions under this identity."
+  },
+  "de050e9518fc0ee22114e8370283f0e5f86e0ca9d8f1f223359e095f5340462e": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Social security is 890-12-3456, verify my account immediately."
+  },
+  "4b9db5038c3df72c6c9a113c5b0b9fb72c143049803ecc2f1f65048222a968e1": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My card number 4222-3333-4444-5555 was charged three times today."
+  },
+  "9b0637be9c959faaf5114ee41f33c21a272331de58ffd56bc0ff95128dd9ac50": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Fraudulent charge on card 5432-6789-1011-1213 for $1,200."
+  },
+  "5c2002435b14097d79fcf9bcb083dd30773ad64c08e503c4c96a9cacb31b0af6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Call 800-555-0144 to reach my personal assistant about the order."
+  },
+  "82804fe3a680355f8694ccbc7c5e66d6591a81bbdeb7bc9040d374cde55c1b5c": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Phone number 404-555-3210 needs urgent dispatch clarification."
+  },
+  "9ffdd9a4c640667b6c8f8641c8ff2967a456e739e58c976ec4237fc638d694cc": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Email accounts_audit@finance-dept.org with the receipt details."
+  },
+  "4ef65cce67a9daf4a1726ad0b446492df816a40191d5b4204b3257c98985525c": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Send my settlement details to legal_counsel@lawfirm-group.com now."
+  },
+  "cc6e9e5c610b7053c4492d97072fc74a8e448f197f0cda195cb5d003e9b3d028": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "SSN number 321-65-4987 was compromised on your checkout page."
+  },
+  "878aa7d78c1c63d749f2e0aa7c7d3e9a5ad9d104319bb7baab83111315351006": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Unauthorized transaction on card 4012-8888-9999-0000 yesterday."
+  },
+  "8eb48d1fa9a44780f5f50a80fcc1905687d9a83b6f521515e5c63496133a2f64": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Call me at 305-555-8765 to resolve this shipment dispute."
+  },
+  "5afd4b3450af550a70ade9f862b3402b8a5c14c0da14ac8ab9d917825fdf9ef7": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My email address is ceo_office@capital-partners.com, reply here."
+  },
+  "e2ead19671873597125fd0cd11533178e0e5945ec8414e91799e522f5206c865": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "SSN is 654-32-1098, I demand immediate closure of this account."
+  },
+  "3d5dc274f00a1a0f52674fc46671de958a51f2edf35f786163396eccbeb5b5b9": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Credit card 4916-2222-4444-6666 was billed after cancellation."
+  },
+  "5d49053c50c26d3d605e8b2ecf9180ec4ed1430baea3843dbd972046c9da61c4": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Reach out on cell 702-555-4321 regarding the missing jewelry box."
+  },
+  "79e61c30ad9212a0d688a4d831ee28db8ecbd1a213611ce8adc278976fde3325": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I am filing a formal lawsuit against Amazon in small claims court."
+  },
+  "330d4d8c3ad5004e208084e3715033a92f8d5c31303d7db22d56594643ba64f2": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My attorney is drafting a legal complaint for fraudulent billing."
+  },
+  "c6f2092149c4fc6a02cb32231140527d45908bd3bd160cc563fe03e5a632eed7": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I will sue your company for breach of contract and deceptive trade."
+  },
+  "7f7a47d5d99ce705abe8b4f84c73bbcd6ee38f847fd4992b4bc647e5d7990dc6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I have reported this theft to the police department, report #89210."
+  },
+  "ba59b0b6cdab9b14e98a26786d5fd386ad80c3391732959a6eb83afb61aaf1e6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Police have been notified about the driver trespassing on my property."
+  },
+  "eaab1ee2c51c15f04e94104d3322a7bb378131214a983298eb5d910081d8189d": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My legal counsel will contact your legal department first thing tomorrow."
+  },
+  "b55698afca8bbbaeca84770f54034802e57fd7981b1708ccdaa0478aa434ed04": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I am taking legal action against Amazon for persistent fraud."
+  },
+  "6233e90f605755f16bb3cd2e1ffc99c8ddc9eb21a101f12bf8c8adad6f8f05c8": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "You will be receiving a subpoena from my lawyer regarding this matter."
+  },
+  "e325abd134bee43c79141215ff817fa870d54967525b9734ac65572e32cfe5b3": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Filing a class action lawsuit against Amazon logistics practices."
+  },
+  "ad5b417a5f0d0d8f529bc8f0ed5dc057765db15009b4d3bba84d497956eb9837": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Police officer is currently taking my statement regarding the stolen items."
+  },
+  "c53801167f344c30151cf8d5fa60862c333acc0f6b8120c3b14e006b964de234": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I am contacting the state attorney general and consumer protection agency."
+  },
+  "8396f10e8c6a6fda0b638d39b509f3eaadf086bcc551bc35c6c04a52794bf2ba": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Legal proceedings have begun against your local distribution contractor."
+  },
+  "6a0ca4231b17de92dacb3b2019afe635b2d97d9e3394616b8eb743c01e088585": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I will sue in county court for the property damage caused by your van."
+  },
+  "eabf897010c029cdb769a338f9fc15b2cb72b58d0b02ea5b09d54c0589637cc2": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My lawyer advised me to cease all informal communication and file suit."
+  },
+  "b3837f1a12edc6a7d248d865dc5146e478b6154ee747c4ad98e442f34cc44a38": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "This unauthorized debit is criminal grand larceny, police are involved."
+  },
+  "e827bab61c845002d1378c36fa2aef9b4809857e627deba3ed2c34a1ca232bc6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Reporting Amazon to the Federal Trade Commission for deceptive practices."
+  },
+  "98bebd1631899b49277263fcc44e89a60169248dc71b7c6d4503f022f4ea5e20": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Formal lawsuit will be served to your registered agent by end of week."
+  },
+  "f454bb73203667bdde3113220cdfc1b51bc2f44ccb097ff09a9936577c3fa91e": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My attorney demands immediate preservation of all driver dashcam footage."
+  },
+  "566b8af5d25f7d311512a84a499ef7c83853234922e4da103cf09fe877692ba3": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I am pursuing criminal charges for criminal mischief against the courier."
+  },
+  "e4ad7b0da3613a639bf97cbde9c946affdc930b5f18acd4bd2998cf325d9e9c0": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Small claims court summons is being issued to Amazon corporate today."
+  },
+  "45e77d6f773cb9d08f928bda22206858f934ee0db6fe9510c0c4d7afb45ca094": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Police report filed for stolen credit credentials on your platform."
+  },
+  "e903cb606f87f13754519fbc148ac46ce69aa6a517e3d9073ec38912df25178d": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Lawyer has advised me to document all interactions for upcoming trial."
+  },
+  "862e9b24a82c3c862e0eef118e195a6cea14cf88a39d99dfe81f0b97a8358643": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I will sue for punitive damages resulting from this gross negligence."
+  },
+  "db3a53d332ca746e7d7558eed6ca478d4608f3fb0e697111f5ee43c50a44efa6": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Contacting regulatory authorities and filing a formal FTC complaint."
+  },
+  "d3a72ca5243dea94d1eadc24dba011c69c77e94464a3d5aa683c2c44346d6767": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "The police have arrived at my home to inspect the vandalized gate."
+  },
+  "74a4fae28e70316f088c19869579c3403ac5312c9d4fea2ff527870f030e3ee7": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My attorney is filing an emergency injunction in district court."
+  },
+  "09fcf167a990ad839dd99fbfd9bee54897ca74084416aeb3a77f12b97c37d8f1": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I will bring Amazon to court for intentional infliction of emotional distress."
+  },
+  "d3ce4803b45ad07578a9f192c55adfae058dc8af8f9b72a06708de0d78cdae7b": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Law enforcement fraud division has opened an active investigation."
+  },
+  "3f92e44c1a604fb94d497a0c9e4bfc681410ab92863446e853d6ee34f9750541": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Legal notice of claim is being dispatched via certified mail today."
+  },
+  "e111381a3bacae6e83e250744b2f48cbcdb888ea97500ec8544c9fc2b19d919e": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Police detective is investigating this driver for repeated package theft."
+  },
+  "87f8bef12c2b9d7653459953c19e17bfb88bb01eb6b4e642f51b09df35fecc42": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "My lawyer is preparing a civil litigation filing against your subsidiary."
+  },
+  "ba8b3acad69c34c735b7a7fbb8deeacc3611e67bbbc05fa911e09f30612be97d": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I will sue Amazon in federal court for wire fraud and unauthorized debits."
+  },
+  "d2888d1b91a4c7b693b4008a476701eb0183a00e71e7109dcea6d7da792f6cb0": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Authorities have been alerted to the criminal trespass by your driver."
+  },
+  "e273f0f04d26f6b8aa73dd291333e2e36c3f07f977c2f03d584d2137d0c43210": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I cut my hand deeply on broken glass inside the box, I am at the hospital."
+  },
+  "c092f330c499fb9366f835c4c40d74f6deb140dfbc4a4169c78411c2974be6e9": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "The packaging was lined with razor sharp metal, I am bleeding heavily."
+  },
+  "456a58c40289132aaa23f6b09ae87a39604c0fb3825c3565a252285a317daff9": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "The lithium battery exploded on my desk and started an electrical fire."
+  },
+  "379c328dfecd2b5020cf85cdd5d70c3a3fa0f54f5bb7754180bfac3c052106ec": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Power bank caught fire in my bedroom and filled the house with toxic smoke."
+  },
+  "ea635c4d2693c078e11d00e2ed0b306460db68365aeff5b96dea854b9c422012": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Ambulance is here, my child ingested mislabeled liquid from your package."
+  },
+  "042dcecf597f49bb82405c1936423aeb3ab2cdc605649ea43bdb71dacd40dac8": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Severe allergic reaction to contaminated cosmetic item, heading to emergency room."
+  },
+  "193cd8bc0a0f5cd01fde34006095370f2060bfa91da9e534af1a0b5d6a8705cc": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Broken ceramic shards cut my hand to the bone, emergency room bill attached."
+  },
+  "ed287959cf531e329fba5f8aa6c282f345c5abad67f4c71aa28fb4a5a91fbad1": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Your delivery courier was verbally abusive and threatened me with violence."
+  },
+  "83a371abd2ba593f157f09baaec4b8aceee6a563f22468e4fdc2095ed1a79379": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Driver physically shoved me on my porch when I asked about the box."
+  },
+  "c5e8fd679e567a0474b89ab8c0f666717943cc3a0d9c06b4e605dedd737f6178": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Courier assaulted my service dog while dropping off the heavy parcel."
+  },
+  "f3ccac7cc724279c8105409db01288b6276ebda1aef61830bc1cfbba2f36fbf9": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "The delivery driver screamed profanities and made aggressive death threats."
+  },
+  "b2a45b999865a0d5a87a066999ec085cf7b6237a87213b81613c9a34c3883c17": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Courier attempted to force open my rear patio door, this is criminal assault."
+  },
+  "b7b5bd87811bf627fbd0e8039dca0993aed062f92d559a2ec9bf77e0bb310ead": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Driver threw a 50lb weight through my plate glass window and drove away."
+  },
+  "f0f19a2784227510cc43c20e90bd6e152a718a8f5e6a26c30351ae5cfe03794d": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "The courier hurled racist slurs and physically threatened my family."
+  },
+  "a85e563f25bef99a1f38393a82b4098cc71c63002ee393ba052988914088eb5f": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Driver reversed into my brick garden wall, crushed it, and fled the scene."
+  },
+  "1beee54aabcde3f68c1834d277d6cbd759e192c8b6eb6ed8ec327d3a81669faa": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Courier smashed into my parked vehicle in the driveway and drove off."
+  },
+  "2d924d58a607c9ef5a996935a2714c8b7247c94a0b66fba43a051dbbeef62d0e": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Delivery driver violently kicked my front door and caused structural damage."
+  },
+  "e983c7118ab675354bae12b684c6a3b34fc60acb0703968541c43e2aff0967f2": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "I am bleeding from broken glass in the packaging, urgent manager required."
+  },
+  "7b14e86a202bf95313da0da5166f6bbc808e6e2b68408355791fbd7796bf1349": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Emergency services called after package caught fire inside my mailroom."
+  },
+  "9ff77e1bc488654f61a6453242fb3b6211300359858a7f3d99607211254a9191": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Hospital bill of $3,500 incurred from severe laceration from your box."
+  },
+  "f6f3225e91fa792d7042614a8cd944b10e59c024e39df71ffadf1037e1d352ec": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Courier threatened to return with a weapon after I questioned the address."
+  },
+  "b068b85fd9ca1801c980d9c9728d46836fcc3d9007250579445fcf804440c494": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Courier intentionally ran over my flowerbed and hurled abusive language."
+  },
+  "f198c86a7dc8e2e07395bc578c521ceb7798360f2a1a543709a10ae7d92d913a": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Chemical burn on my skin from a leaking bottle of industrial solvent."
+  },
+  "cd0fb62c5ca4051a7af82b86b9c42fd9335afd98f45f2c35e778e5f21bb8b117": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Driver assaulted my neighbor in the lobby when asked to move the van."
+  },
+  "e5f9837873150127af3ca028e3f353d58dd59ca5b3f0f80522db093e72c09533": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Package contained hazardous broken mercury thermometer, hazmat alerted."
+  },
+  "6a166b57eb9ae182a5e375cd106606ff5b0c1ec69aea172e3ce816e9638f9cc0": {
+    "intent": "Severe Escalation",
+    "confidence": 1.0,
+    "reasoning": "Severe safety, legal, or PII hazard requiring immediate human escalation.",
+    "text": "Courier was dangerously aggressive, police are reviewing security cameras."
+  }
+}

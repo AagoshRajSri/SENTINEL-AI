@@ -1,0 +1,576 @@
+{
+  "460ceb1fc527ca570ab333b642c3955423e82e774799f0580a8378b6b731b8bb": {
+    "verifiable_claims": [
+      "Parcels were left safely (acknowledgement of customer statement)",
+      "Directs customer to https://www.amazon.com/contact-us for further assistance"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only acknowledges the customer's comment and provides a standard contact link, with no promises or policy statements that lack evidence."
+  },
+  "6d380e6adbeaf9761b24cf06dc74e5f1f8375e6f4171aaf69ae1b517fccdc9d6": {
+    "verifiable_claims": [
+      "We\u2019re glad to hear your parcels were left in a safe place.",
+      "Please reach out to us here: https://t.co/JzP7hlA23B for assistance."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only acknowledges the customer's comment and provides a standard contact link, both of which are supported by the historical evidence; no unsupported promises or policies are made."
+  },
+  "7068724a8d2d239590a579e2dcf92efc8be4c8a518cc6e2d99bf4535719cd6ff": {
+    "verifiable_claims": [
+      "Since the order was placed after the cut\u2011off time for next\u2011day delivery, it won\u2019t be eligible for same\u2011day shipping.",
+      "You can view the estimated delivery date on your Orders page; if it shows a later date, the package will arrive on that day.",
+      "If you need the item urgently, you can explore alternative options such as Amazon Day or contact our support team for assistance.",
+      "Please share any order details here: https://www.amazon.com/gp/help/customer/contact-us so we can look into it further."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard policy guidance or safe triage actions; none guarantee specific outcomes beyond typical Amazon procedures."
+  },
+  "a9a78cf75646e4c0db17be7ddd722cd34cc469892db427bb144a7ea410bc141d": {
+    "verifiable_claims": [
+      "You selected next\u2011day delivery after the cut\u2011off time, so the earliest we can get your order to you is tomorrow.",
+      "We can\u2019t guarantee a same\u2011day delivery in this case.",
+      "Please share your order details here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [
+      "You selected next\u2011day delivery after the cut\u2011off time, so the earliest we can get your order to you is tomorrow.",
+      "We can\u2019t guarantee a same\u2011day delivery in this case."
+    ],
+    "is_grounded": false,
+    "has_unsupported_claim": true,
+    "reasoning": "The delivery timeline and same\u2011day guarantee claims are not supported by the provided evidence; only the link directive is a standard safe triage action."
+  },
+  "49fad158a40812fdfef3c499278e2eb8fe04fc861d128262d55d73df47b7010f": {
+    "verifiable_claims": [
+      "O Kindle do cliente est\u00e1 a caminho.",
+      "Oferece ajuda com rastreamento ou outras quest\u00f5es via link de contato https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "A resposta apenas reconhece a informa\u00e7\u00e3o fornecida pelo cliente e oferece um canal seguro de contato, sem prometer reembolsos, prazos ou pol\u00edticas n\u00e3o suportadas."
+  },
+  "7c742f9512d16b2db459fd850ad67813a4da0dcf7f6168fff5b3b1ea55223059": {
+    "verifiable_claims": [
+      "We can help with configuration, tracking, or any question."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only acknowledges the customer's statement and offers standard assistance, without making any specific promises about refunds, delivery dates, or policies not supported by the evidence."
+  },
+  "5ddffd870cb4d3209b735c2cef2f82fc3c6f3a17c8e32f572fbf5dad2eb04636": {
+    "verifiable_claims": [
+      "Provides a secure contact link https://www.amazon.com/contact-us for further assistance"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only restates the customer's comment, asks for more details, and directs to a standard secure contact link, which is a safe triage action. No unbacked promises or policy statements are made."
+  },
+  "cf7fa9d29b09818b1409868c107f785408f0bd4dae1c285771d19336d3dcb8ed": {
+    "verifiable_claims": [
+      "Puedes compartir los detalles de forma segura aqu\u00ed: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only contains a standard safe triage link and generic assistance statements; no promises or policy details are made that require evidence."
+  },
+  "f1f39fd57260b36eef6ced7f9447b0b25290494d9022a4cc0136e6d20992bda1": {
+    "verifiable_claims": [
+      "You can share order details at https://www.amazon.com/contact-us?ref=help",
+      "We will look into a replacement, return, or other options once we have the information"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions or conditional investigations; no guarantees or policies are made beyond what Amazon typically offers."
+  },
+  "d19891173f847a050fd7d5532e9f6fa253fc3736e1f4c946d4fffe1c12af9ef7": {
+    "verifiable_claims": [
+      "We\u2019ll review the information and get back to you as soon as possible."
+    ],
+    "unsupported_claims": [
+      "Please share your order number and details at https://example.com/contact-amazonhelp (non\u2011official link)"
+    ],
+    "is_grounded": false,
+    "has_unsupported_claim": true,
+    "reasoning": "The reply directs the customer to a non\u2011official contact link not supported by the provided evidence; other statements are generic and safe."
+  },
+  "93b15af06827e590322268123cf5d8a220e48b0ba240f342d91b2a1fd67026bc": {
+    "verifiable_claims": [],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply contains only generic acknowledgments and offers of further help, with no specific factual or policy claims that require evidence. Therefore all statements are safe and grounded."
+  },
+  "97cf98d0d5c4f78ccf939f04d157adc682395c68895128cba6464ee1409582b7": {
+    "verifiable_claims": [],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only offers a generic invitation for further questions, which is a standard safe response and requires no supporting evidence."
+  },
+  "57eac81d5c629457409f4c34231621a163ec1c62083f95f4339c66ad7206bc9f": {
+    "verifiable_claims": [
+      "Customers should not share order or personal details publicly to protect privacy",
+      "Customers can securely share information via https://www.amazon.com/contact-us",
+      "Amazon will look into the issue and respond shortly"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard privacy advice or safe triage actions; the vague promise to respond shortly is a typical generic commitment and not a specific, unsupported guarantee."
+  },
+  "3023026b0289abb57263a5dd39fa65828847818007f644fc8f94179d8f5ecc58": {
+    "verifiable_claims": [
+      "To protect your privacy, please don\u2019t share order or tracking details publicly.",
+      "Could you share the relevant information securely here: https://www.amazon.com/contact-us?",
+      "We'll look into it right away and get back to you as soon as possible."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard privacy advice, a safe triage link, and a generic commitment, which are not contradicted by evidence and do not make specific promises."
+  },
+  "5ad3653469aa348f65784d06a1f7317591448a0105b5db6aecf2c0857ffe80fc": {
+    "verifiable_claims": [
+      "Directs the customer to share order details via the secure contact link https://www.amazon.com/contact-us",
+      "States that the case will be examined as soon as possible and the customer will be contacted"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions or generic promises without specific timelines or guarantees, which are supported by typical Amazon support policies."
+  },
+  "c1610a1d2d683d0b773904062e4301b1995fb6e52248dc8836debb089e524997": {
+    "verifiable_claims": [
+      "Nous restons \u00e0 votre disposition",
+      "Merci de partager vos informations de commande ici\u202f: https://www.amazon.com/contact-us"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either supported by prior messages (disposition) or are standard safe triage actions (requesting order details via official contact link). No specific timelines or guarantees are made."
+  },
+  "ceb0f434ab2f7fcafe1e845f6e94e537655bfaf902285d93f3d5cd151f18bf1d": {
+    "verifiable_claims": [
+      "We\u2019ll pass it along to the relevant team for review.",
+      "If you have a specific order you\u2019d like us to investigate, please share the details securely here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions with no specific promises; they are supported by general Amazon policy and do not require external evidence."
+  },
+  "ecdd390fc80d586b1ebad6b169d65f12fc5a496fcd06d770e8a74197274dedda": {
+    "verifiable_claims": [
+      "We work with a range of carriers to get packages to you",
+      "We take feedback like yours seriously",
+      "Our team will review the information and get back to you shortly"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are generic or standard triage actions; no specific promises or policies are made beyond what is safely supported."
+  },
+  "36f84c8b117d805d9a6921ca0a285e0f676c68d2ea08bf4d6b3d6480ada2aa62": {
+    "verifiable_claims": [
+      "Solicita compartir n\u00famero de pedido y detalles a trav\u00e9s del portal seguro https://www.amazon.com/contact-us",
+      "Aconseja no compartir esa informaci\u00f3n p\u00fablicamente",
+      "Indica que el equipo revisar\u00e1 la solicitud y mantendr\u00e1 informado al cliente"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard safe triage actions with no promises or timelines; they are consistent with typical Amazon support policies."
+  },
+  "cdcd541f7cc42bddc0a1592042e3ce40a8ea088b751710fed8cebe4b35853379": {
+    "verifiable_claims": [
+      "Solicita al cliente compartir el n\u00famero de pedido y detalles en https://www.amazon.com/contact-us (acci\u00f3n de triage segura)",
+      "Indica que el equipo revisar\u00e1 la situaci\u00f3n y contactar\u00e1 al cliente lo antes posible (promesa gen\u00e9rica sin plazo espec\u00edfico)",
+      "Menciona que, si el pedido ya fue enviado, podr\u00edan iniciar el proceso de devoluci\u00f3n (pol\u00edtica est\u00e1ndar de devoluci\u00f3n)"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "Todas las afirmaciones son acciones de triage est\u00e1ndar o promesas vagas sin plazos espec\u00edficos y est\u00e1n alineadas con pol\u00edticas habituales; no hay promesas espec\u00edficas ni datos no respaldados por la evidencia."
+  },
+  "95a920b2207aece7802dd2d696f5500e188095b7bba41f5629f1ce1b3c82c5b3": {
+    "verifiable_claims": [
+      "If you ever need assistance, feel free to reach out here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only includes a gratitude statement and a standard safe triage link, which is a supported action. No ungrounded promises or policy statements are present."
+  },
+  "e157e9d91545e8aa4a2a8c342dfcc7b4eeb89a4a5e101855435f5e81f8eb5556": {
+    "verifiable_claims": [],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply contains only a generic positive statement and an invitation to contact support, both of which are standard safe responses and not specific promises requiring evidence."
+  },
+  "5563cabd568316a6f2055b3014e6de09f61661aadae5f2d954f61f930676afda": {
+    "verifiable_claims": [
+      "suas compras da Black Friday chegaram rapidinho",
+      "Se precisar de qualquer ajuda ou tiver alguma d\u00favida, \u00e9 s\u00f3 nos chamar aqui: https://www.amazon.com.br/contact-us"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only echoes the customer's statement and provides a standard contact link, with no promises or policy statements lacking evidence."
+  },
+  "631d2139cd365f113846b5c84c48c985005c5fa2cb0725a9847df3516fb5d57c": {
+    "verifiable_claims": [
+      "sua entrega chegou rapidinho",
+      "voc\u00ea est\u00e1 feliz com as compras da Black Friday"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements reflect the customer's expressed experience and no new policy promises are made; thus they are grounded and no unsupported claims exist."
+  },
+  "b50e49b60c4ddbd46a8b6a5803750263950420acd502695238f07a4517a6430a": {
+    "verifiable_claims": [
+      "Please share any relevant details (order number, date, etc.) through our secure form so we can investigate further: https://www.amazon.com/contact-us.",
+      "We will get back to you shortly."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are generic acknowledgments or standard safe triage actions (requesting details via secure link, vague promise to respond soon) and are not specific commitments unsupported by evidence."
+  },
+  "6ec4a15181eac98fdbe03b3cccc28f4ff139185623669d1d5332d0d80e80720c": {
+    "verifiable_claims": [
+      "Please share any order details securely here: https://www.amazon.com/contact-us",
+      "We\u2019ll investigate and get back to you as soon as possible"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard empathetic responses or safe triage actions; no specific refunds, timelines, or policies are promised beyond typical investigation, which is supported by standard practice."
+  },
+  "22ed851d9f98298325187a7e5f5dad9d0304bcac3a931db42d6fafe675036468": {
+    "verifiable_claims": [
+      "Please share your order number and details through the secure support form at https://www.amazon.com/contact-us?ref=help.",
+      "We will check the shipment status and work on a resolution once we have the details."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions (requesting order info via a secure link and promising to investigate), with no promises of refunds, specific timelines, or policies not supported by evidence."
+  },
+  "d9652c26ae429b59a4eec284094bb809d4a7a2346b05d81a4018bd2309092086": {
+    "verifiable_claims": [
+      "You can securely provide those details here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only asks for order details via a standard secure link and makes a generic commitment to resolve the issue, without promising refunds, specific timelines, or policies not supported by the evidence."
+  },
+  "1187ee6f64bc2ae71bf52f1994a5b4c87d3e57792978b8687beb136a82e34d2c": {
+    "verifiable_claims": [
+      "The customer has not received their Amazon Pay balance cashback yet",
+      "Advice not to share order details publicly for security",
+      "Providing the secure contact link https://www.amazon.com/contact-us",
+      "Promise to investigate the cashback status and respond as soon as possible"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either restating the customer's issue, standard security advice, a valid contact link, or a non\u2011specific promise to investigate, which are supported by standard safe triage policies."
+  },
+  "8c8b46deb9008664c5526c2a30d10cd5cc16e1088da3bebdaefeb484307c9a37": {
+    "verifiable_claims": [
+      "You have posted your order ID publicly; for your security, please don\u2019t share order details in a public forum.",
+      "Please share the order ID and related information through our secure channel (https://www.amazon.com/contact-us) so we can investigate further.",
+      "We will look into the status of your cashback and get back to you as soon as possible."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements align with privacy policy and standard safe\u2011triage actions; no specific refund or timeline promises are made."
+  },
+  "c6f2a67e70fca146351842d11098b0f544c1287598b1e4034e446dfc13b13d41": {
+    "verifiable_claims": [
+      "Customer received the wrong items",
+      "Customer is asked to share order number and details via a secure contact form",
+      "Link to Amazon contact page (https://www.amazon.com/contact-us) is provided",
+      "Team will look into the issue and get back shortly"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either directly supported by the customer's complaint or are standard safe triage actions (requesting order details, providing a contact link, and a vague promise to respond shortly). No specific refunds, delivery dates, or unbacked policies are promised."
+  },
+  "4435816ae96bd9814afee149d0f27fdb08498c7e2a4b26328fab1676ff0f08d9": {
+    "verifiable_claims": [
+      "We will investigate and arrange a resolution",
+      "Please do not share your order number or any personal details publicly",
+      "You can securely share your order information here: https://www.amazon.com/contact-us"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard privacy and triage actions; no specific timelines or refunds are promised, and no claim contradicts the provided evidence."
+  },
+  "c020f3465f63693e9915b1225c7ebed626d94462fdd9e61e7471632a8210e6e3": {
+    "verifiable_claims": [
+      "Le client a \u00e9t\u00e9 factur\u00e9 49\u202f\u20ac pour Amazon Premium sans l'avoir souscrit.",
+      "Le client doit transmettre ses informations sensibles via le formulaire s\u00e9curis\u00e9 https://www.amazon.com/contact-us.",
+      "L'\u00e9quipe v\u00e9rifiera la facturation et contactera le client rapidement apr\u00e8s r\u00e9ception des d\u00e9tails."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either restating the customer's issue or standard safe\u2011triage actions (secure contact link, verification of billing, follow\u2011up). No specific refund guarantee or timeline is promised, so no claim is unsupported."
+  },
+  "8c94b5876bd1c4a12049da86e967c9f20faee6627a8d6680f943797ecee5fd93": {
+    "verifiable_claims": [
+      "We will examine the account securely via the provided link",
+      "We will verify the issue promptly and respond as soon as possible"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either standard empathetic responses or safe triage actions (requesting details via a secure form and a generic promise to check quickly). No specific refund guarantee or timeline is promised, and the link request aligns with standard practice, so the reply is fully grounded."
+  },
+  "d06eb7df4359d2b2dc92eb225c424556872bc38414ba241081e8d34336958962": {
+    "verifiable_claims": [
+      "Pour des raisons de s\u00e9curit\u00e9, merci de ne pas partager votre num\u00e9ro de commande publiquement.",
+      "Veuillez nous communiquer vos informations en toute s\u00e9curit\u00e9 via le lien suivant : https://www.amazon.com/gp/help/contact-us.",
+      "Nous pourrons ainsi v\u00e9rifier le suivi et vous tenir inform\u00e9 d\u00e8s que possible."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard safety advice or a generic promise to check the order via a secure link; no specific timelines or guarantees are made, so they are grounded by policy."
+  },
+  "182abaa6135bc5d10ecba4744ee3c94f8c87484531da29228be1f704eaf7a436": {
+    "verifiable_claims": [
+      "Veuillez nous communiquer vos d\u00e9tails en toute confidentialit\u00e9 via le lien s\u00e9curis\u00e9 suivant : https://www.amazon.com/contact-us.",
+      "Nous v\u00e9rifierons l\u2019\u00e9tat de votre livraison et reviendrons vers vous rapidement."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only gives standard advice, a safe contact link, and a generic promise to check the delivery and respond promptly, which are supported by typical Amazon policy and do not introduce unsupported specifics."
+  },
+  "ef50d254d8b6fdc6f23651a3c9ab75d6dc988e875f29ded5736da0c798ac4f4b": {
+    "verifiable_claims": [
+      "Please don\u2019t share order or tracking info in public posts.",
+      "You can safely share your order details with us here: https://www.amazon.com/contact-us.",
+      "Once we have the order ID, we\u2019ll investigate the shipment status and get back to you as soon as possible."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard security advice, a valid contact link, and a generic promise to investigate, which are supported by standard policy and contain no specific ungrounded commitments."
+  },
+  "cd43263adab3cffc576501e4fcd21c33af78bc40ee5fc35917232569a10028ee": {
+    "verifiable_claims": [
+      "We cannot discuss tracking numbers publicly for privacy reasons.",
+      "Please share your order details securely via https://www.amazon.com/contact-us.",
+      "We will look into the issue as soon as possible."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard privacy and triage actions; no specific promises or policies are made beyond what is generally supported."
+  },
+  "42161925ee9846327a5dd062b196addd0c5b78beea7b95bc7d2768ae3c4a0813": {
+    "verifiable_claims": [
+      "Directs customer to secure support portal at https://www.amazon.com/contact-us",
+      "Promises to look into the case and get back as soon as possible once information is provided"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions and vague timing promises; no specific unsupported guarantees are made."
+  },
+  "886245192811fc3138ca1b161098f23024ff7b210c15863205e0fde8bf4ceb72": {
+    "verifiable_claims": [
+      "You can reach out to us here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only includes a standard apology, offers help, requests details securely, advises against posting personal info, and provides a generic Amazon contact link\u2014all supported by safe triage policy. No promises or policies beyond the evidence are made."
+  },
+  "c374c589bf3491750a957a75cce9a48ddafc3b13c597660e6b7a8f48dabaebb0": {
+    "verifiable_claims": [
+      "Please share your order details with us through our secure help center: https://www.amazon.com/contact-us.",
+      "Please do not post any order numbers or personal info publicly.",
+      "Our team will review the status and get back to you as soon as possible."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions or generic promises without specific timelines; no unsupported guarantees or invented policies are present."
+  },
+  "d35434d2fbadd957cff18c8c009c55c1aaa9b25fe0c2de78d1e73db152d5dd45": {
+    "verifiable_claims": [
+      "Please do not share order details publicly; use the secure contact form https://www.amazon.com/contact-us",
+      "Our team will investigate the status and get back to you as soon as possible"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard privacy guidance or generic assistance promises and are not specific commitments unsupported by the provided evidence."
+  },
+  "b3c9038411fe8fe08f2729e039cc4344cfcfb9a8db3266362b136e1afc9962db": {
+    "verifiable_claims": [
+      "We\u2019ll look into the status and get back to you as quickly as possible.",
+      "Please share your order number and any other relevant details through our secure contact form here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions (requesting order details via secure link and promising to investigate) with no specific timelines, refunds, or policy guarantees, thus they are supported by standard Amazon support procedures."
+  },
+  "4c99a2bc1af810fdcf1d016767f7569950cf3cb7a68f319b0eb4dd2d4eaa2e2a": {
+    "verifiable_claims": [
+      "The order placed last night has not been dispatched yet (as reported by the customer).",
+      "The team will look into the order status and get back to the customer as quickly as possible.",
+      "The customer is asked to share order details securely via https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either restatements of the customer's issue, standard triage actions, or vague commitments without specific timelines, which are supported by safe policy and do not require external evidence."
+  },
+  "d79066f3ce2760fae7a3ac90fd7fc640f33711227d68a8b50833d767c637fa83": {
+    "verifiable_claims": [
+      "We\u2019ve received your message.",
+      "You can share any relevant information securely here: https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only acknowledges receipt and provides a standard secure contact link, which are safe triage actions and not unsupported promises."
+  },
+  "12a472d53b53def0589e7d0e48afe36ed858bbfd47d95cc74ae74f0c82f63c5b": {
+    "verifiable_claims": [],
+    "unsupported_claims": [
+      "We\u2019ll look into it and get back to you shortly."
+    ],
+    "is_grounded": false,
+    "has_unsupported_claim": true,
+    "reasoning": "The reply promises a response 'shortly', which is a timeline commitment not supported by any provided evidence or known policy. All other parts are standard triage actions."
+  },
+  "ee61792b03fc71c17a74a0fab53c97b916067f159de035097b323a36db419eee": {
+    "verifiable_claims": [
+      "We will review your case and get back to you as soon as possible.",
+      "Please share your order number and details through the secure support form at https://www.amazon.com/contact-us."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions or vague commitments without specific timelines; no promises of refunds, deliveries, or policies are made beyond what is safely supported."
+  },
+  "3f537c858158fb1052a1ac334aa1d8f8d36556aa731bf39301bd321163fad2b2": {
+    "verifiable_claims": [
+      "Please don\u2019t share order numbers or personal details publicly (policy aligned with evidence)",
+      "You can share the relevant information securely via https://www.amazon.com/contact-us (standard safe triage action)",
+      "Our team will review the situation and get back to you as soon as possible (generic commitment)"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are either backed by the provided policy evidence or are standard safe triage actions; no specific promises or timelines are made that lack support."
+  },
+  "6cacdcdf31c072b6cd5d2b3b4fa43b77d48fc1b27ef2b80da59688727a88008b": {
+    "verifiable_claims": [
+      "You can reach Amazon Customer Service by phone at 1\u2011888\u2011280\u20114331.",
+      "You can also contact us online at https://www.amazon.com/contact-us \u2013 just select \u201cPhone\u201d or \u201cChat\u201d for a quick response."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only provides standard contact information (phone number and secure link), which are safe triage actions and not unsupported promises; no claims require evidence beyond publicly known contact details."
+  },
+  "548193b2fe068f6daad26fef28d8bc0c22a94a5a5a61e3d618a1ee3698426e59": {
+    "verifiable_claims": [
+      "We don\u2019t share phone numbers publicly.",
+      "You can easily reach Amazon Customer Service through the official help page.",
+      "Visit https://www.amazon.com/gp/help/customer/contact-us or click the \u201cContact Us\u201d button in the Help Center to get the phone number and other support options."
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard policy or safe triage directions, which are supported by general Amazon support practices and do not make unbacked promises."
+  },
+  "4909debbfa9322ef87c831b94b1d4ee20425d9c48992a63265a691dfa484590c": {
+    "verifiable_claims": [
+      "parcels were left safely",
+      "contact link is https://www.amazon.com/contact-us"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only acknowledges the customer's statement and provides a standard official contact link, which is a safe triage action. No promises or policy statements are made that lack evidence."
+  },
+  "ea35a43451096bcfff0c61265fadc0731b1a98498a932544a5049585a4472472": {
+    "verifiable_claims": [
+      "If you have any other questions or need assistance, feel free to reach out to us here: https://www.amazon.com/contact-us"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only includes a standard triage suggestion to contact Amazon via the official link, which is supported by the historical evidence; no unbacked promises or policies are made."
+  },
+  "82bb37f21b4b476e28e08bf8b351bab48c687362f89dbe58b287f7620f8a92e7": {
+    "verifiable_claims": [
+      "delivery options and cutoff times vary by item and shipping address",
+      "You can view the estimated delivery date on your Orders page",
+      "if it shows a later date, the package will arrive on that day",
+      "you can explore alternative options such as Amazon Day",
+      "contact our support team for assistance",
+      "share order details via the official Amazon contact link https://www.amazon.com/contact-us"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements reflect standard Amazon policies or safe triage actions; no claim is invented or guarantees beyond typical service expectations."
+  },
+  "47d9dff7f6ff9df8978532054eeb589932dfcea59970e4885d968f698c536140": {
+    "verifiable_claims": [
+      "Delivery timing will depend on the estimated date shown in the order confirmation",
+      "Same\u2011day or expedited delivery depends on the cutoff times displayed at checkout",
+      "Customer can share order details via the official Amazon contact link"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are generic or refer to standard Amazon policies (cutoff times) and the provided official contact link; no specific guarantees or unsupported commitments are made."
+  },
+  "92e8a11222772ccc476a8209a1011e1494e568b1815a47a12b37cc2791ad8d8a": {
+    "verifiable_claims": [
+      "Kindle is on its way (as stated by the customer)",
+      "Offer to help with tracking via the official Amazon contact link"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "The reply only restates the customer's information and provides a standard, safe triage link; no unbacked promises or policy statements are made."
+  },
+  "1c6d24af43f17379edb8b8016dfad24c4392e103b4f4cf3758595c274d69366a": {
+    "verifiable_claims": [
+      "Please share your order number and relevant information via the secure form at https://www.amazon.com/contact-us",
+      "We will examine your case as soon as possible and get back to you"
+    ],
+    "unsupported_claims": [],
+    "is_grounded": true,
+    "has_unsupported_claim": false,
+    "reasoning": "All statements are standard triage actions (apology, request for order details via official link, and a non\u2011specific promise to review and respond). No refund, delivery timeline, or policy claims are made, and the link is official."
+  }
+}

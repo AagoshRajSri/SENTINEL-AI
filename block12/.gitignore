@@ -5,5 +5,8 @@ __pycache__/
 .DS_Store
 data/*.csv
 !data/clean_pairs.csv
-cache/
+cache/*
+!cache/faiss_index_ip.bin
+!cache/*.json
+!cache/.gitkeep
 scratch/

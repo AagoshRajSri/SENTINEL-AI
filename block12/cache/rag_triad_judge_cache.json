@@ -1,0 +1,202 @@
+{
+  "528cd5a7c3b5f5334882000a23441030c7aee7e2135eebacef687d49a51615eb": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only includes a generic positive acknowledgment and the contact link, both consistent with the tone of the retrieved responses. It does not introduce any new policies or factual claims not present in the context, and it addresses the user's thank\u2011you message."
+  },
+  "4d58397e9b02c9d399be4bf5c2870cd9bcc3a0f88e5be407e76f2308539feabf": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds details about estimated dates and cutoff policies that are not present in the retrieved context, making it unfaithful, but it does address the user's question about delivery timing."
+  },
+  "0ebf77eb19606a3f30145e1bb32ca349adfe23c40b1e738deabbca2f1f492821": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds information about configuration, tracking, and assistance that is not present in the retrieved context, violating faithfulness. However, it responds to the user's statement about the Kindle arriving, making it relevant to the user's message."
+  },
+  "d63ea64f78d38c7a01a8cd43b7a79d5323ad55759f3dcc01ddf0fd369891504b": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft introduces details about TV service and device issues that are not present in the retrieved context, violating faithfulness. It does attempt to address the user's comment about not watching TV, so it is relevant."
+  },
+  "cfdf079e5d58f2db3fb28c52c55f5972ae728c4a7285796c236be0fb60f6ef87": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only uses information present in the retrieved context (contact link) and makes no unsupported claims. It directly addresses the user's concern about unwanted reorders and offers a way to resolve the issue."
+  },
+  "00a7d75a25bd1ccc3581db0012a9853fbdadb6a7496cdccf52b817afa8a619e5": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds new phrasing ('Glad to hear it\u2019s sorted!') not present in the retrieved context, violating faithfulness, but it appropriately acknowledges the user's thanks and offers further help, making it relevant."
+  },
+  "21863642eb399d928aacd8431c743bc86eaad2094d68c1ef7b09d376665ae90b": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds a privacy warning not present in the retrieved context, which makes it unfaithful. However, it directs the user to the contact-us link as suggested in the context, addressing the user's request, so it is relevant."
+  },
+  "e8d3d6003f03024717776be2084b9bc44b33dddb0000bd9c203f30949eb0b80c": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only uses information present in the context (the contact link and offering assistance) and does not introduce unsupported facts or policies. It directly addresses the user's concern about not receiving updates, making it relevant."
+  },
+  "bc17a73d9732ee3b59a37a26a999ca26e43212513d1d15d12e737b1fb5c5eb92": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements not present in the retrieved context, such as \"We work with a range of carriers\" and \"we take feedback like yours seriously,\" which are not supported by the provided excerpts. However, it does address the user's complaint about delivery issues and asks for order details, aligning with the user's core concern."
+  },
+  "ccd9ff9f8e548b1b0f8f3d38b8a84adade55c677f8a6386c536f3df10a59e89e": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements about reviewing the situation, contacting the user, and initiating a return if shipped, which are not present in the retrieved context, violating faithfulness. However, it addresses the user's request to cancel the order, so it is relevant."
+  },
+  "ee2a01568a4bf0d24313fbab1b3bceefdb038e65b47a8c296301d5c479de56c2": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds a statement about offering the best shopping experience, which is not present in the retrieved context, violating faithfulness. It does address the user's thank\u2011you, so it is relevant."
+  },
+  "e28062d1992965ad8a601ef9b87db12e6ee07b74129333c2ea85bf32456662ea": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds details (delivery speed, Black Friday happiness) not present in the retrieved context, violating faithfulness. However, it addresses the user's excitement and asks about the received products, which is relevant to the user's core issue."
+  },
+  "a544cb258f9c45f92ef6752be90ac153fc5dd22c71fac9709eb75c1a7a7645b0": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds promises like investigating and responding, which are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about unprofessional delivery behavior, so it is relevant."
+  },
+  "3c1db7e60e6be645d59b016b7dfada55a6c0962cff8da6ae4b245b18baddeac8": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds a promise ('we\u2019ll work to get this sorted out as quickly as possible') that is not present in the retrieved context, violating faithfulness. However, it directly addresses the user's missing package issue, making it relevant."
+  },
+  "e76b886702a19a1803386291575f2df260d0394cafe024af9fcca4f9f48adca3": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds information not present in the retrieved context, such as a specific contact URL and a promise to investigate the cashback, which are facts/promises not explicitly provided. However, it does address the user's issue about missing Amazon Pay cashback and follows the policy about not sharing order details, so it is relevant."
+  },
+  "650202cca90a82f1a9df752024a0a0641ceb4ba3dd89fb1a5dfbb63071ed6f2c": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only uses information present in the retrieved context: it advises not to share personal details publicly and directs the user to the Amazon contact link, matching the guidance in the context. It addresses the user's complaint about receiving the wrong items, so it is both faithful and relevant."
+  },
+  "4e050d42792e036dfe54473886f3aab9095b0f742dbe64dfe0adb388938a6c93": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only uses information present in the retrieved context (apology, request to contact via the provided Amazon link, and promise to verify the issue). It directly addresses the user's concern about the unexpected 49\u202f\u20ac charge, making it both faithful and relevant."
+  },
+  "541f8b8c1d37034a7225015baa2ed4c76e04b3e69efc7e9fd3662dc78108c550": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements (e.g., advising not to share the order number publicly and promising to check the delivery status) that are not present in the retrieved context, violating faithfulness. However, it directs the user to contact Amazon via the provided link, which aligns with the context and addresses the user's request, so it is relevant."
+  },
+  "2476147a3fe2e3651d272b43fb5f038c98be8b56e8eb294addfd42c3d197983f": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds privacy policy statements and a promise to look into the issue, which are not present in the retrieved context, violating faithfulness. However, it directs the user to share order details for investigation, addressing the request to check the order, so it remains relevant."
+  },
+  "078deb20e7a3a2785ebd8b4eb4eb4d1fb9ce0f0874778a935bb894ab28018c0f": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds details not present in the retrieved context, such as mentioning a 'secure support form' and advising not to post personal information, which are not in the source material. However, it addresses the user's concern about not receiving a response by offering help and providing the contact link, so it is relevant."
+  },
+  "8e030d2db098b86b036e0c7fb4f6e079e4029be7fbd6e295bfb24b2616a999a9": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements (apology, privacy advice, promise to investigate) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about the delivery status, so it remains relevant."
+  },
+  "515ec50cc92d50b5c178d20042be1eec91a89b1bf34116452c865739834fc875": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds a promise ('Our team will look into the status and get back to you as quickly as possible') and a request for order number that are not present in the retrieved context, violating faithfulness. However, it directly addresses the user's concern about the undelivered order, so it is relevant."
+  },
+  "361dc8524e2769b17839a39448e0b042f370abe241f9ed45abf30ae074e60de7": {
+    "is_faithful": false,
+    "is_relevant": false,
+    "reasoning": "The draft introduces apologies, requests for order details, and a support link that are not present in the retrieved context and does not address the user's comment about humor, making it both unfaithful and irrelevant."
+  },
+  "841814eea868255f5d54dcae0114f997e65537231bbaec0a8ff6a1ae86a82f04": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only uses information present in the retrieved context (privacy warning and Amazon contact link) and does not add unsupported facts. It addresses the user's complaint by acknowledging the issue and directing them to the appropriate support channel, thus staying on topic."
+  },
+  "dfb47a66ea1f497c411573dff84859df9d3db2402bca3fad4d265fc6b225ed55": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds a statement ('We don\u2019t share phone numbers publicly') that is not present in the retrieved context, violating faithfulness. However, it addresses the user's request by directing them to the contact page to obtain the phone number, so it is relevant."
+  },
+  "fa965a55755e42e226cf2c52cf2d5dd3992e7eb6b4a0d4663a00d3f44b1bb5ff": {
+    "is_faithful": true,
+    "is_relevant": false,
+    "reasoning": "The draft only repeats a generic suggestion to contact support, which aligns with the retrieved context and does not introduce new facts, so it is faithful. However, it does not provide the requested information about when the reschedule was made, thus it fails to address the user's core issue."
+  },
+  "3990800cc198b21ce7f5c43d3452284dfdb56abb79733a3351f14477203735ca": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft includes advice to not open the package and promises to review the inquiry, which are not present in the retrieved context. However, it addresses the user's concern about an unexpected delivery, making it relevant."
+  },
+  "7c7bf5109f95d7a277ce8ecea55954985c4d850a09409bfa0f654e9017e31b74": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds details not present in the retrieved context, such as a specific Returns Center link, instructions to upload photos, and promises to review information, which are not mentioned in the source. However, it does address the user's request for a return, so it is relevant."
+  },
+  "ee6c07c06017a5fbc0e3da53e381338f7018c195d5a08d6f20b3928e89b0a624": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements (e.g., asking not to share sensitive info, promising to examine the case) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about missing tracking and directs them to contact support, so it is relevant."
+  },
+  "79223ef41c62e7e7a20d80dd3e9c8f4bb4d8e729ad0a30d34aa8121ea3d85970": {
+    "is_faithful": true,
+    "is_relevant": true,
+    "reasoning": "The draft only advises contacting customer service via the provided link and requesting order details, which aligns with the retrieved context and addresses the user's complaint about missed deliveries."
+  },
+  "2d56fdf953d74a9f827b3bd4685ec9288339f39db2ab14d0ef90bc8899667054": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds details not present in the retrieved context, such as the \u00a31 being a temporary verification hold and the specific timing of the sign\u2011up, which are not supported by the provided snippets. However, it does address the user's question about the unexpected charge, making it relevant."
+  },
+  "6a20195b7229e64ac90385ecf4f78097c9d4fc17b276212137f57784055dbdff": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements (e.g., \"We\u2019re glad your package arrived earlier than expected\") that are not present in the retrieved context, violating faithfulness. However, it addresses the user's comment about the delivery timing, so it remains relevant."
+  },
+  "ed2ddc7180a7e6da13b6a505e1855a55ea78baa06fee4e4d95e1e8611d95fd2c": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds information not present in the retrieved context, specifically claiming the provided link is a short URL and not official, which is not stated in the context. However, it addresses the user's concern about the email and advises on safe contact, making it relevant."
+  },
+  "bdb95512ebfb058d57803f638a7f16ccb8c0588aa5023e0bf3b613b4f762f7a2": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft introduces policies and promises (e.g., \"Please do not share that publicly\", \"Our team will review your inquiry and get back to you as soon as possible\") that are not present in the retrieved context, violating faithfulness. However, it addresses the user's mention of Intelcom Courrier Canada Inc. by requesting order details and offering assistance, which is relevant to the core issue."
+  },
+  "b10695a63ca29d11b2155a057965e7685320af9db0d84a5245cb29aac379fbf1": {
+    "is_faithful": false,
+    "is_relevant": false,
+    "reasoning": "The draft adds a statement ('Glad to hear you\u2019re all set for Halloween!') that is not present in the retrieved context, violating faithfulness. It also does not address the user's comment about Halloween and broken glasses, offering generic assistance instead, so it is not relevant to the user's core issue."
+  },
+  "7eb0922ff63153d8d2b6c4bf049b9a9fe557257fd6b3c8bbad434042639601e8": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft asks for order details via a secure form, aligning with the context's privacy guidance, but it adds promises (e.g., investigating with the seller and ensuring the correct shoes arrive for the birthday) that are not present in the retrieved context, violating faithfulness."
+  },
+  "2c23d0aa7efdd1d001ed5fbcf52474e1a884969e7908a9512b9c2c06e69938e2": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds a safety recommendation about not sharing external links, which is not present in the retrieved context, violating faithfulness. However, it addresses the user's implied request for assistance by asking for order details via the contact page, so it remains relevant."
+  },
+  "cada524caa4566925555dc7a79237af213e12a8ea8656a12c2fb35bab8389eae": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft includes statements and promises (e.g., 'that's not expected', 'support team will review and get back as soon as possible') that are not present in the retrieved context, violating faithfulness. However, it addresses the user's issue about the expired Kindle Unlimited subscription, so it is relevant."
+  },
+  "0bd655ae20c0874cb9a5bd594668340578a690f9795ac52fdfac15d243ea4a52": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft introduces details (contact form link, request for order data) that are not present in the retrieved context, violating faithfulness. However, it addresses the user's concern about receiving conflicting information, so it remains relevant."
+  },
+  "56f99476e77913e702dab5abca6737da794814340d0089bd651eafc8ddac524d": {
+    "is_faithful": false,
+    "is_relevant": true,
+    "reasoning": "The draft adds statements about protecting personal information and team follow\u2011up that are not present in the retrieved context, violating faithfulness. However, it addresses the user's issue about the missing parcel and directs them to contact support, which aligns with the context, so it is relevant."
+  }
+}

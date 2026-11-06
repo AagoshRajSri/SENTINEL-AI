@@ -1,0 +1,1257 @@
+{
+  "52b6212c152dc79060dc5e340658c9a4d8e18c393959589a1a3e2e77f534ba0b": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "I'm so sorry to hear that your package was stolen! Please send us a direct message with your order ID and the email address associated with your account so we can investigate and assist you right away."
+  },
+  "d72cedaba8cfb418b43c1e5e187505a8cac9d2c3dff6d9817613305f3b739e2b": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We are deeply concerned to hear about this issue with your order. Please send us a Direct Message with your details and video recording so we can urgently investigate and get this resolved for you."
+  },
+  "126de6e0754edec1060a1bc2de7b8395971b4d58b3c7a03863e1d496c9e090bd": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! Orders placed after the cut-off time will be processed for the expected delivery date shown at checkout (tomorrow). You can track your order's status anytime in Your Orders: https://www.amazon.com/yourorders. Let us know if you need anything else!"
+  },
+  "e7f8857c479da2fdb0f60101229fa26e3bd0eab6921d2c954430e9c7d552208d": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Que \u00f3tima not\u00edcia! Ficamos muito felizes por voc\u00ea. Em breve seu Kindle estar\u00e1 a\u00ed para voc\u00ea aproveitar \u00f3timas leituras! Qualquer d\u00favida, estamos \u00e0 disposi\u00e7\u00e3o. \ud83d\ude09"
+  },
+  "528a25e18eac785be08065fb09c12d9bd2d23804f9ea2c4b2f3e5218ab94415b": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "\u00a1Hola! Entendemos perfectamente. \ud83d\ude0a Recuerda que la membres\u00eda Prime tambi\u00e9n incluye otros beneficios como env\u00edos r\u00e1pidos y ofertas exclusivas. Si necesitas ayuda con alg\u00fan otro servicio, \u00a1aqu\u00ed estamos para ayudarte!"
+  },
+  "7d746d2e46cbbb79ee629dee2a0439168ddac129167ebdb01a3c0e2dabfe489e": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Das leiten wir direkt mal an unsere Studios-Abteilung weiter! \ud83d\ude09 Wir k\u00f6nnen zwar nichts versprechen, aber die Idee hat definitiv Potenzial! \ud83d\ude04"
+  },
+  "e2b7037511e0e688980340b8ecff92167c02d56e1ba5b2671b3962a5323aa1b2": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "We're sorry for the frustration and conflicting information regarding your order. Please send us a DM with your order ID so we can look into the status with our team and help make things right."
+  },
+  "7aaeacfe5c0e5cf07d13ccbb571ed374d307b6503cde7d41dbe6b92746d23962": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Thanks for following up! For your security, please don't share personal information publicly. Please send us a Direct Message (DM) so we can locate your details and assist you further."
+  },
+  "3a250166b4f9d5636a2847d9e7bc60ddb8b6b7dd6f079ad16403c865a022e863": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "I'm so sorry for the delay with your Prime order and for the frustration caused by your previous contacts. Please send us a Direct Message with your order details so we can investigate this right away."
+  },
+  "2d8c352959dea40a06d058285d5fdb5a47aadc57c3042c2c6cda83894a8900d2": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Ol\u00e1! Sentimos muito por essa situa\u00e7\u00e3o. Para podermos te ajudar a recuperar o acesso \u00e0 sua conta em seguran\u00e7a, por favor, envie-nos uma mensagem privada (DM) com os detalhes. Estamos por aqui para te ajudar!"
+  },
+  "83be2fce2bc391740eadd96038b78703b57b328983cd0f1893e5f82f81c7a688": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hello! Thanks for bringing this unit price error to our attention. Please send us a Direct Message with a link to the product page so we can pass this along to our team to get it corrected."
+  },
+  "f367c6ae204111a566b325d57a69e35b3d2aa69ceb356086d30185ba01c77d57": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We take this extremely seriously. Please send us a Direct Message with your order details and contact information immediately so we can investigate this with the local team."
+  },
+  "d44e0b8a3f131004594738fd408328381572e71e2f90f4e869eb19f6b01b4175": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Thanks for confirming! Please send us a Direct Message with your order details so we can take a closer look at this price discrepancy for you."
+  },
+  "88d5de708b3b1f4d273ee695f5719d8dbc96e06162d9e4e35a3c2480d285f764": {
+    "intent": "Product Issues",
+    "should_escalate": true,
+    "draft_reply": "I'm so sorry for the frustration and the long wait time trying to resolve this. Please send us a DM with your account details and more information about the Fire TV issue so we can look into this right away."
+  },
+  "bd5b058ba61dab1efd80bc3e7232f9e4603894d76d6ea43757e165a7b46774f9": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "I am truly sorry for the frustration caused by the automated responses and the delay with your refund. Please send us a direct message with your order details so a human associate can review your account and help resolve this right away."
+  },
+  "7fad893e8cbb0a1034e6229a4011ffe8139c23beb00a8c5f2a0741c130d42d01": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear about the delay with your Diwali order and the trouble you\u2019ve had reaching a satisfactory resolution. Could you please share your order number so we can investigate the delivery status and work on getting your item to you as quickly as possible?"
+  },
+  "a4ca6c0a211aed90463d6a4c2ac39bb2563b6d18ae02b35310b92366768c203d": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry the wax and softener didn\u2019t meet your expectations. Could you please share your order number so we can arrange a return or refund and make sure we don\u2019t resend these items?"
+  },
+  "fa3fef546ec7447c846ca43a0dfbb0e6c653603822bd6209c033cb1900957a40": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear about the duplicate delivery and the missing refund. I\u2019ve flagged your order for review and will check the status of the refund for the returned item. Could you please confirm your order number so we can resolve this quickly? Thank you for your patience."
+  },
+  "b6ce66c7f7b243f9013585a8d35e4427f09aae9f1242db6f648dd3d260f470db": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear the iPad app is stuck in portrait mode. Could you let us know which device and iOS version you're using, and if restarting the app or reinstalling helps? We'll work to get this resolved for you."
+  },
+  "71bf8c083c4dfa461a782081cc8e77ea233a5517fd707ec076b7519790aa9efd": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Sorry to hear the link isn\u2019t working for UK accounts. Could you please share the exact URL and any error messages you see? In the meantime, try clearing your browser cache or opening the link in an incognito window. We\u2019ll investigate and get this fixed for you promptly."
+  },
+  "f3f5952f83eb62fb924f5a557a9048cec7e8249c24edf9d60f8dc3b55d944470": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi! It looks like you\u2019re mentioning Neil Gaiman\u2019s \u201cThe Ocean at the End of the Lane.\u201d Let us know if you have any questions about the book or need help with anything else!"
+  },
+  "c6d6d9d62f6cb7b0dee68b80bf3661123fa34fde35b6a490f10aa630ba53dddc": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear about the trouble with your order. Could you please share your order number and any payment details so we can investigate why the product wasn't provided at the agreed price? We'll work to resolve this promptly and discuss a refund or replacement if needed."
+  },
+  "81f5dc08bb182874943de95851dfad124f9144bcca3ae87ce65d0be8a4058f96": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hola, gracias por contactarnos. \u00bfPodr\u00eda indicarnos en qu\u00e9 necesita ayuda con respecto a los productos vendidos y enviados por Amazon exclusivamente para clientes Prime?"
+  },
+  "658aa55911304521a91ca680233eedfd24da5b4f3ab8e2d0df8c4e47183cba1c": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous allons v\u00e9rifier le statut de votre colis avec le num\u00e9ro de suivi 171-9260850-5134725. Nous reviendrons vers vous rapidement avec les informations disponibles."
+  },
+  "6f5dcb5e0a41117042c78b256424c4c25d820e246a365da824b440a0f94e6571": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry to hear one of your items hasn't been dispatched yet. Could you please share your order number so I can check the status and get this sorted for you?"
+  },
+  "daa2f37ea81ad00376608ff396b73adc89021dbe19c3dc5425343cb3379f42e0": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry your two Alexa devices haven\u2019t arrived. I\u2019ve opened a priority review and will arrange for replacement units to be shipped right away. Could you please share the order number so we can expedite this for you?"
+  },
+  "ac8809d78dd5eb9cd642fde4c2154aa28dc242c088da268ec3622ba3188fdc72": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear about the handling of your packages by OnTrac. Your feedback is important, and we\u2019ll look into this issue. Please let us know your order number so we can investigate further and work on a solution for you."
+  },
+  "005bd51e878513b65c13d0f37acb79913e360d1405600fe48f02529ca961504b": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Thank you for your kind words! We're thrilled to hear our agent provided excellent service. To complete a survey, you can visit the Amazon Customer Service Feedback page (https://www.amazon.com/gp/help/customer/contact-us) and select \"Give Feedback\" or use the link sent in the follow\u2011up email. If you need any further assistance, just let us know!"
+  },
+  "0dbfa576be0b8d99b4b3de2cc772e5de457658b97520d16e4840357fb12481d9": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear you received the wrong items. Could you please share your order number and a photo of what arrived so we can arrange a replacement or refund promptly?"
+  },
+  "0eaf0ed32a09d62e4cedf43c35644036089e79edcca91c935a647ec2f97fa94f": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear about the mix\u2011up with your delivery. Could you please share your order number so we can investigate and resolve this for you?"
+  },
+  "ff82f86aca9e152c6acc6df06f2e80b7cd9d030f0d063a3a29b9362271d2c248": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "You're welcome! Thanks for providing the details. We'll review them and get back to you shortly."
+  },
+  "631de65290bd6ed9d933f3243ce95ada6ddf7921ccbceed8557310f84d2b5770": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! We noticed you shared a link, but we need a bit more information to help you. Could you please tell us the order number or describe the issue you\u2019re experiencing?"
+  },
+  "3deb80c069043b9412575b8ff5123038bdc5bf0e5d23d4d3989d134f81d6f00a": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Glad to hear that! If you need any further assistance, feel free to let us know."
+  },
+  "abe012376f09deb2c1db02aa789e14b4b3e243045d834ac39b75c23848f347b9": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m very sorry for the repeated inconvenience you\u2019ve experienced. I\u2019m escalating this issue to our senior support team right away and will ensure you receive a prompt resolution. We\u2019ll follow up with you shortly."
+  },
+  "56ba2e0e430cf83b6a1811272ddcba44d2f60934fd3c079080ef07d3e501307e": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u8cea\u554f\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u8fd4\u91d1\u306e\u30b9\u30c6\u30fc\u30bf\u30b9\u3092\u78ba\u8a8d\u3044\u305f\u3057\u307e\u3059\u306e\u3067\u3001\u8a72\u5f53\u306e\u6ce8\u6587\u756a\u53f7\u3092\u3054\u63d0\u4f9b\u3044\u305f\u3060\u3051\u307e\u3059\u304b\uff1f"
+  },
+  "36f0f65f2a98af118f9336acc143361c36793c1414a4f6f864c8597a2e6518a7": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your package was left in an unsafe location. Could you please provide your order number so we can investigate the delivery and ensure this doesn\u2019t happen again?"
+  },
+  "e7127225fa474d95fddb720c08427e55a0667dd0764eb862b570447ccd8be6fd": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour\u202f! Nous allons v\u00e9rifier le statut de votre commande 407\u20117845437\u20113211562. Selon les informations de suivi, la livraison pr\u00e9vue est le [date]. Nous ferons de notre mieux pour qu\u2019elle arrive demain si cela est possible. Je vous tiendrai inform\u00e9 rapidement."
+  },
+  "2111646a2134911112bddc9f555ddb704b41d3da5364b2ef413977dc434c8062": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! Could you please provide more details about your concern so we can assist you further?"
+  },
+  "713310634428023ac8ac8bdf22201ee5b0166b69244ae5fcfd5a70c7a5d4d1ec": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for your feedback! We're glad to hear your parcels were left in a safe place. If you have any further questions or need assistance, feel free to let us know."
+  },
+  "f26f710d13f926ca5cfe95ca23195daaed26a172173eea9c251d889e005081b8": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "Thank you for contacting Amazon Help. Could you please provide more details about the call request so we can route it to the appropriate team?"
+  },
+  "7abbf31caa10d7935b56fac175c6d7fc0f900e7098438105308b2c1ee88017ab": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry to hear about the delivery hiccup. While we can\u2019t directly contact DPD on your behalf, you can reach out to them using the contact details in your tracking email or on their website to arrange a depot pickup. If you need further assistance or the issue isn\u2019t resolved, please let us know and we\u2019ll help you further."
+  },
+  "3cc8e6dc73ffedfc103e4b3796a8fd0a6041292d7aae8e8b0369b58399aeb45b": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s que vous n'ayez pas re\u00e7u de nouvelles concernant votre commande. Pouvez\u2011vous nous communiquer votre num\u00e9ro de commande afin que nous puissions v\u00e9rifier son statut\u202f?"
+  },
+  "4c0410e121c6ea3e93e57958096c4112c7cf912672dac406ae38f9d52ceae105": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear about the delivery problems you\u2019ve experienced with carrier @3375. Please share your order number so we can investigate further and work on a solution for you."
+  },
+  "192efed69f572397ddcc2b4c64a54ec501e01df2e57290b9799e2d808561442c": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry for this experience. I\u2019ve escalated your case to our senior team and will investigate the delivery incident right away. Could you please share your order number so we can resolve this promptly?"
+  },
+  "3045161260c30b0fa9684346b19ea2572f6755db8601b70a4656c16aa208e614": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, entendemos que deseas cancelar tu pedido. Por favor, env\u00edanos el n\u00famero de orden para poder asistirte r\u00e1pidamente."
+  },
+  "4ead188cd54b8a6736f6f36d98b588155710f7fe718ed2e3ae7b9a53c51456bf": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Merci pour votre gentil message ! Nous sommes ravis que vous soyez satisfait de votre exp\u00e9rience sur Amazon. N'h\u00e9sitez pas \u00e0 nous contacter si vous avez besoin d'aide."
+  },
+  "fea4340681cd7ce819ad962c459d9df1552ab5b7fcf40d99cb877a3b2bb1a6c0": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi, I'm sorry you're not seeing carrier details for your order. Let me look into this for you\u2014could you please share your order number? We'll update you on the delivery status and next steps as soon as possible."
+  },
+  "be76789f3fd91391b7aa73d2c9e5d6de70c8429507e527ae6d7d2d0a5a83dfa9": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Ol\u00e1! Que \u00f3timo saber que suas compras da Black Friday chegaram rapidinho e que voc\u00ea est\u00e1 satisfeito com os produtos. Se precisar de mais alguma coisa, estamos \u00e0 disposi\u00e7\u00e3o!"
+  },
+  "d6977bd861a83cbae4b653b70243f42bf0bea9ba787d3cf9c891665880f7fa17": {
+    "intent": "Order Issues",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry you haven\u2019t received a response yet. Could you please provide your order number or the case reference so we can investigate and get back to you as quickly as possible?"
+  },
+  "a818a8d4a27e7b99b5840ac455d1d0c507c85cb3d4cc966894357bc70ff1f2d6": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry to hear about the unprofessional behavior you experienced during delivery. Thank you for letting us know\u2014we\u2019ll investigate this matter right away. If you have any additional details, please share them, and we\u2019ll work to ensure it doesn\u2019t happen again."
+  },
+  "001c58d530f0a176e98bb411f20276a599e492ab7db4d9560a0cb4f7c41df424": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I'm sorry to hear your package hasn't arrived. Could you please share your order number so I can check the delivery status for you?"
+  },
+  "dc0552d123c3cb0054836b81def84c45b4cc938c9d8c344f4205cca1def60215": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi, I'm sorry to hear you haven't received your Amazon Pay cashback yet. Could you please confirm the order date and the cashback promotion details so I can check the status for you?"
+  },
+  "b354799a2a9d9f5a702084efda5fda72cb2119bf27b59bb863ced1ff9b7bba90": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry you\u2019re unable to reach our support team. I\u2019m escalating this immediately and will have a senior associate contact you within the next hour. In the meantime, you can also try the live chat option in the app or email us at support@amazon.com. Thank you for your patience."
+  },
+  "e97a74de9a96dc0016c6cf50128bc5e5affbb46dce85d0a5cad2872652dc5d75": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s pour ce pr\u00e9l\u00e8vement inattendu de 49\u202f\u20ac. Pouvez-vous nous communiquer le num\u00e9ro de la commande ou la r\u00e9f\u00e9rence de facturation afin que nous puissions v\u00e9rifier votre abonnement et proc\u00e9der \u00e0 un \u00e9ventuel remboursement\u202f?"
+  },
+  "12c65953202f8204bc6948865bce4e22213c904e0e10038ffe0f139aba697394": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi, I\u2019ve checked the tracking numbers IS119106082923 and 5180752616480 for you. You can view the latest status in your Orders page or by using the tracking links in the order details. If you need any further assistance, please let me know!"
+  },
+  "b7f0c4f4441341bdfb267135649299d6f79ae020c9924bdc0632cc9d7f4a0b91": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I\u2019m sorry you haven\u2019t received a response yet. Could you please provide your order number or the ticket ID you\u2019re referring to so I can look into this for you right away?"
+  },
+  "a72ad1c91e24ef25ea9a79f4bf140185aeb40fcc364d60bdcf169d2930e24a6c": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry to hear your delivery hasn't updated yet, especially with the game releasing tomorrow. Could you please share your order number so I can check the status and see if we can expedite it for you?"
+  },
+  "fe6ec0cb4696d879b33f52c8e8d95a048fe3ef6b741eceb3da1feba828d508cf": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, sorry to hear your order hasn't shipped yet. Could you please share your order number so I can check the status and get it moving for you?"
+  },
+  "fbd2477613323bccd2cf4185caa4d86181e97920df19d0b51fc4962b1944db01": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry you\u2019ve encountered this content. Our team will review the matter promptly and take appropriate action. Thank you for bringing it to our attention."
+  },
+  "73df5d3f76ff95c78cee5d01576dcce968da382e334640719931e29b153c8e25": {
+    "intent": "Account & Access",
+    "should_escalate": true,
+    "draft_reply": "Hi there, I\u2019m sorry you haven\u2019t received a response yet and that your account is frozen. I\u2019ll flag this for our senior team right away. In the meantime, I can help you cancel the order you\u2019d like to remove\u2014please confirm the order number, and we\u2019ll process the cancellation as soon as your account is unlocked. Thank you for your patience, and we\u2019ll work to resolve this promptly."
+  },
+  "8b385c7803217c91b9d66d8254e1c1bf3fc1db35a574a2ac0701cfac71428eae": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Hi! We don\u2019t share a direct customer\u2011care phone number publicly, but you can reach us quickly through the Amazon Help Center. Just go to https://www.amazon.com/gp/help/customer/display.html and choose \u201cContact Us\u201d to start a chat, request a call, or see the appropriate phone number for your region. Let us know if you need any further assistance!"
+  },
+  "0a08d7e895350eea2ca291099419de6ab32137f45afb0ad5a6da5d3f64fc5c86": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I\u2019m sorry to hear about the suspicious delivery attempt. I\u2019ve flagged your tracking number (913115081942) for investigation and will get back to you shortly with an update. Thank you for bringing this to our attention."
+  },
+  "183b45f9a6a0d0552cba4ffde997e644e82b30ac03a748afd060226f219ee3d3": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m happy to help clarify the reschedule request for your order. Could you please provide the order number or any related details so I can look into the timeline and assist you further?"
+  },
+  "8def92b091b84abf58b03048277a566a674a9a918a0b1d43019da50b28fe732d": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear you received an unexpected delivery. Let\u2019s look into this for you\u2014could you please share the order number or any details from the package so we can verify and resolve the issue?"
+  },
+  "2b821613255565264c6e948da59ee0851833faad4dfc4b4041b9a67994787550": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your Seagate external hard drive arrived damaged and isn\u2019t working. Please share your order number and we\u2019ll guide you through the return and replacement process."
+  },
+  "87813a8afe8caed3ffdcf1a44483ea87e004ba4e7f259e9c466852d74f6ff2ec": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s que le suivi de votre commande ne soit pas indiqu\u00e9. Pouvez\u2011vous nous communiquer votre num\u00e9ro de commande afin que nous v\u00e9rifiions le statut de la livraison avec TNT ?"
+  },
+  "8e3a878d9686cc767b0a7343b3c572eedf58f90a15d3def933aea488e7767c48": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Lamentamos la molestia. Por favor, env\u00ede su n\u00famero de pedido para que podamos investigar por qu\u00e9 se marc\u00f3 como ausente y asegurar una entrega correcta."
+  },
+  "5eebbe5bb243e4c5739b9ab3e681f63a317e98d51d99a523114b896260d87368": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m very sorry for the inconvenience and the experience you\u2019ve had with our team. I\u2019ve escalated this matter to a senior supervisor who will review the delivery delay and the conduct of our colleagues. We\u2019ll follow up with you shortly to resolve this promptly."
+  },
+  "dd45817e48c3844bbc16a6148083aa7f75ccd33de1e966e66b9b760a15a6a655": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there! The \u00a31 charge you see is a standard verification hold that Amazon places when you sign up for Student Prime. It\u2019s temporary and will be released back to your account within a few business days. If you have any other questions or notice a different charge, just let us know!"
+  },
+  "a6438e07f33b4175458fbbf7cf169d3954b0b2cc871113d6ed9fdab1b307d50c": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, we\u2019re sorry for any confusion about your delivery date. We see that your package was delivered today, earlier than the expected Monday. If everything is in order, great\u2014if you have any concerns or need further assistance, please let us know. Thank you for being an Amazon Prime member!"
+  },
+  "da578f8ef01198e2fdf2c2d6d48277b8ce5ac343f2f543ba76100c104df428b5": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry for the frustration you\u2019ve experienced. I\u2019m escalating this case immediately and will have a senior team member reach out to resolve it as quickly as possible. Could you please share your order number or any reference details so we can investigate further?"
+  },
+  "759bca33909316c1506695e8482c5bb6c082bcc0d777dbe64870ee7bec9fd46f": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u4e0d\u4fbf\u3092\u304a\u304b\u3051\u3057\u3066\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3002\u5546\u54c1\u306f\u3059\u3067\u306b\u304a\u53d7\u3051\u53d6\u308a\u3044\u305f\u3060\u3044\u3066\u3044\u308b\u3068\u306e\u3053\u3068\u3067\u3059\u304c\u3001\u30e1\u30fc\u30eb\u306e\u5185\u5bb9\u306b\u3054\u4e0d\u660e\u70b9\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u8a73\u7d30\u3092\u3054\u6559\u793a\u3044\u305f\u3060\u3051\u307e\u3059\u304b\uff1f\u4ed6\u306b\u3054\u8cea\u554f\u3084\u3054\u8981\u671b\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u304a\u6c17\u8efd\u306b\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002"
+  },
+  "57affb8a3edaadb57f937d79c9eb4424caf4e4af6bff0c9ff9166cadf62afe9b": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, sorry to hear about the issue with Intelcom Courrier Canada. Could you please share your order number and any details about the delivery so we can look into it for you?"
+  },
+  "b17af50e2a91050d95670704ff6e507de38240a27a7eae80a458d66372c96cb1": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for sharing your Halloween spirit! If you have any questions or need assistance, feel free to let us know."
+  },
+  "b136934fc6243ade8fec001edd318d79b21da8d64ed17f73810c8d6639325349": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you received the wrong shoes. Please share your order number and we\u2019ll arrange a replacement with the correct style right away so you can enjoy them for your birthday."
+  },
+  "a6f12a9ef1eaab8602e7568c571ebb9a7152511c835735530e3bd8475d669a46": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! We're happy to help, but we need a bit more information. Could you please provide your order number or describe the issue you're experiencing? Thanks!"
+  },
+  "5e9a5634575d15056d66dfe929b4e3f6ff30433dc0dfef40a92fb79292746156": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there! Thanks for reaching out. Your Kindle Unlimited subscription may still show access for a short period after expiration while the system updates. If you\u2019re still able to borrow books after the renewal date, please let us know and we\u2019ll review your account to ensure everything is correct. We appreciate your patience!"
+  },
+  "411e296134d2a0ce4e6046399c6816137028e561c6198396c1598787e83ce75b": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hallo! Es tut uns leid, dass Sie widerspr\u00fcchliche Informationen erhalten haben. K\u00f6nnten Sie uns bitte Ihre Bestellnummer und das genaue Problem mitteilen, damit wir das f\u00fcr Sie pr\u00fcfen k\u00f6nnen?"
+  },
+  "fc56bf7d86b7e1f53a6fde54e4260224e0ac570b5d87c7e9fa3bc19d138b258a": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s que votre colis n'ait pas \u00e9t\u00e9 r\u00e9cup\u00e9r\u00e9. Pouvez\u2011vous nous communiquer votre num\u00e9ro de commande afin que nous puissions enqu\u00eater et r\u00e9soudre le probl\u00e8me rapidement ?"
+  },
+  "598206e48d6331e0f26479a33cdb9a4ad5ab6c825c79621fa7daf84482d30186": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "Nous sommes d\u00e9sol\u00e9s pour ces multiples retards. Nous allons imm\u00e9diatement v\u00e9rifier votre commande 407-9898453-1261962, contacter le transporteur et organiser une nouvelle livraison ou un remboursement selon votre pr\u00e9f\u00e9rence."
+  },
+  "1db6573aadc158c9ebd64988dddf0f4107edc65f96048cdedb42286f35e0c980": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, pour faire r\u00e9parer votre aspirateur Dyson achet\u00e9 en 2013, vous pouvez contacter le service client Dyson ou vous rendre dans un centre de service agr\u00e9\u00e9. Vous trouverez la liste des points de service et les coordonn\u00e9es sur le site officiel de Dyson (https://www.dyson.fr/support). N\u2019h\u00e9sitez pas \u00e0 nous recontacter si vous avez besoin d\u2019aide suppl\u00e9mentaire."
+  },
+  "8b0209e89d597b62854e949b50ce1f2fe41a6083b12d6139527b380afde64f5b": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I\u2019m sorry you\u2019re seeing that the full season isn\u2019t available in your region. Some titles have regional licensing restrictions that limit what can be purchased or streamed. If you\u2019d like, I can check if the episodes are available in a different format or suggest similar titles that are accessible in your location. Please let me know your Amazon account email so I can look into this further for you."
+  },
+  "77a2490010cdb90af1a37c9adafce53e4ad1257a69727b63cb5d2ff1a3795973": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re having trouble updating your address. Please double\u2011check that the ZIP/postal code matches the format required for the destination country and try saving the address again via the \u201cYour Orders\u201d page. If the issue persists, let us know and we\u2019ll gladly update the address for you or explore alternative solutions."
+  },
+  "c4673b1a8a5b130ff9a9afccaf477f58d9f7b6b4dd9956746afffb8d0d741559": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your order arrived slower than expected, especially as a Prime member. Let me look into the shipping delay for you and see how we can make it right. Could you please share the order number so I can investigate further?"
+  },
+  "383db2fdf847615d92df9785facdc6fed7853527efd408dd080feb00a639d339": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry for the inconvenience. I\u2019ve noted your request to cancel the consumer\u2011durable items at delivery. If you\u2019d like to confirm or need further assistance, please let us know your order number and we\u2019ll take care of it right away."
+  },
+  "469f33a1f475a59d587c7ce05926e32ff2b5502b8d5e7727e70af4aaec8c3266": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your package is missing. Could you please provide your order number so we can investigate the delivery status and resolve this for you as quickly as possible?"
+  },
+  "3397f09d83293c25fadc8618b10dfd2973bb35748bb3f1f852983e600ec3f1ad": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s pour le retard de votre livraison. Nous v\u00e9rifions imm\u00e9diatement le statut de votre colis et vous tiendrons inform\u00e9(e) d\u00e8s que possible. Merci de votre patience."
+  },
+  "15f189d3440a53b54ee003582f20108d344d0f4ea5cb65019f83ffa2610a0aaf": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "You're welcome! Glad we could help. Let us know if you need anything else."
+  },
+  "09ba786410bf5d6082a2b35cf887a3ae5ad45d435b02ce6c6b161d4cb8baf732": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m happy to help you confirm the delivery date for your order. Could you please provide your order number so I can look up the details for you?"
+  },
+  "fe10745d81a19cccd2ca650c59794024af13d7e2765e198ad52499662c65a0c5": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hello! It looks like your question is about an iPhone quiz winner, which isn\u2019t related to Amazon services. If you have an Amazon order or product question, please let me know and I\u2019ll be happy to help!"
+  },
+  "87b3d5ec343d8b47e9543003c58f3816ccd372d540a848fa4784bc0d9307c324": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear some items are missing from your order. Could you please share your order number so I can look into this for you?"
+  },
+  "abc209df478a12a4997bac06f20b94099a115d32d39f9547f95649f665c106c1": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your package hasn\u2019t arrived yet despite the close proximity of the fulfillment center. Could you please provide your order number so we can investigate the delay and get your delivery on track as quickly as possible?"
+  },
+  "9aa34c37b6cc61f38e24d50a371e0c3c7d6d97e00b3c22d84199d8fbabb1cf94": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for your interest in Amazon Bar! Let us know if you have any questions or need more information."
+  },
+  "dab2b1df0c79b8137b56510c0996a7b0b0c9259fa29b37070d17b511cc7aea28": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s que votre colis soit livr\u00e9 dans un relais UPS \u00e9loign\u00e9. Pouvez\u2011vous nous communiquer votre num\u00e9ro de commande afin que nous v\u00e9rifiions la situation et organisions une nouvelle livraison \u00e0 votre adresse\u202f?"
+  },
+  "b268c33a7a1bfe82c1a29e047f1c7b40e411c8486f0caac4acffb40417737398": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry to hear someone may have created another account using your email. For your security, please contact Amazon Customer Service directly at\u202f1\u2011888\u2011280\u20114331\u202for use the\u202fHelp\u202fsection to verify your identity and secure your account. We\u2019ll also forward this issue to our security team."
+  },
+  "113e7987b0f7a476aca05b1085767e11f90e8d8f037a0e4b3efbfd7839850781": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re having trouble accessing your account. Let\u2019s get this resolved\u2014please verify your identity by providing the last four digits of the card on file, and I\u2019ll help unlock your account and ensure your payment information is secure."
+  },
+  "8db4d1f33bee00180b4e0f61153d18f0aff3e728e73e1bda87b18edd01473534": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Sorry to hear you're seeing a 500 error on the login page. Please try clearing your browser cache and cookies or using a different browser, and make sure pop\u2011ups are allowed. If the issue continues, let us know and we can investigate further."
+  },
+  "852f5719fbe2c1ed6c629a899bbb17999b61e64c6a8f5f06b99101a955220414": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m sorry you\u2019re still waiting despite the earlier escalation. I\u2019m checking the latest status of your delivery and will update you right away. Could you please share your order number so I can investigate further?"
+  },
+  "f5c9f4dfa55e9601d5bc45eb321d57610ec6e958b33437b232232825e7df0a23": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry to hear something seems odd with your case. Could you please provide a bit more detail about the issue you're experiencing so I can help you resolve it?"
+  },
+  "1c5d9cf5803436d7342ff76a1589d558dcd2c93a53ee1de2fa3b8efd2fca0603": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m sorry you\u2019re feeling this way. Could you please share more details about the issue you\u2019re experiencing so we can investigate and help you promptly?"
+  },
+  "6a84256a63083851dcd8b71c2ecfbf375809e2f065fc4741bc0be3e361d4546f": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u4e0d\u4fbf\u3092\u304a\u304b\u3051\u3057\u3066\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3002\u4ea4\u63db\u8fd4\u54c1\u3092\u3054\u5229\u7528\u3044\u305f\u3060\u3044\u305f\u969b\u306b\u3001\u8fd4\u91d1\u51e6\u7406\u304c\u8868\u793a\u3055\u308c\u308b\u3053\u3068\u304c\u3042\u308a\u307e\u3059\u304c\u3001\u901a\u5e38\u306f\u4ea4\u63db\u5546\u54c1\u306e\u767a\u9001\u304c\u5b8c\u4e86\u3059\u308b\u3068\u81ea\u52d5\u7684\u306b\u51e6\u7406\u304c\u66f4\u65b0\u3055\u308c\u307e\u3059\u3002\u3054\u6ce8\u6587\u756a\u53f7\u3092\u304a\u77e5\u3089\u305b\u3044\u305f\u3060\u3051\u308c\u3070\u3001\u8a73\u7d30\u3092\u78ba\u8a8d\u3044\u305f\u3057\u307e\u3059\u306e\u3067\u3001\u3069\u3046\u305e\u3088\u308d\u3057\u304f\u304a\u9858\u3044\u3044\u305f\u3057\u307e\u3059\u3002"
+  },
+  "eb4e455e12d15363f7db7e05bdbbec7c7e18cacabab9f430a354dda311c3d503": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry you're not seeing subtitles for \"Welcome to Ballroom\" episode 19. Let me look into this for you\u2014could you confirm the device and app version you're using? We'll get the subtitles sorted out as quickly as possible."
+  },
+  "b58e3bb98b0a7d6ae77770dbdacdbcadfe97bab08b42d5625280fc2aaacf327b": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry for the frustration you\u2019ve experienced. I\u2019m escalating this issue to our senior support team so you can receive assistance in English as soon as possible. You\u2019ll hear back shortly."
+  },
+  "cfe17d6cd9cc005eb3675e09ac832cc57f5c7cc0109ae51943f5fe0fd9f3c843": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, we\u2019re sorry the EWeLink skill isn\u2019t currently available in the India store. We\u2019ve passed your feedback to the team and will let you know when it becomes available. Thank you for your patience!"
+  },
+  "5b80642177746ec9b6e2da219086da4c768b4c051df05def9f1721fcf74157a3": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re having trouble logging in. Please try resetting your password using the \u201cForgot password\u201d link, and make sure you enter the new password exactly as shown. If the problem continues, let us know and we\u2019ll investigate further."
+  },
+  "5004180196d978664e49b5d990bfb88794b51783a5d98cb88ae98d7ff82fe356": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry you haven't received any email from us. Could you please confirm the email address associated with your Amazon account and check your spam/junk folder? Once we have that information, we can investigate and ensure you receive the necessary communications promptly."
+  },
+  "2faef61325573b4ee923c16fd7df145dc35ae2c7fac0545cd7ad9f4580cef6bd": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear that recent deliveries haven\u2019t met your expectations. Your feedback is important, and we\u2019ll review the issues with the new delivery service. Could you please share the order numbers affected so we can investigate further and work to improve your experience?"
+  },
+  "a06495e5e4fbc583d3c91c33533f2669747712d707ce00c900396b9424e8deb6": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear about the delay with your lens order and the inconvenience it caused. I understand how important it was for you to receive it by Friday. Let me look into the shipment details and see how we can get it to you as quickly as possible, or arrange an alternative solution for you. Thank you for your patience."
+  },
+  "f9d82f07f8a91f0c3761621ee3f5391cb53f67373f4648dae7a179caa92955f4": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Lamentamos mucho el retraso de su paquete y la informaci\u00f3n confusa que recibi\u00f3. Vamos a investigar su env\u00edo de inmediato. \u00bfPodr\u00eda proporcionarnos el n\u00famero de pedido para ayudarle mejor?"
+  },
+  "f86edd3bd02870708c3f1c95c6da0f9da1c7e02e9824ed5356624910253884f3": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry for the repeated inconvenience and missed callbacks. I\u2019m escalating this issue right away and will have a senior team member review your order (ID @115931) to resolve the delivery problem before the holidays. Thank you for your patience."
+  },
+  "0394b3adca50f8458941b807f1f4cbcc984efd627cf20a098fb21502fa202323": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s que votre commande indique \"livr\u00e9\" alors que vous ne l'avez pas re\u00e7ue. Pouvez\u2011vous nous communiquer votre num\u00e9ro de commande afin que nous puissions enqu\u00eater et r\u00e9soudre ce probl\u00e8me rapidement ?"
+  },
+  "64c9d6166f32e8b0bc0bf4c19cbf372a70b0abd7414690992c7d4f4777210d8b": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry your package didn\u2019t arrive as expected. Let me check the latest status for you\u2014could you please share your order number? We\u2019ll work to get it to you as soon as possible."
+  },
+  "51988e6ddd79f060871da672c2c52c2cba4296d6c9b309b70b89d03bfab4cc37": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your transactions are being cancelled. Could you please confirm the payment method you\u2019re using and any error messages you\u2019ve received? I\u2019ll help get your Diwali gifts ordered as soon as possible."
+  },
+  "82e5f47474e08b0e97a627713cf285b7af9734bc395411bd1fb736b81c2a76e5": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear you\u2019re still waiting. Could you please share your order number so we can check the delivery status and provide a solution?"
+  },
+  "b336a92b82cf3f15de691ee8b5d25981618f45fbd3edb53754d3176965f50036": {
+    "intent": "Account & Access",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m sorry you\u2019re experiencing this issue with your closed account and the lack of response. I\u2019ll forward this to our specialized team right away so we can investigate and get back to you as soon as possible. Could you please confirm the email address associated with the account? Thank you for your patience."
+  },
+  "8ed138e3b2342e5b7fd1ee15a77e6718ca4087fd361fcdb8d3005fbd302df4d1": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, gracias por contactarnos. \u00bfPodr\u00edas darnos m\u00e1s detalles sobre tu consulta o el producto al que te refieres para poder ayudarte mejor?"
+  },
+  "157f8f51431f0584a1062b1b2b6e1233db31f8f8615bd1aa177a102ed6bbb48d": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear this has happened twice recently. Could you please share your order number and a brief description of the issue so we can investigate and resolve it for you?"
+  },
+  "4704aa41dc68293b77cb68cef6321a72e10bb56164850b9ae88ba8f13120bc39": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, merci pour votre message. Nous avons bien re\u00e7u votre signalement concernant votre adresse e\u2011mail et nous le traitons. Nous vous tiendrons inform\u00e9(e) d\u00e8s que possible. N'h\u00e9sitez pas \u00e0 nous recontacter si vous avez d'autres questions."
+  },
+  "f525d3f15ab9cc91e4f63b0d8dfa4dcd48c78e68d791ee1ca17a49d2b0ddf9fd": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry to hear your order shows as delivered but you haven\u2019t received it. I\u2019ve flagged this for our senior team and they\u2019ll investigate right away. Please verify the shipping address and any safe\u2011place details, and we\u2019ll contact you shortly with an update. Thank you for your patience."
+  },
+  "8125d24fdd1218ef38ee3e548bae6f6736100cfd4e47b3b34f18626e213f0fae": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your packages haven\u2019t arrived as expected. I\u2019ll look into the delay for the shipments in your city and provide an updated delivery estimate. Thank you for your patience, and we\u2019ll work to get them to you as soon as possible."
+  },
+  "b3aae28c5470e97b23714a5c983b97e67d72fb8a6f787fe3cfa5a29a4ca58b83": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I see you have a question about your channel subscription. Could you please provide more details or let me know which channel you're referring to so I can assist you further?"
+  },
+  "a71e4c44378ee17ebf8c477f235e14bdfe424e0afaab258ac3b68285dfb1c7ca": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry to hear there was a delay with your delivery. Could you please share your order number so I can look into this for you?"
+  },
+  "947a15713859744d1d2de996ce4cde4742f8e4cf13ac1d52071eb2363cbb2390": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Lamentamos mucho la demora y la espera. Vamos a revisar el estado de su env\u00edo y le informaremos lo antes posible. Gracias por su paciencia."
+  },
+  "f3b8dff16f4b9e3ae1b484a7d55f195b969bbab3dabe10448a82016863112ce3": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry your 1\u2011day delivery didn\u2019t arrive as expected. Please share your order number so we can check the status and arrange a faster delivery or refund."
+  },
+  "d382bf73c34917b9a33ead5d30edd11de0281d84447a20d25479dc76b5e3c34c": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear you\u2019re frustrated with Amazon Flex as a delivery option. You can remove Flex from your delivery preferences in the \"Your Orders\" settings or by contacting our support team for assistance. Let us know if you need any help making the change."
+  },
+  "8f7f3780ad4c8943de26031913849660db1839d0ea39ad8cf25cc07de9f70f76": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your package was marked as delivered but you haven\u2019t received it. Could you please share your order number so I can investigate the delivery status and help resolve this for you?"
+  },
+  "5730fcdf80971723ad0dcbd940694ac82d58713b1b48aa34ef97717719b64ed2": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you haven\u2019t received the email. Please check your spam folder and verify the email address on your account. If needed, I can resend the email\u2014could you let me know the order number or the specific email you\u2019re expecting?"
+  },
+  "4b39145f186af095c40589aa6af52873dc531c26e18d541dc2ad10865fe4c7b1": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I see you referenced Order #408-1244342-2854732. Could you please provide more details about the issue you\u2019re experiencing so I can assist you further?"
+  },
+  "0643e6c6a499cfed897ed9b340fc64ab7bc35e64beaaeb361a849b07a68b6c72": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry you received the wrong item. I\u2019ve located order #402-5479722-9566747 and will arrange for the correct product to be shipped to you right away. No refund is needed\u2014just a replacement. I\u2019ll send you a confirmation and tracking details shortly. Thank you for your patience!"
+  },
+  "4317314788ecd637e94079dea1ec30c04299129e7fdd9f0a8686b867ce6e91b4": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry you\u2019re having trouble locating the Bajaj Finserv option. Could you let me know where you\u2019re looking (e.g., checkout page, payment settings) so I can help you find it?"
+  },
+  "4e318ce20180e07413420cd7016634ca77d61ff8f7f19730111c632bb9aa9962": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! With Prime, you already get free fast shipping at no extra charge. If you need even quicker delivery, you can select Same\u2011Day or One\u2011Day delivery (where available) at checkout\u2014no special fee is required. Let us know if you have any other questions!"
+  },
+  "a0e1a2757dbcc556514afa0232e7efe0b99210f422328a25fd0c3ef7679f5ec7": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I\u2019m sorry for the inconvenience with your glove return. I\u2019ll check the return status right away and arrange a refund or a replacement for you\u2014just let me know which you prefer. Thank you for your patience and for being a Prime member!"
+  },
+  "bce0d515b88ab43c7f517d7142425efbb46b1887d70e5769f68acf234c723e4f": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for reaching out! If you have any questions or need assistance with your order, feel free to let us know."
+  },
+  "65ac122519b70d9550ee2bbaaec6e34670d096b37a602e39255ef1a4ea22323d": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry you received a soap bar instead of your Redmi 4. Could you please share your order number and a photo of the item you received? We\u2019ll investigate right away and get this resolved for you."
+  },
+  "ce8e80a484678df76f8d76ddd6313625970cdf982913b6443e81a89bca25c3fd": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry for the inconvenience you\u2019ve experienced. Could you please share your order number so I can look into why you were asked to collect the package and help resolve this promptly?"
+  },
+  "7e5de5264dc1e54f36663682842dcbb3f7f7f88e84fc079a0f4eea3ab59a3422": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, thanks for reaching out. Could you please provide more details about the issue you're experiencing with your 3rd generation device? We're here to help!"
+  },
+  "aebebb426f54fc9c85112bca1ce056659ff5c6ad3579dbcbe2fce0c5610709a2": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re being redirected to the sign\u2011in page. Please try clearing your browser\u2019s cache or using an incognito window, and make sure you\u2019re logged into the correct Amazon account. If the issue persists, let us know the device and browser you\u2019re using so we can investigate further."
+  },
+  "82f849ae6d936d29cdfca9d5f8ba1106e83db8a94d04a548ff1ef4fb3fd7f407": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry you haven\u2019t heard back from the escalation team. I\u2019m escalating this again and will ensure you receive an update within 24\u202fhours."
+  },
+  "69f61aff0ca48ced9612bd7d0e8de4d26fb75cccb1017f33a67c869b253948ad": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, gracias por informarnos. Hemos visto que ya inici\u00f3 el proceso de devoluci\u00f3n. Si necesita asistencia adicional o tiene alguna pregunta, por favor av\u00edsenos y con gusto le ayudaremos."
+  },
+  "df143d51d2f4a64db9ae5959687d98a9b979b2cc3a062a865cddd18b56e2694d": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi! You don\u2019t need to be online at the exact moment you place a Kindle order. Once the purchase is complete, the title is added to your Kindle library in the cloud, and you can download it to any registered device whenever you\u2019re connected to the internet."
+  },
+  "deb33a40505c72700a5f6134d3795160ebf825a609ecfb266f7a3b62f1cb57a9": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, lamentamos la demora. Seg\u00fan la \u00faltima actualizaci\u00f3n, su paquete est\u00e1 en reparto y se esperaba entrega hoy entre 09:00 y 15:00. Le recomendamos esperar un poco m\u00e1s; si no lo recibe en la pr\u00f3xima hora, por favor cont\u00e1ctenos nuevamente y verificaremos con el transportista para resolverlo lo antes posible."
+  },
+  "a3d1dce67a529219688fa332ace86e469377e9b856c29cf2ca181e9398760ce6": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry your package is delayed. Could you please share your order number so I can check the delivery status and help get it to you as soon as possible?"
+  },
+  "375a9b122ebae715c4f32c66dc5aa065af7478b2e30d10ee78d522b077bb4a03": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your package couldn\u2019t be delivered as expected. Let me check the status for you\u2014could you please provide your order number so we can resolve this quickly?"
+  },
+  "58702e3527058e495a7bbe1dfe9c5f758d80566b09e1ce7169ab7639c90d8cd0": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you haven\u2019t received a response yet. Could you please provide your order number or the email address you used so we can look into this right away and get back to you as soon as possible?"
+  },
+  "556417aced7370ccfa85b9b646df1aceefa0beba99c7f52cf75b8b42feeef0e9": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, merci pour votre message concernant le bonus de pr\u00e9commande. Pouvez-vous s'il vous pla\u00eet nous fournir votre num\u00e9ro de commande afin que nous puissions v\u00e9rifier le statut du bonus et vous aider au mieux ?"
+  },
+  "150e5ce4dff174827d179cc0b5fd9d0a7de33ae7fe910ac380a7822d3511e1be": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, we\u2019re sorry to hear you\u2019re frustrated with the price changes you\u2019re seeing. Prices on Amazon can vary due to factors like seller competition, promotions, and inventory levels, and they may update frequently. If you see a price drop after adding an item to your cart, you can try placing the order again or using the \"Watch this price\" feature to get notified of future changes. Let us know if you need any further assistance!"
+  },
+  "d62f7c691729efda536a59eb7efb059cedeba6dfe41dc7fecd9dd399c04c95d2": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry for the frustrating experience you\u2019ve had with our phone support. I\u2019m escalating this to our senior team right away and will follow up with you shortly. Could you please provide your order number or account email so we can investigate further?"
+  },
+  "7e73d643e2c39b4036c15f82d0c16c913028d9833aad0b35ede2774dfdd32f9f": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear the preorder disappeared before its release. Could you please share your order number or the title so I can check the status and help you secure a copy?"
+  },
+  "048c7344b47d0ef22858d4bcc9421452444606da9ca194be74fabbc2149073de": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there! The third season of Mozart in the Jungle is available on Prime Video. Let me know if you need help accessing it."
+  },
+  "e114bbf897bbf02b8317623cb99aa258f4209cc1928e0e60ffdd3d72ed4ae6c1": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for your feedback! The current promotion is limited to metropolitan areas, which is why it may not be available in your location. Please keep an eye on our site for future deals that are eligible for your region, and let us know if you have any other questions."
+  },
+  "70d57f2356a956aaecb67ba7d2f439fb4fb1047b4aef0dcf9812239c1ced975f": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry you haven\u2019t received a helpful response yet. Could you please share more details about your issue so we can assist you promptly?"
+  },
+  "ed14884f3012e0699cee71f009bbdd093e726e2cb40fa5a3069dee99ea618cd0": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Ol\u00e1! Que bom que voc\u00ea est\u00e1 animado com as promo\u00e7\u00f5es de livros. Se precisar de ajuda para encontrar um t\u00edtulo espec\u00edfico ou quiser saber mais sobre ofertas, estamos \u00e0 disposi\u00e7\u00e3o!"
+  },
+  "3fe7ff01764260b7e50623ed3e54a48c20d98361c5e65482a4476252ea6412d3": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s pour les d\u00e9sagr\u00e9ments de livraison avec TNT. Nous allons examiner votre demande et essayer d\u2019utiliser un autre transporteur pour vos prochains colis. Merci de votre compr\u00e9hension."
+  },
+  "c60d98ae773981328e48a5c7f43376ebb1a503bd17c651de019a9482f92604bf": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry for the confusion with your deliveries. Some orders are routed to the post office based on the carrier\u2019s service area or package size. I can help you check the status of your replacement orders and arrange a redelivery or alternative shipping option. Could you please share the order numbers so we can look into this for you?"
+  },
+  "caf05792de9a07247ed5e68fb2f0400bd0fc003fb1b91026d71169c08a82239a": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry for the frustrating experience. I\u2019m escalating this issue to our senior support team right away\u2014could you please share your order number or email so we can resolve it promptly?"
+  },
+  "2f007b52fc9f4a0c60d17d419218c125708e7a7144ccfd3f72ff048d7c9f0366": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "\u00a1Gracias por tus comentarios! Nos alegra que hayas disfrutado del contenido. Si tienes alguna pregunta o necesitas ayuda con alg\u00fan servicio, por favor av\u00edsanos."
+  },
+  "650da8407963814b6cba789ceaf1b88a9c2b3c8f7466bcc89ae355f4181fbdf2": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, sentimos mucho que el transportista no se haya puesto en contacto contigo. Por favor, env\u00edanos el n\u00famero de tu pedido y verificaremos el estado de la entrega para ayudarte lo antes posible."
+  },
+  "dc7c934ae0553f40bfee3257a091b67eb1defcb435309f64340bcadaf3a3f14d": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry you're having trouble downloading books. Could you let me know which device and app version you're using, and confirm that your internet connection is stable? Also, please check that the book is still available in your library and that you\u2019re signed into the correct Amazon account. With that information I can guide you through the next steps to resolve the issue."
+  },
+  "4e323e076883d7097ee083a04214e1aaa3b509e9a03482b74c9a602fa1e82eb6": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry your pre\u2011ordered item hasn\u2019t arrived yet. Could you please share your order number so I can check the delivery status for you?"
+  },
+  "5eb32a05beaccbdca26da13ae0deb44b5a8fc353d3f2bc35fb1d87827518384b": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry to hear your copy of \"Turtles All The Way Down\" hasn't shipped yet. Let me look into the status for you\u2014could you please share your order number? We'll get this sorted out as quickly as possible."
+  },
+  "fee04f581b402031b6fcf1d07bd2a905a6ee800323b536a6f6e396976ba6d34a": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear the item you received is incorrect and defective. Could you please provide your order number so we can review the report you submitted and arrange a replacement or refund for you?"
+  },
+  "81c7019d2d7c4b5dfba6f5f375d8ae3fd570796a09aa2d9d9aa57045a8fee0a2": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, lamentamos la demora en la entrega de su pedido. \u00bfPodr\u00eda proporcionarnos el n\u00famero de orden para investigar su env\u00edo y ofrecerle una soluci\u00f3n lo antes posible? Gracias por su paciencia."
+  },
+  "8d8da2369625082be1e736ffb15474d91001b92f740502779c27c5eddac7d152": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry to hear about your experience. Your feedback is important to us, and we\u2019d like to investigate further. Could you please provide your order number or any relevant details so we can address this promptly?"
+  },
+  "fe621e025fcb03ef6e254802929635a57d4d70334964b25ab44acdc5202fc47b": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your reward points are still missing. I\u2019ll look into this for you right away. Could you please confirm the email address associated with your account and the approximate date you noticed the points were gone? This will help us resolve the issue as quickly as possible."
+  },
+  "3d7a490789568cf56655f0893fd565a9bf696ba68c077a802dec50055cde437c": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry the Disc Magnets you received are thinner than expected. Could you please share your order number and any photos of the item? We\u2019ll arrange a replacement or refund right away."
+  },
+  "5ed6e744a9f98b4d31ed0e442d8d73dd09c9bc7e89e54805b4cc0bdb6fa39e6d": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for letting us know about the image quality. We\u2019ll update the product picture with the better version you provided."
+  },
+  "bab12ed36c928fb8a7e30f2f6e05f7eb5fc922d3e194fd537e66590b928276b6": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s d\u2019apprendre que votre commande n\u2019est pas arriv\u00e9e comme pr\u00e9vu. Pouvez\u2011vous nous fournir votre num\u00e9ro de commande afin que nous puissions v\u00e9rifier cela pour vous ?"
+  },
+  "d22317423cd2b9ed7fb5861d26ca4802f7b4f306f78ae158363142a51faec177": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear the item\u2019s release date didn\u2019t match your expectations. Let\u2019s check the correct availability and see how we can help get the product to you as soon as possible. Please share the order number or product name so we can assist further."
+  },
+  "7043ab797ca98a7a393cfe54ed232db3315d5bd3d44ac865b811da243b931e89": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u9023\u7d61\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u5148\u307b\u3069\u306e\u30e1\u30fc\u30eb\u3092\u3054\u53d6\u6d88\u3057\u5e0c\u671b\u3068\u306e\u3053\u3068\u3001\u627f\u77e5\u3044\u305f\u3057\u307e\u3057\u305f\u3002\u3054\u4f9d\u983c\u306e\u30ad\u30e3\u30f3\u30bb\u30eb\u306f\u30b5\u30dd\u30fc\u30c8\u30c1\u30fc\u30e0\u3067\u5bfe\u5fdc\u53ef\u80fd\u3067\u3059\u306e\u3067\u3001\u3053\u3061\u3089\u306e\u30e1\u30c3\u30bb\u30fc\u30b8\u306b\u3054\u8fd4\u4fe1\u3044\u305f\u3060\u304f\u304b\u3001\u30de\u30a4\u30da\u30fc\u30b8\u306e\u300c\u304a\u554f\u3044\u5408\u308f\u305b\u5c65\u6b74\u300d\u304b\u3089\u30ad\u30e3\u30f3\u30bb\u30eb\u624b\u7d9a\u304d\u3092\u304a\u9032\u3081\u304f\u3060\u3055\u3044\u3002\u3054\u4e0d\u660e\u70b9\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u9060\u616e\u306a\u304f\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002"
+  },
+  "99a99a3b710f82a4cac6e48501b06f5e06bfbd3186022ed5c7fd81d93ee4edba": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your order arrived damaged. We can arrange a replacement at no extra cost to you. Could you please provide your order number so we can process this right away?"
+  },
+  "cebdda011b0534f129f1adde2e87bb67d08215b6fc7a3d608680e7a1371854d5": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, gracias por contactarnos. Para poder cambiar la fecha de entrega o coordinar la recogida con la empresa de paqueter\u00eda, por favor proporci\u00f3nanos el n\u00famero de tu pedido. Con esa informaci\u00f3n podremos asistirte de inmediato."
+  },
+  "cc9797dbc8f8859791c30aa976a39666ddae268810cb13930dcec01b89cb1f53": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Ol\u00e1! Parece que sua mensagem n\u00e3o est\u00e1 relacionada a um problema espec\u00edfico com sua conta ou pedido. Poderia nos fornecer mais detalhes sobre como podemos ajudar?"
+  },
+  "316d48e4331a458fd64cd931f35c1f539ddf397b9209867e83161607fbfbee79": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear about the delay. Please share your order number so we can investigate the delivery status and get this resolved for you promptly."
+  },
+  "58091f23dc7ca0cbe30c036c6a42f62398ab69e7f771ed62bbce5a48e4f3cb74": {
+    "intent": "Order Issues",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m very sorry for the repeated trouble you\u2019ve experienced. I\u2019ll personally flag this for our senior team and ensure we get a clear update on your order. Could you please share your order number so we can investigate further and resolve this promptly?"
+  },
+  "c1f4c1bafbb5d6ee45065aaeca78750cdb87c3d011ca4348ccfb5937e5c6d1db": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear you\u2019ve received the same item multiple times and haven\u2019t been able to reach the delivery agent. Could you please share your order number or the email address used for the purchase so we can investigate and resolve this for you?"
+  },
+  "ac7cd076d800590ca849581e6981b65afe0d88b2df4bea2f5623021bf24dbd5d": {
+    "intent": "Account & Access",
+    "should_escalate": true,
+    "draft_reply": "Hola, gracias por contactarnos. No compartas informaci\u00f3n personal ni hagas clic en enlaces sospechosos. Amazon nunca solicita datos de cuenta por correo no verificado. Te recomendamos comunicarte con nuestro servicio al cliente a trav\u00e9s del n\u00famero oficial en la secci\u00f3n \"Ayuda\" de la web o la app. Si recibiste un correo sospechoso, puedes reenviarlo a stop-spoof@amazon.com para que lo revisemos."
+  },
+  "8f82178d0355fcec57bd6ac9fe9fd458530ea4f9fbcd51622dc5b575b452e97b": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Bonjour, nous sommes d\u00e9sol\u00e9s que votre code de r\u00e9duction de 100\u202f% ne fonctionne pas. Pouvez\u2011vous v\u00e9rifier qu'il est bien appliqu\u00e9 dans le panier et nous fournir le num\u00e9ro de commande ou une capture d\u2019\u00e9cran\u202f? Nous vous aiderons \u00e0 r\u00e9soudre le probl\u00e8me."
+  },
+  "577c519cf4dd6044b2dc2d8a75f708462179f71718b9e8b5017d17d3508fed5e": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u4e01\u5be7\u306b\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u3054\u8981\u671b\u901a\u308a\u3001\u6025\u304e\u3067\u306f\u306a\u304f\u5bfe\u5fdc\u3055\u305b\u3066\u3044\u305f\u3060\u304d\u307e\u3059\u3002\u4f55\u304b\u3054\u4e0d\u660e\u70b9\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u304a\u6c17\u8efd\u306b\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002"
+  },
+  "4f8112b5627d1df2da14d2ae9ae08ecc9e97b55897da0b8b9a329fa134f0a809": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Prego! Siamo felici di aver potuto aiutarti. Se hai altre domande o necessiti di assistenza, non esitare a contattarci."
+  },
+  "8cbfe8ca23293566d737361d8591c4d8663ab4d0ef0a76c58f2fb5ca8956d3e1": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u4e0d\u4fbf\u3092\u304a\u304b\u3051\u3057\u3066\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3002\u30b3\u30f3\u30d3\u30cb\u53d7\u3051\u53d6\u308a\u306e\u6848\u5185\u30e1\u30fc\u30eb\u304c\u5c4a\u3044\u3066\u3044\u306a\u3044\u3068\u306e\u3053\u3068\u3067\u3059\u306d\u3002\u30e1\u30fc\u30eb\u304c\u8ff7\u60d1\u30e1\u30fc\u30eb\u30d5\u30a9\u30eb\u30c0\u306b\u5165\u3063\u3066\u3044\u306a\u3044\u304b\u3054\u78ba\u8a8d\u3044\u305f\u3060\u304d\u3001\u6ce8\u6587\u5c65\u6b74\u306e\u300c\u53d7\u53d6\u65b9\u6cd5\u300d\u304b\u3089\u518d\u9001\u30ea\u30af\u30a8\u30b9\u30c8\u3082\u53ef\u80fd\u3067\u3059\u30022\u6642\u9593\u4ee5\u4e0a\u7d4c\u904e\u3057\u3066\u3082\u5c4a\u304b\u306a\u3044\u5834\u5408\u306f\u3001\u30ab\u30b9\u30bf\u30de\u30fc\u30b5\u30fc\u30d3\u30b9\u307e\u3067\u3054\u9023\u7d61\u304f\u3060\u3055\u3044\u3002"
+  },
+  "1ea977e74fbcb810bf978a0d430e57fd708a74e3c3d707f2992fca49c2998289": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Ol\u00e1! Obrigado por nos mencionar a caixa de p\u00e1ssaros. Como podemos ajudar \u2013 voc\u00ea gostaria de saber sobre disponibilidade, pre\u00e7o ou entrega?"
+  },
+  "a15e8c0ddf852e569e8a67c526d3f89b5bcaf154df2b06580dfca408b92466ec": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re only seeing the \u201creturn both\u201d option. Let me help you return the items individually\u2014please go to Your Orders, select the order, and choose \u201cReturn or replace items\u201d for each product, or let me know the order number so I can assist further."
+  },
+  "00fdca72e340cf1ed13c328572f215c8012e59a5756e94f1526f639343ee8a9e": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your delivery didn\u2019t arrive as expected. Let\u2019s look into this right away\u2014could you please share your order number so we can resolve the issue promptly?"
+  },
+  "be704d07d89b1d5b7c5fdf7afb03bfb0ee17ce8c61a31b0901d5a9217847d96e": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your order didn\u2019t arrive in time for your granddaughter\u2019s birthday. Let me check the latest status and see how we can expedite delivery or arrange a solution for you."
+  },
+  "7266ad0dfa3651a30984107e379394ca51c81b0377d6942ec51b851fb56361cb": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you haven\u2019t received your previous order yet. Could you please provide the order number so I can check its status and help resolve this for you?"
+  },
+  "06150626aec9faf93cac02d4138bd6c3ab16258ae33a3d8516b676815348ee6a": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear the marker was missing from your order #302-3061427-1014711. We can send you a replacement marker right away or arrange a refund\u2014please let us know which you prefer."
+  },
+  "557e7e1591f7f77eed683ead81dec2a41bbc63758dc767b181e3d13eae9a4203": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your package was marked as delivered but you haven\u2019t received it. I\u2019ll open an investigation with our delivery team right away\u2014could you please confirm the delivery address and any nearby safe\u2011drop locations?"
+  },
+  "8301a4ba725c95842b749fcffd19329cf60404a348c19549129fd905669c5c0f": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear about the delay. Let me check the latest status of your shipment and get you an updated delivery estimate. I\u2019ll follow up shortly with more details."
+  },
+  "7f2a0c83c94dd492104474a72765503d82fc058c3079370fe81ceadcaec8bf1d": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "\u304a\u554f\u3044\u5408\u308f\u305b\u3044\u305f\u3060\u304d\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u3054\u8cea\u554f\u3084\u3054\u8981\u671b\u304c\u3054\u3056\u3044\u307e\u3057\u305f\u3089\u3001\u9060\u616e\u306a\u304f\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002\u3067\u304d\u308b\u3060\u3051\u65e9\u304f\u5bfe\u5fdc\u3055\u305b\u3066\u3044\u305f\u3060\u304d\u307e\u3059\u3002"
+  },
+  "6766c4a572d6a64285e7ff6e5c95e08338a7b3a9835716979317d612bc113a31": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re having trouble locating your order. Could you please share the order number or the email address used for the purchase? In the meantime, you can also check your order history in the Amazon app or website under \u201cYour Orders.\u201d If the order still doesn\u2019t appear, please let us know and we\u2019ll investigate further or connect you with a specialist."
+  },
+  "8e6923abf1674bc3a182f26ac2b09758de52b75affc10d0300a65d5e4fa72eea": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m sorry your package was left in an unknown location and that you didn\u2019t receive a notice. I\u2019ll open an investigation, report the driver, and work to get your items delivered or arrange a suitable resolution as quickly as possible."
+  },
+  "4ca39b732b6667e7351886fed63f68ef7d349d25c6ea3c0076fd576e0a2c7cfa": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear you\u2019re having trouble with the delivery timing. Let\u2019s see if we can arrange a same\u2011day delivery for your order. Could you please provide your order number or any additional details so I can check the options for you?"
+  },
+  "07c3b9f9d1cce145eee8fe91040e0f259782dc08130cf02a06b99032842a0e13": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Ol\u00e1! Sentimos muito pelo inconveniente com a cobran\u00e7a da sua compra parcelada. Poderia, por favor, nos informar o n\u00famero do pedido e os detalhes da transa\u00e7\u00e3o? Assim poderemos verificar o que ocorreu e corrigir a cobran\u00e7a o mais r\u00e1pido poss\u00edvel."
+  },
+  "b0f5aec3338e7d21fe12bc09fb98c0fd1fc9f9e34dde19d79e0fc23ea1aa4513": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear that you received excess packaging. Thank you for bringing this to our attention\u2014we\u2019re continuously working to reduce waste. If you could share the order number, we\u2019ll look into it further and pass your feedback to our packaging team."
+  },
+  "5d948468974e57cf21d09858c41bdf2986cca13451a7624f28baa1d0154aa8b5": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "\u00a1Hola! Gracias por tu inter\u00e9s en el Fire TV Stick Basic Edition. Actualmente no est\u00e1 disponible en M\u00e9xico, pero puedes seguir su disponibilidad en nuestro sitio web o suscribirte a notificaciones para enterarte cuando llegue, especialmente durante eventos como El Buen Fin. \u00a1Saludos!"
+  },
+  "5cb16e15d8aacb9d59efcb75ce7fa70dfd463c568a5339d94d7b01987106cdb3": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear about the trouble with your shipment. Could you please share your order number so I can check why UPS was selected and see how we can help resolve the delivery issue?"
+  },
+  "bbc12b96a6d5650e7954442b9ad07ce2fe4ed3c53c8f47e54aa225efad8082e3": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re having trouble setting up the Fire Kids Edition. You can skip the Kindle Free Time Unlimited trial during setup by selecting \u201cNo, thanks\u201d when it appears, and then use the Parental Controls in Settings to approve which apps your child can access. If you need step\u2011by\u2011step help, please let us know and we\u2019ll guide you through the process."
+  },
+  "c90ff4cd06169da375b7c981120515725aa29f3c71c7c7e99f6da0bf685bc60a": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry to hear your pre\u2011order hasn't shipped yet. Pre\u2011orders are typically dispatched as soon as the item is released, but sometimes there can be a short delay. Could you please share your order number so I can check the exact status and provide an update? Thank you for your patience!"
+  },
+  "aefdc0956e6311050bbc8af8435dd575afcff5ce584399839cfc6680ffc5684f": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! Our shipping cut\u2011off times vary by location, but most orders placed before the local cutoff are processed the same day and shipped overnight. If you placed your order before the cutoff, it should ship tonight and arrive tomorrow morning in the US. You can check the exact status in Your Orders for the most up\u2011to\u2011date information."
+  },
+  "c37899f69eab65ed64b098e160c6c102c83d152eb947bea548302082430c898f": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, gracias por contactarnos. En algunas \u00e1reas ofrecemos entregas los domingos, pero depende del tipo de env\u00edo y la ubicaci\u00f3n. Vamos a revisar el estado de tu pedido para confirmar la fecha estimada de entrega. Mientras tanto, si tienes alguna restricci\u00f3n de horario, h\u00e1znoslo saber y haremos lo posible por ayudarte."
+  },
+  "e9ebf440ce6e69c5f975c1c4a7a22f7b52edfcf56db911835d30388e40df902a": {
+    "intent": "Product Issues",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry to hear about the duplicate product listings you encountered. We take these matters seriously and will investigate immediately. Could you please share the ASINs or any additional details so we can resolve this for you?"
+  },
+  "1db1ce0be46ae9629de24e7e9795640fd3bae6233a10763e016588ebf79aff14": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your number is still blocked. To resolve this quickly, please verify your account details via the Help Center or let us know a convenient time, and we\u2019ll have a specialist call you back."
+  },
+  "1f6bf9aabc0cf1076c52c280e4d506dcdb8645580f89381623272a88d7422a24": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Bonjour! Nous sommes ravis de vous aider. N'h\u00e9sitez pas \u00e0 nous dire comment nous pouvons vous assister."
+  },
+  "865252cf6a2d4a381fbd2d2fd94807af6d138d5f8008e557c397f4b659238c0f": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm sorry for the confusion about your locker delivery. Could you please share your order number so I can check the exact shipping timeline and help resolve this for you?"
+  },
+  "ecf6daaf776a15866dd2edfcb023aaddb9de7528955ac321589e502aee025a41": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "\u00a1Gracias! Igualmente, que tengas un excelente fin de semana."
+  },
+  "85ef572dd4cc0ba156d88d41150424af32d06bd95e620ab5e6d32a0ba6b07a2d": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m very sorry for the delay and the difficulty you\u2019ve experienced. I\u2019m escalating this issue right away and will have a senior team member contact you shortly. Could you please provide your order number or any reference ID so we can resolve this as quickly as possible?"
+  },
+  "2dcd1fa5d85d8543805f15f60008acdc507d14e5a13312dba9c8b5f4adcdc62d": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there! Amazon Prime refunds are typically available if you cancel within the 30\u2011day trial or within 3 days of your first charge. If you haven\u2019t used Prime yet, you can cancel your membership and request a refund through your account settings or contact us for assistance. Let us know if you need any help with the process!"
+  },
+  "c7a33da5cef95610f686e9b5e822490623a9cb1ad9b8448374d123863864631b": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there, I'm sorry to hear your order never arrived. Could you please share the order number so I can investigate and get this resolved for you as quickly as possible?"
+  },
+  "662d446adb518cdcb51d99fed1ba42a639622c95b9f8551cf7da9d586d23ee5c": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry you missed your delivery. Please share your order number so we can investigate the driver\u2019s whereabouts and arrange a new delivery for you promptly."
+  },
+  "37e9d9ebc17d827ab71cca50ed7a40a8e5c0420fae7c8fc4763d938592e2e942": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you for sharing your wonderful experience! We're thrilled to hear your order arrived quickly in Hokkaido and that the shoes fit perfectly. If you have any further questions or need assistance, please let us know."
+  },
+  "e3c5c34d771eb38b24755ddee65c84ae16e37f73894876d95c9cc0a03f34e6d5": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear you\u2019ve been waiting for a refund. Please share your order number so I can investigate the status and expedite the refund for you."
+  },
+  "914b4b37336f373b9cde7bd6e6c68f12da04d8cf0accb77cac202f479c77875e": {
+    "intent": "Product Issues",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re very sorry for the frustration you\u2019ve experienced. I\u2019m escalating this case to a senior specialist right away so we can review your order and resolve the issue promptly. Could you please provide your order number or any reference ID you have? Thank you for your patience."
+  },
+  "02def96d01022e2f6bd6c03ff39b5e7ac6b09389a47ddc0aa1ef6d5ed2df16ca": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry for the delay in receiving your replacement. Could you please share your order number so we can investigate and expedite the replacement for you?"
+  },
+  "2b6feb29c23ca4d9e9a494472e9edde929125a0d7b1b5334760f4935fd6f5862": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your Christmas in the Heartland DVD hasn\u2019t arrived even though it shows as delivered. Let\u2019s get this sorted\u2014could you please confirm the shipping address on the order? I\u2019ll open an investigation right away and arrange a replacement or refund for you as soon as possible."
+  },
+  "22431df8c3ab221e581b2cdb50674858a796a7ebf759520453cfea015cdbf0f6": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi there, we\u2019re sorry to hear you\u2019re disappointed with the recent titles on Prime Video. Content availability can vary, and we\u2019re always working to add new and diverse movies. We appreciate your feedback and recommend using the \"Improve this video\" option to let us know which genres you\u2019d like to see more of. If you have any other questions or need assistance, feel free to let us know!"
+  },
+  "f563f437241773c655f3e1ca3ca2b4fcac72be47a293e765ae0664d793382fcd": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry for the delay in responding to your emails. I\u2019m escalating this to our support team right away and will ensure you receive an update within the next 24 hours. Thank you for your patience."
+  },
+  "201d5e08bc066ab09c35ffdaee2e4de2b25c3a893e9cc8ac98fd057356a5e8d7": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry you\u2019re upset. Could you please clarify your concern so we can assist you? If this is urgent, we\u2019ll forward it to our safety team."
+  },
+  "282699b24a32f3f895a3038c38a1ef450445dc23aa8c29cdcd77c14ff5ef5d19": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your box arrived wrinkled. Could you please share your order number so we can investigate and arrange a replacement or refund for you?"
+  },
+  "ae253c9c732b145c6a1620c736d56047d2746afb1081ac9ddd72bdd9f60835e0": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry for the confusion with your delivery estimate. Could you please share your order number so I can check the latest status and see if we can provide a more accurate arrival time?"
+  },
+  "394e057e41dd89b5d12b7644c9c41af73971f027acff3a10b621ab0dabc4d0ba": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Es tut uns leid, dass Sie noch keine Antwort erhalten haben. Bitte teilen Sie uns Ihr Anliegen oder Ihre Bestellnummer mit, damit wir Ihnen schnell weiterhelfen k\u00f6nnen."
+  },
+  "63a54fe5c51b53527d8d017c81456672a0e50617ee1701ddf5abdc096e231510": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your recent orders have been delayed. I\u2019ll look into the status of your shipments and work with UPS to get them to you as quickly as possible. Thank you for your patience."
+  },
+  "67a619a88515369bf901a57692e58e45c6cd3459347b36845b220b7c32b84a14": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Thank you! We wish you a wonderful weekend as well. If you need any assistance, feel free to let us know."
+  },
+  "a4b03e2a0533b250d9f3bbce0d637c392098d0012e2c614df1f465b71cb0d704": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hola, sentimos mucho lo ocurrido con el cargo de 92\u202f\u20ac, especialmente si su cuenta est\u00e1 bloqueada. Por favor, env\u00edenos el n\u00famero de pedido o cualquier detalle del cargo para que podamos investigar y ayudarle a resolverlo lo antes posible."
+  },
+  "77bfb881917c021c373352fc54021a412bf314850489a38711e55cc7484fac1c": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry you\u2019re experiencing these issues. Since your payment method was removed and your order was cancelled, please add a new card in Your Account\u202f\u2192\u202fPayment options, then you can place the order again. If you need any help restoring the cancelled order or have further login concerns, just let us know and we\u2019ll assist you right away."
+  },
+  "bdd290f355f9cd63a68492c0a2af585b79c2a0a10707df2d2ad75c26cb71a23a": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry to hear your package hasn\u2019t arrived despite being marked out for delivery. Could you please share your order number so we can investigate the status and resolve any possible mishandling?"
+  },
+  "c7e7d4e5150a8fc22433611e18f2899dad0f76f5b4fff80c2946b06d2590d01f": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hola, para poder ayudarle necesitamos el n\u00famero de pedido o la direcci\u00f3n de correo asociada a su cuenta. Por favor proporci\u00f3nelo y con gusto le asistiremos."
+  },
+  "4bc8577598d6bb9c08057dd76d3fe0b6d2e61aad4404abe545414c1a0b6b3c56": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I'm glad to hear you received your shipping refund. If you have any other questions or need further assistance, just let us know!"
+  },
+  "e488b23c16a694f3a49ddf6a00486a74578eed6eba6e01c6d7a89a3bf3cb251a": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear the item arrived in an envelope without a return box. You can still return it by printing a prepaid return label from your orders page or we can email you one\u2014no box needed. Let me know which option works best for you!"
+  },
+  "7ae3fa30b57620faac1950c3d3695ff6c014b16c84443dfad719c5b36df5c5a4": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry to hear you\u2019re disappointed with the recent price changes. Prices can fluctuate due to factors like supply, demand, and promotions. We recommend checking our \"Today's Deals\" page or setting a price alert for the 64\u202fGB model you\u2019re interested in. If you have any further questions or need assistance with a specific order, feel free to let us know!"
+  },
+  "9a3e70be33ef09887f2d238e2ba91c6c22e6bb7334efaa286330c7fd0dda57fc": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "We\u2019re sorry to hear you\u2019ve had a frustrating experience. Could you please share more details about the issue so we can investigate and resolve it promptly?"
+  },
+  "b6350d6e653ba594a66c759cebe7a41d6957add07f6ecb280da58d2f4a775c67": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry for the confusion. Could you please share your order number or return tracking details so I can verify the return status and correct any mistaken email you received?"
+  },
+  "3dd0f1bf362ce5cb93583227bb84c1df7f112d818e02f1b39355202142addec5": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry to hear your package hasn\u2019t arrived yet, especially since it was meant to be a gift. Could you please share your order number so I can check the delivery status and help resolve this for you?"
+  },
+  "1d9bd7ec7ae52b68d05b67dab01218b98b26395bb53ccd6a476a6bdc76b98057": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "I\u2019m sorry you\u2019re still having trouble. Could you tell me which product you\u2019re restarting and any error messages you see? I\u2019ll help you get it working."
+  },
+  "e430a65a99aaf6400e91b9bcfeec237cfcb8711366b4a6799a4f9ccf144793f3": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u4e0d\u4fbf\u3092\u304a\u304b\u3051\u3057\u3066\u7533\u3057\u8a33\u3054\u3056\u3044\u307e\u305b\u3093\u3002Android\u7248Kindle\u306e\u8868\u793a\u5909\u66f4\u306b\u3064\u3044\u3066\u3054\u610f\u898b\u3092\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002\u8a73\u7d30\u3092\u304a\u4f3a\u3044\u3057\u3001\u62c5\u5f53\u30c1\u30fc\u30e0\u3078\u5171\u6709\u3044\u305f\u3057\u307e\u3059\u306e\u3067\u3001\u4eca\u5f8c\u3068\u3082\u3088\u308d\u3057\u304f\u304a\u9858\u3044\u3044\u305f\u3057\u307e\u3059\u3002"
+  },
+  "f0666896279ee3bde8b785484fd92495871e32a06a902402bd78c0936de71f03": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Sure! You can cancel your free trial by visiting your Subscriptions page here: https://www.amazon.com/gp/subscription-management. Sign in, locate the trial, and click \u201cCancel subscription.\u201d Let us know if you need any further help!"
+  },
+  "e3526243cbd7bfecc502e358a1a01322650d1d526dafabea0f59e02b47826680": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I see you referenced order #702-5062258-0823445. How can I assist you with this order (e.g., status update, change, or any issue you\u2019re experiencing)?"
+  },
+  "d6c7e5e0032b3a5c3c6503dc1aeddfa4c6e1ecc03ca4d5a16aa238b49606ac5d": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We understand you\u2019d like your order delivered tomorrow. Please share your order number and delivery address so we can check the feasibility and update you accordingly."
+  },
+  "025ca928ddf53512e8aa0ecbd9df9f8844551c4d15f0ae2eb2c1911ac97493f7": {
+    "intent": "Product Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi, I\u2019m sorry to hear about the product failure. Could you please share the product name or order number so I can help you further?"
+  },
+  "7a1dc07ff677f7e6bc02e1fd5eecc222df755cd417fd87765a05a4e4188c7c3d": {
+    "intent": "Severe Escalation",
+    "should_escalate": true,
+    "draft_reply": "I\u2019m really sorry you\u2019re feeling this way. Your wellbeing is important to us. If you\u2019d like to cancel any recent orders or need help with your account, please let us know. If you\u2019re feeling distressed, please consider reaching out to a trusted friend, family member, or a professional support line. We\u2019re here to assist you with any Amazon\u2011related concerns."
+  },
+  "56ebc64524e3f4b57e86ca1378ff98ce54b23840741e9afd0b9a268cee99606b": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! I\u2019m sorry to hear your package hasn\u2019t arrived yet. I\u2019ll look into the USPS tracking for you\u2014could you please share your order number so I can provide an update?"
+  },
+  "2db75003635075557f9aeeffad8b50d5c97b5bcf62c020a83b66d5f47ea5c059": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! Your parcel will be delivered to the locker before it closes at 4\u202fpm if possible. If the driver can\u2019t make it in time, it will be placed in the locker the next business day. You can track the delivery in your Orders page for the latest update."
+  },
+  "2ccc6ceb62ce072894d379483a42ba51d849e62faa881d7c560737c9ec24aec8": {
+    "intent": "Product Issues",
+    "should_escalate": true,
+    "draft_reply": "Thank you for bringing this to our attention. We\u2019re sorry for any confusion caused by the pricing discrepancy you noticed. Our team will investigate the listing and take appropriate action. We appreciate your help in keeping Amazon a trustworthy marketplace."
+  },
+  "cc3dec6de04d1988f3ec59caa0c772418974b34dd066589474859658dc2c8d80": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Thank you for your kind words! We're glad you appreciate our quick responses. If you need any assistance, feel free to let us know."
+  },
+  "8ea52548b64ed0cd1dfcb42db41e679797e3f1727ef505388c94f86d69002a28": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "\u3054\u5831\u544a\u3042\u308a\u304c\u3068\u3046\u3054\u3056\u3044\u307e\u3059\u3002Amazon\u304b\u3089\u306e\u4e0d\u5be9\u306a\u30e1\u30fc\u30eb\u306f\u30d5\u30a3\u30c3\u30b7\u30f3\u30b0\u8a50\u6b3a\u306e\u53ef\u80fd\u6027\u304c\u3042\u308a\u307e\u3059\u306e\u3067\u3001\u30ea\u30f3\u30af\u306f\u30af\u30ea\u30c3\u30af\u305b\u305a\u3001\u30e1\u30fc\u30eb\u3092\u524a\u9664\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u3054\u81ea\u8eab\u306e\u30a2\u30ab\u30a6\u30f3\u30c8\u306e\u5b89\u5168\u3092\u78ba\u4fdd\u3059\u308b\u305f\u3081\u3001\u30d1\u30b9\u30ef\u30fc\u30c9\u306e\u5909\u66f4\u3084\u4e8c\u6bb5\u968e\u8a8d\u8a3c\u306e\u8a2d\u5b9a\u3092\u3054\u691c\u8a0e\u304f\u3060\u3055\u3044\u3002\u3054\u4e0d\u660e\u70b9\u304c\u3042\u308c\u3070\u3044\u3064\u3067\u3082\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002"
+  },
+  "04529917b080c1555b2bb8af328a25c2a7a421d84845fc162df1691f37b638bc": {
+    "intent": "Order Issues",
+    "should_escalate": false,
+    "draft_reply": "Hello, we\u2019re sorry to hear that your return pickup hasn\u2019t been scheduled yet. I\u2019ve checked the status of order\u202f408-2884439-2791536 and will arrange for a carrier to collect the Nokia mobile as soon as possible. You\u2019ll receive a confirmation email with the pickup date within the next 24\u202fhours. If you have any further questions, please let us know."
+  },
+  "753a0536dd23abe840afc746e34f79eeea58dddf25989e3ccb0a3bdca3cb5140": {
+    "intent": "Account & Access",
+    "should_escalate": false,
+    "draft_reply": "Hello! It looks like you might have sent a message that isn\u2019t related to an Amazon support request. Could you please provide more details about how we can assist you?"
+  },
+  "d2f26e08e862ccd3ceade9bb5d35c2f0d46c8dc8825c588df21f8ac1d8a306a6": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "Hi there! We\u2019re sorry you\u2019re experiencing limited delivery coverage in your area. Our network is constantly expanding, and we\u2019d love to help you check the latest availability for your location. Could you please share your ZIP code or city so we can provide more details?"
+  },
+  "5812773d59e9d26ef0c0d81c45f00fb57ef9030e3ac35b6ab526616380ee4f1e": {
+    "intent": "Delivery Issues",
+    "should_escalate": true,
+    "draft_reply": "I understand your frustration and want to get this resolved quickly. Let me connect you with a live associate\u2014could you please share your order number so we can investigate the package status right away?"
+  },
+  "eedc761bbca4eebbc8c9256a748e8307d0ad89c1718b8debdc602983114ac60a": {
+    "intent": "Delivery Issues",
+    "should_escalate": false,
+    "draft_reply": "We\u2019re sorry for the delay. I\u2019ll check the status of your order and get back to you with an updated delivery estimate as soon as possible."
+  },
+  "8bec1cdf69c4936175e6f4bc3be6e7899dbde76787b601b1e7e341e82139b249": {
+    "intent": "Subscription & Digital Services",
+    "should_escalate": false,
+    "draft_reply": "Hi, I\u2019m sorry you were charged for Prime you didn\u2019t sign up for and that your Fire Stick requires card registration. I can help cancel the Prime membership, request a refund, and guide you on using the Fire Stick without a card. Please provide your order number or account email so we can resolve this for you."
+  },
+  "c1402186fb1e46d6a5dccff4a831bfd2eb7d632d4287986fe8dc9624bfb37fe0": {
+    "intent": "Payment & Refunds",
+    "should_escalate": false,
+    "draft_reply": "Hi, I'm sorry to hear your cashback hasn't arrived yet. Could you please share your order number so I can check the status and ensure the credit is processed as soon as possible? Thank you!"
+  }
+}
