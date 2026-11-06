@@ -96,38 +96,38 @@ Sentinel-AI replaces naive, sequential microservices with an asynchronous, multi
 ```mermaid
 flowchart TD
     %% INGESTION
-    User([Inbound Support Event\nTwitter, Email, Chat]) -->|JSON Payload| Ingest[Topic: inbound_support_tickets\n3 Kafka Partitions]
+    User(["Inbound Support Event<br/>Twitter, Email, Chat"]) -->|"JSON Payload"| Ingest["Topic: inbound_support_tickets<br/>3 Kafka Partitions"]
 
     %% TIER 0 CACHING
-    subgraph Tier0 [Tier-0: Redis Ultra-Fast Interceptor]
-        Ingest --> KConsumer[Kafka Consumer Daemon\nManual At-Least-Once Offsets]
-        KConsumer --> CacheCheck{Cache Interceptor}
-        CacheCheck -->|Exact SHA-256 Hit| O1Hit[O 1 Hash Cache\n~1.1 ms]
-        CacheCheck -->|Cosine Sim ≥ 0.95| VecHit[Vector Dense Cache\n~18.2 ms]
+    subgraph Tier0 ["Tier-0: Redis Ultra-Fast Interceptor"]
+        Ingest --> KConsumer["Kafka Consumer Daemon<br/>Manual At-Least-Once Offsets"]
+        KConsumer --> CacheCheck{"Cache Interceptor"}
+        CacheCheck -->|"Exact SHA-256 Hit"| O1Hit["O(1) Hash Cache<br/>~1.1 ms"]
+        CacheCheck -->|"Cosine Sim >= 0.95"| VecHit["Vector Dense Cache<br/>~18.2 ms"]
     end
 
     %% TIER 1 LANGGRAPH DAG
-    subgraph Tier1 [Tier-1: LangGraph Multi-Agent State Machine]
-        CacheCheck -->|Cache Miss| GraphEntry([Compile TriageState])
-        GraphEntry --> Router[router_node\nPydantic Schema + Groq Llama 3]
-        Router --> Condition{Evaluate Risk\nτ ≥ 0.40 OR Severe?}
+    subgraph Tier1 ["Tier-1: LangGraph Multi-Agent State Machine"]
+        CacheCheck -->|"Cache Miss"| GraphEntry(["Compile TriageState"])
+        GraphEntry --> Router["router_node<br/>Pydantic Schema + Groq Llama 3"]
+        Router --> Condition{"Evaluate Risk<br/>Score >= 0.40 OR Severe?"}
         
         %% ESCALATION PATH
-        Condition -->|YES: CRITICAL| EscNode[escalation_node\nSet should_escalate = True\nHardcode draft_reply = None]
+        Condition -->|"YES: CRITICAL"| EscNode["escalation_node<br/>Set should_escalate = True<br/>Hardcode draft_reply = None"]
         
         %% RAG PATH
-        Condition -->|NO: ROUTINE| RAGNode[rag_node\nFAISS IndexFlatIP Lookup\nTop-3 Contexts in <1ms]
-        RAGNode --> DraftNode[drafter_node\nTemp = 0 Grounded Drafter\nPII Scrubber]
+        Condition -->|"NO: ROUTINE"| RAGNode["rag_node<br/>FAISS IndexFlatIP Lookup<br/>Top-3 Contexts in &lt;1ms"]
+        RAGNode --> DraftNode["drafter_node<br/>Temp = 0 Grounded Drafter<br/>PII Scrubber"]
     end
 
     %% DISPATCH & SINKS
-    O1Hit & VecHit --> Dispatcher[Event Dispatcher]
-    EscNode -->|Audit Event| Dispatcher
-    DraftNode -->|Assisted Draft| Dispatcher
+    O1Hit & VecHit --> Dispatcher["Event Dispatcher"]
+    EscNode -->|"Audit Event"| Dispatcher
+    DraftNode -->|"Assisted Draft"| Dispatcher
 
-    Dispatcher --> OutTopic[Topic: processed_triage_events]
-    OutTopic -->|Escalated: 19.6%| HumanQueue([🚨 Tier-2 Human Emergency Desk\nZero Autonomous Deflection])
-    OutTopic -->|Draft Ready: 80.4%| AgentReview([📋 Human Agent Review & 1-Click Send\nPre-Grounded RAG Draft])
+    Dispatcher --> OutTopic["Topic: processed_triage_events"]
+    OutTopic -->|"Escalated: 19.6%"| HumanQueue(["Tier-2 Human Emergency Desk<br/>Zero Autonomous Deflection"])
+    OutTopic -->|"Draft Ready: 80.4%"| AgentReview(["Human Agent Review &amp; 1-Click Send<br/>Pre-Grounded RAG Draft"])
 
     %% STYLING
     classDef red fill:#ff4d4f,stroke:#d9363e,color:#fff,stroke-width:2px;
@@ -136,7 +136,7 @@ flowchart TD
     classDef orange fill:#faad14,stroke:#d48806,color:#000,stroke-width:2px;
     class EscNode,HumanQueue red;
     class RAGNode,DraftNode,AgentReview blue;
-    class O1Hit,VecHit,green;
+    class O1Hit,VecHit green;
     class Router,Condition orange;
 ```
 
