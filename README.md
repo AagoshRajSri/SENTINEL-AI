@@ -25,7 +25,7 @@ pinned: false
 
 ---
 
-[![Live Demo on Render](https://img.shields.io/badge/Live%20Demo-Render%20Cloud-46E3B7.svg?style=flat&logo=render)](https://sentinel-ai.onrender.com)
+[![Live Demo on Render](https://img.shields.io/badge/Live%20Demo-Render%20Cloud-46E3B7.svg?style=flat&logo=render)](https://sentinel-ai-pt5k.onrender.com)
 [![CI Build & Safety Tests](https://github.com/AagoshRajSri/SENTINEL-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/AagoshRajSri/SENTINEL-AI/actions)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![LangGraph](https://img.shields.io/badge/orchestration-LangGraph%20DAG-blueviolet.svg)](https://langchain-ai.github.io/langgraph/)
