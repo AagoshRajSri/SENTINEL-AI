@@ -24,6 +24,8 @@ _model = None
 def _get_model():
     global _model
     if _model is None:
+        import torch
+        torch.set_num_threads(1)
         from sentence_transformers import SentenceTransformer
         _model = SentenceTransformer('all-MiniLM-L6-v2', device='cpu')
     return _model
@@ -141,7 +143,9 @@ def retrieve(
     is_ip = getattr(index, 'metric_type', None) == faiss.METRIC_INNER_PRODUCT
     
     # Embed the incoming customer text (normalize if index uses Inner Product)
-    query_vector = _get_model().encode([text.strip()], normalize_embeddings=is_ip)
+    import torch
+    with torch.inference_mode():
+        query_vector = _get_model().encode([text.strip()], normalize_embeddings=is_ip)
     
     # Over-fetch slightly if filtering out evaluation cases
     fetch_k = k + 10 if (exclude_exact_match or exclude_eval_set) else k

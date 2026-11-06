@@ -300,4 +300,14 @@ with gr.Blocks(title="Sentinel-AI") as demo:
 if __name__ == "__main__":
     server_host = os.getenv("HOST", os.getenv("GRADIO_SERVER_NAME", "0.0.0.0"))
     server_port = int(os.getenv("PORT", "7860"))
+
+    # Startup Warmup: Pre-load the embedding model and FAISS vector index
+    try:
+        print("[Startup] Pre-warming embedding model and FAISS index...")
+        from src.retriever import retrieve
+        _ = retrieve("warmup query", k=1)
+        print("[Startup] ✓ FAISS vector index and SentenceTransformer ready.")
+    except Exception as e:
+        print(f"[Startup Warning] Warmup deferred: {e}")
+
     demo.launch(server_name=server_host, server_port=server_port, ssr_mode=False)
