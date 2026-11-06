@@ -22,6 +22,17 @@ pinned: false
 > **Safety-first triage filter and human-in-the-loop auto-reply drafting engine for enterprise customer support.**  
 > Designed with a conservative, safety-first escalation gate to ensure ambiguous or high-risk cases (e.g., refunds, safety hazards, legal threats) are strictly routed to human operators, while shielding human agents from repetitive logistics noise through grounded RAG response drafts.
 
+> 🎯 **Auditor & Technical Recruiter Quick Index (Empirical Receipts):**  
+> Reviewing Sentinel-AI for architectural depth, SRE resilience, or LLM safety? Jump directly to verified receipts and benchmarks:
+> | Claim / Metric | Value | Verification Receipt | Technical Section |
+> |---|---|---|---|
+> | **Kafka Burst Throughput** | **4,724 msg/sec** (0% drop) | [`cache/kafka_stress_test_receipt.json`](#6-event-driven-scalability-kafka--redpanda-ingestion-srckafka_consumerpy) | [Section 6: Kafka Ingestion](#6-event-driven-scalability-kafka--redpanda-ingestion-srckafka_consumerpy) |
+> | **Semantic Cache Speedup** | **193.8x faster** (1,172ms $\to$ 6.05ms) | [`cache/semantic_cache_stress_test_receipt.json`](#7-tier-0-semantic-caching-sub-millisecond-redis-interceptor-srccachepy) | [Section 7: Redis Semantic Cache](#7-tier-0-semantic-caching-sub-millisecond-redis-interceptor-srccachepy) |
+> | **Outage Chaos Blast (1,000 reqs)** | **0.528s blast**, 79.6% LLM deflection | [`cache/chaos_engineering_receipt.json`](#9-chaos-engineering--invariant-testing-harness-scriptschaos_engineering_blastpy) | [Section 9: Chaos Engineering](#9-chaos-engineering--invariant-testing-harness-scriptschaos_engineering_blastpy) |
+> | **Multi-Agent Invariant Safety** | **0% auto-draft violations** on severe risks | [`src/graph_builder.py`](#8-multi-agent-graph-routing-langgraph-dag-srcgraph_builderpy) | [Section 8: LangGraph Multi-Agent DAG](#8-multi-agent-graph-routing-langgraph-dag-srcgraph_builderpy) |
+> | **RAG Triad Generative Quality** | **92.5% Answer Relevance** | [`eval/rag_triad_results.json`](#5-generative-quality-the-rag-triad-evaluation-evalrag_triad_resultsjson) | [Section 5: RAG Triad Evaluation](#5-generative-quality-the-rag-triad-evaluation-evalrag_triad_resultsjson) |
+> | **Escalation FNR Calibration** | **$\le$34.9% FNR** ($\tau = 0.40$ on 250 cases) | [`cache/calibrated_operating_point.json`](#3-continuous-operating-point-calibration-cachecalibrated_operating_pointjson) | [Section 3: ROC Calibration](#3-continuous-operating-point-calibration-cachecalibrated_operating_pointjson) |
+
 ---
 
 ## 📋 Table of Contents
