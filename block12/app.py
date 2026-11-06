@@ -301,12 +301,12 @@ if __name__ == "__main__":
     server_host = os.getenv("HOST", os.getenv("GRADIO_SERVER_NAME", "0.0.0.0"))
     server_port = int(os.getenv("PORT", "7860"))
 
-    # Startup Warmup: Pre-load the embedding model and FAISS vector index
+    # Startup Warmup: Pre-load the retrieval index
     try:
-        print("[Startup] Pre-warming embedding model and FAISS index...")
+        print("[Startup] Pre-warming retrieval index...")
         from src.retriever import retrieve
         _ = retrieve("warmup query", k=1)
-        print("[Startup] ✓ FAISS vector index and SentenceTransformer ready.")
+        print("[Startup] ✓ Retrieval index ready.")
     except Exception as e:
         print(f"[Startup Warning] Warmup deferred: {e}")
 

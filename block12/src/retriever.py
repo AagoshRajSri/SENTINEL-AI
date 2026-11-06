@@ -25,6 +25,19 @@ INDEX_PATH    = INDEX_PATH_IP if os.path.exists(INDEX_PATH_IP) else INDEX_PATH_L
 # Explicitly pinned to CPU since embeddings don't need GPU here.
 _model = None
 
+_TFIDF_VEC = None
+_TFIDF_MAT = None
+
+def _get_tfidf_retriever(df: pd.DataFrame):
+    """Ultra-lightweight vector retriever (takes <30MB RAM vs 500MB PyTorch).
+    Designed for memory-constrained production web tiers (Render 512MB free tier)."""
+    global _TFIDF_VEC, _TFIDF_MAT
+    if _TFIDF_VEC is None or _TFIDF_MAT is None:
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        _TFIDF_VEC = TfidfVectorizer(max_features=5000, stop_words="english")
+        _TFIDF_MAT = _TFIDF_VEC.fit_transform(df["text_customer"].fillna(""))
+    return _TFIDF_VEC, _TFIDF_MAT
+
 def _get_model():
     global _model
     if _model is None:
@@ -78,6 +91,8 @@ _INDEX = None
 
 def get_index_metric_type() -> str:
     """Returns 'IP' (Inner Product / Cosine) or 'L2' (Euclidean) for loaded index."""
+    if os.getenv("DEPLOYMENT_MODE") == "render_free_web":
+        return "IP"
     global _INDEX, _DF
     if _DF is None and os.path.exists(DATA_PATH):
         _DF = pd.read_csv(DATA_PATH)
@@ -139,24 +154,29 @@ def retrieve(
         
     if _DF is None:
         _DF = pd.read_csv(DATA_PATH)
-    if _INDEX is None:
-        _INDEX = _build_or_load_index(_DF)
-    
     df = _DF
-    index = _INDEX
-    is_ip = getattr(index, 'metric_type', None) == faiss.METRIC_INNER_PRODUCT
-    
-    # Embed the incoming customer text (normalize if index uses Inner Product)
-    import torch
-    with torch.inference_mode():
-        query_vector = _get_model().encode([text.strip()], normalize_embeddings=is_ip)
-    
-    # Over-fetch slightly if filtering out evaluation cases
     fetch_k = k + 10 if (exclude_exact_match or exclude_eval_set) else k
     fetch_k = min(fetch_k, len(df))
-    
-    # Search the index for the closest matches
-    distances, indices = index.search(query_vector, fetch_k)
+
+    # Fast memory-optimized mode for Render 512MB free tier
+    if os.getenv("DEPLOYMENT_MODE") == "render_free_web":
+        is_ip = True
+        vectorizer, matrix = _get_tfidf_retriever(df)
+        query_vec = vectorizer.transform([text.strip()])
+        from sklearn.metrics.pairwise import cosine_similarity
+        scores = cosine_similarity(query_vec, matrix)[0]
+        top_indices = scores.argsort()[-fetch_k:][::-1]
+        distances = [[float(scores[i]) for i in top_indices]]
+        indices = [top_indices]
+    else:
+        if _INDEX is None:
+            _INDEX = _build_or_load_index(_DF)
+        index = _INDEX
+        is_ip = getattr(index, 'metric_type', None) == faiss.METRIC_INNER_PRODUCT
+        import torch
+        with torch.inference_mode():
+            query_vector = _get_model().encode([text.strip()], normalize_embeddings=is_ip)
+        distances, indices = index.search(query_vector, fetch_k)
     
     retrieved_results = []
     clean_query = text.strip().lower()

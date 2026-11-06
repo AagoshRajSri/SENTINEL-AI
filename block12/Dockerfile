@@ -15,7 +15,8 @@ ENV PYTHONUNBUFFERED=1 \
     NUMEXPR_NUM_THREADS=1 \
     HF_HOME=/app/cache/huggingface \
     TRANSFORMERS_CACHE=/app/cache/huggingface \
-    TORCH_HOME=/app/cache/torch
+    TORCH_HOME=/app/cache/torch \
+    DEPLOYMENT_MODE=render_free_web
 
 WORKDIR /app
 
@@ -37,9 +38,6 @@ RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/wh
 
 # Copy the application source code, pre-built React frontend, and pre-indexed FAISS vectors
 COPY . .
-
-# Pre-download SentenceTransformer model weights during build so container starts with weights on disk
-RUN python -c "import torch; torch.set_num_threads(1); from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2', device='cpu')"
 
 # Expose container port (Render overrides PORT environment variable dynamically)
 EXPOSE 7860
