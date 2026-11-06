@@ -189,6 +189,17 @@ def _patched_create_app(blocks, **kwargs):
     async def _metrics():
         return Response(content=generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
+    # ── Health Check: GET /healthz & /health (Liveness/Readiness Probe) ──
+    @app.get("/healthz")
+    @app.get("/health")
+    async def _healthz():
+        return JSONResponse({
+            "status": "healthy",
+            "service": "sentinel-ai",
+            "version": "1.0.0",
+            "deployment_mode": os.getenv("DEPLOYMENT_MODE", "web_service")
+        })
+
     # ── API: GET /api/stats ────────────────────────────────
     @app.get("/api/stats")
     async def _api_stats():
@@ -286,5 +297,7 @@ with gr.Blocks(title="Sentinel-AI") as demo:
 # ──────────────────────────────────────────────────────────────
 # 6.  Launch  (ssr_mode=False avoids the Node.js error in Gradio 5)
 # ──────────────────────────────────────────────────────────────
-server_port = int(os.getenv("PORT", "7860"))
-demo.launch(server_port=server_port, ssr_mode=False)
+if __name__ == "__main__":
+    server_host = os.getenv("HOST", os.getenv("GRADIO_SERVER_NAME", "0.0.0.0"))
+    server_port = int(os.getenv("PORT", "7860"))
+    demo.launch(server_name=server_host, server_port=server_port, ssr_mode=False)
