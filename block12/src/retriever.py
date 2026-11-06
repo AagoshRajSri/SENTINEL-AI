@@ -2,6 +2,10 @@
 import os
 
 import faiss
+try:
+    faiss.omp_set_num_threads(1)
+except Exception:
+    pass
 import pandas as pd
 
 # Anchor all paths to this file so they resolve correctly

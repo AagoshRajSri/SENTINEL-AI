@@ -177,8 +177,8 @@ def _patched_create_app(blocks, **kwargs):
             if not text:
                 return JSONResponse({"error": "text is required"}, status_code=400)
 
-            # Asynchronous offload to threadpool to allow concurrent FAISS + LLM execution
-            result = await asyncio.to_thread(_process_triage_sync, text)
+            # Direct synchronous execution to eliminate threadpool OpenMP deadlocks on single-vCPU containers
+            result = _process_triage_sync(text)
             return JSONResponse(result)
         except Exception as e:
             traceback.print_exc()
